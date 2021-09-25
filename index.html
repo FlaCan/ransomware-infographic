@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    
     <style>
         
         .hide {
@@ -20,8 +20,14 @@
             stroke:#0088FF;
             stroke-width:5;
             stroke-linecap:round;
-            stroke-linejoin:round;
-            stroke-miterlimit:10;
+        }
+
+        .barrier-line-muted {
+            display:inline;
+            fill:none;
+            stroke:#F0F0F1;
+            stroke-width:5;
+            stroke-linecap:round;
         }
     
         .barrier-small-circle {
@@ -82,6 +88,11 @@
         }
     
     </style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script defer>
+
+
+    </script>
 
 </head>
 <body>
@@ -152,7 +163,8 @@
         
         <!--Barriers-->
         
-        <g id="barriers-safe-1" class="barrier">
+        <g id="barrier-1" class="barrier">
+            <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
             <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
             <circle class="barrier-small-circle" cx="800" cy="813.6" r="30"/>
             <circle class="barrier-big-circle" cx="802" cy="813.6" r="75"/>
@@ -161,7 +173,8 @@
         
         </g>
         
-        <g id="barriers-safe-2" class="barrier">
+        <g id="barrier-2" class="barrier">
+            <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
             <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
             <circle class="barrier-small-circle" cx="800" cy="1225.7" r="30"/>
             <circle class="barrier-big-circle" cx="800" cy="1225.7" r="75"/>
@@ -170,7 +183,8 @@
         
         </g>
         
-        <g id="barriers-safe-3" class="barrier">
+        <g id="barrier-3" class="barrier">
+            <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
             <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
             <circle class="barrier-small-circle" cx="800" cy="1637.7" r="30"/>
             <circle class="barrier-big-circle" cx="800" cy="1637.7" r="75"/>
@@ -179,7 +193,8 @@
             
         </g>
         
-        <g id="barriers-safe-4" class="barrier">
+        <g id="barrier-4" class="barrier">
+            <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
             <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
             <circle class="barrier-small-circle" cx="800" cy="2049.7" r="30"/>
             <circle class="barrier-big-circle" cx="800" cy="2049.7" r="75"/>
