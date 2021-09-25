@@ -7,6 +7,16 @@
     <title>Document</title>
     
     <style>
+
+        .wrap {
+
+            display: flex;
+            justify-content: center;
+        }
+
+        svg {
+            max-height: 100vh;
+        }
         
         .hide {
             display:none;
@@ -14,20 +24,17 @@
     
         /* Barriers */
     
-        .barrier-line {
+        .barrier-line, .barrier-line-muted {
             display:inline;
             fill:none;
             stroke:#0088FF;
             stroke-width:5;
             stroke-linecap:round;
+            
         }
 
         .barrier-line-muted {
-            display:inline;
-            fill:none;
             stroke:#F0F0F1;
-            stroke-width:5;
-            stroke-linecap:round;
         }
     
         .barrier-small-circle {
@@ -36,18 +43,23 @@
         }
     
         .barrier-big-circle {
-            fill:none;
-        }
-    
-        .barrier-add-plus {
-            fill:red;
+            cursor: pointer;
+            fill:#0088FF;
+            opacity: 0;
             
         }
-    
-        .barrier-minusz {
-            fill:red;
+
+        .barrier-big-circle:hover {
+            opacity: 0.1;
         }
     
+        .barrier-plus, .barrier-minus {
+            fill:none;
+            stroke:#FFFFFF;
+            stroke-width:5;
+            stroke-linecap:round;            
+        }
+
         .users {
             fill: #4C4C58;
         }
@@ -88,15 +100,12 @@
         }
     
     </style>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
-    <script defer>
-
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    
 
 </head>
 <body>
-
+<div class="wrap">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2600">
 
         <defs>user-top_x5F_infected
@@ -123,40 +132,39 @@
         
         </defs>
         
-
-        
         <g id="info" class="hide">
             <circle style="fill:#B2B2B8;" cx="802" cy="506.5" r="30"/>
             <circle style="display:none;opacity:0;fill:none;" cx="802" cy="506.5" r="75"/>
             <polygon style="fill:#B2B2B8;" points="802,581.5 822,546.9 782,546.9 	"/>
         </g>
         
-        
-        <g id="drop-left">
+        <g id="drops">
+            <g id="drop-left" class="drop">
                 <linearGradient id="SVGID_00000057120016528977779920000006739379783099360904_" gradientUnits="userSpaceOnUse" x1="735.0285" y1="526.5248" x2="735.0285" y2="670.5248">
-                <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
-                <stop  offset="1" style="stop-color:#FF7D00"/>
-            </linearGradient>
-            <path style="fill:url(#SVGID_00000057120016528977779920000006739379783099360904_);" d="M769.2,623.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C771,630.5,770.4,626.7,769.2,623.1z M747.2,645.4c0,5.5-4.5,10-10,10s-10-4.5-10-10 v-26.2c0-3.5,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2v23.8h-3.8v-23.8c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v26.2c0,3.4,2.8,6.2,6.2,6.2 s6.2-2.8,6.2-6.2v-31.2c0-5.5-4.5-10-10-10s-10,4.5-10,10v28.8h-3.8v-28.8c0-7.6,6.2-13.8,13.8-13.8s13.8,6.1,13.8,13.8V645.4z"/>
+                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="1" style="stop-color:#FF7D00"/>
+                </linearGradient>
+                <path style="fill:url(#SVGID_00000057120016528977779920000006739379783099360904_);" d="M769.2,623.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C771,630.5,770.4,626.7,769.2,623.1z M747.2,645.4c0,5.5-4.5,10-10,10s-10-4.5-10-10 v-26.2c0-3.5,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2v23.8h-3.8v-23.8c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v26.2c0,3.4,2.8,6.2,6.2,6.2 s6.2-2.8,6.2-6.2v-31.2c0-5.5-4.5-10-10-10s-10,4.5-10,10v28.8h-3.8v-28.8c0-7.6,6.2-13.8,13.8-13.8s13.8,6.1,13.8,13.8V645.4z"/>
+            </g>
+            
+            <g id="drop-right" class="drop">
+                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="872.0285" y1="528.5248" x2="872.0285" y2="672.5248">
+                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="1" style="stop-color:#FF7D00"/>
+                </linearGradient>
+                <path style="fill:url(#SVGID_1_);" d="M906.2,625.1c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3 c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36 C908,632.5,907.4,628.7,906.2,625.1z M867,628.9v-15h2.5h5h2.5v15h10l-15,15l-15-15H867z M894.5,653.9h-5h-40v-5h5h35h5V653.9z"/>
+            </g>
+            
+            <g id="drop-center" class="drop">
+                    <linearGradient id="SVGID_00000044138940826451477660000011238277339703549585_" gradientUnits="userSpaceOnUse" x1="802.0285" y1="602.5248" x2="802.0285" y2="746.5248">
+                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="1" style="stop-color:#FF7D00"/>
+                </linearGradient>
+                <path style="fill:url(#SVGID_00000044138940826451477660000011238277339703549585_);"  d="M836.2,699.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C838,706.5,837.4,702.7,836.2,699.1z M797.6,727.8c-3.9,3.9-10.2,3.9-14.1,0 s-3.9-10.2,0-14.1l10.6-10.6c3.9-3.9,10.2-3.9,14.1,0c0.6,0.6,1.1,1.3,1.5,2l-3.8,3.8c-0.2-0.8-0.6-1.6-1.3-2.3 c-1.9-1.9-5.1-1.9-7.1,0L787,717.2c-1.9,1.9-1.9,5.1,0,7.1c1.9,1.9,5.1,1.9,7.1,0l2.5-2.5c2,0.8,4.2,1,6.4,0.7L797.6,727.8z M818.8,706.6l-10.6,10.6c-3.9,3.9-10.2,3.9-14.1,0c-0.6-0.6-1.1-1.3-1.5-2l3.8-3.8c0.2,0.8,0.6,1.6,1.3,2.3c1.9,1.9,5.1,1.9,7.1,0 l10.6-10.6c1.9-1.9,1.9-5.1,0-7.1c-1.9-1.9-5.1-1.9-7.1,0l-2.5,2.5c-2-0.8-4.2-1-6.4-0.7l5.3-5.3c3.9-3.9,10.2-3.9,14.1,0 S822.7,702.7,818.8,706.6z"/>
+            </g>
         </g>
-        
-        <g id="drop-right">
-            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="872.0285" y1="528.5248" x2="872.0285" y2="672.5248">
-                <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
-                <stop  offset="1" style="stop-color:#FF7D00"/>
-            </linearGradient>
-            <path style="fill:url(#SVGID_1_);" d="M906.2,625.1c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3 c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36 C908,632.5,907.4,628.7,906.2,625.1z M867,628.9v-15h2.5h5h2.5v15h10l-15,15l-15-15H867z M894.5,653.9h-5h-40v-5h5h35h5V653.9z"/>
-        </g>
-        
-        <g id="drop-center">
-                <linearGradient id="SVGID_00000044138940826451477660000011238277339703549585_" gradientUnits="userSpaceOnUse" x1="802.0285" y1="602.5248" x2="802.0285" y2="746.5248">
-                <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
-                <stop  offset="1" style="stop-color:#FF7D00"/>
-            </linearGradient>
-            <path style="fill:url(#SVGID_00000044138940826451477660000011238277339703549585_);"  d="M836.2,699.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C838,706.5,837.4,702.7,836.2,699.1z M797.6,727.8c-3.9,3.9-10.2,3.9-14.1,0 s-3.9-10.2,0-14.1l10.6-10.6c3.9-3.9,10.2-3.9,14.1,0c0.6,0.6,1.1,1.3,1.5,2l-3.8,3.8c-0.2-0.8-0.6-1.6-1.3-2.3 c-1.9-1.9-5.1-1.9-7.1,0L787,717.2c-1.9,1.9-1.9,5.1,0,7.1c1.9,1.9,5.1,1.9,7.1,0l2.5-2.5c2,0.8,4.2,1,6.4,0.7L797.6,727.8z M818.8,706.6l-10.6,10.6c-3.9,3.9-10.2,3.9-14.1,0c-0.6-0.6-1.1-1.3-1.5-2l3.8-3.8c0.2,0.8,0.6,1.6,1.3,2.3c1.9,1.9,5.1,1.9,7.1,0 l10.6-10.6c1.9-1.9,1.9-5.1,0-7.1c-1.9-1.9-5.1-1.9-7.1,0l-2.5,2.5c-2-0.8-4.2-1-6.4-0.7l5.3-5.3c3.9-3.9,10.2-3.9,14.1,0 S822.7,702.7,818.8,706.6z"/>
-        </g>
-        
-        <g id="credentials" class="hide">
+
+        <g id="credentials">
             <path id="credentials-card" class="orange" d="M624.5,903.3h-84.4c-1.6,0-2.8,1.3-2.8,2.8v54.4 c0,1.6,1.3,2.8,2.8,2.8h84.4c1.6,0,2.8-1.3,2.8-2.8v-54.4C627.3,904.5,626.1,903.3,624.5,903.3z M565.5,918.3 c4.1,0,7.5,3.4,7.5,7.5c0,4.1-3.4,7.5-7.5,7.5c-4.1,0-7.5-3.4-7.5-7.5C558,921.6,561.3,918.3,565.5,918.3z M580.5,948.3h-30v-2.8 c0-5.6,10-8.4,15-8.4c5,0,15,2.8,15,8.4V948.3z M612.3,948.3h-26.2v-5.6h26.2V948.3z M612.3,936.1h-26.2v-5.6h26.2V936.1z M612.3,923.9h-26.2v-5.6h26.2V923.9z"/>
             <path id="credentials-arrow" class="black-30" d="M694,464.2c-12,1.5-27.8,1.6-39.1-1.2l12,11.1c-30.3,18.3-56.9,42.3-78.4,70.1 c-22.4,29-39.4,62-50.2,96.9c-10.8,34.9-15.5,71.5-14,107.9c1.4,36.4,9,72.4,22.5,106.1c-13-33.9-19.9-70-20.6-106.2 c-0.8-36.2,4.4-72.4,15.8-106.7c11.3-34.2,28.6-66.5,51.1-94.5c21.5-26.8,47.7-49.7,77.3-66.9l2.1,16 C676.6,486,685.8,473.2,694,464.2z"/>
         </g>
@@ -167,9 +175,9 @@
             <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
             <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
             <circle class="barrier-small-circle" cx="800" cy="813.6" r="30"/>
-            <circle class="barrier-big-circle" cx="802" cy="813.6" r="75"/>
-            <line class="barrier-plus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="800" y1="800.5" x2="800" y2="825.5"/>
-            <line class="barrier-minus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="812.5" y1="813" x2="787.5" y2="813"/>
+            <line class="barrier-plus" x1="800" y1="800.5" x2="800" y2="825.5"/>
+            <line class="barrier-minus" x1="812.5" y1="813" x2="787.5" y2="813"/>
+            <circle class="barrier-big-circle" cx="800" cy="813.6" r="75"/>
         
         </g>
         
@@ -177,9 +185,9 @@
             <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
             <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
             <circle class="barrier-small-circle" cx="800" cy="1225.7" r="30"/>
+            <line class="barrier-plus" x1="800" y1="1212.5" x2="800" y2="1237.5"/>
+            <line class="barrier-minus" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
             <circle class="barrier-big-circle" cx="800" cy="1225.7" r="75"/>
-            <line class="barrier-plus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="800" y1="1212.5" x2="800" y2="1237.5"/>
-            <line style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
         
         </g>
         
@@ -187,9 +195,9 @@
             <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
             <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
             <circle class="barrier-small-circle" cx="800" cy="1637.7" r="30"/>
+            <line class="barrier-plus" x1="800" y1="1624.5" x2="800" y2="1649.5"/>
+            <line class="barrier-minus" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
             <circle class="barrier-big-circle" cx="800" cy="1637.7" r="75"/>
-            <line class="barrier-plus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="800" y1="1624.5" x2="800" y2="1649.5"/>
-            <line style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
             
         </g>
         
@@ -197,10 +205,9 @@
             <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
             <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
             <circle class="barrier-small-circle" cx="800" cy="2049.7" r="30"/>
-            <circle class="barrier-big-circle" cx="800" cy="2049.7" r="75"/>
-            <line class="barrier-plus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="800" y1="2036.5" x2="800" y2="2061.5"/>
-            <line class="barrier-minus" style="fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;" x1="812.5" y1="2049" x2="787.5" y2="2049"/>
-            
+            <line class="barrier-plus" x1="800" y1="2036.5" x2="800" y2="2061.5"/>
+            <line class="barrier-minus" x1="812.5" y1="2049" x2="787.5" y2="2049"/>
+            <circle class="barrier-big-circle" cx="800" cy="2049.7" r="75"/>            
         </g>
         
         
@@ -250,7 +257,7 @@
         </g>
         
         
-        <g id="malware-first" class="hide">
+        <g id="malware-first">
             <linearGradient id="SVGID_00000034054797368359329590000007015097590116502170_" gradientUnits="userSpaceOnUse" x1="1042.0721" y1="525.8105" x2="1042.0721" y2="700.5662">
                 <stop  offset="0" style="stop-color:#F7D9D9;stop-opacity:0"/>
                 <stop  offset="1" style="stop-color:#F7D9D9"/>
@@ -479,6 +486,78 @@
         </g>
         
         </svg>
+    </div>
+
+    <script>
+        
+        /* Initial states */
     
+        gsap.to("#barrier-1 line.barrier-plus", {duration: 0, scaleY: 0, transformOrigin: "50% 50%"});
+        gsap.to("#barrier-2 line.barrier-plus", {duration: 0, scaleY: 0, transformOrigin: "50% 50%"});
+        gsap.to("#barrier-3 line.barrier-plus", {duration: 0, scaleY: 0, transformOrigin: "50% 50%"});
+        gsap.to("#barrier-4 line.barrier-plus", {duration: 0, scaleY: 0, transformOrigin: "50% 50%"});
+    
+        gsap.fromTo("#drops .drop", {y: -25}, {duration: 1, y: 0, repeat: -1, yoyo: true});
+        gsap.to("#credentials", {duration: 0, opacity:0});
+        gsap.to("#malware-first", {duration: 0, opacity:0});
+    
+    
+        /* Callbacks */
+    
+        const barrier1 = () => {
+            gsap.to("#barrier-1 line.barrier-line", {duration: 0.25, scaleX: 0, transformOrigin: "50% 50%"});
+            gsap.to("#barrier-1 line.barrier-plus", {duration: 0.25, scaleY: 1, transformOrigin: "50% 50%"});
+        }
+    
+        const barrier2 = () => {
+            gsap.to("#barrier-2 line.barrier-line", {duration: 0.25, scaleX: 0, transformOrigin: "50% 50%"});
+            gsap.to("#barrier-2 line.barrier-plus", {duration: 0.25, scaleY: 1, transformOrigin: "50% 50%"});
+        }
+    
+        const barrier3 = () => {
+            gsap.to("#barrier-3 line.barrier-line", {duration: 0.25, scaleX: 0, transformOrigin: "50% 50%"});
+            gsap.to("#barrier-3 line.barrier-plus", {duration: 0.25, scaleY: 1, transformOrigin: "50% 50%"});
+        }
+    
+        const barrier4 = () => {
+            gsap.to("#barrier-4 line.barrier-line", {duration: 0.25, scaleX: 0, transformOrigin: "50% 50%"});
+            gsap.to("#barrier-4 line.barrier-plus", {duration: 0.25, scaleY: 1, transformOrigin: "50% 50%"});
+        }
+    
+        const anim1 = () => {
+            barrier1();
+            /*T1*/
+            gsap.to("#credentials", {duration: 1, opacity:1});
+            gsap.to("#malware-first", {duration: 1, opacity:1});
+        }
+        const anim2 = () => {
+            anim1();
+            barrier2();    
+            /*T2*/
+    
+        }
+        const anim3 = () => {
+            anim2();
+            barrier3();    
+            /*T3*/
+    
+        }
+        const anim4 = () => {
+            anim3();  
+            barrier4();   
+            
+            /*T4*/
+        }
+    
+    
+        /* Listeners */
+    
+        document.querySelector("#barrier-1 .barrier-big-circle").addEventListener("click", anim1);
+        document.querySelector("#barrier-2 .barrier-big-circle").addEventListener("click", anim2);
+        document.querySelector("#barrier-3 .barrier-big-circle").addEventListener("click", anim3);
+        document.querySelector("#barrier-4 .barrier-big-circle").addEventListener("click", anim4);
+            
+    
+    </script>
 </body>
 </html>
