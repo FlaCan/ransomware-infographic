@@ -601,21 +601,21 @@
     
         document.querySelector(".barrier-g0 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG0.reversed()) {
-                barrierG0.play();
+                barrierG0.play(); // sets self to false (open)
             } else {
-                barrierG0.reverse();
-                barrierG1.reverse();
-                barrierG2.reverse();
-                barrierG3.reverse();
+                barrierG0.reverse(); // sets self to true (closed)
+                barrierG1.reverse(); // sets G1 to true (closed)
+                barrierG2.reverse(); // sets G2 to true (closed)
+                barrierG3.reverse(); // sets G3 to true (closed)
             }
         });
 
         document.querySelector(".barrier-g1 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG1.reversed()) {
-                barrierG0.play();
-                barrierG1.play();
+                barrierG0.play(); //sets G0 to false (open)
+                barrierG1.play(); //sets self to false (open)
             } else {
-                barrierG1.reverse();
+                barrierG1.reverse(); //sets self to true (closed)
                 if (barrierG0.reversed()) {
                     return;
                 }
@@ -624,9 +624,9 @@
 
         document.querySelector(".barrier-g2 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG2.reversed()) {
-                barrierG0.play();
-                barrierG1.play();
-                barrierG2.play();
+                barrierG0.play(); //sets G0 to false
+                barrierG1.play(); //sets G1 to false
+                barrierG2.play(); //sets G2 to false
             } else {
                 barrierG2.reverse();
                 if (barrierG1.reversed()) {
@@ -637,12 +637,11 @@
 
         document.querySelector(".barrier-g3 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG3.reversed()) {
-                barrierG0.play();
-                barrierG1.play();
-                barrierG2.play();
-                barrierG3.play();
+                barrierG0.play(); //sets G0 to false
+                barrierG1.play(); //sets G1 to false
+                barrierG2.play(); //sets G2 to false
+                barrierG3.play(); //sets G3 to false
             } else {
-                console.log("G3 else /n");
                 barrierG3.reverse();
                 if (barrierG2.reversed()) {
                     return;
