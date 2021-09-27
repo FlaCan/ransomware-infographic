@@ -112,8 +112,6 @@
         }
     
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
-    
 
 </head>
 <body>
@@ -543,6 +541,8 @@
         </svg>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+
     <script>
         
         /* Initial states */
@@ -559,11 +559,9 @@
         /* Start autoplay */
 
         const credentials = gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true});
-       
     
     
         /* Timelines */
-
 
         const barrierG0 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g0 line.barrier-line", {scaleX: 0})
@@ -603,10 +601,8 @@
     
         document.querySelector(".barrier-g0 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG0.reversed()) {
-                console.log("G0 if /n");
                 barrierG0.play();
             } else {
-                console.log("G0 else /n");
                 barrierG0.reverse();
                 barrierG1.reverse();
                 barrierG2.reverse();
@@ -616,27 +612,22 @@
 
         document.querySelector(".barrier-g1 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG1.reversed()) {
-                console.log("G1 if /n");
                 barrierG0.play();
                 barrierG1.play();
             } else {
-                console.log("G1 else /n");
                 barrierG1.reverse();
                 if (barrierG0.reversed()) {
                     return;
                 }
             }
-
         });
 
         document.querySelector(".barrier-g2 .barrier-big-circle").addEventListener("click", () => {
             if (barrierG2.reversed()) {
-                console.log("G2 if /n");
                 barrierG0.play();
                 barrierG1.play();
                 barrierG2.play();
             } else {
-                console.log("G0 else /n");
                 barrierG2.reverse();
                 if (barrierG1.reversed()) {
                     return;
@@ -659,8 +650,6 @@
             }
         });
         
-      
-            
     
     </script>
 </body>
