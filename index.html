@@ -1010,27 +1010,27 @@
         
         const speechAttacker = gsap.timeline({paused: true})
             .to(".speech-attacker", {duration: 0, scale: 1 })
-            .to(".speech-attacker", {duration: 0.3, opacity: 1})
+            .to(".speech-attacker", {duration: 0.5, opacity: 1})
       
         
         const speechDroppers = gsap.timeline({paused: true})
             .to(".speech-droppers", {duration: 0, scale: 1 })
-            .to(".speech-droppers", {duration: 0.3, opacity: 1})
+            .to(".speech-droppers", {duration: 0.5, opacity: 1})
         
         
         const speechMalware = gsap.timeline({paused: true})
             .to(".speech-malware", {duration: 0, scale: 1 })
-            .to(".speech-malware", {duration: 0.3, opacity: 1})
+            .to(".speech-malware", {duration: 0.5, opacity: 1})
         
 
         const speechBarrierG1Before = gsap.timeline({paused: true})
             .to(".speech-barrier-g1-before", {duration: 0, scale: 1 })
-            .to(".speech-barrier-g1-before", {duration: 0.3, opacity: 1})
+            .to(".speech-barrier-g1-before", {duration: 0.5, opacity: 1})
 
        
         const speechBarrierG1After = gsap.timeline({paused: true})
             .to(".speech-barrier-g1-after", {duration: 0, scale: 1 })
-            .to(".speech-barrier-g1-after", {duration: 0.3, opacity: 1})
+            .to(".speech-barrier-g1-after", {duration: 0.5, opacity: 1})
         
     
     
@@ -1041,7 +1041,7 @@
             .to(".barrier-g1 .barrier-plus", {scaleY: 1}, "<")
             .to(".slolen-g1", {opacity: 1}, "<")
             .to(".malware-g0", {opacity: 1}, "<")
-            .to(".user-g2 .workstation", {fill: "#CC0000"}, "<")
+            .to(".user-g1 .workstation", {fill: "#CC0000"}, "<")
             .to(".malware-g1", {opacity: 1}, "<")
             
         const barrierG2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
@@ -1049,7 +1049,6 @@
             .to(".barrier-g2 .barrier-plus", {scaleY: 1}, "<")
             .to(".malware-g2", {opacity: 1}, "<")
             .to(".device-g0", {fill: "#CC0000"}, "<")
-            
             .to(".user-g2 .workstation", {fill: "#CC0000"}, "<")
     
         const barrierG3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
@@ -1060,8 +1059,8 @@
             .to(".device-g1", {fill: "#CC0000"}, "<")
     
         const barrierG4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
-            .to(".barrier-g3 .barrier-line", {scaleX: 0})
-            .to(".barrier-g3 .barrier-plus", {scaleY: 1}, "<")
+            .to(".barrier-g4 .barrier-line", {scaleX: 0})
+            .to(".barrier-g4 .barrier-plus", {scaleY: 1}, "<")
             .to(".malware-g4", {opacity: 1}, "<" )
             .to(".device-g2", {fill: "#CC0000"}, "<")
 
