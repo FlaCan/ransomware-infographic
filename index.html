@@ -4,29 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <title>Document</title>
     
     <style>
+
 
         /* 
         Properties that won't be animated/changed shall be set in css. 
         Properties tha will be animated/changed shall be set by gsap for performance.
         */
+        
 
         body {
-            background-color: #f2f4f8;
+            margin: 0;
+            padding: 0;
         }
+
+        .target {
+            opacity: 0;
+        }
+
+        .bubble {
+            fill: #000011;
+            opacity: 0.9;
+        }
+
 
         .wrap {
             display: flex;
+            align-content: center;
             justify-content: center;
-            max-height: 100vh;
+            background-color: rgba(0, 51, 136, 0.03);
         }
 
         svg {
-            max-height: 100%;
+            
+            height: 100vh;
         }
-        
+
+        text {
+            font-family: "Roboto";
+            font-size: 30px;
+            fill: white;
+        }
+
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            opacity: 0.85;
+        }
          
         /* Barriers */
     
@@ -56,12 +85,6 @@
             opacity: 0.1;
         }
 
-        .hovers {
-            fill: #ffffff;
-        }
-        .hovers:hover {
-        }
-    
         .barrier-plus, .barrier-minus {
             fill:none;
             stroke:#FFFFFF;
@@ -118,6 +141,7 @@
 </head>
 <body>
 <div class="wrap">
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2600">
 
         <!--Drops-->        
@@ -240,7 +264,8 @@
             </g>
         
         </g>
-
+        
+        <!--Stolen-->
         <g>
             <g class="stolen stolen-g3">
                 <g id="data-bottom-left">
@@ -996,10 +1021,34 @@
                 <rect x="1206" y="2171.3" class="orange-stroke" width="194" height="160"/>
             </g>
         </g>
+
+        <!--Speech-->
+        <g>
+            <g class="speech speech-attacker">
+                <path class="bubble" d="M1540,219.9H975.7c-5.5,0-10,4.5-10,10v115.3l-34.6,20l34.6,20v130.1c0,5.5,4.5,10,10,10H1540 c5.5,0,10-4.5,10-10V229.9C1550,224.4,1545.5,219.9,1540,219.9z"/> 
+                <text class="title" transform="matrix(1 0 0 1 1005.5551 290.7385)" class="st29 st30 st31">Attacker</text>
+                <text id="content_00000037680303777189383990000004142776752557700995_" transform="matrix(1 0 0 1 1005.5549 349.247)"><tspan x="0" y="0" class="st12 st32 st33">Ransomware can be dropped via </tspan><tspan x="0" y="45" class="st12 st32 st33">links, attachemnets or shipped in </tspan><tspan x="0" y="90" class="st12 st32 st33">legitimate-like download wrappers, </tspan><tspan x="0" y="135" class="st12 st32 st33">and more.</tspan></text>
+                <path class="target" d="M730,474v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-3h-32v-30c0-13,8.6-24.1,25.6-33l6.4-3.3V370 c0-9.9,8.1-18,18-18h25.1c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v5.4l7,3.8c20.7,11.1,25,24,25,32.8v30h-32v2c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/> 
+            </g>
+        
+            <g class="speech speech-malware">
+                <path class="bubble" d="M1540,495.3h-454.8c-5.5,0-10,4.5-10,10v135.3l-34.6,20l34.6,20v150.1c0,5.5,4.5,10,10,10H1540 c5.5,0,10-4.5,10-10V505.3C1550,499.7,1545.5,495.3,1540,495.3z"/>
+				<text class="title" transform="matrix(1 0 0 1 1115.0016 566.1314)" >Malware</text>
+		        <text transform="matrix(1 0 0 1 1115.0015 624.64)"><tspan x="0" y="0">Ransomware can be dropped </tspan><tspan x="0" y="45">via links, attachemnets or </tspan><tspan x="0" y="90">shipped in legitimate-like </tspan><tspan x="0" y="135">download wrappers, and </tspan><tspan x="0" y="180">more.</tspan></text>
+                <path class="target" d="M987.9,724.2c-11.2,0-21.7-4.4-30.4-12.8l-0.2-0.2l-0.2-0.2c-17.1-18.3-12.9-37.3-5.6-55.1 c2.3-7.8,3.7-16,4-24.5c0.6-16.5-3.4-34.4-11.6-51.6c-0.8-1.7-1.8-3.4-2.7-5c-2.6-4.5-5.5-9.6-2.3-15.2c1.9-3.3,5.3-5.2,9.1-5.2 c3.7,0,7.1,1.6,16.3,7.6c34.5,22.6,58.9,62.5,65.2,106.7c3.4,13.7,0.6,27.7-7.7,38.5C1013.8,717.8,1001,724.2,987.9,724.2 C987.9,724.2,987.9,724.2,987.9,724.2z"/>
+            </g>
+
+            <g class="speech speech-droppers">
+                <path class="bubble" d="M60,471h541.9c5.5,0,10,4.5,10,10v129l34.6,20l-34.6,20v117.5c0,5.5-4.5,10-10,10H60c-5.5,0-10-4.5-10-10 V481C50,475.5,54.5,471,60,471z"/>
+                <text class="title" transform="matrix(1 0 0 1 89.5931 541.9896)" class="st29 st30 st31">Droppers</text>
+                <text id="content" transform="matrix(1 0 0 1 89.593 600.4981)"><tspan x="0" y="0">Ransomware can be dropped via </tspan><tspan x="0" y="45">links, attachemnets or shipped in </tspan><tspan x="0" y="90">legitimate-like download wrappers, </tspan><tspan x="0" y="135">and more.</tspan></text>
+                <path class="target" d="M800,755c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.3-1,2-6,11-33.6c-8.4,11.6-22,19.2-37.4,19.2 c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8c1.9-6,7-9.9,13-9.9 s11.1,3.9,13.1,9.9c0.1,0.3,30.6,93.5,30.6,93.5c1.6,4.7,2.4,9.6,2.4,14.6c0,0.1,0,0.3,0,0.4c0.7-2.2,10.8-33.1,11-33.5 c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,10.4,31.9,10.9,33.5c0-0.1,0-0.3,0-0.4c0-5,0.8-9.9,2.4-14.6 c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,30.6,93.5,30.6,93.5 c1.6,4.7,2.4,9.6,2.4,14.6c0,25.4-20.6,46-46,46c-15.4,0-29-7.6-37.4-19.2c9.1,27.8,11,33.6,11,33.6c1.6,4.7,2.4,9.6,2.4,14.6 C846,734.4,825.4,755,800,755z"/> 
+            </g>
+        </g>
         
         
-        </svg>
-    </div>
+    </svg>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 
@@ -1012,11 +1061,13 @@
     
         gsap.set(".barrier line.barrier-line", {scaleY: 1, transformOrigin: "50% 50%"});
         gsap.set(".barrier line.barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"});
-        gsap.set(".stolen", {opacity:0});
+        gsap.set(".stolen", {autoAlpha:0});
         gsap.set(".workstation", {fill: "#0088FF"})
-        gsap.set(".countdown", {opacity: 0});
-        gsap.set(".malware", {opacity:0});
-        gsap.set(".lock", {opacity:0});
+        gsap.set(".countdown", {autoAlpha: 0});
+        gsap.set(".malware", {autoAlpha:0});
+        gsap.set(".lock", {autoAlpha:0});
+        gsap.set(".speech", {opacity:0});
+        
         
 
         
@@ -1030,15 +1081,15 @@
         const barrierG0 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g0 line.barrier-line", {scaleX: 0})
             .to(".barrier-g0 line.barrier-plus", {scaleY: 1}, "<")
-            .to(".slolen-g1", {opacity: 1}, "<")
-            .to(".malware-g0", {opacity: 1}, "<")
+            .to(".slolen-g1", {autoAlpha: 1}, "<")
+            .to(".malware-g0", {autoAlpha: 1}, "<")
             .to(".user-g1 .workstation", {fill: "#CC0000"}, "<")
-            .to(".malware-g1", {opacity: 1}, "<")
+            .to(".malware-g1", {autoAlpha: 1}, "<")
             
         const barrierG1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g1 line.barrier-line", {scaleX: 0})
             .to(".barrier-g1 line.barrier-plus", {scaleY: 1}, "<")
-            .to(".malware-g2", {opacity: 1}, "<")
+            .to(".malware-g2", {autoAlpha: 1}, "<")
             .to(".device-g0", {fill: "#CC0000"}, "<")
             
             .to(".user-g2 .workstation", {fill: "#CC0000"}, "<")
@@ -1046,15 +1097,17 @@
         const barrierG2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g2 line.barrier-line", {scaleX: 0})
             .to(".barrier-g2 line.barrier-plus", {scaleY: 1}, "<")
-            .to(".stolen-g3", {opacity: 1}, "<")
-            .to(".malware-g3", {opacity: 1}, "<" )
+            .to(".stolen-g3", {autoAlpha: 1}, "<")
+            .to(".malware-g3", {autoAlpha: 1}, "<" )
             .to(".device-g1", {fill: "#CC0000"}, "<")
     
         const barrierG3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g3 line.barrier-line", {scaleX: 0})
             .to(".barrier-g3 line.barrier-plus", {scaleY: 1}, "<")
-            .to(".malware-g4", {opacity: 1}, "<" )
+            .to(".malware-g4", {autoAlpha: 1}, "<" )
             .to(".device-g2", {fill: "#CC0000"}, "<")
+
+        
         
     
         /* Listeners */
@@ -1104,17 +1157,48 @@
             }
         }, false)
 
-
-        // const hovers = gsap.to(".hovers", {opacity:1, duration:"0.25", paused: true})
         
-        // document.querySelector(".hovers").addEventListener("mouseover", (e) =>{
-        //     hovers.play()
-        // }, false)
+     
 
-        // document.querySelector(".hovers").addEventListener("mouseleave", (e) =>{
-        //     console.log(e.target)
-        //     hovers.reverse()
-        // }, false)
+        const showHideSpeechAttacker = gsap.to(".speech-attacker", {opacity: 1, paused: true, cursor: "pointer"})
+
+        document.querySelector(".speech-attacker .target").addEventListener("mouseover", (e) =>{
+            showHideSpeechAttacker.play()
+        }, false)
+
+        document.querySelector(".speech-attacker .target").addEventListener("mouseleave", (e) =>{
+            showHideSpeechAttacker.reverse()
+        }, false)
+
+
+
+        const showHideSpeechDroppers = gsap.to(".speech-droppers", {opacity: 1, paused: true, cursor: "pointer"})
+
+        document.querySelector(".speech-droppers .target").addEventListener("mouseover", (e) =>{
+            showHideSpeechDroppers.play()
+        }, false)
+
+        document.querySelector(".speech-droppers .target").addEventListener("mouseleave", (e) =>{
+            showHideSpeechDroppers.reverse()
+        }, false)
+
+
+        
+        const showHideSpeechMalware = gsap.to(".speech-malware", {opacity: 1, paused: true, cursor: "pointer"})
+
+        document.querySelector(".speech-malware .target").addEventListener("mouseover", (e) =>{
+            if (!barrierG0.reversed()) {
+                showHideSpeechMalware.play()
+            }
+        }, false)
+
+        document.querySelector(".speech-malware .target").addEventListener("mouseleave", (e) =>{
+            showHideSpeechMalware.reverse()
+        }, false)
+
+
+
+        
     
     </script>
 </body>
