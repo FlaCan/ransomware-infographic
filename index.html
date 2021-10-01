@@ -1014,8 +1014,7 @@
         gsap.set(".countdown", {opacity: 0})
         gsap.set(".malware", {opacity:0})
         gsap.set(".lock", {opacity:0})
-        
-        gsap.set(".target", {visibility:"hidden", cursor: "pointer"}) // all target are invisible and transparent by default eccept for the following 
+        gsap.set(".target", {autoAlpha: 0, cursor: "pointer"}) // all target are invisible and transparent by default eccept for the following //Built mode: replace visibility with auotAlpha 
         gsap.set("#target-barrier-1", {visibility: "visible"})
         gsap.set("#target-barrier-2", {visibility: "visible"})
         gsap.set("#target-barrier-3", {visibility: "visible"})
@@ -1072,38 +1071,51 @@
         /* Barriers */
 
         const barrierG1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
-            .to("#target-malware-0", {visibility: "visible"}, "<")
-            .to("#target-credential-1", {visibility: "visible"}, "<")
-            .to("#target-data-1", {visibility: "visible"}, "<")
-            .to("#target-malware-1-left", {visibility: "visible"}, "<")
-            .to("#target-malware-1-right", {visibility: "visible"}, "<")
-
             .to(".barrier-g1 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g1 .barrier-plus", {scaleY: 1}, "<")
             .to(".slolen-g1", {opacity: 1}, "<")
             .to(".malware-g0", {opacity: 1}, "<")
             .to(".user-g1 .workstation", {fill: "#CC0000"}, "<")
             .to(".malware-g1", {opacity: 1}, "<")
+            .to("#target-malware-0", {visibility: "visible"}, "<")
+            .to("#target-credential-1", {visibility: "visible"}, "<")
+            .to("#target-data-1", {visibility: "visible"}, "<")
+            .to("#target-malware-1-left", {visibility: "visible"}, "<")
+            .to("#target-malware-1-right", {visibility: "visible"}, "<")
             
         const barrierG2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
-            .to(".barrier-g2 .barrier-line", {scaleX: 0})
+            .to(".barrier-g2 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g2 .barrier-plus", {scaleY: 1}, "<")
             .to(".malware-g2", {opacity: 1}, "<")
             .to(".device-g0", {fill: "#CC0000"}, "<")
             .to(".user-g2 .workstation", {fill: "#CC0000"}, "<")
-    
+            .to("#target-malware-2-center", {visibility: "visible"}, "<")
+            .to("#target-malware-2-top-left", {visibility: "visible"}, "<")
+            .to("#target-malware-2-top-right", {visibility: "visible"}, "<")
+            .to("#target-malware-2-bottom-left", {visibility: "visible"}, "<")
+            .to("#target-malware-2-bottom-right", {visibility: "visible"}, "<")
+            
         const barrierG3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
-            .to(".barrier-g3 .barrier-line", {scaleX: 0})
+            .to(".barrier-g3 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g3 .barrier-plus", {scaleY: 1}, "<")
             .to(".stolen-g3", {opacity: 1}, "<")
             .to(".malware-g3", {opacity: 1}, "<" )
             .to(".device-g1", {fill: "#CC0000"}, "<")
-    
+            .to("#target-malware-3-right", {visibility: "visible"}, "<")
+            .to("#target-malware-3-center-right", {visibility: "visible"}, "<")
+            .to("#target-malware-3-center", {visibility: "visible"}, "<")
+            .to("#target-malware-3-center-left", {visibility: "visible"}, "<")
+            .to("#target-malware-3-left", {visibility: "visible"}, "<")
+            .to("#target-data-2-left", {visibility: "visible"}, "<")
+            .to("#target-data-2-right", {visibility: "visible"}, "<")
+
+
         const barrierG4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
-            .to(".barrier-g4 .barrier-line", {scaleX: 0})
+            .to(".barrier-g4 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g4 .barrier-plus", {scaleY: 1}, "<")
             .to(".malware-g4", {opacity: 1}, "<" )
             .to(".device-g2", {fill: "#CC0000"}, "<")
+            .to("#target-malware-4", {visibility: "visible"}, "<")
 
     
         /* Click Listeners */
