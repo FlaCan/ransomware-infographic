@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;600&display=swap" rel="stylesheet">
     <title>Document</title>
     
     <style>
@@ -19,6 +19,7 @@
      
 
         body {
+            font-family: "Roboto", serif;
             margin: 0;
             padding: 0;
         }
@@ -39,7 +40,11 @@
             opacity: 0.95;
         }
 
-    
+         .speech line {
+            stroke:#FFF;
+            stroke-width: 2px;
+            stroke-linecap: round;
+        }
 
         .wrap {
             display: flex;
@@ -58,15 +63,16 @@
         }
 
         text {
-            font-family: "Roboto";
+            
             font-size: 30px;
             fill: white;
         }
 
         .title {
             font-size: 40px;
-            font-weight: 700;
-            opacity: 0.85;
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 0.9;
         }
          
         /* Barriers */
@@ -933,44 +939,77 @@
 
         <!--Speech-->
         <g>
-
             <g class="speech" id="speech-barrier-1-before">
                 <path class="bubble" d="M10,580.6h574.3c5.5,0,10,4.5,10,10v203.3l34.6,20l-34.6,20V1035c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-444.5C0,585,4.5,580.6,10,580.6z"/>
                 <text class="title" transform="matrix(1 0 0 1 43.9998 664.9964)">Protection barrier</text>
-		        <text transform="matrix(1 0 0 1 44 723.5049)"><tspan x="0" y="0" class="st11 st35 st36">User education and the adoption of </tspan><tspan x="0" y="45" class="st11 st35 st36">our </tspan><tspan x="51.9" y="45" class="st11 st41 st36">privileged endpoint manager</tspan><tspan x="425.3" y="45" class="st11 st35 st36">, </tspan><tspan x="0" y="90" class="st11 st35 st36">are essential to prevent an attack </tspan><tspan x="0" y="135" class="st11 st35 st36">starts at all</tspan><tspan x="0" y="225" class="st11 st35 st36">Click the botton to remove it, if you </tspan><tspan x="0" y="270" class="st11 st35 st36">are feeling it of course.</tspan></text>
-                <line stroke="#FFF" stroke-width="2"stroke-linecap="round" x1="45" y1="897" x2="547.1" y2="897"/>
+		        <text transform="matrix(1 0 0 1 44 723.5049)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential to prevent an attack </tspan><tspan x="0" y="135">starts at all</tspan><tspan x="0" y="225">Click the botton to remove it, if you </tspan><tspan x="0" y="270">are feeling it of course.</tspan></text>
+                <line x1="45" y1="897" x2="547.1" y2="897"/>
             </g>
             <g class="speech" id="speech-barrier-1-after">
                 <path class="bubble" d="M1590,599.6h-574.3c-5.5,0-10,4.5-10,10v183.3l-34.6,20l34.6,20V1014c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V609.6C1600,604,1595.5,599.6,1590,599.6z"/>
                 <text class="title" transform="matrix(1 0 0 1 1048.7059 683.9964)">Protection barrier</text>
-                <text transform="matrix(1 0 0 1 1048.7056 742.5049)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45" class="st11 st41 st36">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential in the early stages of </tspan><tspan x="0" y="135">an attack.</tspan><tspan x="0" y="225">Click the botton to implement it.</tspan></text>
-                <line stroke="#FFF" stroke-width="2"stroke-linecap="round" x1="1052" y1="917" x2="1554.1" y2="917"/>
-
+                <text transform="matrix(1 0 0 1 1048.7056 742.5049)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential in the early stages of </tspan><tspan x="0" y="135">an attack.</tspan><tspan x="0" y="225">Click the botton to implement it.</tspan></text>
+                <line x1="1052" y1="917" x2="1554.1" y2="917"/>
             </g>
-            
+            <g class="speech" id="speech-barrier-2-before">
+                <path class="bubble" d="M10,990.6h574.3c5.5,0,10,4.5,10,10v203.3l34.6,20l-34.6,20V1445c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-444.5C0,995,4.5,990.6,10,990.6z"/>
+                <text class="title" transform="matrix(1 0 0 1 43.9998 1074.9963)" class="st30 st31 st32">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 44 1133.5049)" class="st34"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential to prevent an attack </tspan><tspan x="0" y="135">starts at all</tspan><tspan x="0" y="225">Click the botton to remove it, if you </tspan><tspan x="0" y="270">are feeling it of course.</tspan></text>
+                <line x1="45" y1="1307" x2="547.1" y2="1307"/>
+            </g>
+            <g class="speech" id="speech-barrier-2-after">
+                <path class="bubble" d="M1590,1011.6h-574.3c-5.5,0-10,4.5-10,10v183.3l-34.6,20l34.6,20V1426c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10v-404.5C1600,1016,1595.5,1011.6,1590,1011.6z"/>
+                <text class="title" transform="matrix(1 0 0 1 1048.7059 1095.9963)">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 1048.7056 1154.5049)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential in the early stages of </tspan><tspan x="0" y="135">an attack.</tspan><tspan x="0" y="225">Click the botton to implement it.</tspan></text>
+                <line x1="1052" y1="1329" x2="1554.1" y2="1329"/>
+            </g>
+            <g class="speech" id="speech-barrier-3-before">
+                <path class="bubble" d="M10,1402.1h574.3c5.5,0,10,4.5,10,10v203.3l34.6,20l-34.6,20v201.1c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-444.5C0,1406.6,4.5,1402.1,10,1402.1z"/>
+                <text class="title" transform="matrix(1 0 0 1 43.9998 1486.5383)">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 44 1545.0469)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential to prevent an attack </tspan><tspan x="0" y="135">starts at all</tspan><tspan x="0" y="225">Click the botton to remove it, if you </tspan><tspan x="0" y="270">are feeling it of course.</tspan></text>
+                <line x1="45" y1="1718.6" x2="547.1" y2="1718.6"/>
+            </g>
+            <g class="speech" id="speech-barrier-3-after">
+                <path class="bubble" d="M1590,1425.8h-574.3c-5.5,0-10,4.5-10,10v183.3l-34.6,20l34.6,20v181.1c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10v-404.5C1600,1430.3,1595.5,1425.8,1590,1425.8z"/>
+                <text class="title" transform="matrix(1 0 0 1 1048.7059 1510.2598)">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 1048.7056 1568.7683)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential in the early stages of </tspan><tspan x="0" y="135">an attack.</tspan><tspan x="0" y="225">Click the botton to implement it.</tspan></text>
+                <line x1="1052" y1="1743.3" x2="1554.1" y2="1743.3"/>
+            </g>
+            <g class="speech" id="speech-barrier-4-before">
+                <path class="bubble" d="M10,1815.4h574.3c5.5,0,10,4.5,10,10v203.3l34.6,20l-34.6,20v201.1c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-444.5C0,1819.9,4.5,1815.4,10,1815.4z"/>
+                <text class="title" transform="matrix(1 0 0 1 43.9998 1899.8562)">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 44 1958.3647)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential to prevent an attack </tspan><tspan x="0" y="135">starts at all</tspan><tspan x="0" y="225">Click the botton to remove it, if you </tspan><tspan x="0" y="270">are feeling it of course.</tspan></text>
+                <line x1="45" y1="2131.9" x2="547.1" y2="2131.9"/>
+            </g>
+            <g class="speech" id="speech-barrier-4-after">
+                <path class="bubble" d="M1590,1837.1h-574.3c-5.5,0-10,4.5-10,10v183.3l-34.6,20l34.6,20v181.1c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10v-404.5C1600,1841.6,1595.5,1837.1,1590,1837.1z"/>
+                <text class="title" transform="matrix(1 0 0 1 1048.7059 1921.5776)">Protection barrier</text>
+                <text transform="matrix(1 0 0 1 1048.7056 1980.0862)"><tspan x="0" y="0">User education and the adoption of </tspan><tspan x="0" y="45">our </tspan><tspan x="51.9" y="45">privileged endpoint manager</tspan><tspan x="425.3" y="45">, </tspan><tspan x="0" y="90">are essential in the early stages of </tspan><tspan x="0" y="135">an attack.</tspan><tspan x="0" y="225">Click the botton to implement it.</tspan></text>
+                <line x1="1052" y1="2154.6" x2="1554.1" y2="2154.6"/>
+            </g>            
             <g class="speech" id="speech-attacker-0">
                 <path class="bubble" d="M10,149.9h564.3c5.5,0,10,4.5,10,10v235.3l34.6,20l-34.6,20v231.1c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-506.5C0,154.4,4.5,149.9,10,149.9z"/>
-                <text class="title" transform="matrix(1 0 0 1 40.9999 220.7385)" class="st33 st34 st35">Attacker</text>
+                <text class="title" transform="matrix(1 0 0 1 40.9999 220.7385)">Attacker</text>
                 <text transform="matrix(1 0 0 1 41 279.247)"><tspan x="0" y="0">Often part of a larger criminal </tspan><tspan x="0" y="45">group, lanches his attack often by </tspan><tspan x="0" y="90">remote. His goal is encripting and </tspan><tspan x="0" y="135">stealing organizations and </tspan><tspan x="0" y="180">individual data. If succeded, he can </tspan><tspan x="0" y="225">ask a ransom (crypto-currency). </tspan><tspan x="0" y="270">Either the target pays to recover </tspan><tspan x="0" y="315">data or pays not to have their data </tspan><tspan x="0" y="360">made public.</tspan></text>
             </g>
             <g class="speech" id="speech-droppers-0">
                 <path class="bubble" d="M10,471h541.9c5.5,0,10,4.5,10,10v129l34.6,20l-34.6,20v117.5c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10 L0,481C0,475.5,4.5,471,10,471z"/>
-                <text class="title" transform="matrix(1 0 0 1 40.9998 541.9896)" class="st33 st34 st35">Droppers</text>
+                <text class="title" transform="matrix(1 0 0 1 40.9998 541.9896)">Droppers</text>
                 <text transform="matrix(1 0 0 1 41 600.4981)"><tspan x="0" y="0">Ransomware can be dropped via </tspan><tspan x="0" y="45">links, attachemnets or shipped in </tspan><tspan x="0" y="90">legitimate-like download wrappers, </tspan><tspan x="0" y="135">and more, to fool people.</tspan></text>
             </g>
             <g class="speech" id="speech-malware-1">
                 <path class="bubble" d="M1590,465.3h-454.8c-5.5,0-10,4.5-10,10v175.3l-34.6,20l34.6,20v160.1c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V475.3C1600,469.7,1595.5,465.3,1590,465.3z"/>
-                <text class="title" transform="matrix(1 0 0 1 1165.5466 536.1314)" class="st33 st34 st35">Ransomware</text>
+                <text class="title" transform="matrix(1 0 0 1 1165.5466 536.1314)">Ransomware</text>
                 <text transform="matrix(1 0 0 1 1165.547 594.64)"><tspan x="0" y="0">Type of malware designed to </tspan><tspan x="0" y="45">encript and or steal data. It  </tspan><tspan x="0" y="90">lauched in droppers. Once </tspan><tspan x="0" y="135">the protections are lifted it </tspan><tspan x="0" y="180">can go and infect the first </tspan><tspan x="0" y="225">user workstaion</tspan></text>
             </g>
             <g class="speech" id="speech-credentials-1">
                 <path class="bubble" d="M10,811h431.9c5.5,0,10,4.5,10,10v99l34.6,20l-34.6,20v107.5c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10 L0,821C0,815.5,4.5,811,10,811z"/>
-                <text class="title" transform="matrix(1 0 0 1 40.9998 882.9896)" class="st33 st34 st35">Credentials</text>
+                <text class="title" transform="matrix(1 0 0 1 40.9998 882.9896)">Credentials</text>
                 <text transform="matrix(1 0 0 1 41 941.4981)"><tspan x="0" y="0">If the user is fooled to give </tspan><tspan x="0" y="45">his credentials the attack </tspan><tspan x="0" y="90">can start </tspan></text>
             </g>
             <g class="speech" id="speech-data-1">
                 <path class="bubble" d="M1590,759.6h-424.3c-5.5,0-10,4.5-10,10l0,153.3l-34.6,20l34.6,20V1107c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V769.6C1600,764,1595.5,759.6,1590,759.6z"/>
-                <text class="title" transform="matrix(1 0 0 1 1192.7059 833.9964)" class="st33 st34 st35">Data</text>
+                <text class="title" transform="matrix(1 0 0 1 1192.7059 833.9964)">Data</text>
                 <text transform="matrix(1 0 0 1 1192.7056 892.5049)"><tspan x="0" y="0">Once the ransomare </tspan><tspan x="0" y="45">affects the user </tspan><tspan x="0" y="90">workstation, it can send </tspan><tspan x="0" y="135">back local data to the </tspan><tspan x="0" y="180">criminal organization</tspan></text>
             </g>
             <g class="speech" id="speech-malware-1-left">
@@ -978,23 +1017,40 @@
                 <text class="title" transform="matrix(1 0 0 1 40.0005 1103.9963)">Ransomware</text>
                 <text transform="matrix(1 0 0 1 40 1162.5049)"><tspan x="0" y="0" >Jumps to into privileged access </tspan><tspan x="0" y="45">users workstations, shared </tspan><tspan x="0" y="90">drives, and connected systems</tspan></text>
             </g>
-
             <g class="speech" id="speech-malware-1-right">
                 <path class="bubble" d="M1590,1029.6h-497.3c-5.5,0-10,4.5-10,10v107.3l-34.6,20l34.6,20V1291c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10v-251.5C1600,1034,1595.5,1029.6,1590,1029.6z"/>
                 <text class="title" transform="matrix(1 0 0 1 1122.7059 1103.9963)">Ransomware</text>
                 <text transform="matrix(1 0 0 1 1122.7056 1162.5049)"><tspan x="0" y="0">Jumps to into privileged access </tspan><tspan x="0" y="45">users workstations, shared </tspan><tspan x="0" y="90">drives, and connected systems</tspan></text>
             </g>
-
             <g class="speech" id="speech-user-1-before">
-                <path class="bubble" d="M10,870.6h574.3c5.5,0,10,4.5,10,10v143.3l34.6,20l-34.6,20V1195c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-314.5C0,875,4.5,870.6,10,870.6z"/>
-                <text class="title" transform="matrix(1 0 0 1 43.9998 940.9964)" class="st33 st34 st35">User</text>
+                <path class="bubble-before" d="M10,870.6h574.3c5.5,0,10,4.5,10,10v143.3l34.6,20l-34.6,20V1195c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-314.5C0,875,4.5,870.6,10,870.6z"/>
+                <text class="title" transform="matrix(1 0 0 1 43.9998 940.9964)">User</text>
                 <text transform="matrix(1 0 0 1 44 999.5049)"><tspan x="0" y="0">A well educated user, and PEM </tspan><tspan x="0" y="45">controlled workstation drastically </tspan><tspan x="0" y="90">reduce of an attack begin in the </tspan><tspan x="0" y="135">first place</tspan></text>
             </g>
-
             <g class="speech" id="speech-user-1-after">
-                <path class="bubble" d="M1590,870.6h-574.3c-5.5,0-10,4.5-10,10v143.3l-34.6,20l34.6,20V1195c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V880.6C1600,875,1595.5,870.6,1590,870.6z"/>
+                <path class="bubble-after" d="M1590,870.6h-574.3c-5.5,0-10,4.5-10,10v143.3l-34.6,20l34.6,20V1195c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V880.6C1600,875,1595.5,870.6,1590,870.6z"/>
                 <text class="title" transform="matrix(1 0 0 1 1060.7053 940.9964)">User</text>
                 <text transform="matrix(1 0 0 1 1060.7056 999.5049)"><tspan x="0" y="0">Without a proper education and no </tspan><tspan x="0" y="45">implementaions of priveleged </tspan><tspan x="0" y="90">endpoint management by </tspan><tspan x="0" y="135">organizations, it easy to get attacked</tspan></text>
+            </g>
+            <g class="speech" id="speech-user-2-left-before">
+                <path class="bubble-before" d="M594.5,933.7l0,317.3 c0,5.5-4.5,10-10,10l-121.3,0l-20,34.6l-20-34.6L10,1261c-5.5,0-10-4.5-10-10l0-317.3c0-5.5,4.5-10,10-10l574.5,0 C590,923.7,594.5,928.2,594.5,933.7z"/>
+                <text class="title" transform="matrix(1 0 0 1 50 1009.3696)" class="st43 st31 st32">Privileged User</text>
+                <text transform="matrix(1 0 0 1 50 1067.8782)"><tspan x="0" y="0">User authorized by system </tspan><tspan x="0" y="45">adimistrator to access devices and </tspan><tspan x="0" y="90">resources with a higher level of </tspan><tspan x="0" y="135">power, no orphans</tspan></text>
+            </g>
+            <g class="speech" id="speech-user-2-left-after">
+                <path class="bubble-after" d="M594.5,933.7l0,317.3c0,5.5-4.5,10-10,10l-121.3,0l-20,34.6l-20-34.6L10,1261c-5.5,0-10-4.5-10-10l0-317.3 c0-5.5,4.5-10,10-10l574.5,0C590,923.7,594.5,928.2,594.5,933.7z"/>
+                <text class="title" transform="matrix(1 0 0 1 50 1009.3696)" class="st43 st31 st32">Privileged User</text>
+                <text transform="matrix(1 0 0 1 50 1067.8782)"><tspan x="0" y="0">User authorized by system </tspan><tspan x="0" y="45">adimistrator to access devices and </tspan><tspan x="0" y="90">resources with a higher level of </tspan><tspan x="0" y="135">power, no orphans</tspan></text>
+            </g>
+            <g class="speech" id="speech-user-2-right-before">
+                <path class="bubble-before" d="M1005.5,933.7l0,317.3 c0,5.5,4.5,10,10,10l121.3,0l20,34.6l20-34.6l413.1,0c5.5,0,10-4.5,10-10l0-317.3c0-5.5-4.5-10-10-10l-574.5,0 C1010,923.7,1005.5,928.2,1005.5,933.7z"/>
+                <text class="title" transform="matrix(1 0 0 1 1054.8466 1009.3696)" class="st43 st31 st32">Superadim</text>
+                <text transform="matrix(1 0 0 1 1054.8466 1067.8782)"><tspan x="0" y="0">Empowered with Privileged Access </tspan><tspan x="0" y="45">management tool can keep the </tspan><tspan x="0" y="90">protection barrier much easely </tspan></text>
+            </g>
+            <g class="speech" id="speech-user-2-right-after">
+                <path class="bubble-after" d="M1005.5,933.7l0,317.3c0,5.5,4.5,10,10,10l121.3,0l20,34.6l20-34.6l413.1,0c5.5,0,10-4.5,10-10l0-317.3 c0-5.5-4.5-10-10-10l-574.5,0C1010,923.7,1005.5,928.2,1005.5,933.7z"/>
+                <text class="title" transform="matrix(1 0 0 1 1054.8466 1009.3696)" class="st43 st31 st32">Superadim</text>
+                <text transform="matrix(1 0 0 1 1054.8466 1067.8782)"><tspan x="0" y="0">Empowered with Privileged Access </tspan><tspan x="0" y="45">management tool can keep the </tspan><tspan x="0" y="90">protection barrier much easely </tspan></text>
             </g>
             
         </g>
@@ -1055,36 +1111,50 @@
         gsap.set(".malware", {opacity:0})
         gsap.set(".lock", {opacity:0})
         gsap.set(".target", {autoAlpha: 0, cursor: "pointer"}) // all target are invisible and transparent by default eccept for the following //Built mode: replace visibility with auotAlpha 
-        gsap.set("#target-barrier-1", {visibility: "visible"})
-        gsap.set("#target-barrier-2", {visibility: "visible"})
-        gsap.set("#target-barrier-3", {visibility: "visible"})
-        gsap.set("#target-barrier-4", {visibility: "visible"})
-        gsap.set("#target-drops-0", {visibility: "visible"})
-        gsap.set("#target-attacker-0", {visibility: "visible"})
-        gsap.set("#target-user-1", {visibility: "visible"})
-        gsap.set("#target-user-2-left", {visibility: "visible"})
-        gsap.set("#target-user-2-right", {visibility: "visible"})
-        gsap.set("#target-device-2", {visibility: "visible"})
-        gsap.set("#target-device-3-left", {visibility: "visible"})
-        gsap.set("#target-device-3-center", {visibility: "visible"})
-        gsap.set("#target-device-3-right", {visibility: "visible"})
-        gsap.set("#target-device-4", {visibility: "visible"})
+            gsap.set("#target-barrier-1", {visibility: "visible"})
+            gsap.set("#target-barrier-2", {visibility: "visible"})
+            gsap.set("#target-barrier-3", {visibility: "visible"})
+            gsap.set("#target-barrier-4", {visibility: "visible"})
+            gsap.set("#target-drops-0", {visibility: "visible"})
+            gsap.set("#target-attacker-0", {visibility: "visible"})
+            gsap.set("#target-user-1", {visibility: "visible"})
+            gsap.set("#target-user-2-left", {visibility: "visible"})
+            gsap.set("#target-user-2-right", {visibility: "visible"})
+            gsap.set("#target-device-2", {visibility: "visible"})
+            gsap.set("#target-device-3-left", {visibility: "visible"})
+            gsap.set("#target-device-3-center", {visibility: "visible"})
+            gsap.set("#target-device-3-right", {visibility: "visible"})
+            gsap.set("#target-device-4", {visibility: "visible"})
         gsap.set(".speech", {autoAlpha:0})
 
 
         /* Animations */
 
-        const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true})
-        const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true})
-        const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true})
-        const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true})
-        const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true})
-        const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true})
-        const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true})
-        const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true})
-        const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true})
-        const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true})
-        const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true})
+        /* Speeches */
+
+        const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 0.3})
+        const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 0.3})
+
+        /* Barriers */
 
         const barrierG1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g1 .barrier-line", {scaleX: 0}, "<")
@@ -1136,7 +1206,6 @@
 
         /* Hover Listeners */
 
-        /* Before and after */
 
         select("#target-barrier-1").addEventListener("mouseover", (e) =>{
             if (barrierG1.reversed()) {
@@ -1151,6 +1220,47 @@
             
         }, false)
 
+        
+        select("#target-barrier-2").addEventListener("mouseover", (e) =>{
+            if (barrierG2.reversed()) {
+                speechBarrier2Before.play()
+            } else {
+               speechBarrier2After.play() 
+            }
+        }, false)
+        select("#target-barrier-2").addEventListener("mouseleave", (e) =>{
+            speechBarrier2Before.reverse() 
+            speechBarrier2After.reverse() 
+            
+        }, false)
+
+
+        select("#target-barrier-3").addEventListener("mouseover", (e) =>{
+            if (barrierG3.reversed()) {
+                speechBarrier3Before.play()
+            } else {
+               speechBarrier3After.play() 
+            }
+        }, false)
+        select("#target-barrier-3").addEventListener("mouseleave", (e) =>{
+            speechBarrier3Before.reverse() 
+            speechBarrier3After.reverse() 
+        }, false)
+
+        select("#target-barrier-4").addEventListener("mouseover", (e) =>{
+            if (barrierG4.reversed()) {
+                speechBarrier4Before.play()
+            } else {
+               speechBarrier4After.play() 
+            }
+        }, false)
+        select("#target-barrier-4").addEventListener("mouseleave", (e) =>{
+            speechBarrier4Before.reverse() 
+            speechBarrier4After.reverse() 
+        }, false)
+
+
+
         select("#target-user-1").addEventListener("mouseover", (e) =>{
             if (barrierG1.reversed()) {
                 speechUser1Before.play()
@@ -1161,6 +1271,31 @@
         select("#target-user-1").addEventListener("mouseleave", (e) =>{
             speechUser1Before.reverse()
             speechUser1After.reverse()
+        }, false)
+
+
+        select("#target-user-2-left").addEventListener("mouseover", (e) =>{
+            if (barrierG2.reversed()) {
+                speechUser2LeftBefore.play()
+            } else {
+                speechUser2LeftAfter.play()
+            }
+        }, false)
+        select("#target-user-2-left").addEventListener("mouseleave", (e) =>{
+            speechUser2LeftBefore.reverse()
+            speechUser2LeftAfter.reverse()
+        }, false)
+
+        select("#target-user-2-right").addEventListener("mouseover", (e) =>{
+            if (barrierG2.reversed()) {
+                speechUser2RightBefore.play()
+            } else {
+                speechUser2RightAfter.play()
+            }
+        }, false)
+        select("#target-user-2-right").addEventListener("mouseleave", (e) =>{
+            speechUser2RightBefore.reverse()
+            speechUser2RightAfter.reverse()
         }, false)
 
 
@@ -1279,7 +1414,6 @@
                 barrierG4.play() //sets self to false (open)
             } else {
                 barrierG4.reverse() // sets self to true (closed)
-
             }
         }, false)
 
