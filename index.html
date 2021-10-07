@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive infographic describing a Ransomware attack">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;600&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <title>Ransomware: attack and defence</title>
     
     <style>
 
@@ -22,6 +23,17 @@
             font-family: "Roboto", serif;
             margin: 0;
             padding: 0;
+        }
+
+        .wrap {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            background-color: #f0f3f8;
+        }
+
+        svg {
+            height: 110vh;
         }
 
       
@@ -40,38 +52,30 @@
             opacity: 0.95;
         }
 
-         .speech line {
+        .speech line {
             stroke:#FFF;
             stroke-width: 2px;
             stroke-linecap: round;
         }
 
-        .wrap {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            background-color: #f0f3f8;
-        }
+   
 
         .circle-mask {
             fill: #f0f3f8;
         }
 
-        svg {
-            
-            height: 110vh;
-        }
+      
 
         text {
-            
+            font-weight: 300;
             font-size: 30px;
             fill: white;
         }
 
         .title {
             font-size: 40px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 500;
+            /*letter-spacing: 2px;*/
             opacity: 0.9;
         }
          
@@ -92,13 +96,23 @@
         .barrier-small-circle {
             fill:#0088FF;
         }
-    
+
    
         .barrier-plus, .barrier-minus {
             fill:none;
             stroke:#FFFFFF;
             stroke-width:5;
             stroke-linecap:round;            
+        }
+
+
+        .target {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .target-barrier {
+            cursor: pointer;
         }
 
         .user {
@@ -112,8 +126,18 @@
         .countdown { 
             fill: #FF9900;
         }
+
+
+        .lock {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .lock path {
+            fill: #FF9900;
+        }
     
-        .orange-stroke {
+        .lock rect {
             fill:none;
             stroke: #FF9900;
             stroke-width:3;
@@ -125,6 +149,10 @@
         }
     
         .device {
+            fill: #0088FF;
+        }
+
+        .workstation {
             fill: #0088FF;
         }
     
@@ -144,7 +172,7 @@
         <g>
             <g class="drop">
                 <linearGradient id="SVGID_00000057120016528977779920000006739379783099360904_" gradientUnits="userSpaceOnUse" x1="735.0285" y1="526.5248" x2="735.0285" y2="670.5248">
-                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
                     <stop  offset="1" style="stop-color:#FF7D00"/>
                 </linearGradient>
                 <path style="fill:url(#SVGID_00000057120016528977779920000006739379783099360904_);" d="M769.2,623.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C771,630.5,770.4,626.7,769.2,623.1z M747.2,645.4c0,5.5-4.5,10-10,10s-10-4.5-10-10 v-26.2c0-3.5,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2v23.8h-3.8v-23.8c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v26.2c0,3.4,2.8,6.2,6.2,6.2 s6.2-2.8,6.2-6.2v-31.2c0-5.5-4.5-10-10-10s-10,4.5-10,10v28.8h-3.8v-28.8c0-7.6,6.2-13.8,13.8-13.8s13.8,6.1,13.8,13.8V645.4z"/>
@@ -152,7 +180,7 @@
             
             <g class="drop">
                 <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="872.0285" y1="528.5248" x2="872.0285" y2="672.5248">
-                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
                     <stop  offset="1" style="stop-color:#FF7D00"/>
                 </linearGradient>
                 <path style="fill:url(#SVGID_1_);" d="M906.2,625.1c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3 c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36 C908,632.5,907.4,628.7,906.2,625.1z M867,628.9v-15h2.5h5h2.5v15h10l-15,15l-15-15H867z M894.5,653.9h-5h-40v-5h5h35h5V653.9z"/>
@@ -160,7 +188,7 @@
             
             <g class="drop">
                     <linearGradient id="SVGID_00000044138940826451477660000011238277339703549585_" gradientUnits="userSpaceOnUse" x1="802.0285" y1="602.5248" x2="802.0285" y2="746.5248">
-                    <stop  offset="0" style="stop-color:#FF7D00;stop-opacity:0"/>
+                    <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
                     <stop  offset="1" style="stop-color:#FF7D00"/>
                 </linearGradient>
                 <path style="fill:url(#SVGID_00000044138940826451477660000011238277339703549585_);"  d="M836.2,699.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C838,706.5,837.4,702.7,836.2,699.1z M797.6,727.8c-3.9,3.9-10.2,3.9-14.1,0 s-3.9-10.2,0-14.1l10.6-10.6c3.9-3.9,10.2-3.9,14.1,0c0.6,0.6,1.1,1.3,1.5,2l-3.8,3.8c-0.2-0.8-0.6-1.6-1.3-2.3 c-1.9-1.9-5.1-1.9-7.1,0L787,717.2c-1.9,1.9-1.9,5.1,0,7.1c1.9,1.9,5.1,1.9,7.1,0l2.5-2.5c2,0.8,4.2,1,6.4,0.7L797.6,727.8z M818.8,706.6l-10.6,10.6c-3.9,3.9-10.2,3.9-14.1,0c-0.6-0.6-1.1-1.3-1.5-2l3.8-3.8c0.2,0.8,0.6,1.6,1.3,2.3c1.9,1.9,5.1,1.9,7.1,0 l10.6-10.6c1.9-1.9,1.9-5.1,0-7.1c-1.9-1.9-5.1-1.9-7.1,0l-2.5,2.5c-2-0.8-4.2-1-6.4-0.7l5.3-5.3c3.9-3.9,10.2-3.9,14.1,0 S822.7,702.7,818.8,706.6z"/>
@@ -170,7 +198,7 @@
         <!--Barriers-->
         <g>
         
-            <g class="barrier barrier-g1">
+            <g class="barrier-g1">
                 <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
                 <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
                 <circle class="barrier-small-circle" cx="800" cy="813.6" r="30"/>
@@ -178,7 +206,7 @@
                 <line class="barrier-minus" x1="812.5" y1="813" x2="787.5" y2="813"/>
             </g>
             
-            <g class="barrier barrier-g2">
+            <g class="barrier-g2">
                 <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
                 <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
                 <circle class="barrier-small-circle" cx="800" cy="1225.7" r="30"/>
@@ -186,7 +214,7 @@
                 <line class="barrier-minus" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
             </g>
             
-            <g class="barrier barrier-g3">
+            <g class="barrier-g3">
                 <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
                 <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
                 <circle class="barrier-small-circle" cx="800" cy="1637.7" r="30"/>
@@ -194,7 +222,7 @@
                 <line class="barrier-minus" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
             </g>
             
-            <g class="barrier barrier-g4">
+            <g class="barrier-g4">
                 <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
                 <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
                 <circle class="barrier-small-circle" cx="800" cy="2049.7" r="30"/>
@@ -886,48 +914,40 @@
         <g> 
         
             <g class="lock" id="lock-user-top">
-                <path class="malware-fill-2" d="M893.9,1119.4v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H893.9z M880.1,1140.7c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S883.6,1140.7,880.1,1140.7z M886.4,1119.4h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1119.4z"/>
+                <path d="M893.9,1119.4v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H893.9z M880.1,1140.7c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S883.6,1140.7,880.1,1140.7z M886.4,1119.4h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1119.4z"/>
                 <rect x="733.1" y="1005.3" class="orange-stroke" width="134" height="116"/>
             </g>
             
             <g class="lock" id="lock-user-left">
-                <path class="malware-fill-2" d="M538.6,1532.3v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H538.6z M524.9,1553.5c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S528.3,1553.5,524.9,1553.5z M531.1,1532.3h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1532.3z"/>
+                <path d="M538.6,1532.3v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H538.6z M524.9,1553.5c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S528.3,1553.5,524.9,1553.5z M531.1,1532.3h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1532.3z"/>
                 <rect x="377.9" y="1417" class="orange-stroke" width="134" height="116"/>
             </g>
             
             <g class="lock" id="lock-user-right">
-                <path class="malware-fill-2" d="M1250.8,1532.3v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H1250.8z M1237,1553.5c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S1240.5,1553.5,1237,1553.5z M1243.3,1532.3h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1532.3z"/>
+                <path d="M1250.8,1532.3v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H1250.8z M1237,1553.5c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S1240.5,1553.5,1237,1553.5z M1243.3,1532.3h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1532.3z"/>
                 <rect x="1090.9" y="1417" class="orange-stroke" width="134" height="116"/>
             </g>
             
             <g class="lock" id="lock-shared-drive">
-                <path class="malware-fill-2" d="M907.8,1556.4v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H907.8z M894.1,1577.7c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S897.5,1577.7,894.1,1577.7z M900.3,1556.4h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1556.4z"/>
+                <path d="M907.8,1556.4v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H907.8z M894.1,1577.7c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S897.5,1577.7,894.1,1577.7z M900.3,1556.4h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1556.4z"/>
                 <rect x="718.5" y="1392" class="orange-stroke" width="163" height="166"/>
             </g>
             
             <g class="lock" id="lock-domain-controller">
-                <path class="malware-fill-2" d="M425.9,1943.6v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H425.9z M412.2,1964.8c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S415.6,1964.8,412.2,1964.8z M418.4,1943.6h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1943.6z"/>
-                <rect x="184.7" y="1780.7" class="orange-stroke" width="215" height="164"/>
+          
             </g>
             
             <g class="lock" id="lock-hypervisor">
-                <path class="malware-fill-2" d="M744.3,1946.7v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H744.3z M730.6,1967.9c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S734,1967.9,730.6,1967.9z M736.8,1946.7h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1946.7z"/>
-                <rect x="540.1" y="1777.2" class="orange-stroke" width="178" height="171"/>
+   
             </g>
-            
-            <g class="lock" id="lock-web-server">
-                <path class="malware-fill-2" d="M1100.4,1944.3v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H1100.4z M1086.7,1965.6c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2c3.5,0,6.2,2.8,6.2,6.2S1090.1,1965.6,1086.7,1965.6z M1092.9,1944.3h-12.5 v-5c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1944.3z"/>
-                <rect x="858.6" y="1780.7" class="orange-stroke" width="215" height="164"/>
-            </g>
+       
             
             <g class="lock" id="lock-backup-online">
-                <path class="malware-fill-2" d="M1425.9,1928.6v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H1425.9z M1412.1,1949.8c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S1415.6,1949.8,1412.1,1949.8z M1418.4,1928.6h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V1928.6z"/>
-                <rect x="1206" y="1795.2" class="orange-stroke" width="194" height="135"/>
+                
             </g>
             
             <g class="lock" id="lock-backup-offline">
-                <path class="malware-fill-2" d="M1425.9,2330v-5c0-7.6-6.2-13.8-13.8-13.8s-13.8,6.2-13.8,13.8v5h-6.2v30h40v-30H1425.9z M1412.1,2351.3c-3.5,0-6.2-2.8-6.2-6.2s2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2S1415.6,2351.3,1412.1,2351.3z M1418.4,2330h-12.5v-5 c0-3.4,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2V2330z"/>
-                <rect x="1206" y="2171.3" class="orange-stroke" width="194" height="160"/>
+               
             </g>
         </g>
 
@@ -1099,10 +1119,11 @@
         </g>
         <!--targets-->
         <g>
-            <circle id="target-barrier-1" class="barrier target" cx="800" cy="813" r="56.2"/>
-            <circle id="target-barrier-2" class="barrier target" cx="800" cy="1225" r="56.2"/>
-            <circle id="target-barrier-3" class="barrier target" cx="800" cy="1637" r="56.2"/>
-            <circle id="target-barrier-4" class="barrier target" cx="800" cy="2049" r="56.2"/>
+            
+            <circle id="target-barrier-1" class="target target-barrier" cx="800" cy="813" r="56.2"/>
+            <circle id="target-barrier-2" class="target target-barrier" cx="800" cy="1225" r="56.2"/>
+            <circle id="target-barrier-3" class="target target-barrier" cx="800" cy="1637" r="56.2"/>
+            <circle id="target-barrier-4" class="target target-barrier" cx="800" cy="2049" r="56.2"/>
             <path id="target-user-1" class="target" d="M730,1125v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33l6.6-3.4 v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H870v1c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/>
             <path id="target-user-2-left" class="target" d="M374,1536v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33 l6.6-3.4v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42 H496c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H514v1c0,1.4-0.2,2.7-0.4,4h0.4v26H374z"/>
             <path id="target-user-2-right" class="target" d="M1088.2,1536v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1H1056v-30c0-13,8.6-24.1,25.6-33 l6.6-3.4v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42 h24.9c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30h-32.2v1c0,1.4-0.2,2.7-0.4,4h0.4v26H1088.2z"/>
@@ -1146,15 +1167,15 @@
         /* Initial states */
 
         gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true})
-        gsap.set(".barrier .barrier-line", {scaleY: 1, transformOrigin: "50% 50%"})
-        gsap.set(".barrier .barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"})
-        gsap.set(".stolen", {opacity:0})
-        gsap.set(".workstation", {fill: "#0088FF"})
+        gsap.set(".barrier-line", {scaleY: 1, transformOrigin: "50% 50%"})
+        gsap.set(".barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"})
+        gsap.set(".stolen", {autoAlpha:0})
         
-        gsap.set(".malware", {opacity:0})
-        gsap.set(".lock", {opacity:0})
-        gsap.set(".barrier", {cursor: "pointer"})
-        gsap.set(".target", {autoAlpha: 0}) // all target are invisible and transparent by default eccept for the following //Built mode: replace visibility with auotAlpha 
+        gsap.set(".malware", {autoAlpha:0})
+        
+        
+        // all target visibility "hidden"" and opacity 0 by default, eccept for the following visibility "visible" and opacity (still) 0, to be targettable
+        
         gsap.set("#target-barrier-1", {visibility: "visible"})
         gsap.set("#target-barrier-2", {visibility: "visible"})
         gsap.set("#target-barrier-3", {visibility: "visible"})
@@ -1178,37 +1199,37 @@
 
         /* Speeches */
 
-        const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 1})
-        const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 1})
-        const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 1})
-        const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true, delay: 1})
-        const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 1})
-        const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 1})
-        const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice2Before = gsap.to("#speech-device-2-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3CenterBefore = gsap.to("#speech-device-3-center-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3RightBefore = gsap.to("#speech-device-3-right-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3LeftBefore = gsap.to("#speech-device-3-left-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice4Before = gsap.to("#speech-device-4-before", {autoAlpha:1, paused: true, delay: 1})
-        const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 1})
+        const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 2})
+        const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 2})
+        const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 2})
+        const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true, delay: 2})
+        const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 2})
+        const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 2})
+        const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice2Before = gsap.to("#speech-device-2-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3CenterBefore = gsap.to("#speech-device-3-center-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3RightBefore = gsap.to("#speech-device-3-right-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3LeftBefore = gsap.to("#speech-device-3-left-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice4Before = gsap.to("#speech-device-4-before", {autoAlpha:1, paused: true, delay: 2})
+        const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 2})
  
         
         
@@ -1218,10 +1239,10 @@
         const barrierG1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g1 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g1 .barrier-plus", {scaleY: 1}, "<")
-            .to(".slolen-g1", {opacity: 1}, "<")
-            .to(".malware-g0", {opacity: 1}, "<")
+            .to(".slolen-g1", {autoAlpha: 1}, "<")
+            .to(".malware-g0", {autoAlpha: 1}, "<")
             .to(".user-g1 .workstation", {fill: "#CC0000"}, "<")
-            .to(".malware-g1", {opacity: 1}, "<")
+            .to(".malware-g1", {autoAlpha: 1}, "<")
             .to("#target-malware-0", {visibility: "visible"}, "<")
             .to("#target-credentials-1", {visibility: "visible"}, "<")
             .to("#target-data-1", {visibility: "visible"}, "<")
@@ -1231,7 +1252,7 @@
         const barrierG2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g2 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g2 .barrier-plus", {scaleY: 1}, "<")
-            .to(".malware-g2", {opacity: 1}, "<")
+            .to(".malware-g2", {autoAlpha: 1}, "<")
             .to(".device-g0", {fill: "#CC0000"}, "<")
             .to(".user-g2 .workstation", {fill: "#CC0000"}, "<")
             .to("#target-malware-2-center", {visibility: "visible"}, "<")
@@ -1253,8 +1274,8 @@
         const barrierG3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g3 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g3 .barrier-plus", {scaleY: 1}, "<")
-            .to(".stolen-g3", {opacity: 1}, "<")
-            .to(".malware-g3", {opacity: 1}, "<" )
+            .to(".stolen-g3", {autoAlpha: 1}, "<")
+            .to(".malware-g3", {autoAlpha: 1}, "<" )
             .to(".device-g1", {fill: "#CC0000"}, "<")
             .to("#target-malware-3-right", {visibility: "visible"}, "<")
             .to("#target-malware-3-center-right", {visibility: "visible"}, "<")
@@ -1272,7 +1293,7 @@
         const barrierG4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
             .to(".barrier-g4 .barrier-line", {scaleX: 0}, "<")
             .to(".barrier-g4 .barrier-plus", {scaleY: 1}, "<")
-            .to(".malware-g4", {opacity: 1}, "<" )
+            .to(".malware-g4", {autoAlpha: 1}, "<" )
             .to(".device-g2", {fill: "#CC0000"}, "<")
             .to("#target-malware-4", {visibility: "visible"}, "<")
     
