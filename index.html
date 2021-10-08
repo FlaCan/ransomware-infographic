@@ -155,6 +155,21 @@
         .workstation {
             fill: #0088FF;
         }
+
+        .speech {
+            opacity: 0;
+            visibility: hidden;            
+        }
+
+        .stolen {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .malware {
+            opacity: 0;
+            visibility: hidden;
+        }
     
 
     
@@ -1169,9 +1184,8 @@
         gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true})
         gsap.set(".barrier-line", {scaleY: 1, transformOrigin: "50% 50%"})
         gsap.set(".barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"})
-        gsap.set(".stolen", {autoAlpha:0})
+     
         
-        gsap.set(".malware", {autoAlpha:0})
         
         
         // all target visibility "hidden"" and opacity 0 by default, eccept for the following visibility "visible" and opacity (still) 0, to be targettable
@@ -1190,7 +1204,7 @@
         gsap.set("#target-device-3-center", {visibility: "visible"})
         gsap.set("#target-device-3-right", {visibility: "visible"})
         gsap.set("#target-device-4", {visibility: "visible"})
-        gsap.set(".speech", {autoAlpha:0})
+        
 
 
 
