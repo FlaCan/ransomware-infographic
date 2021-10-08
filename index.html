@@ -12,13 +12,6 @@
     
     <style>
 
-
-        /* 
-        Properties that won't be animated/changed shall be set in css. 
-        Properties tha will be animated/changed shall be set by gsap for performance.
-        */
-     
-
         body {
             font-family: "Roboto", serif;
             margin: 0;
@@ -96,7 +89,6 @@
         .barrier-small-circle {
             fill:#0088FF;
         }
-
    
         .barrier-plus, .barrier-minus {
             fill:none;
@@ -104,7 +96,6 @@
             stroke-width:5;
             stroke-linecap:round;            
         }
-
 
         .target {
             opacity: 0;
@@ -126,7 +117,6 @@
         .countdown { 
             fill: #FF9900;
         }
-
 
         .lock {
             opacity: 0;
@@ -170,11 +160,7 @@
             opacity: 0;
             visibility: hidden;
         }
-    
-
-    
      
-    
     </style>
 
 </head>
@@ -1280,7 +1266,6 @@
         gsap.set("#countdown_backup-offline", {scale: 0})
         gsap.set("#countdown_backup-offline > .count-down", {transformOrigin: "50% 50%"})
         
-        //const scale = gsap.to("#countdown_backup-offline", {scale: 1.5, ease: "back", paused: true}, "<")
         const rotation = gsap.to("#countdown_backup-offline > .count-down", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
                         
    
