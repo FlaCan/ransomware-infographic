@@ -1,16 +1,12 @@
 const select = (el) => document.querySelector(el)
 const selectAll = (el) => document.querySelectorAll(el)
 
-/* Initial states */
+/* Initial states ****************************************************************************************/
 
 
 gsap.set(".barrier-line", {scaleY: 1, transformOrigin: "50% 50%"})
 gsap.set(".barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"})
 gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
-
-
-
-
 
 
 // all target visibility "hidden"" and opacity 0 by default, eccept for the following visibility "visible" and opacity (still) 0, to be targettable
@@ -42,22 +38,11 @@ gsap.set("#target-device-4", {visibility: "visible"})
 gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true})
 gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
 
-/* Speeches */
 
-const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 2})
+/* Speeches *************/
+
+
+
 const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 2})
 const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 2})
 const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 2})
@@ -65,16 +50,36 @@ const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused
 const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 2})
 const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 2})
 const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 2})
+
+
+/* with before */
+const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 2})
+const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 2})
+const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 2})
+const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 2})
 const speechDevice2Before = gsap.to("#speech-device-2-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 2})
 const speechDevice3CenterBefore = gsap.to("#speech-device-3-center-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 2})
 const speechDevice3RightBefore = gsap.to("#speech-device-3-right-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 2})
 const speechDevice3LeftBefore = gsap.to("#speech-device-3-left-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 2})
 const speechDevice4Before = gsap.to("#speech-device-4-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 2})
+
+/* with after
+const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 2})
+const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 2})
+const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 2})
+const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 2})
+const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 2})
+const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 2})
+const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 2})
+const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 2})
+const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 2}) 
+*/
 
 
 /* Barriers */
@@ -182,178 +187,234 @@ select("#target-barrier-4").addEventListener("click", () => {
 
 // with before and after states aka 2 bubble speech
 
-select("#target-barrier-1").addEventListener("mouseover", () =>{
-    if (barrierG1.reversed()) {
-        speechBarrier1Before.play()
-    } else {
-        speechBarrier1After.play() 
-    }
-}, false)
-select("#target-barrier-1").addEventListener("mouseleave", () =>{
-    speechBarrier1Before.reverse() 
-    speechBarrier1After.reverse() 
+// select("#target-barrier-1").addEventListener("mouseover", () =>{
+//     if (barrierG1.reversed()) {
+//         speechBarrier1Before.play()
+//     } else {
+//         speechBarrier1After.play() 
+//     }
+// }, false)
+// select("#target-barrier-1").addEventListener("mouseleave", () =>{
+//     speechBarrier1Before.reverse() 
+//     speechBarrier1After.reverse() 
     
-}, false)
+// }, false)
 
 
 
-select("#target-barrier-2").addEventListener("mouseover", () =>{
-    if (barrierG2.reversed()) {
-        speechBarrier2Before.play()
-    } else {
-        speechBarrier2After.play() 
-    }
-}, false)
-select("#target-barrier-2").addEventListener("mouseleave", () =>{
-    speechBarrier2Before.reverse() 
-    speechBarrier2After.reverse() 
+// select("#target-barrier-2").addEventListener("mouseover", () =>{
+//     if (barrierG2.reversed()) {
+//         speechBarrier2Before.play()
+//     } else {
+//         speechBarrier2After.play() 
+//     }
+// }, false)
+// select("#target-barrier-2").addEventListener("mouseleave", () =>{
+//     speechBarrier2Before.reverse() 
+//     speechBarrier2After.reverse() 
     
-}, false)
+// }, false)
 
 
 
-select("#target-barrier-3").addEventListener("mouseover", () =>{
-    if (barrierG3.reversed()) {
-        speechBarrier3Before.play()
-    } else {
-        speechBarrier3After.play() 
-    }
-}, false)
-select("#target-barrier-3").addEventListener("mouseleave", () =>{
-    speechBarrier3Before.reverse() 
-    speechBarrier3After.reverse() 
-}, false)
+// select("#target-barrier-3").addEventListener("mouseover", () =>{
+//     if (barrierG3.reversed()) {
+//         speechBarrier3Before.play()
+//     } else {
+//         speechBarrier3After.play() 
+//     }
+// }, false)
+// select("#target-barrier-3").addEventListener("mouseleave", () =>{
+//     speechBarrier3Before.reverse() 
+//     speechBarrier3After.reverse() 
+// }, false)
 
 
 
-select("#target-barrier-4").addEventListener("mouseover", () =>{
-    if (barrierG4.reversed()) {
-        speechBarrier4Before.play()
-    } else {
-        speechBarrier4After.play() 
-    }
-}, false)
-select("#target-barrier-4").addEventListener("mouseleave", () =>{
-    speechBarrier4Before.reverse() 
-    speechBarrier4After.reverse() 
-}, false) 
+// select("#target-barrier-4").addEventListener("mouseover", () =>{
+//     if (barrierG4.reversed()) {
+//         speechBarrier4Before.play()
+//     } else {
+//         speechBarrier4After.play() 
+//     }
+// }, false)
+// select("#target-barrier-4").addEventListener("mouseleave", () =>{
+//     speechBarrier4Before.reverse() 
+//     speechBarrier4After.reverse() 
+// }, false) 
 
 
 
-select("#target-user-1").addEventListener("mouseover", () =>{
-    if (barrierG1.reversed()) {
-        speechUser1Before.play()
-    } else {
-        speechUser1After.play()
-    }
-}, false)
-select("#target-user-1").addEventListener("mouseleave", () =>{
-    speechUser1Before.reverse()
-    speechUser1After.reverse()
-}, false)
+// select("#target-user-1").addEventListener("mouseover", () =>{
+//     if (barrierG1.reversed()) {
+//         speechUser1Before.play()
+//     } else {
+//         speechUser1After.play()
+//     }
+// }, false)
+// select("#target-user-1").addEventListener("mouseleave", () =>{
+//     speechUser1Before.reverse()
+//     speechUser1After.reverse()
+// }, false)
 
 
 
-select("#target-user-2-left").addEventListener("mouseover", () =>{
-    if (barrierG2.reversed()) {
-        speechUser2LeftBefore.play()
-    } else {
-        speechUser2LeftAfter.play()
-    }
-}, false)
-select("#target-user-2-left").addEventListener("mouseleave", () =>{
-    speechUser2LeftBefore.reverse()
-    speechUser2LeftAfter.reverse()
-}, false)
+// select("#target-user-2-left").addEventListener("mouseover", () =>{
+//     if (barrierG2.reversed()) {
+//         speechUser2LeftBefore.play()
+//     } else {
+//         speechUser2LeftAfter.play()
+//     }
+// }, false)
+// select("#target-user-2-left").addEventListener("mouseleave", () =>{
+//     speechUser2LeftBefore.reverse()
+//     speechUser2LeftAfter.reverse()
+// }, false)
 
 
 
-select("#target-user-2-right").addEventListener("mouseover", () =>{
-    if (barrierG2.reversed()) {
-        speechUser2RightBefore.play()
-    } else {
-        speechUser2RightAfter.play()
-    }
-}, false)
-select("#target-user-2-right").addEventListener("mouseleave", () =>{
-    speechUser2RightBefore.reverse()
-    speechUser2RightAfter.reverse()
-}, false)
+// select("#target-user-2-right").addEventListener("mouseover", () =>{
+//     if (barrierG2.reversed()) {
+//         speechUser2RightBefore.play()
+//     } else {
+//         speechUser2RightAfter.play()
+//     }
+// }, false)
+// select("#target-user-2-right").addEventListener("mouseleave", () =>{
+//     speechUser2RightBefore.reverse()
+//     speechUser2RightAfter.reverse()
+// }, false)
 
 
 
-select("#target-device-2").addEventListener("mouseover", () =>{
-    if (barrierG2.reversed()) {
-        speechDevice2Before.play()
-    } else {
-        speechDevice2After.play()
-    }
-}, false)
-select("#target-device-2").addEventListener("mouseleave", () =>{
-    speechDevice2Before.reverse()
-    speechDevice2After.reverse()
-}, false)
+// select("#target-device-2").addEventListener("mouseover", () =>{
+//     if (barrierG2.reversed()) {
+//         speechDevice2Before.play()
+//     } else {
+//         speechDevice2After.play()
+//     }
+// }, false)
+// select("#target-device-2").addEventListener("mouseleave", () =>{
+//     speechDevice2Before.reverse()
+//     speechDevice2After.reverse()
+// }, false)
 
 
 
-select("#target-device-3-center").addEventListener("mouseover", () =>{
-    if (barrierG3.reversed()) {
-        speechDevice3CenterBefore.play()
-    } else {
-        speechDevice3CenterAfter.play()
-    }
-}, false)
-select("#target-device-3-center").addEventListener("mouseleave", () =>{
-    speechDevice3CenterBefore.reverse()
-    speechDevice3CenterAfter.reverse()
-}, false)
+// select("#target-device-3-center").addEventListener("mouseover", () =>{
+//     if (barrierG3.reversed()) {
+//         speechDevice3CenterBefore.play()
+//     } else {
+//         speechDevice3CenterAfter.play()
+//     }
+// }, false)
+// select("#target-device-3-center").addEventListener("mouseleave", () =>{
+//     speechDevice3CenterBefore.reverse()
+//     speechDevice3CenterAfter.reverse()
+// }, false)
 
 
 
-select("#target-device-3-right").addEventListener("mouseover", () =>{
-    if (barrierG3.reversed()) {
-        speechDevice3RightBefore.play()
-    } else {
-        speechDevice3RightAfter.play()
-    }
-}, false)
-select("#target-device-3-right").addEventListener("mouseleave", () =>{
-    speechDevice3RightBefore.reverse()
-    speechDevice3RightAfter.reverse()
-}, false)
+// select("#target-device-3-right").addEventListener("mouseover", () =>{
+//     if (barrierG3.reversed()) {
+//         speechDevice3RightBefore.play()
+//     } else {
+//         speechDevice3RightAfter.play()
+//     }
+// }, false)
+// select("#target-device-3-right").addEventListener("mouseleave", () =>{
+//     speechDevice3RightBefore.reverse()
+//     speechDevice3RightAfter.reverse()
+// }, false)
 
 
 
-select("#target-device-3-left").addEventListener("mouseover", () =>{
-    if (barrierG3.reversed()) {
-        speechDevice3LeftBefore.play()
-    } else {
-        speechDevice3LeftAfter.play()
-    }
-}, false)
-select("#target-device-3-left").addEventListener("mouseleave", () =>{
-    speechDevice3LeftBefore.reverse()
-    speechDevice3LeftAfter.reverse()
-}, false)
+// select("#target-device-3-left").addEventListener("mouseover", () =>{
+//     if (barrierG3.reversed()) {
+//         speechDevice3LeftBefore.play()
+//     } else {
+//         speechDevice3LeftAfter.play()
+//     }
+// }, false)
+// select("#target-device-3-left").addEventListener("mouseleave", () =>{
+//     speechDevice3LeftBefore.reverse()
+//     speechDevice3LeftAfter.reverse()
+// }, false)
 
 
 
-select("#target-device-4").addEventListener("mouseover", () =>{
-    if (barrierG2.reversed()) {
-        speechDevice4Before.play()
-    } else {
-        speechDevice4After.play()
-    }
-}, false)
-select("#target-device-4").addEventListener("mouseleave", () =>{
-    speechDevice4Before.reverse()
-    speechDevice4After.reverse()
-}, false)
+// select("#target-device-4").addEventListener("mouseover", () =>{
+//     if (barrierG2.reversed()) {
+//         speechDevice4Before.play()
+//     } else {
+//         speechDevice4After.play()
+//     }
+// }, false)
+// select("#target-device-4").addEventListener("mouseleave", () =>{
+//     speechDevice4Before.reverse()
+//     speechDevice4After.reverse()
+// }, false)
+
+
+/* Try without after.play */
+select("#target-barrier-1").addEventListener("mouseover", () =>{speechBarrier1Before.play()}, false)
+select("#target-barrier-1").addEventListener("mouseleave", () =>{speechBarrier1Before.reverse()}, false)
+
+
+select("#target-barrier-2").addEventListener("mouseover", () =>{speechBarrier2Before.play()}, false)
+select("#target-barrier-2").addEventListener("mouseleave", () =>{speechBarrier2Before.reverse()}, false)
+
+
+select("#target-barrier-3").addEventListener("mouseover", () =>{speechBarrier3Before.play()}, false)
+select("#target-barrier-3").addEventListener("mouseleave", () =>{speechBarrier3Before.reverse()}, false)
 
 
 
+select("#target-barrier-4").addEventListener("mouseover", () =>{speechBarrier4Before.play()}, false)
+select("#target-barrier-4").addEventListener("mouseleave", () =>{speechBarrier4Before.reverse()}, false) 
 
-// without before and after states
+
+
+select("#target-user-1").addEventListener("mouseover", () =>{speechUser1Before.play()}, false)
+select("#target-user-1").addEventListener("mouseleave", () =>{speechUser1Before.reverse()}, false)
+
+
+
+select("#target-user-2-left").addEventListener("mouseover", () =>{speechUser2LeftBefore.play()}, false)
+select("#target-user-2-left").addEventListener("mouseleave", () =>{speechUser2LeftBefore.reverse()}, false)
+
+
+
+select("#target-user-2-right").addEventListener("mouseover", () =>{speechUser2RightBefore.play()}, false)
+select("#target-user-2-right").addEventListener("mouseleave", () =>{speechUser2RightBefore.reverse()}, false)
+
+
+
+select("#target-device-2").addEventListener("mouseover", () =>{speechDevice2Before.play()}, false)
+select("#target-device-2").addEventListener("mouseleave", () =>{speechDevice2Before.reverse()}, false)
+
+
+
+select("#target-device-3-center").addEventListener("mouseover", () =>{speechDevice3CenterBefore.play()}, false)
+select("#target-device-3-center").addEventListener("mouseleave", () =>{speechDevice3CenterBefore.reverse()}, false)
+
+
+
+select("#target-device-3-right").addEventListener("mouseover", () =>{speechDevice3RightBefore.play()}, false)
+select("#target-device-3-right").addEventListener("mouseleave", () =>{speechDevice3RightBefore.reverse()}, false)
+
+
+
+select("#target-device-3-left").addEventListener("mouseover", () =>{speechDevice3LeftBefore.play()}, false)
+select("#target-device-3-left").addEventListener("mouseleave", () =>{speechDevice3LeftBefore.reverse()}, false)
+
+
+
+select("#target-device-4").addEventListener("mouseover", () =>{speechDevice4Before.play()}, false)
+select("#target-device-4").addEventListener("mouseleave", () =>{speechDevice4Before.reverse()}, false)
+
+
+// always without before and after states
 
 select("#target-attacker-0").addEventListener("mouseover", () =>{
     speechAttacker0.play()
