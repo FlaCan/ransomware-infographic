@@ -29,7 +29,6 @@ gsap.set("#target-device-4", {visibility: "visible"})
 
 
 
-
 /* Animations *********************************************************************************************/
 
 
@@ -37,48 +36,49 @@ gsap.set("#target-device-4", {visibility: "visible"})
 
 gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true})
 gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
+const pop = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "<")
 
 
 /* Speeches *************/
 
 
 
-const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 2})
-const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 2})
-const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 2})
-const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true, delay: 2})
-const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 2})
-const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 2})
-const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 2})
+const speechAttacker0 = gsap.to("#speech-attacker-0", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDroppers0 = gsap.to("#speech-droppers-0", {autoAlpha:1, paused: true, delay: 1.5})
+const speechMalware1 = gsap.to("#speech-malware-1", {autoAlpha:1, paused: true, delay: 1.5})
+const speechCredentials1 = gsap.to("#speech-credentials-1", {autoAlpha:1, paused: true, delay: 1.5})
+const speechData1 = gsap.to("#speech-data-1", {autoAlpha:1, paused: true, delay: 1.5})
+const speechMalware1Left = gsap.to("#speech-malware-1-left", {autoAlpha:1, paused: true, delay: 1.5})
+const speechMalware1Right = gsap.to("#speech-malware-1-right", {autoAlpha:1, paused: true, delay: 1.5})
 
 
 /* with before */
-const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice2Before = gsap.to("#speech-device-2-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3CenterBefore = gsap.to("#speech-device-3-center-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3RightBefore = gsap.to("#speech-device-3-right-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3LeftBefore = gsap.to("#speech-device-3-left-before", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice4Before = gsap.to("#speech-device-4-before", {autoAlpha:1, paused: true, delay: 2})
+const speechBarrier1Before = gsap.to("#speech-barrier-1-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier2Before = gsap.to("#speech-barrier-2-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier3Before = gsap.to("#speech-barrier-3-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier4Before = gsap.to("#speech-barrier-4-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser1Before = gsap.to("#speech-user-1-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser2LeftBefore = gsap.to("#speech-user-2-left-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser2RightBefore = gsap.to("#speech-user-2-right-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice2Before = gsap.to("#speech-device-2-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3CenterBefore = gsap.to("#speech-device-3-center-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3RightBefore = gsap.to("#speech-device-3-right-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3LeftBefore = gsap.to("#speech-device-3-left-before", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice4Before = gsap.to("#speech-device-4-before", {autoAlpha:1, paused: true, delay: 1.5})
 
 /* with after
-const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 2})
-const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 2})
-const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 2})
-const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 2}) 
+const speechBarrier1After = gsap.to("#speech-barrier-1-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier2After = gsap.to("#speech-barrier-2-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier3After = gsap.to("#speech-barrier-3-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechBarrier4After = gsap.to("#speech-barrier-4-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser1After = gsap.to("#speech-user-1-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser2LeftAfter = gsap.to("#speech-user-2-left-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechUser2RightAfter = gsap.to("#speech-user-2-right-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice2After = gsap.to("#speech-device-2-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3CenterAfter = gsap.to("#speech-device-3-center-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3RightAfter = gsap.to("#speech-device-3-right-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice3LeftAfter = gsap.to("#speech-device-3-left-after", {autoAlpha:1, paused: true, delay: 1.5})
+const speechDevice4After = gsap.to("#speech-device-4-after", {autoAlpha:1, paused: true, delay: 1.5}) 
 */
 
 
@@ -123,15 +123,18 @@ const barrierG3 = gsap.timeline({paused: true, reversed: true, defaults:{duratio
     .to("#target-malware-3-left", {visibility: "visible"}, "<")
     .to("#target-data-2-left", {visibility: "visible"}, "<")
     .to("#target-data-2-right", {visibility: "visible"}, "<")
-    // only scale - the rotation keeps going in background
-    .to(".countdown#countdown_backup-offline", {autoAlpha:1, scale: 1.5, ease: "back"}, "<")
-
+    
+    
 const barrierG4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
     .to(".barrier-g4 .barrier-line", {scaleX: 0}, "<")
     .to(".barrier-g4 .barrier-plus", {scaleY: 1}, "<")
     .to(".malware-g4", {autoAlpha: 1}, "<" )
     .to(".device-g2", {fill: "#CC0000"}, "<")
     .to("#target-malware-4", {visibility: "visible"}, "<")
+    
+
+    
+    
 
     
 
@@ -144,6 +147,7 @@ select("#target-barrier-1").addEventListener("click", () => {
         barrierG1.reverse() // sets self to true (closed)
         barrierG2.reverse() // sets G2 to true (closed)
         barrierG3.reverse() // sets G3 to true (closed)
+        pop.reverse()
         barrierG4.reverse() // sets G4 to true (closed)
     }
 }, false)
@@ -155,6 +159,7 @@ select("#target-barrier-2").addEventListener("click", () => {
     } else {
         barrierG2.reverse() //sets self to true (closed)
         barrierG3.reverse() // sets G3 to true (closed)
+        pop.reverse()
         barrierG4.reverse() // sets G4 to true (closed)
     }
 }, false)
@@ -164,9 +169,11 @@ select("#target-barrier-3").addEventListener("click", () => {
         barrierG1.play() //sets G1 to false (open)
         barrierG2.play() //sets G2 to false (open)
         barrierG3.play() //sets self to false (open)
+        pop.play()
 
     } else {
         barrierG3.reverse() // sets self to true (closed)
+        pop.reverse()
         barrierG4.reverse() // sets G4 to true (closed)                
     }
 }, false)
@@ -176,8 +183,10 @@ select("#target-barrier-4").addEventListener("click", () => {
         barrierG1.play() //sets G1 to false (open)
         barrierG2.play() //sets G2 to false (open)
         barrierG3.play() //sets G3 to false (open)
+        pop.reverse()
         barrierG4.play() //sets self to false (open)
     } else {
+        pop.play()
         barrierG4.reverse() // sets self to true (closed)
     }
 }, false)
@@ -416,23 +425,16 @@ select("#target-device-4").addEventListener("mouseleave", () =>{speechDevice4Bef
 
 // always without before and after states
 
-select("#target-attacker-0").addEventListener("mouseover", () =>{
-    speechAttacker0.play()
-}, false)
-select("#target-attacker-0").addEventListener("mouseleave", () =>{
-    speechAttacker0.reverse()
-}, false)
+select("#target-attacker-0").addEventListener("mouseover", () =>{speechAttacker0.play()}, false)
+select("#target-attacker-0").addEventListener("mouseleave", () =>{speechAttacker0.reverse()}, false)
 
 
 
-select("#target-drops-0").addEventListener("mouseover", () =>{
-    speechDroppers0.play()
-}, false)
-select("#target-drops-0").addEventListener("mouseleave", () =>{
-    speechDroppers0.reverse()
-}, false)
+select("#target-drops-0").addEventListener("mouseover", () =>{speechDroppers0.play()}, false)
+select("#target-drops-0").addEventListener("mouseleave", () =>{speechDroppers0.reverse()}, false)
 
 
+// only if relative barriers are open
 
 select("#target-malware-0").addEventListener("mouseover", () =>{
     if (!barrierG1.reversed()) {

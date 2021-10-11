@@ -7,175 +7,18 @@
     <meta name="description" content="Interactive infographic describing a Ransomware attack">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+
     <title>Ransomware: attack and defence</title>
-    
-    <style>
 
-        body {
-            font-family: "Roboto", serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .wrap {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            background-color: #f0f3f8;
-        }
-
-        svg {
-            height: 110vh;
-        }
-
-     
-    </style>
 
 </head>
 <body>
 <div class="wrap">
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 2600">
-    <style>
 
-    
-
-        .bubble {
-            fill: #000011;
-            opacity: 0.85;
-        }
-
-        .bubble-before {
-            fill: #000011;
-            opacity: 0.85;
-        }
-
-        .bubble-after {
-            fill: #CC0000;
-            opacity: 0.95;
-        }
-
-        .speech line {
-            stroke:#FFF;
-            stroke-width: 2px;
-            stroke-linecap: round;
-        }
-
-        .circle-mask {
-            fill: #f0f3f8;
-        }
-        
-
-        text {
-            font-weight: 300;
-            font-size: 30px;
-            fill: white;
-        }
-
-        .title {
-            font-size: 40px;
-            font-weight: 500;
-            /*letter-spacing: 2px;*/
-            opacity: 0.9;
-        }
-            
-        /* Barriers */
-    
-        .barrier-line, .barrier-line-muted {
-            fill:none;
-            stroke:#0088FF;
-            stroke-width:5;
-            stroke-linecap:round;
-        }
-
-        .barrier-line-muted {
-            stroke:#003388;
-            opacity: 0.1;
-        }
-    
-        .barrier-small-circle {
-            fill:#0088FF;
-        }
-    
-        .barrier-plus, .barrier-minus {
-            fill:none;
-            stroke:#FFFFFF;
-            stroke-width:5;
-            stroke-linecap:round;            
-        }
-
-        .target {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .target-barrier {
-            cursor: pointer;
-        }
-
-        .user {
-            fill: #4C4C58;
-        }
-
-        .credentials { 
-            fill: #FF9900;
-        }
-        
-
-        .lock {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .lock path {
-            fill: #FF9900;
-        }
-    
-        .lock rect {
-            fill:none;
-            stroke: #FF9900;
-            stroke-width:3;
-            stroke-miterlimit:10;
-        }
-    
-        .device {
-            fill: #0088FF;
-        }
-
-        .workstation {
-            fill: #0088FF;
-        }
-
-        .speech {
-            opacity: 0;
-            visibility: hidden;            
-        }
-
-        .stolen {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .malware {
-            opacity: 0;
-            visibility: hidden;
-        }
-        #virus .red {
-            fill: #CC0000;
-        }
-        #virus .orange {
-            fill:#FF7D00;
-        }
-
-        .countdown {
-            opacity: 0.1;
-            visibility: hidden;
-            
-        }
-
-        
-    </style>
 
     <defs>
         <symbol id="virus">
@@ -304,10 +147,10 @@
             <path style="fill:#FFC000;" d="M1376,1440l-26,26v54h60v-80H1376z M1376,1448v18h-18L1376,1448z M1402,1508h-44v-6h44V1508z M1402,1496h-44v-6h44V1496z M1402,1484h-44v-6h44V1484z"/>
         </g>
         <g class="stolen slolen-g1">
-            <path style="fill:#0088ff;" d="M643.6,480.2c-43,30.5-77.4,72.8-99.8,120.6c-11.3,23.9-19.6,49.2-24.9,75.1 c-5.3,25.9-7.6,52.5-6.9,79c0.7,26.5,4.5,52.9,11.2,78.5c6.7,25.6,16.5,50.5,29.2,73.8c12.7,23.3,28.2,45.1,46.4,64.5 c18.1,19.4,38.8,36.5,61.5,50.4c0.1,0.1,0.2,0.2,0.1,0.4c-0.1,0.1-0.2,0.2-0.4,0.1c-22.8-13.7-43.7-30.7-62.1-50 c-18.4-19.3-34.2-41.1-47.1-64.4c-12.9-23.3-23-48.3-30-74c-7-25.8-11-52.4-11.9-79.1c-0.9-26.7,1.2-53.5,6.3-79.8 c5.2-26.3,13.4-51.9,24.6-76.3c22.4-48.7,56.9-92,100.5-123.5c1.3-0.9,3.1-0.6,4.1,0.7C645.2,477.4,644.9,479.3,643.6,480.2 L643.6,480.2L643.6,480.2z"/> 
+            <path style="fill:#FFC000;" d="M643.6,480.2c-43,30.5-77.4,72.8-99.8,120.6c-11.3,23.9-19.6,49.2-24.9,75.1 c-5.3,25.9-7.6,52.5-6.9,79c0.7,26.5,4.5,52.9,11.2,78.5c6.7,25.6,16.5,50.5,29.2,73.8c12.7,23.3,28.2,45.1,46.4,64.5 c18.1,19.4,38.8,36.5,61.5,50.4c0.1,0.1,0.2,0.2,0.1,0.4c-0.1,0.1-0.2,0.2-0.4,0.1c-22.8-13.7-43.7-30.7-62.1-50 c-18.4-19.3-34.2-41.1-47.1-64.4c-12.9-23.3-23-48.3-30-74c-7-25.8-11-52.4-11.9-79.1c-0.9-26.7,1.2-53.5,6.3-79.8 c5.2-26.3,13.4-51.9,24.6-76.3c22.4-48.7,56.9-92,100.5-123.5c1.3-0.9,3.1-0.6,4.1,0.7C645.2,477.4,644.9,479.3,643.6,480.2 L643.6,480.2L643.6,480.2z"/> 
             <circle class="circle-mask" cx="565" cy="940" r="72"/>
-            <path style="fill:#0088ff;" d="M660,465.9c-10.6,2.5-24.8,4.2-35.1,2.8l14.6,10.8l4.3,17.7C646.6,487.1,653.6,474.7,660,465.9 z"/>
-            <path style="fill:#0088ff;" d="M607.2,910h-84.4c-1.6,0-2.8,1.3-2.8,2.8v54.4c0,1.6,1.3,2.8,2.8,2.8h84.4c1.6,0,2.8-1.3,2.8-2.8 v-54.4C610,911.3,608.7,910,607.2,910z M548.1,925c4.1,0,7.5,3.4,7.5,7.5c0,4.1-3.4,7.5-7.5,7.5c-4.1,0-7.5-3.4-7.5-7.5 C540.6,928.4,544,925,548.1,925z M563.1,955h-30v-2.8c0-5.6,10-8.4,15-8.4c5,0,15,2.8,15,8.4V955z M595,955h-26.2v-5.6H595V955z M595,942.8h-26.2v-5.6H595V942.8z M595,930.6h-26.2V925H595V930.6z"/>
+            <path style="fill:#FFC000;" d="M660,465.9c-10.6,2.5-24.8,4.2-35.1,2.8l14.6,10.8l4.3,17.7C646.6,487.1,653.6,474.7,660,465.9 z"/>
+            <path style="fill:#FFC000;" d="M607.2,910h-84.4c-1.6,0-2.8,1.3-2.8,2.8v54.4c0,1.6,1.3,2.8,2.8,2.8h84.4c1.6,0,2.8-1.3,2.8-2.8 v-54.4C610,911.3,608.7,910,607.2,910z M548.1,925c4.1,0,7.5,3.4,7.5,7.5c0,4.1-3.4,7.5-7.5,7.5c-4.1,0-7.5-3.4-7.5-7.5 C540.6,928.4,544,925,548.1,925z M563.1,955h-30v-2.8c0-5.6,10-8.4,15-8.4c5,0,15,2.8,15,8.4V955z M595,955h-26.2v-5.6H595V955z M595,942.8h-26.2v-5.6H595V942.8z M595,930.6h-26.2V925H595V930.6z"/>
                             
             <path style="fill:#FFC000;" d="M939.9,1022.1c22.7-13.9,43.4-30.9,61.5-50.4c18.1-19.4,33.7-41.2,46.4-64.5 c12.7-23.3,22.5-48.2,29.2-73.8c6.8-25.6,10.5-52.1,11.2-78.5c0.7-26.5-1.6-53-6.9-79c-5.3-25.9-13.7-51.2-24.9-75.1 c-22.4-47.8-56.8-90.1-99.8-120.6l0,0c-1.3-0.9-1.6-2.7-0.7-4.1s2.7-1.6,4.1-0.7l0,0c43.6,31.5,78.2,74.8,100.5,123.5 c11.2,24.3,19.4,50,24.6,76.3c5.2,26.3,7.2,53.1,6.3,79.8c-1,26.7-4.9,53.3-11.9,79.1c-7,25.8-17.1,50.7-30,74 c-13,23.3-28.8,45.1-47.1,64.4c-18.3,19.3-39.2,36.3-62.1,50c-0.1,0.1-0.3,0-0.4-0.1C939.7,1022.4,939.7,1022.2,939.9,1022.1z" />
             <circle class="circle-mask" cx="1030" cy="940" r="72"/>  
@@ -795,10 +638,10 @@
         
         <!--targets-->
     <g>
-        <circle class="target target-barrier" id="target-barrier-1" cx="800" cy="813" r="56.2"/>
-        <circle class="target target-barrier" id="target-barrier-2" cx="800" cy="1225" r="56.2"/>
-        <circle class="target target-barrier" id="target-barrier-3" cx="800" cy="1637" r="56.2"/>
-        <circle class="target target-barrier" id="target-barrier-4" cx="800" cy="2049" r="56.2"/>
+        <circle class="target target-barrier" id="target-barrier-1" cx="800" cy="813" r="40"/>
+        <circle class="target target-barrier" id="target-barrier-2" cx="800" cy="1225" r="40"/>
+        <circle class="target target-barrier" id="target-barrier-3" cx="800" cy="1637" r="40"/>
+        <circle class="target target-barrier" id="target-barrier-4" cx="800" cy="2049" r="40"/>
         <path class="target" id="target-user-1" d="M730,1125v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33l6.6-3.4 v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H870v1c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/>
         <path class="target" id="target-user-2-left" d="M374,1536v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33 l6.6-3.4v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42 H496c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H514v1c0,1.4-0.2,2.7-0.4,4h0.4v26H374z"/>
         <path class="target" id="target-user-2-right" d="M1088.2,1536v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1H1056v-30c0-13,8.6-24.1,25.6-33 l6.6-3.4v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42 h24.9c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30h-32.2v1c0,1.4-0.2,2.7-0.4,4h0.4v26H1088.2z"/>
