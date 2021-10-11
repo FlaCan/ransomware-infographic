@@ -76,6 +76,7 @@ text {
 }
 
 .target {
+    cursor: help;
     opacity: 0;
     visibility: hidden;
 }
@@ -89,24 +90,29 @@ text {
 }
 
 .credentials { 
-    fill: #FF9900;
+    fill: #FF8800;
 }
 
 
 .lock {
-    opacity: 0;
+    fill: green;
+    opacity: 1;
     visibility: hidden;
 }
 
-.lock path {
-    fill: #FF9900;
-}
 
 .lock rect {
     fill:none;
-    stroke: #FF9900;
+    stroke: #FF8800;
     stroke-width:3;
     stroke-miterlimit:10;
+}
+
+.countdown {
+    fill: #FF8800;
+    opacity: 0;
+    visibility: hidden;
+    
 }
 
 .device {
@@ -139,8 +145,3 @@ text {
     fill:#FF7D00;
 }
 
-.countdown {
-    opacity: 0;
-    visibility: hidden;
-    
-}
