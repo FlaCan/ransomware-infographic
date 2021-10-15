@@ -10,3 +10,115 @@ body {
     justify-content: center;
     background-color: #f0f3f8;
 }
+svg {
+    height: 100vh;
+}
+.bubble {
+    fill: #000011;
+    opacity: 0.85;
+}
+.bubble-before {
+    fill: #000011;
+    opacity: 0.85;
+}
+.bubble-after {
+    fill: #CC0000;
+    opacity: 0.95;
+}
+.speech line {
+    stroke:#FFF;
+    stroke-width: 2px;
+    stroke-linecap: round;
+}
+.circle-mask {
+    fill: #f0f3f8;
+}
+text {
+    font-weight: 300;
+    font-size: 30px;
+    fill: white;
+}
+.title {
+    font-size: 40px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+.barrier-line, .barrier-line-muted {
+    fill:none;
+    stroke:#0088FF;
+    stroke-width:5;
+    stroke-linecap:round;
+}
+.barrier-line-muted {
+    stroke:#003388;
+    opacity: 0.1;
+}
+.barrier-small-circle {
+    fill:#0088FF;
+}
+.barrier-plus, .barrier-minus {
+    fill:none;
+    stroke:#FFFFFF;
+    stroke-width:5;
+    stroke-linecap:round;            
+}
+.target {
+    cursor: help;
+    opacity: 0.1;
+    /* visibility: hidden; */
+}
+
+.target-on {
+    fill: green;
+    opacity: 0.2;
+    /* visibility: hidden; */
+}
+.target-barrier {
+    cursor: pointer;
+}
+.user {
+    fill: #4C4C58;
+}
+.credentials { 
+    fill: #FF8800;
+}
+.lock {
+    fill: green;
+    opacity: 1;
+    visibility: hidden;
+}
+.lock rect {
+    fill:none;
+    stroke: #FF8800;
+    stroke-width:3;
+    stroke-miterlimit:10;
+}
+.countdown {
+    fill: #FF8800;
+    opacity: 0;
+    visibility: hidden;
+}
+.device {
+    fill: #0088FF;
+}
+.workstation {
+    fill: #0088FF;
+}
+.speech {
+    opacity: 0;
+    /* visibility: hidden; */            
+}
+.stolen {
+    opacity: 0;
+    visibility: hidden;
+}
+.malware {
+    opacity: 0;
+    visibility: hidden;
+}
+#virus .red {
+    fill: #CC0000;
+}
+#virus .orange {
+    fill:#FF7D00;
+}
