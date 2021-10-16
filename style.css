@@ -64,15 +64,8 @@ text {
 }
 .target {
     cursor: help;
-    opacity: 0.1;
-    /* visibility: hidden; */
 }
 
-.target-on {
-    fill: green;
-    opacity: 0.2;
-    /* visibility: hidden; */
-}
 .target-barrier {
     cursor: pointer;
 }
