@@ -13,7 +13,7 @@ gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
 
 /* Animations *********************************************************************************************/
 
-gsap.fromTo(".drop", {y: -25}, {duration: 1, stagger:0.5, y: 0, repeat: -1, yoyo: true})
+gsap.fromTo(".drop", {y: -30}, {duration: 0.75, stagger:0.25, y: 0, repeat: -1, yoyo: true})
 gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
 const pop = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "<")
 
