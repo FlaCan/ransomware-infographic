@@ -8,9 +8,6 @@ const selectAll = (el) => document.querySelectorAll(el)
 gsap.set(".barrier-line", {scaleY: 1, transformOrigin: "50% 50%"})
 gsap.set(".barrier-plus", {scaleY: 0, transformOrigin: "50% 50%"})
 gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
-gsap.set(".speech", {autoAlpha: 0}) // Target visibility "hidden"" and opacity "0" by default, not reachable therefore speech cant't play...
-gsap.set(".target-hover", {autoAlpha: 0, cursor: "help"}) // ...eccept for the following 
-gsap.set(".target-hover.on", {visibility: "visible"})
 
 
 
@@ -23,7 +20,7 @@ const pop = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAl
 
 /* Barriers */
 
-const barrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
+const animBarrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
     .to(".barrier-L1 .barrier-line", {scaleX: 0}, "<")
     .to(".barrier-L1 .barrier-plus", {scaleY: 1}, "<")
     .to(".slolen-L1", {autoAlpha: 1}, "<")
@@ -36,11 +33,11 @@ const barrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{duratio
     .to("#target-malware-L1-left", {visibility: "visible"}, "<")
     .to("#target-malware-L1-right", {visibility: "visible"}, "<")
     
-const barrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
+const animBarrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
     .to(".barrier-L2 .barrier-line", {scaleX: 0}, "<")
     .to(".barrier-L2 .barrier-plus", {scaleY: 1}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "<")
-    .to(".device-g0", {fill: "#CC0000"}, "<")
+    .to(".device-L2", {fill: "#CC0000"}, "<")
     .to(".user-L2 .workstation", {fill: "#CC0000"}, "<")
     .to("#target-malware-L2-center", {visibility: "visible"}, "<")
     .to("#target-malware-L2-top-left", {visibility: "visible"}, "<")
@@ -49,12 +46,12 @@ const barrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{duratio
     .to("#target-malware-L2-bottom-right", {visibility: "visible"}, "<")
 
     
-const barrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
+const animBarrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
     .to(".barrier-L3 .barrier-line", {scaleX: 0}, "<")
     .to(".barrier-L3 .barrier-plus", {scaleY: 1}, "<")
     .to(".stolen-L3", {autoAlpha: 1}, "<")
     .to(".malware-L3", {autoAlpha: 1}, "<" )
-    .to(".device-g1", {fill: "#CC0000"}, "<")
+    .to(".device-L3", {fill: "#CC0000"}, "<")
     .to("#target-malware-L3-right", {visibility: "visible"}, "<")
     .to("#target-malware-L3-center-right", {visibility: "visible"}, "<")
     .to("#target-malware-L3-center", {visibility: "visible"}, "<")
@@ -64,70 +61,70 @@ const barrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{duratio
     .to("#target-data-L2-right", {visibility: "visible"}, "<")
     
     
-const barrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
+const animBarrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.25}})
     .to(".barrier-L4 .barrier-line", {scaleX: 0}, "<")
     .to(".barrier-L4 .barrier-plus", {scaleY: 1}, "<")
     .to(".malware-L4", {autoAlpha: 1}, "<" )
-    .to(".device-g2", {fill: "#CC0000"}, "<")
+    .to(".device-L4", {fill: "#CC0000"}, "<")
     .to("#target-malware-L4", {visibility: "visible"}, "<")
     
 
 /* Click Listeners **********************************************************************************************/
 
-const targetBarrierL1 = select("#target-barrier-L1")
-const targetBarrierL2 = select("#target-barrier-L2")
-const targetBarrierL3 = select("#target-barrier-L3")
-const targetBarrierL4 = select("#target-barrier-L4")
+const targetClickBarrierL1 = select("#target-click-barrier-L1")
+const targetClickBarrierL2 = select("#target-click-barrier-L2")
+const targetClickBarrierL3 = select("#target-click-barrier-L3")
+const targetClickBarrierL4 = select("#target-click-barrier-L4")
 
 
-targetBarrierL1.addEventListener("click", () => {
-    if (barrierL1.reversed()) {
-        barrierL1.play() // sets self to false (open)
+targetClickBarrierL1.addEventListener("click", () => {
+    if (animBarrierL1.reversed()) {
+        animBarrierL1.play() // sets self to false (open)
     } else {
-        barrierL1.reverse() // sets self to true (closed)
-        barrierL2.reverse() // sets G2 to true (closed)
-        barrierL3.reverse() // sets G3 to true (closed)
+        animBarrierL1.reverse() // sets self to true (closed)
+        animBarrierL2.reverse() // sets G2 to true (closed)
+        animBarrierL3.reverse() // sets G3 to true (closed)
         pop.reverse()
-        barrierL4.reverse() // sets G4 to true (closed)
+        animBarrierL4.reverse() // sets G4 to true (closed)
     }
 }, false)
 
-targetBarrierL2.addEventListener("click", () => {
-    if (barrierL2.reversed()) {
-        barrierL1.play(); //sets G1 to false (open)
-        barrierL2.play() //sets self to false (open)
+targetClickBarrierL2.addEventListener("click", () => {
+    if (animBarrierL2.reversed()) {
+        animBarrierL1.play(); //sets G1 to false (open)
+        animBarrierL2.play() //sets self to false (open)
     } else {
-        barrierL2.reverse() //sets self to true (closed)
-        barrierL3.reverse() // sets G3 to true (closed)
+        animBarrierL2.reverse() //sets self to true (closed)
+        animBarrierL3.reverse() // sets G3 to true (closed)
         pop.reverse()
-        barrierL4.reverse() // sets G4 to true (closed)
+        animBarrierL4.reverse() // sets G4 to true (closed)
     }
 }, false)
 
-targetBarrierL3.addEventListener("click", () => {
-    if (barrierL3.reversed()) {
-        barrierL1.play() //sets G1 to false (open)
-        barrierL2.play() //sets G2 to false (open)
-        barrierL3.play() //sets self to false (open)
+targetClickBarrierL3.addEventListener("click", () => {
+    if (animBarrierL3.reversed()) {
+        animBarrierL1.play() //sets G1 to false (open)
+        animBarrierL2.play() //sets G2 to false (open)
+        animBarrierL3.play() //sets self to false (open)
         pop.play()
 
     } else {
-        barrierL3.reverse() // sets self to true (closed)
+        animBarrierL3.reverse() // sets self to true (closed)
         pop.reverse()
-        barrierL4.reverse() // sets G4 to true (closed)                
+        animBarrierL4.reverse() // sets G4 to true (closed)                
     }
 }, false)
 
-targetBarrierL4.addEventListener("click", () => {
-    if (barrierL4.reversed()) {
-        barrierL1.play() //sets G1 to false (open)
-        barrierL2.play() //sets G2 to false (open)
-        barrierL3.play() //sets G3 to false (open)
+targetClickBarrierL4.addEventListener("click", () => {
+    if (animBarrierL4.reversed()) {
+        animBarrierL1.play() //sets G1 to false (open)
+        animBarrierL2.play() //sets G2 to false (open)
+        animBarrierL3.play() //sets G3 to false (open)
         pop.reverse()
-        barrierL4.play() //sets self to false (open)
+        animBarrierL4.play() //sets self to false (open)
     } else {
         pop.play()
-        barrierL4.reverse() // sets self to true (closed)
+        animBarrierL4.reverse() // sets self to true (closed)
     }
 }, false)
 

@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .wrap {
     display: flex;
     align-content: center;
@@ -25,12 +24,8 @@ svg {
     fill: #CC0000;
     opacity: 0.95;
 }
-.speech line {
-    stroke:#FFF;
-    stroke-width: 2px;
-    stroke-linecap: round;
-}
-.circle-mask {
+
+.mask {
     fill: #f0f3f8;
 }
 text {
@@ -62,11 +57,6 @@ text {
     stroke-width:5;
     stroke-linecap:round;            
 }
-
-
-.target-barrier {
-    cursor: pointer;
-}
 .user {
     fill: #4C4C58;
 }
@@ -95,10 +85,6 @@ text {
 .workstation {
     fill: #0088FF;
 }
-.speech {
-    opacity: 0;
-    /* visibility: hidden; */            
-}
 .stolen {
     opacity: 0;
     visibility: hidden;
@@ -112,4 +98,28 @@ text {
 }
 #virus .orange {
     fill:#FF7D00;
+}
+
+/* .speech modified by for loop */
+.speech {
+    opacity: 0;
+    visibility: hidden;            
+}
+
+/* .target-hover - all hidden unless .on or - become visible when barriers animation are triggered*/
+.target {
+    opacity: 0;
+    visibility: hidden; 
+}
+
+.on {
+    visibility: visible
+}
+
+.click {
+    cursor: pointer;
+}
+
+.hover {
+    cursor: help;
 }
