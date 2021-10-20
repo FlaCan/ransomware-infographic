@@ -13,7 +13,7 @@ gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
 
 /* Animations *********************************************************************************************/
 
-const animDrop = gsap.fromTo(".drop", {y: -30}, {duration: 0.75, stagger:0.25, y: 0, repeat: -1, yoyo: true})
+const animDrop = gsap.to(".drop", {duration: 0.75, stagger:0.2, y: -25, repeat: -1, yoyo: true})
 gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
 const animClock = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "<")
 
