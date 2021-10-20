@@ -65,28 +65,28 @@
     
     <!--barriers-->
     <g>        
-        <g class="barrier-L1">
+        <g id="barrier-L1">
             <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
             <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
             <circle class="barrier-small-circle" cx="800" cy="813.6" r="30"/>
             <line class="barrier-plus" x1="800" y1="800.5" x2="800" y2="825.5"/>
             <line class="barrier-minus" x1="812.5" y1="813" x2="787.5" y2="813"/>
         </g>
-        <g class="barrier-L2">
+        <g id="barrier-L2">
             <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
             <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
             <circle class="barrier-small-circle" cx="800" cy="1225.7" r="30"/>
             <line class="barrier-plus" x1="800" y1="1212.5" x2="800" y2="1237.5"/>
             <line class="barrier-minus" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
         </g>
-        <g class="barrier-L3">
+        <g id="barrier-L3">
             <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
             <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
             <circle class="barrier-small-circle" cx="800" cy="1637.7" r="30"/>
             <line class="barrier-plus" x1="800" y1="1624.5" x2="800" y2="1649.5"/>
             <line class="barrier-minus" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
         </g>
-        <g class="barrier-L4">
+        <g id="barrier-L4">
             <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
             <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
             <circle class="barrier-small-circle" cx="800" cy="2049.7" r="30"/>
@@ -464,13 +464,9 @@
         <g class="ts">
             <path class="target hover on" id="target-barrier-L1" class="st0" d="M1410,828H190c-8.3,0-15-6.7-15-15s6.7-15,15-15h1220c8.3,0,15,6.7,15,15 S1418.3,828,1410,828z"/>
             <g class="speech" id="speech-barrier-L1">
-                <path class="bubble" d="M596.1,131.3l0,602c0,5.5-4.5,10-10,10l-252.7,0l-20,34.6l-20-34.6l-283.3,0c-5.5,0-10-4.5-10-10l0-602
-				c0-5.5,4.5-10,10-10l576.1,0C591.6,121.3,596.1,125.8,596.1,131.3z"/>
-                
-			<text  class="title" transform="matrix(1 0 0 1 43.9998 215.7169)" class="st38 st31 st32">First protection barrier</text>
-		
-            <text transform="matrix(1 0 0 1 44 274.2255)"><tspan x="0" y="0" class="st11 st35 st36">At this stage, user education, inbound </tspan><tspan x="0" y="45" class="st11 st35 st36">email inspection, URL filtering, and </tspan><tspan x="0" y="90" class="st11 st35 st36">proper endpoint protection constitute </tspan><tspan x="0" y="135" class="st11 st35 st36">the most effective barrier to an </tspan><tspan x="0" y="180" class="st11 st35 st36">attack. We conceived our privileged </tspan><tspan x="0" y="225" class="st11 st35 st36">endpoint manager (Osirium PEM) </tspan><tspan x="0" y="270" class="st11 st35 st36">embracing zero trust principles to </tspan><tspan x="0" y="315" class="st11 st35 st36">provide IT leaders with a tool to </tspan><tspan x="0" y="360" class="st11 st35 st36">enforce policy and manage privilege </tspan><tspan x="0" y="405" class="st11 st35 st36">escalation seamlessly. </tspan></text>
-               
+                <path class="bubble" d="M596.1,131.3l0,602c0,5.5-4.5,10-10,10l-252.7,0l-20,34.6l-20-34.6l-283.3,0c-5.5,0-10-4.5-10-10l0-602 c0-5.5,4.5-10,10-10l576.1,0C591.6,121.3,596.1,125.8,596.1,131.3z"/>
+    			<text  class="title" transform="matrix(1 0 0 1 43.9998 215.7169)">First protection barrier</text>
+                <text transform="matrix(1 0 0 1 44 274.2255)"><tspan x="0" y="0">At this stage, user education, inbound </tspan><tspan x="0" y="45">email inspection, URL filtering, and </tspan><tspan x="0" y="90">proper endpoint protection constitute </tspan><tspan x="0" y="135">the most effective barrier to an </tspan><tspan x="0" y="180">attack. We conceived our privileged </tspan><tspan x="0" y="225">endpoint manager (Osirium PEM) </tspan><tspan x="0" y="270">embracing zero trust principles to </tspan><tspan x="0" y="315">provide IT leaders with a tool to </tspan><tspan x="0" y="360">enforce policy and manage privilege </tspan><tspan x="0" y="405">escalation seamlessly. </tspan></text>
             </g>
         </g>
 
@@ -497,8 +493,7 @@
             <g class="speech" id="speech-barrier-L4">
                 <path class="bubble" d="M655.1,936l0,1030.7c0,5.5-4.5,10-10,10H335.5l-20,34.6l-20-34.6l-285.5,0c-5.5,0-10-4.5-10-10L0,936 c0-5.5,4.5-10,10-10l635.1,0C650.6,926,655.1,930.5,655.1,936z"/>
                 <text class="title" transform="matrix(1 0 0 1 47.9998 1019.8562)" class="st40 st31 st32">Last protection barrier</text>
-                <text transform="matrix(1 0 0 1 48 1078.3652)"><tspan x="0" y="0" class="st11 st35 st36">Offline backup systems are usually </tspan><tspan x="0" y="45" class="st11 st35 st36">regarded as the last resource for an </tspan><tspan x="0" y="90" class="st11 st35 st36">organization to recover its data and not </tspan><tspan x="0" y="135" class="st11 st35 st36">pay the ransom. However, few </tspan><tspan x="0" y="180" class="st11 st35 st36">considerations remain:</tspan><tspan x="0" y="255" class="st11 st35 st36">•</tspan><tspan x="10" y="255" class="st11 st35 st36 st42">	</tspan><tspan x="30" y="255" class="st11 st35 st36">Advanced malware can exfiltrate data </tspan><tspan x="30" y="300" class="st11 st35 st36">so that the attacker can threaten the </tspan><tspan x="30" y="345" class="st11 st35 st36">organization to make them public.</tspan><tspan x="0" y="430" class="st11 st35 st36">•</tspan><tspan x="10" y="430" class="st11 st35 st36 st42">	</tspan><tspan x="30" y="430" class="st11 st35 st36">Restoring data to an update level can </tspan><tspan x="30" y="475" class="st11 st35 st36">be more costly than paying the ransom, </tspan><tspan x="30" y="520" class="st11 st35 st36">depending on how outdated they are.</tspan><tspan x="0" y="605" class="st11 st35 st36">•</tspan><tspan x="10" y="605" class="st11 st35 st36 st42">	</tspan><tspan x="30" y="605" class="st11 st35 st36">Paying the ransom does not guarantee </tspan><tspan x="30" y="650" class="st11 st35 st36">the attacker will eventually release the </tspan><tspan x="30" y="695" class="st11 st35 st36">description key.</tspan><tspan x="0" y="780" class="st11 st35 st36">•</tspan><tspan x="10" y="780" class="st11 st35 st36 st42">	</tspan><tspan x="30" y="780" class="st11 st35 st36">Finally, it is just a matter of time before </tspan><tspan x="30" y="825" class="st11 st35 st36">even those systems are infected.</tspan></text>
-
+                <text transform="matrix(1 0 0 1 48 1078.3652)"><tspan x="0" y="0">Offline backup systems are usually </tspan><tspan x="0" y="45">regarded as the last resource for an </tspan><tspan x="0" y="90">organization to recover its data and not </tspan><tspan x="0" y="135">pay the ransom. However, few </tspan><tspan x="0" y="180">considerations remain:</tspan><tspan x="0" y="255">•</tspan><tspan x="10" y="255"st42">	</tspan><tspan x="30" y="255">Advanced malware can exfiltrate data </tspan><tspan x="30" y="300">so that the attacker can threaten the </tspan><tspan x="30" y="345">organization to make them public.</tspan><tspan x="0" y="430">•</tspan><tspan x="10" y="430"st42">	</tspan><tspan x="30" y="430">Restoring data to an update level can </tspan><tspan x="30" y="475">be more costly than paying the ransom, </tspan><tspan x="30" y="520">depending on how outdated they are.</tspan><tspan x="0" y="605">•</tspan><tspan x="10" y="605"st42">	</tspan><tspan x="30" y="605">Paying the ransom does not guarantee </tspan><tspan x="30" y="650">the attacker will eventually release the </tspan><tspan x="30" y="695">description key.</tspan><tspan x="0" y="780">•</tspan><tspan x="10" y="780"st42">	</tspan><tspan x="30" y="780">Finally, it is just a matter of time before </tspan><tspan x="30" y="825">even those systems are infected.</tspan></text>
             </g>
         </g>
         
@@ -517,12 +512,8 @@
             <path class="target hover on" id="target-user-L1" d="M730,1125v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33l6.6-3.4 v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H870v1c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/>
             <g class="speech" id="speech-user-L1">
                 <path class="bubble"  d="M10,720.6h574.3c5.5,0,10,4.5,10,10v302.3l34.6,20l-34.6,20V1355c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10 l0-624.5C0,725,4.5,720.6,10,720.6z"/>
-                
                 <text class="title" transform="matrix(1 0 0 1 48.9998 800.9964)" class="st40 st31 st32">User</text>
-		
-		        <text transform="matrix(1 0 0 1 49 859.5049)"><tspan x="0" y="0" class="st11 st35 st36">The most common entry points to </tspan><tspan x="0" y="45" class="st11 st35 st36">attacks is via the people in the </tspan><tspan x="0" y="90" class="st11 st35 st36">business. Even with good training, </tspan><tspan x="0" y="135" class="st11 st35 st36">the attack can be sophisticated </tspan><tspan x="0" y="180" class="st11 st35 st36">enough to fool anyone; some do </tspan><tspan x="0" y="225" class="st11 st35 st36">not even need user action. </tspan><tspan x="0" y="270" class="st11 st35 st36">Once it succeeds in infecting the </tspan><tspan x="0" y="315" class="st11 st35 st36">first workstation, it can sit in wait </tspan><tspan x="0" y="360" class="st11 st35 st36">for more valuable content and lay in </tspan><tspan x="0" y="405" class="st11 st35 st36">wait for weeks or months before </tspan><tspan x="0" y="450" class="st11 st35 st36">the encryption begins.</tspan></text>
-                
-                
+		        <text transform="matrix(1 0 0 1 49 859.5049)"><tspan x="0" y="0">The most common entry points to </tspan><tspan x="0" y="45">attacks is via the people in the </tspan><tspan x="0" y="90">business. Even with good training, </tspan><tspan x="0" y="135">the attack can be sophisticated </tspan><tspan x="0" y="180">enough to fool anyone; some do </tspan><tspan x="0" y="225">not even need user action. </tspan><tspan x="0" y="270">Once it succeeds in infecting the </tspan><tspan x="0" y="315">first workstation, it can sit in wait </tspan><tspan x="0" y="360">for more valuable content and lay in </tspan><tspan x="0" y="405">wait for weeks or months before </tspan><tspan x="0" y="450">the encryption begins.</tspan></text>
             </g>
         </g>
 
@@ -594,15 +585,9 @@
         <g class="ts">
             <path class="target hover on" id="target-drops-L0" d="M800,755c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.3-1,2-6,11-33.6 c-8.4,11.6-22,19.2-37.4,19.2c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8 c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,30.6,93.5,30.6,93.5c1.6,4.7,2.4,9.6,2.4,14.6c0,0.1,0,0.3,0,0.4 c0.7-2.2,10.8-33.1,11-33.5c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,10.4,31.9,10.9,33.5c0-0.1,0-0.3,0-0.4 c0-5,0.8-9.9,2.4-14.6c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8c1.9-6,7-3.9,13-3.9s11.1,3.9,13.1,9.9 c0.1,0.3,30.6,93.5,30.6,93.5c1.6,4.7,2.4,9.6,2.4,14.6c0,25.4-20.6,40-46,40c-15.4,0-29-7.6-37.4-19.2c9.1,27.8,11,33.6,11,33.6 c1.6,4.7,2.4,9.6,2.4,14.6C846,734.4,825.4,755,800,755z"/>
             <g class="speech" id="speech-drops-L0">
-                <path class="bubble" d="M10,309h564.3c5.5,0,10,4.5,10,10v327.4l34.6,20l-34.6,20V1008c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10
-				l0-689C0,313.5,4.5,309,10,309z"/>
-
-                <text class="title" transform="matrix(1 0 0 1 40.9998 391.9896)" class="st38 st31 st32">Dropper</text>
-		
-                <text id="content" transform="matrix(1 0 0 1 41 450.4981)"><tspan x="0" y="0" class="st11 st35 st36">Kind of Trojan designed to &quot;install&quot; </tspan><tspan x="0" y="45" class="st11 st35 st36">malware to a target system. The </tspan><tspan x="0" y="90" class="st11 st35 st36">malware code can be contained </tspan><tspan x="0" y="135" class="st11 st35 st36">within the dropper (single-stage) to </tspan><tspan x="0" y="180" class="st11 st35 st36">avoid detection by virus scanners or </tspan><tspan x="0" y="225" class="st11 st35 st36">the dropper may download the </tspan><tspan x="0" y="270" class="st11 st35 st36">malware to the target machine once </tspan><tspan x="0" y="315" class="st11 st35 st36">activated (two-stage). To fool people, </tspan><tspan x="0" y="360" class="st11 st35 st36">droppers are disguised as legittimate </tspan><tspan x="0" y="405" class="st11 st35 st36">files, that the user is tricked into </tspan><tspan x="0" y="450" class="st11 st35 st36">downloading or opening when it </tspan><tspan x="0" y="495" class="st11 st35 st36">arrives as an email attachment.</tspan></text>
-
-
-                
+                <path class="bubble" d="M10,309h564.3c5.5,0,10,4.5,10,10v327.4l34.6,20l-34.6,20V1008c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10 l0-689C0,313.5,4.5,309,10,309z"/>
+                <text class="title" transform="matrix(1 0 0 1 40.9998 391.9896)">Dropper</text>
+                <text id="content" transform="matrix(1 0 0 1 41 450.4981)"><tspan x="0" y="0">Kind of Trojan designed to &quot;install&quot; </tspan><tspan x="0" y="45">malware to a target system. The </tspan><tspan x="0" y="90">malware code can be contained </tspan><tspan x="0" y="135">within the dropper (single-stage) to </tspan><tspan x="0" y="180">avoid detection by virus scanners or </tspan><tspan x="0" y="225">the dropper may download the </tspan><tspan x="0" y="270">malware to the target machine once </tspan><tspan x="0" y="315">activated (two-stage). To fool people, </tspan><tspan x="0" y="360">droppers are disguised as legittimate </tspan><tspan x="0" y="405">files, that the user is tricked into </tspan><tspan x="0" y="450">downloading or opening when it </tspan><tspan x="0" y="495">arrives as an email attachment.</tspan></text>
             </g>
         </g>
 
@@ -611,8 +596,8 @@
             <path class="target hover" id="target-credentials-L1" d="M522.8,980c-7.1,0-12.8-5.7-12.8-12.8v-54.4c0-7.1,5.7-12.8,12.8-12.8h84.4 c7.1,0,12.8,5.7,12.8,12.8v54.4c0,7.1-5.7,12.8-12.8,12.8H522.8z"/>
             <g class="speech" id="speech-credentials-L1">
                 <path class="bubble" d="M10,731h431.9c5.5,0,10,4.5,10,10v168l34.6,20l-34.6,20v167c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10 l0-375C0,735.5,4.5,731,10,731z"/>
-                <text class="title" transform="matrix(1 0 0 1 40.9998 802.9896)" class="st38 st31 st32">Credentials</text>
-                <text transform="matrix(1 0 0 1 41 861.4981)"><tspan x="0" y="0" class="st11 st35 st36">Once the workstation is </tspan><tspan x="0" y="45" class="st11 st35 st36">infected, the ransomware </tspan><tspan x="0" y="90" class="st11 st35 st36">exfiltrates the user&apos;s </tspan><tspan x="0" y="135" class="st11 st35 st36">credentials. Later on, those </tspan><tspan x="0" y="180" class="st11 st35 st36">can be used as gateways </tspan><tspan x="0" y="225" class="st11 st35 st36">to other attacks.</tspan></text>
+                <text class="title" transform="matrix(1 0 0 1 40.9998 802.9896)">Credentials</text>
+                <text transform="matrix(1 0 0 1 41 861.4981)"><tspan x="0" y="0">Once the workstation is </tspan><tspan x="0" y="45">infected, the ransomware </tspan><tspan x="0" y="90">exfiltrates the user&apos;s </tspan><tspan x="0" y="135">credentials. Later on, those </tspan><tspan x="0" y="180">can be used as gateways </tspan><tspan x="0" y="225">to other attacks.</tspan></text>
             </g>
         </g>
         
@@ -621,9 +606,8 @@
             <polygon class="target hover" id="target-data-L1" points="990,990 990,921.9 1021.9,890 1070,890 1070,990 "/>
             <g class="speech" id="speech-data-L1">
                 <path class="bubble" d="M1590,679.6h-424.3c-5.5,0-10,4.5-10,10l0,213.3l-34.6,20l34.6,20V1167c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V689.6C1600,684,1595.5,679.6,1590,679.6z"/>
-                <text class="title"id="title_00000013175152418764752250000004496176669427041190_" transform="matrix(1 0 0 1 1192.7059 753.9964)" class="st38 st31 st32">Data</text>
-		
-                <text id="content_00000078765577764316909710000009831582389433192332_" transform="matrix(1 0 0 1 1192.7056 812.5049)"><tspan x="0" y="0" class="st11 st35 st36">Once the workstation is </tspan><tspan x="0" y="45" class="st11 st35 st36">infected, the ransomware </tspan><tspan x="0" y="90" class="st11 st35 st36">exfiltrates the first user&apos;s </tspan><tspan x="0" y="135" class="st11 st35 st36">data. Valuable data, such as </tspan><tspan x="0" y="180" class="st11 st35 st36">confidential or copyrighted </tspan><tspan x="0" y="225" class="st11 st35 st36">information, is exfiltrated to </tspan><tspan x="0" y="270" class="st11 st35 st36">treat the organization to </tspan><tspan x="0" y="315" class="st11 st35 st36">make them public.</tspan></text>
+                <text class="title" transform="matrix(1 0 0 1 1192.7059 753.9964)">Data</text>
+                <text transform="matrix(1 0 0 1 1192.7056 812.5049)"><tspan x="0" y="0">Once the workstation is </tspan><tspan x="0" y="45">infected, the ransomware </tspan><tspan x="0" y="90">exfiltrates the first user&apos;s </tspan><tspan x="0" y="135">data. Valuable data, such as </tspan><tspan x="0" y="180">confidential or copyrighted </tspan><tspan x="0" y="225">information, is exfiltrated to </tspan><tspan x="0" y="270">treat the organization to </tspan><tspan x="0" y="315">make them public.</tspan></text>
             </g>
         </g>
 
@@ -632,8 +616,8 @@
             <path class="target hover" id="target-malware-L1" d="M987.9,724.2c-11.2,0-21.7-4.4-30.4-12.8l-0.2-0.2l-0.2-0.2 c-17.1-18.3-12.9-37.3-5.6-55.1c2.3-7.8,3.7-16,4-24.5c0.6-16.5-3.4-34.4-11.6-51.6c-0.8-1.7-1.8-3.4-2.7-5 c-2.6-4.5-5.5-9.6-2.3-15.2c1.9-3.3,5.3-5.2,9.1-5.2c3.7,0,7.1,1.6,16.3,7.6c34.5,22.6,58.9,62.5,65.2,106.7 c3.4,13.7,0.6,27.7-7.7,38.5C1013.8,717.8,1001,724.2,987.9,724.2C987.9,724.2,987.9,724.2,987.9,724.2z"/> 
             <g class="speech" id="speech-malware-L1">
                 <path class="bubble" d="M1590,285.3h-479.8c-5.5,0-10,4.5-10,10v366.1l-34.6,20l34.6,20V1045c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10V295.3C1600,289.7,1595.5,285.3,1590,285.3z"/>
-                <text class="title"transform="matrix(1 0 0 1 1145.5466 356.1314)" class="st38 st31 st32">Ransomware</text>
-		        <text transform="matrix(1 0 0 1 1145.547 414.64)"><tspan x="0" y="0" class="st11 st35 st36">Type of malware (by the union  </tspan><tspan x="0" y="45" class="st11 st35 st36">of the words &quot;ransom&quot; and </tspan><tspan x="0" y="90" class="st11 st35 st36">&quot;malware&quot;) that threatens to </tspan><tspan x="0" y="135" class="st11 st35 st36">publish the victim&apos;s data or </tspan><tspan x="0" y="180" class="st11 st35 st36">perpetually block access to it </tspan><tspan x="0" y="225" class="st11 st35 st36">unless a ransom is paid. </tspan><tspan x="0" y="280" class="st11 st35 st36">Attacks are typically carried </tspan><tspan x="0" y="325" class="st11 st35 st36">out using a dropper disguised </tspan><tspan x="0" y="370" class="st11 st35 st36">as a legitimate file that the </tspan><tspan x="0" y="415" class="st11 st35 st36">user is tricked into </tspan><tspan x="0" y="460" class="st11 st35 st36">downloading or opening. but </tspan><tspan x="0" y="505" class="st11 st35 st36">can also travel automatically </tspan><tspan x="0" y="550" class="st11 st35 st36">between workstations without </tspan><tspan x="0" y="595" class="st11 st35 st36">user interaction. </tspan></text>
+                <text class="title"transform="matrix(1 0 0 1 1145.5466 356.1314)">Ransomware</text>
+		        <text transform="matrix(1 0 0 1 1145.547 414.64)"><tspan x="0" y="0">Type of malware (by the union  </tspan><tspan x="0" y="45">of the words &quot;ransom&quot; and </tspan><tspan x="0" y="90">&quot;malware&quot;) that threatens to </tspan><tspan x="0" y="135">publish the victim&apos;s data or </tspan><tspan x="0" y="180">perpetually block access to it </tspan><tspan x="0" y="225">unless a ransom is paid. </tspan><tspan x="0" y="280">Attacks are typically carried </tspan><tspan x="0" y="325">out using a dropper disguised </tspan><tspan x="0" y="370">as a legitimate file that the </tspan><tspan x="0" y="415">user is tricked into </tspan><tspan x="0" y="460">downloading or opening. but </tspan><tspan x="0" y="505">can also travel automatically </tspan><tspan x="0" y="550">between workstations without </tspan><tspan x="0" y="595">user interaction. </tspan></text>
                 
             </g>
         </g>
@@ -642,7 +626,7 @@
             <path class="target hover" id="target-malware-L1-left" d="M618.8,1217.1c-14.2,0-26.7-8.2-32.6-21.4c-6-13.5-3.6-28.9,6.4-40.3 c21-29.6,53.4-49.3,86.8-52.8c4-0.4,6.8-0.6,8.7-0.6c8.5,0,11.2,4.8,12,7.7c2.3,7.8-4.2,11.9-7.7,14.2c-1.2,0.8-2.5,1.6-3.6,2.5 c-11.9,9.1-21.1,20-26.5,31.8c-2.8,6-4.8,12.1-5.9,18.3c-0.9,10.3-2.9,30.8-25.4,38.8l-0.2,0.1l-0.2,0.1 C626.5,1216.5,622.6,1217.1,618.8,1217.1z"/>
             <g class="speech" id="speech-malware-L1-left">
                 <path class="bubble" d="M10,1029.6h497.3c5.5,0,10,4.5,10,10v117.3l34.6,20l-34.6,20V1311c0,5.5-4.5,10-10,10H10 c-5.5,0-10-4.5-10-10l0-271.5C0,1034,4.5,1029.6,10,1029.6z"/>
-                <text transform="matrix(1 0 0 1 40 1097.5049)"><tspan x="0" y="0" class="st11 st35 st36">The ransomware will be looking </tspan><tspan x="0" y="45" class="st11 st35 st36">for opportunities to spread, </tspan><tspan x="0" y="90" class="st11 st35 st36">scanning for accounts and </tspan><tspan x="0" y="135" class="st11 st35 st36">systems connected to the </tspan><tspan x="0" y="180" class="st11 st35 st36">infected workstation.</tspan></text>
+                <text transform="matrix(1 0 0 1 40 1097.5049)"><tspan x="0" y="0">The ransomware will be looking </tspan><tspan x="0" y="45">for opportunities to spread, </tspan><tspan x="0" y="90">scanning for accounts and </tspan><tspan x="0" y="135">systems connected to the </tspan><tspan x="0" y="180">infected workstation.</tspan></text>
             </g>
         </g>
 
@@ -650,7 +634,7 @@
             <path class="target hover" id="target-malware-L1-right" d="M980.6,1217.1c-3.8,0-7.7-0.6-11.6-1.8l-0.2-0.1l-0.2-0.1 c-22.5-8.1-24.6-28.5-25.4-38.8c-1.1-6.2-3.1-12.3-5.9-18.3c-5.5-11.7-14.6-22.7-26.5-31.7c-1.1-0.8-2.5-1.7-3.6-2.5 c-3.5-2.2-10-6.4-7.7-14.2c0.8-2.9,3.5-7.7,12-7.7c2,0,4.8,0.2,8.7,0.6c33.4,3.5,65.8,23.3,86.8,52.8c9.9,11.4,12.4,26.8,6.4,40.3 C1007.3,1208.9,994.8,1217.1,980.6,1217.1C980.6,1217.1,980.6,1217.1,980.6,1217.1z"/>
             <g class="speech" id="speech-malware-L1-right">
                 <path class="bubble" d="M1590,1029.6h-497.3c-5.5,0-10,4.5-10,10v117.3l-34.6,20l34.6,20V1311c0,5.5,4.5,10,10,10H1590 c5.5,0,10-4.5,10-10v-271.5C1600,1034,1595.5,1029.6,1590,1029.6z"/>
-                <text transform="matrix(1 0 0 1 1132.918 1097.5049)"><tspan x="0" y="0" class="st11 st35 st36">The ransomware will be looking </tspan><tspan x="0" y="45" class="st11 st35 st36">for opportunities to spread, </tspan><tspan x="0" y="90" class="st11 st35 st36">scanning for accounts and </tspan><tspan x="0" y="135" class="st11 st35 st36">systems connected to the </tspan><tspan x="0" y="180" class="st11 st35 st36">infected workstation.</tspan></text>
+                <text transform="matrix(1 0 0 1 1132.918 1097.5049)"><tspan x="0" y="0">The ransomware will be looking </tspan><tspan x="0" y="45">for opportunities to spread, </tspan><tspan x="0" y="90">scanning for accounts and </tspan><tspan x="0" y="135">systems connected to the </tspan><tspan x="0" y="180">infected workstation.</tspan></text>
             </g>
         </g>
 
@@ -710,11 +694,13 @@
         -->
     </g>
 
-        <!--click targets - open barriers - start barriers animations -->
-    <circle class="target click on" id="target-click-barrier-L1" cx="800" cy="813" r="50"/>
-    <circle class="target click on" id="target-click-barrier-L2" cx="800" cy="1225" r="50"/>
-    <circle class="target click on" id="target-click-barrier-L3" cx="800" cy="1637" r="50"/>
-    <circle class="target click on" id="target-click-barrier-L4" cx="800" cy="2049" r="50"/>
+    <!--click targets - open barriers - start barriers animations -->
+    <g>
+        <circle class="target click on" id="target-click-barrier-L1" cx="800" cy="813" r="50"/>
+        <circle class="target click on" id="target-click-barrier-L2" cx="800" cy="1225" r="50"/>
+        <circle class="target click on" id="target-click-barrier-L3" cx="800" cy="1637" r="50"/>
+        <circle class="target click on" id="target-click-barrier-L4" cx="800" cy="2049" r="50"/>
+    </g>
       
 
 </svg>
