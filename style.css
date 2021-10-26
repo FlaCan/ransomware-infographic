@@ -118,6 +118,9 @@ text {
 
 .click {
     cursor: pointer;
+    fill: red;
+    opacity: 0;
+    visibility: visible; 
 }
 
 .hover {
