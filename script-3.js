@@ -16,9 +16,9 @@ gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
 
 /* Animations *********************************************************************************************/
 
-const animDrop = gsap.to(".drop", {duration: 0.75, stagger:0.2, y: -1, repeat: -1, yoyo: true})
-const countdown = gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
-const animClock = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "<")
+const animDrop = gsap.to(".drop", {duration: 0.75, stagger:0.2, y: -25, repeat: -1, yoyo: true})
+gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "+=0.25")
+const animClock = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "+=0.25")
 
 
 /* Barriers */
@@ -100,28 +100,28 @@ const animContent4 = gsap.timeline({defaults:{duration: 0.3}})
 const animL1 = gsap.timeline({paused: true, reversed: true, defaults:{duration: 0.3}})
 
     .add(animBarrier1)
-    .add(animContent1)
+    .add(animContent1, "<")
   
 
 
 const animL2 = gsap.timeline({paused: true, reversed: true, defaults:{duration: 0.3}})
 
     .add(animBarrier2)
-    .add(animContent2)
+    .add(animContent2, "<")
 
 
     
 const animL3 = gsap.timeline({paused: true, reversed: true, defaults:{duration: 0.3}})
 
     .add(animBarrier3)
-    .add(animContent3)
+    .add(animContent3, "<")
 
     
     
 const animL4 = gsap.timeline({paused: true, reversed: true, defaults:{duration: 0.3}})
 
     .add(animBarrier4)
-    .add(animContent4)
+    .add(animContent4, "<")
 
 
     
