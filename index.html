@@ -63,38 +63,6 @@
         </g>
     </g>
     
-    <!--barriers-->
-    <g>        
-        <g id="barrier-L1">
-            <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
-            <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
-            <circle class="barrier-circle" cx="800" cy="813.6" r="30"/>
-            <line class="barrier-plus" x1="800" y1="800.5" x2="800" y2="825.5"/>
-            <line class="barrier-minus" x1="812.5" y1="813" x2="787.5" y2="813"/>
-        </g>
-        <g id="barrier-L2">
-            <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
-            <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
-            <circle class="barrier-circle" cx="800" cy="1225.7" r="30"/>
-            <line class="barrier-plus" x1="800" y1="1212.5" x2="800" y2="1237.5"/>
-            <line class="barrier-minus" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
-        </g>
-        <g id="barrier-L3">
-            <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
-            <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
-            <circle class="barrier-circle" cx="800" cy="1637.7" r="30"/>
-            <line class="barrier-plus" x1="800" y1="1624.5" x2="800" y2="1649.5"/>
-            <line class="barrier-minus" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
-        </g>
-        <g id="barrier-L4">
-            <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
-            <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
-            <circle class="barrier-circle" cx="800" cy="2049.7" r="30"/>
-            <line class="barrier-plus" x1="800" y1="2036.5" x2="800" y2="2061.5"/>
-            <line class="barrier-minus" x1="812.5" y1="2049" x2="787.5" y2="2049"/>
-        </g>
-    </g>
-      
     <!--users-->
     <g>    
         <g class="user user-L0">
@@ -694,13 +662,58 @@
         
     </g>
 
-    <!--click targets - open barriers - start barriers animations -->
-    <g>
-        <circle class="target click on" id="target-click-barrier-L1" cx="800" cy="813" r="50"/>
-        <circle class="target click on" id="target-click-barrier-L2" cx="800" cy="1225" r="50"/>
-        <circle class="target click on" id="target-click-barrier-L3" cx="800" cy="1637" r="50"/>
-        <circle class="target click on" id="target-click-barrier-L4" cx="800" cy="2049" r="50"/>
+    <!--barriers-->
+    <g>        
+        <g id="barrier-L1">
+            <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
+            <line class="barrier-line" x1="190" y1="813" x2="1410" y2="813"/>
+
+            <g id="barrier-button-L1">
+                <circle class="barrier-circle" cx="800" cy="813.6" r="30"/>
+                <line class="barrier-plus" x1="800" y1="800.5" x2="800" y2="825.5"/>
+                <line class="barrier-minus" x1="812.5" y1="813" x2="787.5" y2="813"/>
+                <circle class="target click on" id="target-click-barrier-L1" cx="800" cy="814" r="45"/>
+<!--                 <circle class="target click on" id="target-click-barrier-L1" cx="890" cy="814" r="45"/>
+                <circle class="target click on" id="target-click-barrier-L1" cx="980" cy="814" r="45"/> -->
+            </g>
+        </g>
+
+        <g id="barrier-L2">
+            <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
+            <line class="barrier-line" x1="190" y1="1225" x2="1410" y2="1225"/>
+
+            <g id="barrier-button-L2">
+                <circle class="barrier-circle" cx="800" cy="1225.7" r="30"/>
+                <line class="barrier-plus" x1="800" y1="1212.5" x2="800" y2="1237.5"/>
+                <line class="barrier-minus" x1="812.5" y1="1225" x2="787.5" y2="1225"/>
+                <circle class="target click on" id="target-click-barrier-L2" cx="800" cy="1225" r="45"/>
+            </g>
+        </g>
+
+        <g id="barrier-L3">
+            <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
+            <line class="barrier-line" x1="190" y1="1637" x2="1410" y2="1637"/>
+            
+            <g id="barrier-button-L3">
+                <circle class="barrier-circle" cx="800" cy="1637.7" r="30"/>
+                <line class="barrier-plus" x1="800" y1="1624.5" x2="800" y2="1649.5"/>
+                <line class="barrier-minus" x1="812.5" y1="1637" x2="787.5" y2="1637"/>
+                <circle class="target click on" id="target-click-barrier-L3" cx="800" cy="1637" r="45"/>
+            </g>
+        </g>
+
+        <g id="barrier-L4">
+            <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
+            <line class="barrier-line" x1="190" y1="2049" x2="1410" y2="2049"/>
+            <g id="barrier-button-L4">
+                <circle class="barrier-circle" cx="800" cy="2049.7" r="30"/>
+                <line class="barrier-plus" x1="800" y1="2036.5" x2="800" y2="2061.5"/>
+                <line class="barrier-minus" x1="812.5" y1="2049" x2="787.5" y2="2049"/>
+                <circle class="target click on" id="target-click-barrier-L4" cx="800" cy="2049" r="45"/>
+            </g>
+        </g>
     </g>
+      
       
 
 </svg>
@@ -708,7 +721,7 @@
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script-3.js"></script>
 
 </body>
 </html>
