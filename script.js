@@ -40,6 +40,7 @@ const animBarrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .to("#barrier-L2 .barrier-line", {scaleX: 0}, "<")
     .to("#barrier-L2 .barrier-plus", {scaleY: 1}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "+=0.1")
+    .to(".slolen-L2", {autoAlpha: 1}, "<")
     .to(".device-L2", {fill: "#CC0000"}, "<")
     .to(".user-L2 .workstation", {fill: "#CC0000"}, "<")
     .to("#target-malware-L2-center", {visibility: "visible"}, "<")

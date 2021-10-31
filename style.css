@@ -10,7 +10,8 @@ body {
     background-color: #f0f3f8;
 }
 svg {
-    max-width: 800px;
+    height: 100vh;
+    /* max-width: 800px; */
 }
 .bubble {
     fill: #000011;
@@ -20,14 +21,7 @@ svg {
     fill: #000011;
     opacity: 0.85;
 }
-.bubble-after {
-    fill: #CC0000;
-    opacity: 0.95;
-}
 
-.mask {
-    fill: #f0f3f8;
-}
 text {
     font-weight: 300;
     font-size: 30px;
@@ -39,78 +33,47 @@ text {
     opacity: 0.9;
 }
 .barrier-line, .barrier-line-muted {
-    fill:none;
-    stroke:#0088FF;
     stroke-width:5;
     stroke-linecap:round;
 }
+
+.barrier-line {
+    stroke:#08F;
+}
+
 .barrier-line-muted {
     stroke:#003388;
     opacity: 0.1;
 }
 .barrier-circle {
-    fill:#0088FF;
+    fill:#08F;
 }
 .barrier-plus, .barrier-minus {
     fill:none;
-    stroke:#FFFFFF;
+    stroke:#FFF;
     stroke-width:5;
     stroke-linecap:round;            
 }
 .user {
     fill: #4C4C58;
 }
-.credentials { 
-    fill: #FF8800;
-}
-.lock {
-    fill: green;
-    opacity: 1;
-    visibility: hidden;
-}
+
 .lock rect {
     fill:none;
     stroke: #FF8800;
     stroke-width:3;
     stroke-miterlimit:10;
 }
-.countdown {
-    fill: #FF8800;
-    opacity: 0;
-    visibility: hidden;
-}
-.device {
-    fill: #0088FF;
-}
-.workstation {
-    fill: #0088FF;
-}
-.stolen {
-    opacity: 0;
-    visibility: hidden;
-}
-.malware {
-    opacity: 0;
-    visibility: hidden;
-}
-#virus .red {
-    fill: #CC0000;
-}
-#virus .orange {
-    fill:#FF7D00;
+
+.device, .workstation{
+    fill: #08F;
 }
 
-/* .speech modified by for loop */
-.speech {
+.countdown, .malware, .speech, .stolen, .target, .lock  {
     opacity: 0;
-    visibility: hidden;  
+    visibility: hidden;
 }
 
-/* .target-hover - all hidden unless .on or - become visible when barriers animation are triggered*/
-.target {
-    opacity: 0;
-    visibility: hidden; 
-}
 
 .on {
     visibility: visible
@@ -118,11 +81,14 @@ text {
 
 .click {
     cursor: pointer;
-    fill: red;
-    opacity: 0;
-    visibility: visible; 
 }
 
 .hover {
     cursor: help;
+}
+
+
+
+.yellow {
+    fill: #fc0;
 }
