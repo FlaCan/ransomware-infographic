@@ -103,7 +103,7 @@ text {
 /* .speech modified by for loop */
 .speech {
     opacity: 0;
-    visibility: hidden;            
+    visibility: hidden;  
 }
 
 /* .target-hover - all hidden unless .on or - become visible when barriers animation are triggered*/
