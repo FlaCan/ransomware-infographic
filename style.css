@@ -10,9 +10,17 @@ body {
     background-color: #f0f3f8;
 }
 svg {
-    height: 100vh;
-    /* max-width: 800px; */
+    /* height: 100vh;
+    max-width: 800px; */
 }
+
+.barrier-line-muted, .countdown, .malware, .speech, .stolen, .lock, .hover, .click  {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
 .bubble {
     fill: #000011;
     opacity: 0.85;
@@ -38,15 +46,16 @@ text {
 }
 
 .barrier-line {
-    stroke:#08F;
+    stroke:#07e;
 }
 
+
 .barrier-line-muted {
-    stroke:#003388;
-    opacity: 0.1;
+    stroke: #e7e7e9;
 }
-.barrier-circle {
-    fill:#08F;
+.barrier-button {
+    fill:#07e;
+    
 }
 .barrier-plus, .barrier-minus {
     fill:none;
@@ -66,12 +75,7 @@ text {
 }
 
 .device, .workstation{
-    fill: #08F;
-}
-
-.countdown, .malware, .speech, .stolen, .target, .lock  {
-    opacity: 0;
-    visibility: hidden;
+    fill: #07e;
 }
 
 
@@ -81,10 +85,12 @@ text {
 
 .click {
     cursor: pointer;
+
 }
 
 .hover {
     cursor: help;
+
 }
 
 
