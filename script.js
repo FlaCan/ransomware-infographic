@@ -39,8 +39,8 @@ const animBarrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .to(".slolen-L1", {autoAlpha: 1}, "<")
     .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
     .to(".malware-L1", {autoAlpha: 1}, "<")
-    .to("#target-credentials-L1", {visibility: "visible"}, "<")
-    .to("#target-data-L1", {visibility: "visible"}, "<")
+    // .to("#target-credentials-L1", {visibility: "visible"}, "<")
+    // .to("#target-data-L1", {visibility: "visible"}, "<")
 
     
 
@@ -60,8 +60,8 @@ const animBarrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .to(".stolen-L3", {autoAlpha: 1}, "<")    
     .to(".device-L3", {fill: "#CC0000"}, "<")
     .to(".malware-L3", {autoAlpha: 1}, "<")
-    .to("#target-data-L2-left", {visibility: "visible"}, "<")
-    .to("#target-data-L2-right", {visibility: "visible"}, "<")
+    // .to("#target-data-L2-left", {visibility: "visible"}, "<")
+    // .to("#target-data-L2-right", {visibility: "visible"}, "<")
     
     
 const animBarrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
@@ -136,10 +136,6 @@ clicksL3.forEach(item => {
 });
 
 
-
-
-
-
 clicksL4.forEach(item => {
 
     item.addEventListener("click", () => {
@@ -160,16 +156,13 @@ clicksL4.forEach(item => {
 
 
 
+/* Hover listeners - hover and seepch number must match *********************************************************/
+const hover = selectAll(".hover")
+const speech = selectAll(".speech")
 
-
-
-/* Hover listeners - Rely on current html structure *********************************************************/
-const ts = selectAll(".ts")
-
-for (let i = 0; i < ts.length; i++) {
-    let target = ts[i].firstElementChild
-    let speech = ts[i].lastElementChild
-    let anim = gsap.to(speech, {autoAlpha:1, paused: true, delay: 1})
-    target.addEventListener("mouseover", () =>{anim.play()}, false)
-    target.addEventListener("mouseleave", () =>{anim.reverse()}, false)
+for (let i = 0; i < hover.length; i++) {
+    let anim = gsap.to(speech[i], {autoAlpha:1, paused: true, delay: 1})
+    hover[i].addEventListener("mouseover", () =>{anim.play()}, false)
+    hover[i].addEventListener("mouseleave", () =>{anim.reverse()}, false)
 }
+
