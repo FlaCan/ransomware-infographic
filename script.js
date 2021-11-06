@@ -39,24 +39,19 @@ const animBarrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .to(".slolen-L1", {autoAlpha: 1}, "<")
     .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
     .to(".malware-L1", {autoAlpha: 1}, "<")
-    .to("#target-malware-L1", {visibility: "visible"}, "<")
     .to("#target-credentials-L1", {visibility: "visible"}, "<")
     .to("#target-data-L1", {visibility: "visible"}, "<")
-    .to("#target-malware-L1-left", {visibility: "visible"}, "<")
-    .to("#target-malware-L1-right", {visibility: "visible"}, "<")
+
     
 
 const animBarrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
     .add(animBarrier("#barrier-L2"))
     .to(".malware-L2", {autoAlpha: 1}, "+=0.1")
     .to(".slolen-L2", {autoAlpha: 1}, "<")
+    .to(".malware-L2", {autoAlpha: 1}, "<")
     .to(".device-L2", {fill: "#CC0000"}, "<")
     .to(".user-L2 .workstation", {fill: "#CC0000"}, "<")
-    .to("#target-malware-L2-center", {visibility: "visible"}, "<")
-    .to("#target-malware-L2-top-left", {visibility: "visible"}, "<")
-    .to("#target-malware-L2-top-right", {visibility: "visible"}, "<")
-    .to("#target-malware-L2-bottom-left", {visibility: "visible"}, "<")
-    .to("#target-malware-L2-bottom-right", {visibility: "visible"}, "<")
+
 
     
 const animBarrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
@@ -64,11 +59,7 @@ const animBarrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .to(".malware-L3", {autoAlpha: 1}, "+=0.1" )
     .to(".stolen-L3", {autoAlpha: 1}, "<")    
     .to(".device-L3", {fill: "#CC0000"}, "<")
-    .to("#target-malware-L3-right", {visibility: "visible"}, "<")
-    .to("#target-malware-L3-center-right", {visibility: "visible"}, "<")
-    .to("#target-malware-L3-center", {visibility: "visible"}, "<")
-    .to("#target-malware-L3-center-left", {visibility: "visible"}, "<")
-    .to("#target-malware-L3-left", {visibility: "visible"}, "<")
+    .to(".malware-L3", {autoAlpha: 1}, "<")
     .to("#target-data-L2-left", {visibility: "visible"}, "<")
     .to("#target-data-L2-right", {visibility: "visible"}, "<")
     
@@ -77,7 +68,7 @@ const animBarrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{dur
     .add(animBarrier("#barrier-L4"))
     .to(".malware-L4", {autoAlpha: 1}, "+=0.1" )
     .to(".device-L4", {fill: "#CC0000"}, "<")
-    .to("#target-malware-L4", {visibility: "visible"}, "<")
+    .to(".malware-L4", {autoAlpha: 1}, "<")
     
 
 /* Click Listeners **********************************************************************************************/

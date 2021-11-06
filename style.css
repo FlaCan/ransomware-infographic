@@ -1,24 +1,43 @@
 body {
+    color: white;
     font-family: "Roboto", serif;
     margin: 0;
     padding: 0;
 }
-.wrap {
+
+h1, h2, h3, h5, h5 {
+
+}
+.main {
     display: flex;
     align-content: center;
     justify-content: center;
     background-color: #f0f3f8;
-}
-svg {
-    /* height: 100vh;
-    max-width: 800px; */
+    
 }
 
-.barrier-line-muted, .countdown, .malware, .speech, .stolen, .lock, .hover, .click  {
+.infographic {
+    /* width: 60%; */
+    width: 80vw;
+}
+
+.side {
+
+    background-color: #001;
+    padding: 10%;
+    width: 40%;
+    
+}
+
+.barrier-line-muted, .countdown, .malware, .speech, .stolen, .hover, .lock, .click  {
     opacity: 0;
     visibility: hidden;
 }
-
+/* 
+.hover, .malware, .click {
+    opacity: 0.5;
+    visibility: visible;
+} */
 
 
 .bubble {
