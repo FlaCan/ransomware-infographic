@@ -6,62 +6,107 @@
 body {
     color: white;
     font-family: "Roboto", serif;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.5;
-
+    
+    
 }
+
+
+h1, h2, h3, h4, h5, h6, p {
+    max-width: 75ch;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ color: #0df;
+}
+
+h4 {
+  
+}
+
+.highlight {
+    color: #fe0;
+}
+
+.highlight::before {
+    content: "\1F892    ";
+    
+}
+
 
 p {
-
-    max-width: 50ch;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
 }
 
-main {
-    padding: 10%;
+p.small {
+    font-size: 0.875rem;
 }
+
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* split */
+
+.grid-container {
+    background-color: rgba(240, 243, 248, 1);
+    display: grid;
+    grid-template-columns: 1fr 12px 1fr;
+}
+
+.gutter {
+    background-color:rgba(0, 0, 17, 0.15);
+    color: rgba(0, 0, 17, 1);
+    cursor: col-resize;
+    transition-property: color, background-color;
+    transition-duration: 200ms, 200ms;
+    transition-timing-function: ease, ease;
+}
+
+.gutter:hover {
+  background-color: white;
+}
+
 
 .infographic {
-    background-color: rgb(240, 243, 248);
+    background-color: rgba(240, 243, 248, 1);
     position: sticky;
     top: 0;
     align-self: start; /*IMPORTANT: to make sticky position work; if not set this div takes the whole parent height therore does not stick */
 }
 
 .content {
-    background-color: rgba(0, 0, 17, 0.85);
+    background-color: rgba(0, 0, 17, 0.9);
     padding: 10%;
 }
 
-/* split */
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 15px 1fr;
+.spacer {
+    margin-top: 36px;
+    margin-bottom: 36px;
 }
 
-.gutter {
-    background-color: rgba(0, 0, 17, 0.3);
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-    cursor: col-resize;
-    cursor: url();
+.divider {
+    height: 2px;
+    clear: both;
+    border-top: 1px solid rgba(0,0,17,.15);
+    border-bottom: 1px solid #fff;
 }
 
-.gutter:hover {
-    background-color: yellow;
-}
 
-/* /split */
+/* SVG */
 
-
-
-.barrier-line-muted, .countdown, .malware, .speech, .stolen, .hover, .lock, .click  {
+.barrier-line-muted, .countdown, .malware, .speech, .stolen, .trigger, .lock, .click  {
     opacity: 0;
     visibility: hidden;
 }
+
+
 
 .bubble {
     fill: #000011;
@@ -120,20 +165,22 @@ text {
     fill: #07e;
 }
 
-.on {
-    visibility: visible
-}
 
-.click {
+.trigger {
     cursor: pointer;
-
+    /* opacity: 1;
+    visibility: visible;
+    fill:rgba(0,255,0,0.2) */
 }
 
-.hover {
-    cursor: help;
-
+.trigger.on {
+    visibility: visible
 }
 
 .yellow {
     fill: #fc0;
+}
+
+.target {
+    cursor: pointer;
 }

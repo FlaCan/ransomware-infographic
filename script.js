@@ -1,4 +1,5 @@
-const select = (el) => document.querySelector(el)
+gsap.registerPlugin(ScrollToPlugin);
+const select = (el) => select(el)
 const selectAll = (el) => document.querySelectorAll(el)
 
 
@@ -33,19 +34,20 @@ function animBarrier(el) {
 
 /* Barriers */
 
-const animBarrierL1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
-    .add(animBarrier("#barrier-L1"))
+const animBarrier1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+    .add(animBarrier(".barrier-1"))
     .to(".malware-L1", {autoAlpha: 1}, "+=0.1")
     .to(".slolen-L1", {autoAlpha: 1}, "<")
     .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
     .to(".malware-L1", {autoAlpha: 1}, "<")
-    // .to("#target-credentials-L1", {visibility: "visible"}, "<")
-    // .to("#target-data-L1", {visibility: "visible"}, "<")
+    .to("#trigger-credential-1", {visibility: "visible"}, "<")
+    .to("#trigger-malware-1", {visibility: "visible"}, "<")
+    .to("#trigger-malware-2", {visibility: "visible"}, "<")
 
     
 
-const animBarrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
-    .add(animBarrier("#barrier-L2"))
+const animBarrier2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+    .add(animBarrier(".barrier-2"))
     .to(".malware-L2", {autoAlpha: 1}, "+=0.1")
     .to(".slolen-L2", {autoAlpha: 1}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "<")
@@ -54,18 +56,16 @@ const animBarrierL2 = gsap.timeline({paused: true, reversed: true, defaults:{dur
 
 
     
-const animBarrierL3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
-    .add(animBarrier("#barrier-L3"))
+const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+    .add(animBarrier(".barrier-3"))
     .to(".malware-L3", {autoAlpha: 1}, "+=0.1" )
     .to(".stolen-L3", {autoAlpha: 1}, "<")    
     .to(".device-L3", {fill: "#CC0000"}, "<")
     .to(".malware-L3", {autoAlpha: 1}, "<")
-    // .to("#target-data-L2-left", {visibility: "visible"}, "<")
-    // .to("#target-data-L2-right", {visibility: "visible"}, "<")
     
     
-const animBarrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
-    .add(animBarrier("#barrier-L4"))
+const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+    .add(animBarrier(".barrier-4"))
     .to(".malware-L4", {autoAlpha: 1}, "+=0.1" )
     .to(".device-L4", {fill: "#CC0000"}, "<")
     .to(".malware-L4", {autoAlpha: 1}, "<")
@@ -74,23 +74,23 @@ const animBarrierL4 = gsap.timeline({paused: true, reversed: true, defaults:{dur
 /* Click Listeners **********************************************************************************************/
 
 
-const clicksL1 = selectAll("#barrier-L1 .click")
-const clicksL2 = selectAll("#barrier-L2 .click")
-const clicksL3 = selectAll("#barrier-L3 .click")
-const clicksL4 = selectAll("#barrier-L4 .click")
+const clicksL1 = selectAll(".barrier-1 .trigger")
+const clicksL2 = selectAll(".barrier-2 .trigger")
+const clicksL3 = selectAll(".barrier-3 .trigger")
+const clicksL4 = selectAll(".barrier-4 .trigger")
 
 clicksL1.forEach(item => {
 
     item.addEventListener("click", () => {
-        if (animBarrierL1.reversed()) {
+        if (animBarrier1.reversed()) {
             animDrop.pause()
-            animBarrierL1.play() 
+            animBarrier1.play() 
         } else {
             animDrop.play()
-            animBarrierL1.reverse() 
-            animBarrierL2.reverse() 
-            animBarrierL3.reverse() 
-            animBarrierL4.reverse() 
+            animBarrier1.reverse() 
+            animBarrier2.reverse() 
+            animBarrier3.reverse() 
+            animBarrier4.reverse() 
             animClock.reverse()
         }
     }, false)
@@ -101,14 +101,14 @@ clicksL1.forEach(item => {
 clicksL2.forEach(item => {
     
     item.addEventListener("click", () => {
-        if (animBarrierL2.reversed()) {
+        if (animBarrier2.reversed()) {
             animDrop.pause()
-            animBarrierL1.play()
-            animBarrierL2.play()
+            animBarrier1.play()
+            animBarrier2.play()
         } else {
-            animBarrierL2.reverse()
-            animBarrierL3.reverse()
-            animBarrierL4.reverse()
+            animBarrier2.reverse()
+            animBarrier3.reverse()
+            animBarrier4.reverse()
             animClock.reverse()
         }
     }, false)
@@ -119,16 +119,16 @@ clicksL2.forEach(item => {
 clicksL3.forEach(item => {
 
     item.addEventListener("click", () => {
-        if (animBarrierL3.reversed()) {
+        if (animBarrier3.reversed()) {
             animDrop.pause()
-            animBarrierL1.play()
-            animBarrierL2.play()
-            animBarrierL3.play()
+            animBarrier1.play()
+            animBarrier2.play()
+            animBarrier3.play()
             animClock.play()
     
         } else {
-            animBarrierL3.reverse()
-            animBarrierL4.reverse()
+            animBarrier3.reverse()
+            animBarrier4.reverse()
             animClock.reverse()
         }
     }, false)
@@ -139,15 +139,15 @@ clicksL3.forEach(item => {
 clicksL4.forEach(item => {
 
     item.addEventListener("click", () => {
-        if (animBarrierL4.reversed()) {
+        if (animBarrier4.reversed()) {
             animDrop.pause()
-            animBarrierL1.play()
-            animBarrierL2.play()
-            animBarrierL3.play()
-            animBarrierL4.play()
+            animBarrier1.play()
+            animBarrier2.play()
+            animBarrier3.play()
+            animBarrier4.play()
             animClock.reverse()
         } else {
-            animBarrierL4.reverse()
+            animBarrier4.reverse()
             animClock.play()
         }
     }, false)
@@ -156,13 +156,31 @@ clicksL4.forEach(item => {
 
 
 
-/* Hover listeners - hover and seepch number must match *********************************************************/
-const hover = selectAll(".hover")
-const speech = selectAll(".speech")
+/* trigger listeners - trigger and speech number must match *********************************************************/
+const trigger = document.querySelectorAll(".trigger")
+// const speech = selectAll(".speech")
 
-for (let i = 0; i < hover.length; i++) {
-    let anim = gsap.to(speech[i], {autoAlpha:1, paused: true, delay: 1})
-    hover[i].addEventListener("mouseover", () =>{anim.play()}, false)
-    hover[i].addEventListener("mouseleave", () =>{anim.reverse()}, false)
-}
+// for (let i = 0; i < trigger.length; i++) {
+//     let anim = gsap.to(speech[i], {autoAlpha:1, paused: true, delay: 1})
+//     trigger[i].addEventListener("mouseover", () =>{anim.play()}, false)
+//     trigger[i].addEventListener("mouseleave", () =>{anim.reverse()}, false)
+// }
 
+const target = document.querySelectorAll(".target")
+
+for (let i = 0; i < trigger.length; i++) {
+    trigger[i].addEventListener("click", () => {
+        target[i].classList.add("highlight")
+        for (let j = 0; j < trigger.length; j++) {
+            if (trigger[i] !== trigger[j]) {
+                target[j].classList.remove("highlight")
+            }
+        }
+        let measure = target[i].getBoundingClientRect().y
+        window.scrollBy({
+            top: measure - 35,
+            left: 0,
+            behavior: 'smooth'
+          });
+      });
+    }
