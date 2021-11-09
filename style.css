@@ -14,23 +14,21 @@ body {
 h1, h2, h3, h4, h5, h6, p {
     max-width: 75ch;
     margin-bottom: 1rem;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
  color: #0df;
 }
 
-h4 {
-  
-}
 
 .highlight {
     color: #fe0;
+   
 }
 
 .highlight::before {
-    content: "\1F892    ";
+    content: "● ";
     
 }
 
@@ -82,7 +80,7 @@ section {
 }
 
 .content {
-    background-color: rgba(0, 0, 17, 0.9);
+    background-color: rgba(0, 0, 17, 0.85);
     padding: 10%;
 }
 
@@ -105,7 +103,6 @@ section {
     opacity: 0;
     visibility: hidden;
 }
-
 
 
 .bubble {
