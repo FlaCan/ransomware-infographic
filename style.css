@@ -45,6 +45,7 @@ p.small {
 
 
 section {
+    background-color: #242433;
     display: flex;
     justify-content: center;
 }
@@ -53,13 +54,13 @@ section {
 /* split */
 
 .grid-container {
-    background-color: rgba(240, 243, 248, 1);
+    background-color: #e6ebf4;
     display: grid;
     grid-template-columns: 1fr 12px 1fr;
 }
 
 .gutter {
-    background-color:rgba(0, 0, 17, 0.15);
+    background-color:e6ebf4;
     color: rgba(0, 0, 17, 1);
     cursor: col-resize;
     transition-property: color, background-color;
@@ -73,14 +74,14 @@ section {
 
 
 .infographic {
-    background-color: rgba(240, 243, 248, 1);
+    background-color: #e6ebf4;
     position: sticky;
     top: 0;
     align-self: start; /*IMPORTANT: to make sticky position work; if not set this div takes the whole parent height therore does not stick */
 }
 
 .content {
-    background-color: rgba(0, 0, 17, 0.85);
+    background-color: #242433;
     padding: 10%;
 }
 
@@ -135,7 +136,7 @@ text {
 
 
 .barrier-line-muted {
-    stroke: #e7e7e9;
+    stroke: #ccd6e7;
 }
 .barrier-button {
     fill:#07e;
@@ -167,7 +168,7 @@ text {
     cursor: pointer;
     /* opacity: 1;
     visibility: visible;
-    fill:rgba(0,255,0,0.2) */
+    fill:rgba(0,255,0,0.3) */
 }
 
 .trigger.on {
