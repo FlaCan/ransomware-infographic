@@ -1,47 +1,85 @@
-* {
+*, html, body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     color: white;
     font-family: "Roboto", serif;
-    
-    
+    font-size: 17px;
 }
 
 
-h1, h2, h3, h4, h5, h6, p {
-    max-width: 75ch;
-    margin-bottom: 1rem;
+h2, h3, h4, p {
+    max-width: 60ch;
     font-weight: 500;
+
 }
 
-h1, h2, h3, h4, h5, h6 {
- color: #0df;
+
+h2, h3, h4 {
+    color: #0cf;
+}   
+
+a {
+    color: #0df;
+    text-decoration: none;
 }
+
+h2, h3, h4 {
+    margin-bottom: 1em ;
+}
+
+
+
+p {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+p.subtitle {
+    font-size: 1.25em;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 1.5em ;
+    line-height: 1.5;
+}
+
+h4 {
+    font-size: 1.25em ;
+    line-height: 1.5;
+}
+
+
+.divider {
+    height: 2px;
+    clear: both;
+    border-top: 1px solid rgba(0,0,17,.15);
+    border-bottom: 1px solid #fff;
+    margin: 3em 0;
+}
+
 
 
 .highlight {
-    color: #fe0;
+    color: #fd0;
    
 }
 
 .highlight::before {
     content: "● ";
-    
 }
 
 
-p {
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
-}
-
-p.small {
-    font-size: 0.875rem;
-}
 
 
 section {
@@ -60,16 +98,16 @@ section {
 }
 
 .gutter {
-    background-color:e6ebf4;
+    background-color: #ccd6e7;
     color: rgba(0, 0, 17, 1);
     cursor: col-resize;
-    transition-property: color, background-color;
-    transition-duration: 200ms, 200ms;
-    transition-timing-function: ease, ease;
+    /* transition-property: color, background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease, ease; */
 }
 
 .gutter:hover {
-  background-color: white;
+  background-color: #fd0;
 }
 
 
@@ -90,12 +128,6 @@ section {
     margin-bottom: 36px;
 }
 
-.divider {
-    height: 2px;
-    clear: both;
-    border-top: 1px solid rgba(0,0,17,.15);
-    border-bottom: 1px solid #fff;
-}
 
 
 /* SVG */
@@ -120,11 +152,8 @@ text {
     font-size: 30px;
     fill: white;
 }
-.title {
-    font-size: 40px;
-    font-weight: 500;
-    opacity: 0.9;
-}
+
+
 .barrier-line, .barrier-line-muted {
     stroke-width:5;
     stroke-linecap:round;
