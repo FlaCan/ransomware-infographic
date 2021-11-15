@@ -1,5 +1,22 @@
-const select = (el) => select(el)
+const select = (el) => document.querySelector(el)
 const selectAll = (el) => document.querySelectorAll(el)
+
+
+Split({
+    columnGutters: [{
+        track: 1,
+        element: select('.gutter'),
+    }],
+})
+
+function setDragSymbolPosition () {
+    let gradSymbol = select("#drag-symbol")    
+    let dragSymbolPosition = window.innerHeight * 0.5 - 12
+    gradSymbol.style.position = "sticky"
+    gradSymbol.style.top = dragSymbolPosition + "px"
+}
+
+setDragSymbolPosition()
 
 /* Initial states ****************************************************************************************/
 
@@ -143,8 +160,8 @@ clicksL4.forEach(item => {
 
 /* trigger listeners - trigger and target number must match *********************************************************/
 
-const trigger = document.querySelectorAll(".trigger")
-const target = document.querySelectorAll(".target")
+const trigger = selectAll(".trigger")
+const target = selectAll(".target")
 
 
 
