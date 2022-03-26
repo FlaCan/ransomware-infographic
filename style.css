@@ -7,14 +7,13 @@
 body {
     color: white;
     font-family: "Roboto", serif;
-    font-size: 17px;
+    font-size: git swith;
 }
 
 
 h2, h3, h4, p {
     max-width: 60ch;
     font-weight: 500;
-
 }
 
 
@@ -30,7 +29,6 @@ a {
 h2, h3, h4 {
     margin-bottom: 1em ;
 }
-
 
 
 p {
@@ -69,7 +67,6 @@ h4 {
 }
 
 
-
 .highlight {
     color: #fd0;
    
@@ -78,8 +75,6 @@ h4 {
 .highlight::before {
     content: "● ";
 }
-
-
 
 
 section {
@@ -101,9 +96,6 @@ section {
     background-color: #ccd6e7;
     color: rgba(0, 0, 17, 1);
     cursor: col-resize;
-    /* transition-property: color, background-color;
-    transition-duration: 200ms;
-    transition-timing-function: ease, ease; */
 }
 
 .gutter:hover {
@@ -129,12 +121,21 @@ section {
 }
 
 
-
 /* SVG */
 
-.barrier-line-muted, .countdown, .malware, .speech, .stolen, .trigger, .lock, .click  {
+.barrier-line-muted, .malware, .speech, .countdown, .stolen, .trigger, .lock, .click  {
     opacity: 0;
     visibility: hidden;
+}
+
+.countdown {
+    fill: #f80;
+    /* opacity: 0.50;
+    visibility: visible; */
+}
+
+.lancetta {
+    fill: white;
 }
 
 
