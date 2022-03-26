@@ -20,15 +20,35 @@ setDragSymbolPosition()
 
 /* Initial states ****************************************************************************************/
 
-gsap.set(".line-left", {transformOrigin: "0% 50%"})
-gsap.set(".line-right", {transformOrigin: "100% 50%"})
-gsap.set("#countdown > path", {transformOrigin: "50% 50%"})
+gsap.set(".line-left", {
+    transformOrigin: "0% 50%"
+})
+
+gsap.set(".line-right", {
+    transformOrigin: "100% 50%"
+})
+
+gsap.set(".lancetta", {
+    transformOrigin: "3 12"
+})
 
 /* Animations *********************************************************************************************/
 
-const animDrop = gsap.to(".drop", {duration: 0.75, stagger:0.2, y: -25, repeat: -1, yoyo: true})
-gsap.to("#countdown > path", {duration: 2, rotate:360, repeat: -1, ease: "linear"}, "<")
-const animClock = gsap.to(".countdown#countdown_backup-offline", {paused: true, autoAlpha:1, scale: 1.5, ease: "back"}, "<")
+const animDrop = gsap.to(".drop", {
+    duration: 0.75, 
+    stagger:0.2, 
+    y: -25, 
+    repeat: -1, 
+    yoyo: true
+})
+
+const animClock = gsap.to(".lancetta", {
+    duration: 5, 
+    rotate:360, 
+    repeat: -1, 
+    ease: "linear",
+}, "<")
+
 
 
 function animBarrier(el) {
@@ -44,27 +64,34 @@ function animBarrier(el) {
 
 const animBarrier1 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
     .add(animBarrier(".barrier-1"))
-    .to(".trigger-L1", {visibility: "visible"}, "<")
+    .to(".trigger-L1", {visibility: "visible"}, "<") // all triggers that appear when first barrier is clicked
     .to(".malware-L1", {autoAlpha: 1}, "<")
     .to(".slolen-L1", {autoAlpha: 1}, "<")
+    .to("#countdown-1", {autoAlpha: 1}, "<")
     .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
 
  
-const animBarrier2 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+const animBarrier2 = gsap.timeline({paused: true, reversed: true, stagger: 0.1, defaults:{duration:0.2}})
     .add(animBarrier(".barrier-2"))
     .to(".trigger-L2", {visibility: "visible"}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "<")
     .to(".slolen-L2", {autoAlpha: 1}, "<")
     .to(".device-L2", {fill: "#CC0000"}, "<")
+    .to("#countdown-2", {autoAlpha: 1}, "<")
+    .to("#countdown-3", {autoAlpha: 1}, "<")
+    .to("#countdown-4", {autoAlpha: 1}, "<")
     .to(".user-L2 .workstation", {fill: "#CC0000"}, "<")
 
     
-const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
+const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults: {duration:0.2}})
     .add(animBarrier(".barrier-3"))
     .to(".trigger-L3", {visibility: "visible"}, "<")
     .to(".malware-L3", {autoAlpha: 1}, "<" )
     .to(".stolen-L3", {autoAlpha: 1}, "<")    
     .to(".device-L3", {fill: "#CC0000"}, "<")
+    .to("#countdown-5", {autoAlpha: 1}, "<")
+    .to("#countdown-6", {autoAlpha: 1}, "<")
+    .to("#countdown-7", {autoAlpha: 1}, "<")
     
     
 const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
@@ -82,6 +109,7 @@ const clicksL2 = selectAll(".barrier-2 .trigger")
 const clicksL3 = selectAll(".barrier-3 .trigger")
 const clicksL4 = selectAll(".barrier-4 .trigger")
 
+
 clicksL1.forEach(item => {
 
     item.addEventListener("click", () => {
@@ -94,7 +122,6 @@ clicksL1.forEach(item => {
             animBarrier2.reverse() 
             animBarrier3.reverse() 
             animBarrier4.reverse() 
-            animClock.reverse()
         }
     }, false)
     
@@ -112,7 +139,6 @@ clicksL2.forEach(item => {
             animBarrier2.reverse()
             animBarrier3.reverse()
             animBarrier4.reverse()
-            animClock.reverse()
         }
     }, false)
 
@@ -127,12 +153,9 @@ clicksL3.forEach(item => {
             animBarrier1.play()
             animBarrier2.play()
             animBarrier3.play()
-            animClock.play()
-    
         } else {
             animBarrier3.reverse()
             animBarrier4.reverse()
-            animClock.reverse()
         }
     }, false)
 
@@ -148,10 +171,8 @@ clicksL4.forEach(item => {
             animBarrier2.play()
             animBarrier3.play()
             animBarrier4.play()
-            animClock.reverse()
         } else {
             animBarrier4.reverse()
-            animClock.play()
         }
     }, false)
     
@@ -160,9 +181,9 @@ clicksL4.forEach(item => {
 
 /* trigger listeners - trigger and target number must match *********************************************************/
 
+
 const trigger = selectAll(".trigger")
 const target = selectAll(".target")
-
 
 
 for (let i = 0; i < target.length; i++) { //NB RESTORE TO TRIGGER LENGHT 
