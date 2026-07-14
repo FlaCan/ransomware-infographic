@@ -186,7 +186,7 @@ const trigger = selectAll(".trigger")
 const target = selectAll(".target")
 
 
-for (let i = 0; i < target.length; i++) { //NB RESTORE TO TRIGGER LENGHT 
+for (let i = 0; i < target.length; i++) {
     trigger[i].addEventListener("click", () => {
         target[i].classList.add("highlight")
         for (let j = 0; j < target.length; j++) {
