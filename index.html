@@ -26,13 +26,13 @@
 
                 <!--1-->
                 <div class="spacer">
-                    <h4 class="target">Attack</h4>
+                    <h4 class="target" data-target="attack">Attack</h4>
                     <p>Often part of a larger criminal group, he launches his attack by remote. His goal is encrypting and stealing organizations and individual data. If he succeeds, he can ask for a ransom (usually crypto-currency).&nbsp;Either the target pays to recover data or pays not to have their data made public.</p>
                 </div>
 
                 <!--2-->
                 <div class="spacer">
-                    <h4 class="target">Droppers</h4>
+                    <h4 class="target" data-target="droppers">Droppers</h4>
                     <p>Kind of Trojan designed to “install” malware to a target system. The malware code can be contained within the dropper (single-stage) to avoid detection by virus scanners, or the dropper may download the malware to the target machine once activated (two-stage). To fool people, the attacker can hide and ship malware droppers in legitimate-like download wrappers, email attachments, links to malicious sites, etc.</p>
                 </div>
 
@@ -41,25 +41,25 @@
           
                 <!--3-->
                 <div class="barrier-1 spacer">
-                    <h3 class="target">First protection barrier</h3>
+                    <h3 class="target" data-target="first-protection-barrier">First protection barrier</h3>
                     <p class="subtitle">At this stage, user education, inbound email inspection, URL filtering, and proper endpoint protection constitute the most effective barrier to an attack. We conceived our <a href="#">privileged endpoint manager - Osirium PEM -</a> embracing zero trust principles to provide IT leaders with a tool to enforce policy and manage privilege escalation seamlessly.</p>
                 </div>
 
                 <!--4-->
                 <div class="spacer">
-                    <h4 class="target">Ransomware</h4>
+                    <h4 class="target" data-target="ransomware">Ransomware</h4>
                     <p>Once executed, the payload gets to work: scanning local and connected drives and encrypting files with strong cryptography, often after quietly exfiltrating a copy of the data first. A ransom note is dropped explaining how to pay - usually in crypto-currency - to receive a decryption key or to stop stolen data being published.</p>
                 </div>
 
                 <!--5-->
                 <div class="spacer">
-                    <h4 class="target">First user</h4>
+                    <h4 class="target" data-target="first-user">First user</h4>
                     <p>The most common entry points to attacks is via the people in the business. Even with good training, the attack can be sophisticated enough to fool anyone; some do not even need user action. When the ransomware infects the workstation, it can sit in wait for more valuable content and lay in wait for weeks or months before the encryption begins.</p>
                 </div>
 
                 <!--6-->
                 <div class="spacer">
-                    <h4 class="target">Credential and data exfiltration</h4>
+                    <h4 class="target" data-target="credential-and-data-exfiltration">Credential and data exfiltration</h4>
                     <p>Once the workstation is infected, the ransomware exfiltrates the user’s credentials. Later on, those can be used as gateways to other attacks. Once the workstation is infected, the ransomware exfiltrates the first user’s data. Valuable data, such as confidential or copyrighted information, is exfiltrated to treat the organization to make them public.</p>
                 </div>
 
@@ -67,34 +67,36 @@
 
                 <!--7-->
                 <div class="barrier-2 spacer">
-                    <h3 class="target">Second protection barrier</h3>
+                    <h3 class="target" data-target="second-protection-barrier">Second protection barrier</h3>
                     <p class="subtitle">Once a workstation is compromised, containing the damage depends on limiting what that foothold can reach. Enforcing least privilege, multi-factor authentication, and network segmentation stops one infected machine becoming a gateway to the rest of the business. Continuous monitoring for unusual credential use and lateral movement is what catches an attacker before they reach anything of real value.</p>
                 </div>
                 
 
                 <!--8-->
                 <div class="spacer">
-                    <h4 class="target">Critical jump</h4>
+                    <h4 class="target" data-target="critical-jump">Critical jump</h4>
                     <p>Armed with stolen credentials, the attacker moves beyond the first infected workstation. This is the critical jump from a single compromised machine to the wider network - probing for weakly protected accounts and systems that grant access to shared resources, servers, and eventually the infrastructure that runs the business.</p>
+                </div>
+
+                   <!--10-->
+                <div class="spacer">
+                    <h4 class="target" data-target="privileged-users">Privileged users</h4>
+                    <p>Privileged accounts - IT administrators, service accounts, anyone with elevated rights - are the most valuable credentials on the network. Compromising one gives the attacker the keys to reconfigure systems, disable defences, and reach resources an ordinary user never could.</p>
                 </div>
 
                 <!--9-->
                 <div class="spacer">
-                    <h4 class="target">Shared drives</h4>
+                    <h4 class="target" data-target="shared-drives">Shared drives</h4>
                     <p>Shared network drives are a high-value target: they concentrate the files many people rely on into one place. Once reached, the attacker can encrypt or exfiltrate entire folders of shared documents in a single move, multiplying the damage far beyond what any one user's files would cause.</p>
                 </div>
 
 
-                <!--10-->
-                <div class="spacer">
-                    <h4 class="target">Privileged users</h4>
-                    <p>Privileged accounts - IT administrators, service accounts, anyone with elevated rights - are the most valuable credentials on the network. Compromising one gives the attacker the keys to reconfigure systems, disable defences, and reach resources an ordinary user never could.</p>
-                </div>
+             
 
                 
                 <!--11-->
                 <div class="spacer">
-                    <h4 class="target">More valuable data and credentials</h4>
+                    <h4 class="target" data-target="more-valuable-data-and-credentials">More valuable data and credentials</h4>
                     <p>With privileged access secured, the attacker's reach and reward both grow. Sensitive data - financial records, intellectual property, personal information - and higher-level credentials are now in scope, raising the stakes for both the ransom demand and the threat of public exposure.</p>
                 </div>
 
@@ -102,37 +104,37 @@
 
                 <!--12-->
                 <div class="barrier-3 spacer">
-                    <h3 class="target">Third protection barrier</h3>
+                    <h3 class="target" data-target="third-protection-barrier">Third protection barrier</h3>
                     <p class="subtitle">By this stage, the attacker holds privileged credentials and is moving through core infrastructure. The priority is limiting the blast radius: tiered administration so domain and server credentials can't be reused on ordinary workstations, endpoint detection and response to spot lateral movement in real time, and privileged access management to control who can reach domain controllers, hypervisors, and backup systems.</p>
                 </div>
 
                 <!--13-->
                 <div class="spacer">
-                    <h4 class="target">Lateral movement</h4>
+                    <h4 class="target" data-target="lateral-movement">Lateral movement</h4>
                     <p>Using the credentials it has already stolen, the ransomware fans out across the network - probing servers, virtualization hosts, and domain infrastructure for the next weak point. Each new system it reaches becomes a further foothold, bringing the attacker closer to the infrastructure that keeps the business running.</p>
                 </div>
 
                 <!--14-->
                 <div class="spacer">
-                    <h4 class="target">Domain controller</h4>
+                    <h4 class="target" data-target="domain-controller">Domain controller</h4>
                     <p>The domain controller manages identity and access for the entire network. Compromising it hands the attacker the ability to create accounts, reset passwords, and grant themselves access to virtually anything - turning a single breach into control of the whole environment.</p>
                 </div>
 
                 <!--15-->
                 <div class="spacer">
-                    <h4 class="target">Hypervisor</h4>
+                    <h4 class="target" data-target="hypervisor">Hypervisor</h4>
                     <p>Many organizations run their servers as virtual machines on a shared hypervisor. Gaining control of it lets the attacker access, encrypt, or destroy every virtual machine it hosts at once - an efficient way to cause maximum damage from a single compromise.</p>
                 </div>
 
                 <!--16-->
                 <div class="spacer">
-                    <h4 class="target">Online backups</h4>
+                    <h4 class="target" data-target="online-backups">Online backups</h4>
                     <p>Backups are the safety net an organization relies on to recover without paying. If those backups are reachable from the network - and many are, for convenience - the attacker will target them directly, deleting or encrypting them to remove the victim's ability to restore data independently.</p>
                 </div>
 
                 <!--17-->
                 <div class="spacer">
-                    <h4 class="target">Domain-wide compromise</h4>
+                    <h4 class="target" data-target="domain-wide-compromise">Domain-wide compromise</h4>
                     <p>With domain-level access, the attacker can now harvest credentials and sensitive files across the whole organization, not just one department. This is the point where the incident stops being a single-workstation problem and becomes a full breach of the organization's identity and data.</p>
                 </div>
 
@@ -140,19 +142,19 @@
 
                 <!--18-->
                 <div class="barrier-4 spacer">
-                    <h3 class="target">Fourth protection barrier</h3>
+                    <h3 class="target" data-target="fourth-protection-barrier">Fourth protection barrier</h3>
                     <p class="subtitle">The last line of defence is making sure recovery is still possible even after everything else has failed. Immutable, air-gapped, or otherwise offline backups - following the 3-2-1 principle of multiple copies, on different media, with at least one copy off-network - can't be reached, altered, or deleted by an attacker who has compromised the rest of the environment.</p>
                 </div>
 
                 <!--19-->
                 <div class="spacer">
-                    <h4 class="target">Backup encryption attempt</h4>
+                    <h4 class="target" data-target="backup-encryption-attempt">Backup encryption attempt</h4>
                     <p>Before triggering the final encryption, the ransomware makes a last attempt to reach any backup it can still find - including ones assumed to be safe - to remove the victim's remaining options for recovery.</p>
                 </div>
 
                 <!--20-->
                 <div class="spacer">
-                    <h4 class="target">Offline backups</h4>
+                    <h4 class="target" data-target="offline-backups">Offline backups</h4>
                     <p>Backups kept offline or air-gapped are, by design, unreachable over the network the attacker has compromised. This is the one copy of the data the ransomware cannot touch, and it's what ultimately determines whether the organization can recover on its own terms or is forced to negotiate.</p>
                 </div>
 
@@ -962,14 +964,14 @@
 
 
                 <!--h4 attacker-->
-                <g class="trigger on">
+                <g class="trigger on" data-target="attack">
                     <!--user-1-->
                     <path d="M730,474v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-3h-32v-30c0-13,8.6-24.1,25.6-33l6.4-3.3 V370c0-9.9,8.1-18,18-18h25.1c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v5.4l7,3.8c20.7,11.1,25,24,25,32.8v30h-32v2c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/> 
                 </g>
 
                 
                 <!--h4 droppers-->
-                <g class="trigger on">
+                <g class="trigger on" data-target="droppers">
                     <!--drops-->
                     <path d="M800,755c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.3-1,2-6,11-33.6 c-8.4,11.6-22,19.2-37.4,19.2c-25.4,0-46-20.6-46-46c0-5,0.8-9.9,2.4-14.6c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8 c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,30.6,93.5,30.6,93.5c1.6,4.7,2.4,9.6,2.4,14.6c0,0.1,0,0.3,0,0.4 c0.7-2.2,10.8-33.1,11-33.5c1.9-6,7-9.9,13-9.9s11.1,3.9,13.1,9.9c0.1,0.3,10.4,31.9,10.9,33.5c0-0.1,0-0.3,0-0.4 c0-5,0.8-9.9,2.4-14.6c0.4-1.3,3.1-9.6,22.1-67.7c4.7-14.4,8.3-25.5,8.4-25.8c1.9-6,7-3.9,13-3.9s11.1,3.9,13.1,9.9 c0.1,0.3,30.6,93.5,30.6,93.5c1.6,4.7,2.4,9.6,2.4,14.6c0,25.4-20.6,40-46,40c-15.4,0-29-7.6-37.4-19.2c9.1,27.8,11,33.6,11,33.6 c1.6,4.7,2.4,9.6,2.4,14.6C846,734.4,825.4,755,800,755z"/>
                 </g>
@@ -977,7 +979,7 @@
 
                 <!--h3 first protection barrier-->
                 <g class="barrier-1"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-1" class="trigger on">
+                    <g id="trigger-barrier-1" class="trigger on" data-target="first-protection-barrier">
                         <path class="click-right" d="M800,841v-56h25c15.4,0,28,12.6,28,28s-12.6,28-28,28H800z"/>
                         <path class="click-left" d="M775,841c-15.4,0-28-12.6-28-28s12.6-28,28-28h25v56H775z"/>
                     </g>
@@ -985,21 +987,21 @@
                     
 
                 <!--h4 ransomware-->
-                <g class="trigger trigger-L1">
+                <g class="trigger trigger-L1" data-target="ransomware">
                     <!--malware-1-->
                     <path d="M800,895.5c-17.6,0-32-14.4-32-32c0-3.4,0.6-6.8,1.6-10.1c0.1-0.3,0.5-1.6,1.1-3.6 c18.3-58.8,23.2-74.5,23.8-76.7c0.5-2.5,2.7-4.4,5.4-4.4s4.9,1.9,5.4,4.4c0.9,3,8.7,28.1,23.2,74.7c1,3.1,1.6,5.1,1.7,5.6 c1.1,3.3,1.6,6.7,1.6,10.1C832,881.2,817.6,895.5,800,895.5z"/>
                 </g>
 
 
                 <!--h4 first user-->
-                <g class="trigger on">
+                <g class="trigger on" data-target="first-user">
                     <!--user-2-->
                     <path d="M730,1125v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33l6.6-3.4 v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42H852 c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H870v1c0,1.4-0.2,2.7-0.4,4h0.4v26H730z"/>
                 </g>
                 
 
                 <!--h4 credential and data exfiltration -->
-                <g class="trigger trigger-L1">
+                <g class="trigger trigger-L1" data-target="credential-and-data-exfiltration">
                     <!--credentials-->
                     <path d="M583.7,928.7l16.6-16.6c0.4-0.4,0.9-0.6,1.4-0.6h22.4c1.1,0,2,0.9,2,2v52c0,1.1-0.9,2-2,2h-39 c-1.1,0-2-0.9-2-2v-35.4C583.1,929.6,583.3,929,583.7,928.7z"/>
                     <!--data-->
@@ -1009,7 +1011,7 @@
 
                 <!--h3 second protection barrier-->
                 <g class="barrier-2"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-2" class="trigger on">
+                    <g id="trigger-barrier-2" class="trigger on" data-target="second-protection-barrier">
                         <path class="click-right" d="M800,1253v-56h25 c15.4,0,28,12.6,28,28s-12.6,28-28,28H800z"/>
                         <path class="click-left" d="M775,1253c-15.4,0-28-12.6-28-28 s12.6-28,28-28h25v56H775z"/>
                     </g>
@@ -1017,7 +1019,7 @@
 
 
                 <!--h4 critical jump-->
-                <g class="trigger trigger-L2">
+                <g class="trigger trigger-L2" data-target="critical-jump">
                     <!--malware-2-->
                     <path d="M606.8,1222.1c-12.2,0-23-7.1-28.1-18.5c-5.2-11.8-3.1-25.2,5.7-35.2 c20.2-28.5,51.4-47.6,83.4-51c3.8-0.4,6.4-0.6,8.2-0.6c1.5,0,6,0,7.2,4.1c1.2,4.2-2.3,6.4-5.6,8.5c-1.3,0.8-2.7,1.7-4,2.7 c-12.5,9.5-22.2,21.2-28,33.6c-3,6.4-5.1,13.1-6.3,19.8c-1.1,13.4-3.9,28.3-22.2,34.8l-0.2,0.1 C613.6,1221.5,610.1,1222.1,606.8,1222.1z"/>
                     <!--malware-3-->
@@ -1032,14 +1034,14 @@
 
 
                 <!-- h4 shared drive -->
-                <g class="trigger on">
+                <g class="trigger on" data-target="shared-drives">
                     <!--device-1-->
                     <path d="M800.1,1566c-12.3,0-23.6-6.2-30.4-16h-43c-9.2,0-16.6-7.5-16.6-16.6v-8.7 c0-9.2,7.5-16.6,16.6-16.6h2.7c-11.2-4.3-19.2-15.3-19.2-28l0.1-65c0-16.5,13.4-30,29.9-30h51.2l25,25H860c16.5,0,30,13.5,30,30v40 c0,12.7-8,23.7-19.2,28h2.4c9.2,0,16.6,7.5,16.6,16.6v8.7c0,9.2-7.5,16.6-16.6,16.6h-42.7C823.7,1559.8,812.4,1566,800.1,1566z"/>
                 </g>
 
 
                 <!-- h4 privileged users -->
-                <g class="trigger on">
+                <g class="trigger on" data-target="privileged-users">
                     <!--user-3-->
                     <path d="M374,1536v-26h0.4c-0.3-1.3-0.4-2.6-0.4-4v-1h-32.2v-30c0-13,8.6-24.1,25.6-33 l6.6-3.4v-6.6c0-9.9,8.1-18,18-18h24.9c-13.8-8.9-22.9-24.4-22.9-42c0-27.6,22.4-50,50-50s50,22.4,50,50c0,17.6-9.1,33.1-22.9,42 H496c9.9,0,18,8.1,18,18v6.6l6.6,3.4c17,8.9,25.6,20,25.6,33v30H514v1c0,1.4-0.2,2.7-0.4,4h0.4v26H374z"/>
                     <!--user-4-->
@@ -1048,7 +1050,7 @@
 
 
                 <!-- h4 more valuable data and credentials -->
-                <g class="trigger trigger-L2">
+                <g class="trigger trigger-L2" data-target="more-valuable-data-and-credentials">
                     <!--credentials-->
                     <path d="M1189,1214.2l16.6-16.6c0.4-0.4,0.9-0.6,1.4-0.6h22.4c1.1,0,2,0.9,2,2v52c0,1.1-0.9,2-2,2h-39 c-1.1,0-2-0.9-2-2v-35.4C1188.4,1215.1,1188.6,1214.6,1189,1214.2z"/>
                     <!--data-->
@@ -1063,14 +1065,14 @@
     
                 
                 <g class="barrier-3"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-3" class="trigger on">
+                    <g id="trigger-barrier-3" class="trigger on" data-target="third-protection-barrier">
                         <path class="click-right" d="M800,1665v-56h25 c15.4,0,28,12.6,28,28s-12.6,28-28,28H800z"/>
                         <path class="click-left" d="M775,1665c-15.4,0-28-12.6-28-28 s12.6-28,28-28h25v56H775z"/>
                     </g>
                 </g>
 
 
-                <g class="trigger trigger-L3">
+                <g class="trigger trigger-L3" data-target="lateral-movement">
                     <!--lateral movement (malware-7 to malware-13)-->
                     <path id="shape-malware-7" d="M644.7,1594.8c-2.5,0-5.1-0.3-7.8-0.9l-0.2-0.1c-18.7-5.1-22.6-19.7-24.8-33 c-1.7-6.6-4.4-13-7.8-19.2c-6.7-12-17.3-22.8-30.5-31.4c-1.3-0.9-2.8-1.7-4.2-2.4c-3.4-1.8-7.3-3.9-6.2-8.3 c1.2-4.6,6.2-4.6,10.7-4.6c1.2,0,2.7,0,4.4,0.1c32.2,0.9,64.7,17.5,87.1,44.4c9.9,9.6,13,23.3,8,35.8 C668.5,1587.3,657.5,1594.8,644.7,1594.8C644.7,1594.8,644.7,1594.8,644.7,1594.8z"/>
                     <path id="shape-malware-8" d="M955.3,1594.8c-12.8,0-23.8-7.5-28.6-19.5c-5-12.5-1.9-26.2,8-35.8 c22.3-26.9,54.9-43.5,87.1-44.4c1.7,0,3.2-0.1,4.4-0.1c4.5,0,9.6,0,10.7,4.6c1.1,4.4-2.8,6.4-6.2,8.3c-1.3,0.7-2.8,1.5-4.2,2.4 c-13.2,8.6-23.8,19.4-30.5,31.4c-3.5,6.2-6.1,12.7-7.8,19.2c-2.2,13.3-6.1,27.9-24.8,33l-0.2,0.1 C960.5,1594.5,957.9,1594.8,955.3,1594.8z"/>
@@ -1082,27 +1084,27 @@
                 </g>
 
 
-                <g class="trigger on">
+                <g class="trigger on" data-target="domain-controller">
                     <!--domain-controller-->
                     <path d="M529.4,1952.4c-9.8,0-18.6-4.9-24.1-12.5H491c-5.4,7.6-14.3,12.5-24.1,12.5 c-16.3,0-29.6-13.3-29.6-29.6c0-8.2,3.4-15.6,8.8-21c-0.7,0-1.4,0.1-2.1,0.1c-2.6,0-5.2-0.3-7.7-1l-81.8-20.4l-7.8-1.9 c-10.4-2.6-17.7-11.9-17.7-22.6v-37c0-10.7,7.3-20,17.7-22.6l89.6-22.4c2.5-0.6,5.1-0.9,7.7-0.9c2.6,0,5.2,0.3,7.7,1l89.6,22.4 c10.4,2.6,17.7,11.9,17.7,22.6v37c0,10.7-7.3,20-17.7,22.6l-8.4,2.1l-5.8,1.5l6.6,11.5c14.3,2.1,25.2,14.4,25.2,29.3 C559,1939.2,545.7,1952.4,529.4,1952.4z"/>
                 </g>
 
 
 
-                <g class="trigger on">
+                <g class="trigger on" data-target="hypervisor">
                     <!--hypervisor-->
                     <path id="trigger-device-4" d="M1068.2,1914.5v-103.7c0-3.9,1.1-7.7,3.2-11v0c2.8-4.4,7.2-7.6,12.3-8.8 l69.6-17.4c3.3-0.8,6.7-0.8,9.9,0l69.6,17.4c5.1,1.3,9.5,4.4,12.3,8.8v0c2.1,3.3,3.2,7.1,3.2,11v103.7c0,9.4-6.4,17.5-15.5,19.8 l-69.6,17.4c-3.3,0.8-6.7,0.8-9.9,0l-69.6-17.4C1074.6,1932.1,1068.2,1923.9,1068.2,1914.5z"/>
                 </g>
 
 
 
-                <g class="trigger on">
+                <g class="trigger on" data-target="online-backups">
                     <!--online-backups-->
                     <path d="M725,1933c-13.8,0-25-11.2-25-25v-90c0-13.8,11.2-25,25-25h150 c13.8,0,25,11.2,25,25v90c0,13.8-11.2,25-25,25H725z"/>
                 </g>
 
 
-                <g class="trigger" id="trigger-credential-2">
+                <g class="trigger" id="trigger-credential-2" data-target="domain-wide-compromise">
                     <!--domain-wide stolen credentials-->
                     <path d="M1293.9,1619l16.6-16.6c0.4-0.4,0.9-0.6,1.4-0.6h22.4c1.1,0,2,0.9,2,2v52c0,1.1-0.9,2-2,2h-39 c-1.1,0-2-0.9-2-2v-35.4C1293.3,1619.9,1293.5,1619.4,1293.9,1619z"/>
                     <path d="M1308.4,1472.4v38.1c0,1.1,0.9,2,2,2h59.1c1.1,0,2-0.9,2-2v-38.1c0-1.1-0.9-2-2-2h-59.1 C1309.3,1470.4,1308.4,1471.3,1308.4,1472.4z"/>
@@ -1112,20 +1114,20 @@
 
 
                 <g class="barrier-4"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-4" class="trigger on">
+                    <g id="trigger-barrier-4" class="trigger on" data-target="fourth-protection-barrier">
                         <path class="click-right" d="M800,2077v-56h25 c15.4,0,28,12.6,28,28s-12.6,28-28,28H800z"/>
                         <path class="click-left" d="M775,2077c-15.4,0-28-12.6-28-28 s12.6-28,28-28h25v56H775z"/>
                     </g>
                 </g>
 
 
-                <g class="trigger trigger-L4">
+                <g class="trigger trigger-L4" data-target="backup-encryption-attempt">
                     <!--backup encryption attempt (malware-14)-->
                     <path id="shape-malware-14" d="M800,2099.1c-17.6,0-32-14.4-32-32c0-3.4,0.6-6.8,1.6-10.1c0.1-0.3,0.5-1.6,1.1-3.6 c18.3-58.8,23.2-74.5,23.8-76.7c0.5-2.5,2.7-4.4,5.4-4.4s4.9,1.9,5.4,4.4c0.9,3,8.7,28.1,23.2,74.8c1,3.1,1.6,5.1,1.7,5.6 c1.1,3.3,1.6,6.7,1.6,10.1C832,2084.7,817.6,2099.1,800,2099.1z"/>
                 </g>
 
 
-                <g class="trigger on">
+                <g class="trigger on" data-target="offline-backups">
                     <!--offline-backups-->
                     <path d="M746,2334c-25.4,0-46-20.6-46-46c0-8.4,1.6-16.6,4.7-24.4l25.9-64.7 c7-17.6,23.8-28.9,42.7-28.9h53.4c18.9,0,35.7,11.4,42.7,28.9l25.9,64.7c3.1,7.8,4.7,16,4.7,24.4c0,25.4-20.6,46-46,46H746z"/>
                 </g>

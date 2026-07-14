@@ -179,26 +179,50 @@ clicksL4.forEach(item => {
 });
 
 
-/* trigger listeners - trigger and target number must match *********************************************************/
+/* trigger listeners - trigger and target are paired via data-target key, not DOM order *****************************/
 
 
-const trigger = selectAll(".trigger")
-const target = selectAll(".target")
+const triggerEls = selectAll(".trigger")
+const targetEls = selectAll(".target")
 
+const targetByKey = new Map()
+targetEls.forEach((el) => {
+    const key = el.dataset.target
+    if (!key) {
+        console.warn("Target element missing data-target attribute:", el)
+        return
+    }
+    if (targetByKey.has(key)) {
+        console.warn(`Duplicate data-target="${key}" on target elements:`, targetByKey.get(key), el)
+        return
+    }
+    targetByKey.set(key, el)
+})
 
-for (let i = 0; i < target.length; i++) {
-    trigger[i].addEventListener("click", () => {
-        target[i].classList.add("highlight")
-        for (let j = 0; j < target.length; j++) {
-            if (trigger[i] !== trigger[j]) {
-                target[j].classList.remove("highlight")
-            }
-        }
-        let measure = target[i].getBoundingClientRect().y
+if (triggerEls.length !== targetEls.length) {
+    console.warn(`Trigger/target count mismatch: ${triggerEls.length} triggers vs ${targetEls.length} targets. Check data-target attributes in index.html.`)
+}
+
+triggerEls.forEach((trigger) => {
+    const key = trigger.dataset.target
+    if (!key) {
+        console.warn("Trigger element missing data-target attribute:", trigger)
+        return
+    }
+    const target = targetByKey.get(key)
+    if (!target) {
+        console.warn(`No target found for trigger with data-target="${key}":`, trigger)
+        return
+    }
+
+    trigger.addEventListener("click", () => {
+        targetEls.forEach((el) => el.classList.remove("highlight"))
+        target.classList.add("highlight")
+        let measure = target.getBoundingClientRect().y
         window.scrollBy({
             top: measure - window.innerHeight * 0.25,
             left: 0,
             behavior: 'smooth'
           });
       });
-    }
+})
