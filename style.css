@@ -122,7 +122,7 @@ section {
 
 /* SVG */
 
-.barrier-line-muted, .malware, .countdown, .stolen, .trigger, .lock {
+.barrier-line-muted, .malware, .countdown, .stolen, .lock {
     opacity: 0;
     visibility: hidden;
 }
@@ -177,16 +177,56 @@ section {
 
 .trigger {
     cursor: pointer;
+    visibility: hidden;
+    fill-opacity: 0; /* invisible but still hit-testable: fill must stay a paint, not 'none' */
+    stroke: #242433;
+    stroke-width: 2;
+    stroke-opacity: 0;
+    transition: stroke-opacity 0.2s ease;
+}
+
+.trigger circle, .trigger path {
+    vector-effect: non-scaling-stroke; /* ring stays crisp whatever width the pane is dragged to */
 }
 
 .trigger.on {
     visibility: visible
 }
 
+.trigger:hover {
+    stroke-opacity: 1;
+    stroke-dasharray: 10 8;
+    animation: march 1.2s linear infinite;
+}
+
+@keyframes march {
+    to {
+        stroke-dashoffset: -36; /* 2 full dash cycles, so the loop restart is seamless */
+    }
+}
+
 .yellow {
     fill: #fc0;
 }
 
-.target {
-    cursor: pointer;
+
+/* tooltip following the cursor over SVG hotspots */
+
+#tooltip {
+    position: fixed;
+    background-color: rgba(0, 0, 17, 0.85);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 300;
+    padding: 0.35em 0.9em;
+    border-radius: 1em;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+}
+
+#tooltip.visible {
+    opacity: 1;
 }

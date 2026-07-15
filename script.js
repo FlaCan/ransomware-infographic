@@ -203,6 +203,10 @@ if (triggerEls.length !== targetEls.length) {
     console.warn(`Trigger/target count mismatch: ${triggerEls.length} triggers vs ${targetEls.length} targets. Check data-target attributes in index.html.`)
 }
 
+const tooltip = document.createElement("div")
+tooltip.id = "tooltip"
+document.body.appendChild(tooltip)
+
 triggerEls.forEach((trigger) => {
     const key = trigger.dataset.target
     if (!key) {
@@ -214,6 +218,20 @@ triggerEls.forEach((trigger) => {
         console.warn(`No target found for trigger with data-target="${key}":`, trigger)
         return
     }
+
+    trigger.addEventListener("mouseenter", () => {
+        tooltip.textContent = target.textContent
+        tooltip.classList.add("visible")
+    })
+
+    trigger.addEventListener("mousemove", (e) => {
+        tooltip.style.left = e.clientX + 16 + "px"
+        tooltip.style.top = e.clientY + 16 + "px"
+    })
+
+    trigger.addEventListener("mouseleave", () => {
+        tooltip.classList.remove("visible")
+    })
 
     trigger.addEventListener("click", () => {
         targetEls.forEach((el) => el.classList.remove("highlight"))
