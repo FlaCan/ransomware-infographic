@@ -175,18 +175,20 @@ section {
 }
 
 
+/* triggers paint before (under) the artwork, so the hover disc appears behind
+   the icons; pointer events skip the artwork and land on the triggers below */
+
+.infographic svg {
+    pointer-events: none;
+}
+
 .trigger {
     cursor: pointer;
     visibility: hidden;
+    pointer-events: auto;
+    fill: #fff;
     fill-opacity: 0; /* invisible but still hit-testable: fill must stay a paint, not 'none' */
-    stroke: #242433;
-    stroke-width: 2;
-    stroke-opacity: 0;
-    transition: stroke-opacity 0.2s ease;
-}
-
-.trigger circle, .trigger path {
-    vector-effect: non-scaling-stroke; /* ring stays crisp whatever width the pane is dragged to */
+    transition: fill-opacity 0.2s ease;
 }
 
 .trigger.on {
@@ -194,15 +196,7 @@ section {
 }
 
 .trigger:hover {
-    stroke-opacity: 1;
-    stroke-dasharray: 10 8;
-    animation: march 1.2s linear infinite;
-}
-
-@keyframes march {
-    to {
-        stroke-dashoffset: -36; /* 2 full dash cycles, so the loop restart is seamless */
-    }
+    fill-opacity: 1;
 }
 
 .yellow {
