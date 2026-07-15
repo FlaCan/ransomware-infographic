@@ -203,6 +203,25 @@ if (triggerEls.length !== targetEls.length) {
     console.warn(`Trigger/target count mismatch: ${triggerEls.length} triggers vs ${targetEls.length} targets. Check data-target attributes in index.html.`)
 }
 
+/* yellow icon halo - the #data/#credentials symbols carry an .icon-backdrop circle
+   (radius 39.4, centered at +39.4/+39.4 in the symbol); pair each trigger circle
+   with the stolen <use> at the same center and whiten the backdrop while hovered */
+
+const stolenIcons = Array.from(selectAll(".stolen use")).map((el) => ({
+    el,
+    cx: Number(el.getAttribute("x")) + 39.4,
+    cy: Number(el.getAttribute("y")) + 39.4,
+}))
+
+selectAll(".trigger circle").forEach((circle) => {
+    const cx = Number(circle.getAttribute("cx"))
+    const cy = Number(circle.getAttribute("cy"))
+    const icon = stolenIcons.find((i) => Math.hypot(i.cx - cx, i.cy - cy) < 6)
+    if (!icon) return
+    circle.addEventListener("mouseenter", () => icon.el.style.setProperty("--halo", "#fff"))
+    circle.addEventListener("mouseleave", () => icon.el.style.removeProperty("--halo"))
+})
+
 const tooltip = document.createElement("div")
 tooltip.id = "tooltip"
 document.body.appendChild(tooltip)
