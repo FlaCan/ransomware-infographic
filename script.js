@@ -66,7 +66,7 @@ const animBarrier1 = gsap.timeline({paused: true, reversed: true, defaults:{dura
     .add(animBarrier(".barrier-1"))
     .to(".trigger-L1", {visibility: "visible"}, "<") // all triggers that appear when first barrier is clicked
     .to(".malware-L1", {autoAlpha: 1}, "<")
-    .to(".slolen-L1", {autoAlpha: 1}, "<")
+    .to(".stolen-L1", {autoAlpha: 1}, "<")
     .to("#countdown-1", {autoAlpha: 1}, "<")
     .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
 
@@ -75,7 +75,7 @@ const animBarrier2 = gsap.timeline({paused: true, reversed: true, stagger: 0.1, 
     .add(animBarrier(".barrier-2"))
     .to(".trigger-L2", {visibility: "visible"}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "<")
-    .to(".slolen-L2", {autoAlpha: 1}, "<")
+    .to(".stolen-L2", {autoAlpha: 1}, "<")
     .to(".device-L2", {fill: "#CC0000"}, "<")
     .to("#countdown-2", {autoAlpha: 1}, "<")
     .to("#countdown-3", {autoAlpha: 1}, "<")
