@@ -213,11 +213,14 @@ const stolenIcons = Array.from(selectAll(".stolen use")).map((el) => ({
     cy: Number(el.getAttribute("y")) + 39.4,
 }))
 
+const iconByCircle = new Map()
+
 selectAll(".trigger circle").forEach((circle) => {
     const cx = Number(circle.getAttribute("cx"))
     const cy = Number(circle.getAttribute("cy"))
     const icon = stolenIcons.find((i) => Math.hypot(i.cx - cx, i.cy - cy) < 6)
     if (!icon) return
+    iconByCircle.set(circle, icon.el)
     circle.addEventListener("mouseenter", () => icon.el.style.setProperty("--halo", "#fff"))
     circle.addEventListener("mouseleave", () => icon.el.style.removeProperty("--halo"))
 })
@@ -259,6 +262,23 @@ triggerEls.forEach((trigger) => {
 
     trigger.addEventListener("mouseleave", () => {
         tooltip.classList.remove("visible")
+    })
+
+    /* hovering the heading lights every icon it refers to (discs + yellow halos) */
+    target.addEventListener("mouseenter", () => {
+        trigger.classList.add("lit")
+        trigger.querySelectorAll("circle").forEach((circle) => {
+            const icon = iconByCircle.get(circle)
+            if (icon) icon.style.setProperty("--halo", "#fff")
+        })
+    })
+
+    target.addEventListener("mouseleave", () => {
+        trigger.classList.remove("lit")
+        trigger.querySelectorAll("circle").forEach((circle) => {
+            const icon = iconByCircle.get(circle)
+            if (icon) icon.style.removeProperty("--halo")
+        })
     })
 
     trigger.addEventListener("click", () => {

@@ -203,6 +203,11 @@ section {
     fill-opacity: 1;
 }
 
+/* .lit is set by script.js while the paired heading is hovered */
+.trigger.lit circle {
+    fill-opacity: 1;
+}
+
 /* the yellow icons carry a built-in backdrop circle that masks the dotted
    trails behind them; --halo (set on the <use> by script.js when the paired
    trigger circle is hovered) pierces the use/symbol boundary to whiten it */
