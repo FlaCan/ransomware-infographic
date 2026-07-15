@@ -207,161 +207,175 @@
                     </symbol>
 
                 </defs>
+
+                <!-- Paint order (SVG z-order = document order, bottom to top):
+                     layer-triggers   invisible hotspot circles; lowest so the white hover disc shows BEHIND the artwork
+                     layer-barriers   barrier lines + buttons
+                     layer-drops      dropper drops
+                     layer-users      user/workstation icons
+                     layer-devices    shared folder, domain controller, hypervisor, backups
+                     layer-credentials dotted exfiltration trails + yellow data/credential icons
+                     layer-malware    virus icons + gradient tails (paint over the devices they attack)
+                     layer-countdowns encryption timers
+                     layer-locks      unwired assets reserved for a future encryption finale; topmost
+                     Note: the barrier-N class appears in two subtrees on purpose - the artwork group in
+                     layer-barriers (GSAP animates its lines/buttons) and a wrapper around the barrier
+                     trigger in layer-triggers (the click listeners select ".barrier-N .trigger"). -->
             <g>
             
             
-                <!--triggers - trigger sorting depends on target (html headers) sorting - sort targets first and then resort triggers ----------------------------------------------------------------------------->
+                <!--triggers - trigger sorting depends on target (html headers) sorting - sort targets first and then resort triggers-->
+                <g id="layer-triggers">
 
 
-                <!--h4 attacker-->
-                <g class="trigger on" data-target="attack">
-                    <circle cx="800" cy="367" r="117"/>
-                </g>
+                    <!--h4 attacker-->
+                    <g class="trigger on" data-target="attack">
+                        <circle cx="800" cy="367" r="117"/>
+                    </g>
 
                 
-                <!--h4 droppers-->
-                <g class="trigger on" data-target="droppers">
-                    <circle cx="731" cy="600" r="73"/>
-                    <circle cx="869" cy="600" r="73"/>
-                    <circle cx="800" cy="675" r="73"/>
-                </g>
-
-
-                <!--h3 first protection barrier-->
-                <g class="barrier-1"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-1" class="trigger on" data-target="first-protection-barrier">
-                        <circle class="click-right" cx="800" cy="813" r="73"/>
-                        <circle class="click-left" cx="800" cy="813" r="73"/>
+                    <!--h4 droppers-->
+                    <g class="trigger on" data-target="droppers">
+                        <circle cx="731" cy="600" r="73"/>
+                        <circle cx="869" cy="600" r="73"/>
+                        <circle cx="800" cy="675" r="73"/>
                     </g>
-                </g>
+
+
+                    <!--h3 first protection barrier-->
+                    <g class="barrier-1"> <!-- further group necessary on barrier trigger -->
+                        <g id="trigger-barrier-1" class="trigger on" data-target="first-protection-barrier">
+                            <circle class="click-right" cx="800" cy="813" r="73"/>
+                            <circle class="click-left" cx="800" cy="813" r="73"/>
+                        </g>
+                    </g>
                     
 
-                <!--h4 ransomware-->
-                <g class="trigger trigger-L1" data-target="ransomware">
-                    <circle cx="800" cy="830" r="73"/>
-                </g>
+                    <!--h4 ransomware-->
+                    <g class="trigger trigger-L1" data-target="ransomware">
+                        <circle cx="800" cy="830" r="73"/>
+                    </g>
 
 
-                <!--h4 first user-->
-                <g class="trigger on" data-target="first-user">
-                    <circle cx="800" cy="1020" r="117"/>
-                </g>
+                    <!--h4 first user-->
+                    <g class="trigger on" data-target="first-user">
+                        <circle cx="800" cy="1020" r="117"/>
+                    </g>
                 
 
-                <!--h4 credential and data exfiltration -->
-                <g class="trigger trigger-L1" data-target="credential-and-data-exfiltration">
-                    <circle cx="604" cy="939" r="42"/>
-                    <circle cx="539" cy="814" r="42"/>
-                </g>
-
-
-                <!--h3 second protection barrier-->
-                <g class="barrier-2"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-2" class="trigger on" data-target="second-protection-barrier">
-                        <circle class="click-right" cx="800" cy="1225" r="73"/>
-                        <circle class="click-left" cx="800" cy="1225" r="73"/>
+                    <!--h4 credential and data exfiltration -->
+                    <g class="trigger trigger-L1" data-target="credential-and-data-exfiltration">
+                        <circle cx="604" cy="939" r="42"/>
+                        <circle cx="539" cy="814" r="42"/>
                     </g>
-                </g>
 
 
-                <!--h4 critical jump-->
-                <g class="trigger trigger-L2" data-target="critical-jump">
-                    <circle cx="630" cy="1170" r="73"/>
-                    <circle cx="970" cy="1170" r="73"/>
-                    <circle cx="800" cy="1242" r="73"/>
-                    <circle cx="643" cy="1366" r="73"/>
-                    <circle cx="957" cy="1366" r="73"/>
-                </g>
+                    <!--h3 second protection barrier-->
+                    <g class="barrier-2"> <!-- further group necessary on barrier trigger -->
+                        <g id="trigger-barrier-2" class="trigger on" data-target="second-protection-barrier">
+                            <circle class="click-right" cx="800" cy="1225" r="73"/>
+                            <circle class="click-left" cx="800" cy="1225" r="73"/>
+                        </g>
+                    </g>
 
 
-                <!-- h4 shared drive -->
-                <g class="trigger on" data-target="shared-drives">
-                    <circle cx="800" cy="1475" r="117"/>
-                </g>
+                    <!--h4 critical jump-->
+                    <g class="trigger trigger-L2" data-target="critical-jump">
+                        <circle cx="630" cy="1170" r="73"/>
+                        <circle cx="970" cy="1170" r="73"/>
+                        <circle cx="800" cy="1242" r="73"/>
+                        <circle cx="643" cy="1366" r="73"/>
+                        <circle cx="957" cy="1366" r="73"/>
+                    </g>
 
 
-                <!-- h4 privileged users -->
-                <g class="trigger on" data-target="privileged-users">
-                    <circle cx="443" cy="1429" r="117"/>
-                    <circle cx="1157" cy="1429" r="117"/>
-                </g>
+                    <!-- h4 shared drive -->
+                    <g class="trigger on" data-target="shared-drives">
+                        <circle cx="800" cy="1475" r="117"/>
+                    </g>
 
 
-                <!-- h4 more valuable data and credentials -->
-                <g class="trigger trigger-L2" data-target="more-valuable-data-and-credentials">
-                    <circle cx="380" cy="1088" r="42"/>
-                    <circle cx="390" cy="1224" r="42"/>
-                    <circle cx="1220" cy="1088" r="42"/>
-                    <circle cx="1210" cy="1224" r="42"/>
-                </g>
+                    <!-- h4 privileged users -->
+                    <g class="trigger on" data-target="privileged-users">
+                        <circle cx="443" cy="1429" r="117"/>
+                        <circle cx="1157" cy="1429" r="117"/>
+                    </g>
+
+
+                    <!-- h4 more valuable data and credentials -->
+                    <g class="trigger trigger-L2" data-target="more-valuable-data-and-credentials">
+                        <circle cx="380" cy="1088" r="42"/>
+                        <circle cx="390" cy="1224" r="42"/>
+                        <circle cx="1220" cy="1088" r="42"/>
+                        <circle cx="1210" cy="1224" r="42"/>
+                    </g>
        
 
     
                 
-                <g class="barrier-3"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-3" class="trigger on" data-target="third-protection-barrier">
-                        <circle class="click-right" cx="800" cy="1637" r="73"/>
-                        <circle class="click-left" cx="800" cy="1637" r="73"/>
+                    <g class="barrier-3"> <!-- further group necessary on barrier trigger -->
+                        <g id="trigger-barrier-3" class="trigger on" data-target="third-protection-barrier">
+                            <circle class="click-right" cx="800" cy="1637" r="73"/>
+                            <circle class="click-left" cx="800" cy="1637" r="73"/>
+                        </g>
+                    </g>
+
+
+                    <g class="trigger trigger-L3" data-target="lateral-movement">
+                        <circle cx="619" cy="1545" r="73"/>
+                        <circle cx="981" cy="1545" r="73"/>
+                        <circle cx="800" cy="1665" r="73"/>
+                        <circle cx="463" cy="1654" r="73"/>
+                        <circle cx="609" cy="1744" r="73"/>
+                        <circle cx="991" cy="1744" r="73"/>
+                        <circle cx="1137" cy="1654" r="73"/>
+                    </g>
+
+
+                    <g class="trigger on" data-target="domain-controller">
+                        <circle cx="444" cy="1856" r="117"/>
+                    </g>
+
+
+
+                    <g class="trigger on" data-target="hypervisor">
+                        <circle cx="1158" cy="1856" r="117"/>
+                    </g>
+
+
+
+                    <g class="trigger on" data-target="online-backups">
+                        <circle cx="800" cy="1856" r="117"/>
+                    </g>
+
+
+                    <g class="trigger trigger-L3" data-target="domain-wide-compromise">
+                        <circle cx="262" cy="1491" r="42"/>
+                        <circle cx="288" cy="1629" r="42"/>
+                        <circle cx="1338" cy="1491" r="42"/>
+                        <circle cx="1312" cy="1629" r="42"/>
+                    </g>
+
+
+                    <g class="barrier-4"> <!-- further group necessary on barrier trigger -->
+                        <g id="trigger-barrier-4" class="trigger on" data-target="fourth-protection-barrier">
+                            <circle class="click-right" cx="800" cy="2049" r="73"/>
+                            <circle class="click-left" cx="800" cy="2049" r="73"/>
+                        </g>
+                    </g>
+
+
+                    <g class="trigger trigger-L4" data-target="backup-encryption-attempt">
+                        <circle cx="800" cy="2046" r="73"/>
+                    </g>
+
+
+                    <g class="trigger on" data-target="offline-backups">
+                        <circle cx="800" cy="2251" r="117"/>
                     </g>
                 </g>
-
-
-                <g class="trigger trigger-L3" data-target="lateral-movement">
-                    <circle cx="619" cy="1545" r="73"/>
-                    <circle cx="981" cy="1545" r="73"/>
-                    <circle cx="800" cy="1665" r="73"/>
-                    <circle cx="463" cy="1654" r="73"/>
-                    <circle cx="609" cy="1744" r="73"/>
-                    <circle cx="991" cy="1744" r="73"/>
-                    <circle cx="1137" cy="1654" r="73"/>
-                </g>
-
-
-                <g class="trigger on" data-target="domain-controller">
-                    <circle cx="444" cy="1856" r="117"/>
-                </g>
-
-
-
-                <g class="trigger on" data-target="hypervisor">
-                    <circle cx="1158" cy="1856" r="117"/>
-                </g>
-
-
-
-                <g class="trigger on" data-target="online-backups">
-                    <circle cx="800" cy="1856" r="117"/>
-                </g>
-
-
-                <g class="trigger trigger-L3" id="trigger-credential-2" data-target="domain-wide-compromise">
-                    <circle cx="262" cy="1491" r="42"/>
-                    <circle cx="288" cy="1629" r="42"/>
-                    <circle cx="1338" cy="1491" r="42"/>
-                    <circle cx="1312" cy="1629" r="42"/>
-                </g>
-
-
-                <g class="barrier-4"> <!-- further group necessary on barrier trigger -->
-                    <g id="trigger-barrier-4" class="trigger on" data-target="fourth-protection-barrier">
-                        <circle class="click-right" cx="800" cy="2049" r="73"/>
-                        <circle class="click-left" cx="800" cy="2049" r="73"/>
-                    </g>
-                </g>
-
-
-                <g class="trigger trigger-L4" data-target="backup-encryption-attempt">
-                    <circle cx="800" cy="2046" r="73"/>
-                </g>
-
-
-                <g class="trigger on" data-target="offline-backups">
-                    <circle cx="800" cy="2251" r="117"/>
-                </g>
-
-
                 <!--barriers-->
-                <g>
+                <g id="layer-barriers">
                     <g class="barrier-1">
                         <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
                         <line class="barrier-line line-right" x1="810" y1="813" x2="1410" y2="813"/>
@@ -396,7 +410,7 @@
                 </g>      
                 
                 <!--drops-->
-                <g>
+                <g id="layer-drops">
                     <g class="drop">
                         <linearGradient id="fill-drop-1" gradientUnits="userSpaceOnUse" x1="735.0285" y1="526.5248" x2="735.0285" y2="670.5248">
                             <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
@@ -421,7 +435,7 @@
                 </g>
                 
                 <!--users-->
-                <g>    
+                <g id="layer-users">    
                     <g class="user-L0">
                         <path class="user" d="M728.1,386.9c0,0,0,0,0,44.1c0,0,0,0-20.2,0c0,0,0,0,0-20C707.9,401.1,716.1,393.1,728.1,386.9z M760.1,310 c0-22.1,17.9-40,40-40s40,17.9,40,40c0,22.1-17.9,40-40,40S760.1,332.1,760.1,310z M780.1,311c0,11,9,20,20,20s20-9,20-20H780.1z M872.1,388c0,44,0,44,0,44c19.8,0,19.8,0,19.8,0c0-20,0-20,0-20C891.9,402.3,883.7,394.3,872.1,388z"/> 
                         <path fill="#000011" d="M739.9,458h120v6h-120V458z M820.7,408.2l-2.1,10.6h-8.3v10.4h-5.2v-7.8h-2.6v7.8h-5.2v-7.8h-2.6v7.8h-5.2 v-10.4h-8.3l-2.1-10.6c0.1-11.4,9.4-20.6,20.8-20.6C811.2,387.6,820.5,396.8,820.7,408.2z M796.2,408.4l1.8-1.8l-9.2-9.2 c-2.8,2.8-4.6,6.7-4.6,11H796.2z M807.7,416.2l-7.8-7.8l-7.8,7.8H807.7z M815.5,408.4c0-4.3-1.7-8.2-4.6-11l-9.2,9.2l1.8,1.8H815.5 z M859.9,370v74c0,4.4-3.6,8-8,8h-104c-4.4,0-8-3.6-8-8v-74c0-4.4,3.6-8,8-8h104C856.3,362,859.9,365.6,859.9,370z M825.9,408.4 c0-14.3-11.7-26-26-26c-14.3,0-26,11.7-26,26l3.1,15.6h7.3v10.4h31.2V424h7.3l3-15.1L825.9,408.4z"/> 
@@ -441,7 +455,7 @@
                 </g>
                 
                 <!--devices-->
-                <g>
+                <g id="layer-devices">
                     <g class="device device-L2" id="shared-folder">
                         <path d="M807.6,1495H860c8.2,0,15-6.8,15-15v-40c0-8.2-6.7-15-15-15h-50l-25-25h-45c-8.2,0-14.9,6.8-14.9,15 l-0.1,65c0,8.2,6.7,15,15,15h52.5h1.4v12.9c-7.2,2.1-12.9,7.9-15,15.1h-52.3c-0.9,0-1.6,0.7-1.6,1.6v8.7c0,0.9,0.7,1.6,1.6,1.6 h52.3c2.6,9.2,11.1,16,21.1,16c10.1,0,18.5-6.8,21.1-16h52c0.9,0,1.6-0.7,1.6-1.6v-8.7c0-0.9-0.7-1.6-1.6-1.6h-52 c-2.1-7.4-7.9-13.2-15.3-15.2V1495H807.6z M810.1,1527.3c1.1,6.8-4.7,12.7-11.5,11.6c-4.1-0.7-7.5-4-8.2-8.2 c-1.1-6.8,4.7-12.7,11.5-11.6C806,1519.8,809.4,1523.2,810.1,1527.3z"/>
                     </g>
@@ -460,7 +474,7 @@
                 </g>
                     
                 <!--credentials-->
-                <g>
+                <g id="layer-credentials">
 
                     <g class="stolen stolen-L1">
                         <g>
@@ -770,7 +784,7 @@
                 </g>
                 
                 <!--malware-->
-                <g>
+                <g id="layer-malware">
                     <g class="malware malware-L1">
                         <g id="malware-1">
                             <linearGradient id="tail-1" gradientUnits="userSpaceOnUse" x1="800" y1="890.5135" x2="800" y2="773.6385">
@@ -1024,7 +1038,7 @@
             </g>
 
                 <!--countdown-->
-                <g> 
+                <g id="layer-countdowns"> 
                     
                     <g id="countdown-1" class="countdown">
                         <rect x="871.5" y="1102" width="15" height="6"/>
@@ -1076,7 +1090,7 @@
                 </g>
 
                 <!--locks-->
-                <g>
+                <g id="layer-locks">
                     <g class="lock" id="lock-user-top">
                         <rect x="733.1" y="1005.3" class="orange-stroke" width="134" height="116"/>
                         <use xlink:href="#lock" x="0" y="0"></use>
