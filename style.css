@@ -189,7 +189,7 @@ section {
 }
 
 /* hover on the shape, not the group, so only the icon under the cursor gets the disc */
-.trigger circle, .trigger path {
+.trigger circle {
     fill: #fff;
     fill-opacity: 0; /* invisible but still hit-testable: fill must stay a paint, not 'none' */
     transition: fill-opacity 0.2s ease;
@@ -199,7 +199,7 @@ section {
     visibility: visible
 }
 
-.trigger circle:hover, .trigger path:hover {
+.trigger circle:hover {
     fill-opacity: 1;
 }
 
