@@ -225,8 +225,17 @@ triggerEls.forEach((trigger) => {
     })
 
     trigger.addEventListener("mousemove", (e) => {
-        tooltip.style.left = e.clientX + 16 + "px"
-        tooltip.style.top = e.clientY + 16 + "px"
+        // flip to the other side of the cursor when the tooltip would leave the viewport
+        let x = e.clientX + 16
+        let y = e.clientY + 16
+        if (x + tooltip.offsetWidth > window.innerWidth) {
+            x = e.clientX - 16 - tooltip.offsetWidth
+        }
+        if (y + tooltip.offsetHeight > window.innerHeight) {
+            y = e.clientY - 16 - tooltip.offsetHeight
+        }
+        tooltip.style.left = x + "px"
+        tooltip.style.top = y + "px"
     })
 
     trigger.addEventListener("mouseleave", () => {
