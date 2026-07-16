@@ -1,34 +1,69 @@
+/* Palette - every colour on the page is named here; the rest of the file
+   (and the SVG artwork in index.html) only ever refers to these names */
+
+:root {
+    --ink: #001;              /* dark accents: gutter glyph, tooltip, attacker laptop */
+    --bg-dark: #242433;       /* text column background */
+    --paper: #e6ebf4;         /* infographic background */
+    --paper-shade: #ccd6e7;   /* gutter, muted barrier line */
+    --white: #fff;
+    --heading-cyan: #0cf;
+    --link-cyan: #0df;
+    --gold: #fd0;             /* highlighted heading, gutter hover */
+    --yellow: #fc0;           /* stolen data/credential icons and trails */
+    --blue: #07e;             /* healthy machines, barrier lines and buttons */
+    --red: #c00;              /* virus body, encryption locks */
+    /* three near-identical oranges, kept apart for a faithful refactor -
+       candidates to unify in a future visual round */
+    --virus-orange: #f70;
+    --countdown-orange: #f80;
+    --drop-orange: #ff7d00;
+    --malware-red: #d94040;   /* soft red end of the malware gradient tails */
+    --machine-grey: #4c4c58;  /* the people at the machines */
+    --encrypted-grey: #b3b3b8;
+}
+
+
+/* Reset */
+
 *, html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* Typography */
+
 body {
-    color: white;
+    color: var(--white);
     font-family: "Roboto", sans-serif;
 }
-
 
 h2, h3, h4, p {
     max-width: 60ch;
     font-weight: 500;
 }
 
-
 h2, h3, h4 {
-    color: #0cf;
-}   
-
-a {
-    color: #0df;
-    text-decoration: none;
+    color: var(--heading-cyan);
+    margin-bottom: 1em;
 }
 
-h2, h3, h4 {
-    margin-bottom: 1em ;
+h2 {
+    font-size: 1.75em;
+    line-height: 1.5;
 }
 
+h3 {
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+h4 {
+    font-size: 1.25em;
+    line-height: 1.5;
+}
 
 p {
     font-size: 1em;
@@ -41,34 +76,22 @@ p.subtitle {
     line-height: 1.5;
 }
 
-h2 {
-    font-size: 1.75em;
-    line-height: 1.5;
+a {
+    color: var(--link-cyan);
+    text-decoration: none;
 }
-
-h3 {
-    font-size: 1.5em ;
-    line-height: 1.5;
-}
-
-h4 {
-    font-size: 1.25em ;
-    line-height: 1.5;
-}
-
 
 .divider {
     height: 2px;
     clear: both;
-    border-top: 1px solid rgba(0,0,17,.15);
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+    border-bottom: 1px solid var(--white);
     margin: 3em 0;
 }
 
-
+/* .highlight is set by script.js on the heading whose hotspot was clicked */
 .highlight {
-    color: #fd0;
-   
+    color: var(--gold);
 }
 
 .highlight::before {
@@ -76,41 +99,39 @@ h4 {
 }
 
 
+/* Page layout: split columns */
+
 section {
-    background-color: #242433;
+    background-color: var(--bg-dark);
     display: flex;
     justify-content: center;
 }
 
-
-/* split */
-
 .grid-container {
-    background-color: #e6ebf4;
+    background-color: var(--paper);
     display: grid;
     grid-template-columns: 1fr 12px 1fr;
 }
 
 .gutter {
-    background-color: #ccd6e7;
-    color: rgba(0, 0, 17, 1);
+    background-color: var(--paper-shade);
+    color: var(--ink);
     cursor: col-resize;
 }
 
 .gutter:hover {
-  background-color: #fd0;
+    background-color: var(--gold);
 }
 
-
 .infographic {
-    background-color: #e6ebf4;
+    background-color: var(--paper);
     position: sticky;
     top: 0;
     align-self: start; /*IMPORTANT: to make sticky position work; if not set this div takes the whole parent height therore does not stick */
 }
 
 .content {
-    background-color: #242433;
+    background-color: var(--bg-dark);
     padding: 10%;
 }
 
@@ -120,7 +141,7 @@ section {
 }
 
 
-/* SVG */
+/* SVG artwork */
 
 .barrier-line-muted, .malware, .countdown, .stolen, .lock {
     opacity: 0;
@@ -128,50 +149,43 @@ section {
 }
 
 .countdown {
-    fill: #f80;
+    fill: var(--countdown-orange);
 }
 
 .lancetta {
-    fill: white;
+    fill: var(--white);
 }
 
-
 .barrier-line, .barrier-line-muted {
-    stroke-width:5;
-    stroke-linecap:round;
+    stroke-width: 5;
+    stroke-linecap: round;
 }
 
 .barrier-line {
-    stroke:#07e;
+    stroke: var(--blue);
 }
-
 
 .barrier-line-muted {
-    stroke: #ccd6e7;
+    stroke: var(--paper-shade);
 }
+
 .barrier-button {
-    fill:#07e;
-    
+    fill: var(--blue);
 }
-.barrier-plus, .barrier-minus {
-    fill:none;
-    stroke:#FFF;
-    stroke-width:5;
-    stroke-linecap:round;            
-}
+
 .user {
-    fill: #4C4C58;
+    fill: var(--machine-grey);
 }
 
 .lock rect {
-    fill:none;
-    stroke: #c00;
-    stroke-width:3;
-    stroke-miterlimit:10;
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 3;
+    stroke-miterlimit: 10;
 }
 
-.device, .workstation{
-    fill: #07e;
+.device, .workstation {
+    fill: var(--blue);
     transition: fill 0.2s;
 }
 
@@ -179,11 +193,11 @@ section {
    runs from the ink black #001 (70% = the users' #4C4C58, 30% = the encrypted grey).
    .encrypted is declared after .infected so the finale grey wins while both are set */
 .infected {
-    fill: #c00;
+    fill: var(--red);
 }
 
 .encrypted {
-    fill: #b3b3b8;
+    fill: var(--encrypted-grey);
 }
 
 
@@ -202,13 +216,13 @@ section {
 
 /* hover on the shape, not the group, so only the icon under the cursor gets the disc */
 .trigger circle {
-    fill: #fff;
+    fill: var(--white);
     fill-opacity: 0; /* invisible but still hit-testable: fill must stay a paint, not 'none' */
     transition: fill-opacity 0.2s ease;
 }
 
 .trigger.on {
-    visibility: visible
+    visibility: visible;
 }
 
 .trigger circle:hover {
@@ -224,12 +238,12 @@ section {
    trails behind them; --halo (set on the <use> by script.js when the paired
    trigger circle is hovered) pierces the use/symbol boundary to whiten it */
 .icon-backdrop {
-    fill: var(--halo, #e6ebf4);
+    fill: var(--halo, var(--paper));
     transition: fill 0.2s ease;
 }
 
 .yellow {
-    fill: #fc0;
+    fill: var(--yellow);
 }
 
 
@@ -237,8 +251,8 @@ section {
 
 #tooltip {
     position: fixed;
-    background-color: rgba(0, 0, 17, 0.85);
-    color: white;
+    background-color: color-mix(in srgb, var(--ink) 85%, transparent);
+    color: var(--white);
     font-size: 0.85rem;
     font-weight: 300;
     padding: 0.35em 0.9em;
