@@ -177,6 +177,28 @@ section {
     fill: var(--machine-grey);
 }
 
+/* white details drawn on top of the yellow data/credential icons */
+.icon-detail {
+    fill: var(--white);
+}
+
+.virus-body {
+    fill: var(--red);
+}
+
+.virus-detail {
+    fill: var(--virus-orange);
+}
+
+/* the attacker's laptop - same ink as the page accents */
+.machine-ink {
+    fill: var(--ink);
+}
+
+.lock-body {
+    fill: var(--red);
+}
+
 .lock rect {
     fill: none;
     stroke: var(--red);
