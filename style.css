@@ -2,18 +2,22 @@
    (and the SVG artwork in index.html) only ever refers to these names */
 
 :root {
-    --ink: #001;              /* dark accents: gutter glyph, tooltip, attacker laptop */
-    --bg-dark: #242433;       /* text column background */
-    --paper: #e6ebf4;         /* infographic background */
-    --paper-shade: #ccd6e7;   /* gutter, muted barrier line */
+    /* the two bases: every neutral below is a tint of the ink,
+       percentages eyeballed to match the previous literal values */
+    --ink: #001;              /* gutter glyph, tooltip, attacker laptop */
     --white: #fff;
+
+    --bg-dark: color-mix(in srgb, var(--ink) 86%, var(--white));         /* text column background */
+    --machine-grey: color-mix(in srgb, var(--ink) 70%, var(--white));    /* the people at the machines */
+    --encrypted-grey: color-mix(in srgb, var(--ink) 30%, var(--white));
+    --paper-shade: color-mix(in srgb, var(--ink) 16%, var(--white));     /* gutter, muted barrier line */
+    --paper: color-mix(in srgb, var(--ink) 8%, var(--white));            /* infographic background */
+
     --cyan: #0cf;             /* headings, links */
     --yellow: #fc0;           /* stolen data/credential icons and trails, highlighted heading, gutter hover */
     --blue: #07e;             /* healthy machines, barrier lines and buttons */
     --red: #c00;              /* virus body, malware tails, encryption locks */
     --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
-    --machine-grey: #4c4c58;  /* the people at the machines */
-    --encrypted-grey: #b3b3b8;
 }
 
 
@@ -205,7 +209,7 @@ section {
 }
 
 /* machine states, toggled by the barrier timelines in script.js - the tint scale
-   runs from the ink black #001 (70% = the users' #4C4C58, 30% = the encrypted grey).
+   (70% ink = the users' grey, 30% = the encrypted grey) is spelled out in the palette.
    .encrypted is declared after .infected so the finale grey wins while both are set */
 .infected {
     fill: var(--red);
