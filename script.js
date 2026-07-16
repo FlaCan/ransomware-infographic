@@ -99,11 +99,19 @@ const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults: {dur
     .to("#countdown-7", {autoAlpha: 1}, "<")
     
     
+/* the finale: the waiting clocks give way to locks - the encryption has fired.
+   The countdowns are hidden via their layer group (not per element) because
+   animBarrier1-3 own the individual clocks' autoAlpha; two timelines tweening
+   the same property would fight on reversal. The locks have no other owner,
+   but must be tweened per element: each .lock carries its own visibility:hidden,
+   which a parent group's autoAlpha cannot override. */
 const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
     .add(animBarrier(".barrier-4"))
     .to(".trigger-L4", {visibility: "visible"}, "<")
     .to(".malware-L4", {autoAlpha: 1}, "<" )
     .to(".device-L4", {fill: "#CC0000"}, "<")
+    .to("#layer-countdowns", {autoAlpha: 0}, "<")
+    .to(".lock", {autoAlpha: 1}, "<")
     
 
 /* Click Listeners **********************************************************************************************/
