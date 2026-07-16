@@ -7,11 +7,11 @@
     --ink: #001;              /* gutter glyph, tooltip, attacker laptop */
     --white: #fff;
 
-    --bg-dark: color-mix(in srgb, var(--ink) 86%, var(--white));         /* text column background */
+    --bg-dark: color-mix(in srgb, var(--ink) 85%, var(--white));         /* text column background */
     --machine-grey: color-mix(in srgb, var(--ink) 70%, var(--white));    /* the people at the machines */
     --encrypted-grey: color-mix(in srgb, var(--ink) 30%, var(--white));
-    --paper-shade: color-mix(in srgb, var(--ink) 16%, var(--white));     /* gutter, muted barrier line */
-    --paper: color-mix(in srgb, var(--ink) 8%, var(--white));            /* infographic background */
+    --paper-shade: color-mix(in srgb, var(--ink) 15%, var(--white));     /* gutter, muted barrier line */
+    --paper: color-mix(in srgb, var(--ink) 10%, var(--white));            /* infographic background */
 
     --cyan: #0cf;             /* headings, links */
     --yellow: #fc0;           /* stolen data/credential icons and trails, highlighted heading, gutter hover */
