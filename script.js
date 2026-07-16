@@ -238,7 +238,8 @@ if (triggerEls.length !== targetEls.length) {
 
 /* yellow icon halo - the #data/#credentials symbols carry an .icon-backdrop circle
    (radius 39.4, centered at +39.4/+39.4 in the symbol); pair each trigger circle
-   with the stolen <use> at the same center and whiten the backdrop while hovered */
+   with the stolen <use> at the same center and mark it .lit while hovered
+   (the halo colour itself lives in style.css) */
 
 const stolenIcons = Array.from(selectAll(".stolen use")).map((el) => ({
     el,
@@ -254,8 +255,8 @@ selectAll(".trigger circle").forEach((circle) => {
     const icon = stolenIcons.find((i) => Math.hypot(i.cx - cx, i.cy - cy) < 6)
     if (!icon) return
     iconByCircle.set(circle, icon.el)
-    circle.addEventListener("mouseenter", () => icon.el.style.setProperty("--halo", "#fff"))
-    circle.addEventListener("mouseleave", () => icon.el.style.removeProperty("--halo"))
+    circle.addEventListener("mouseenter", () => icon.el.classList.add("lit"))
+    circle.addEventListener("mouseleave", () => icon.el.classList.remove("lit"))
 })
 
 const tooltip = document.createElement("div")
@@ -302,7 +303,7 @@ triggerEls.forEach((trigger) => {
         trigger.classList.add("lit")
         trigger.querySelectorAll("circle").forEach((circle) => {
             const icon = iconByCircle.get(circle)
-            if (icon) icon.style.setProperty("--halo", "#fff")
+            if (icon) icon.classList.add("lit")
         })
     })
 
@@ -310,7 +311,7 @@ triggerEls.forEach((trigger) => {
         trigger.classList.remove("lit")
         trigger.querySelectorAll("circle").forEach((circle) => {
             const icon = iconByCircle.get(circle)
-            if (icon) icon.style.removeProperty("--halo")
+            if (icon) icon.classList.remove("lit")
         })
     })
 

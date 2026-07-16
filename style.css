@@ -257,11 +257,15 @@ section {
 }
 
 /* the yellow icons carry a built-in backdrop circle that masks the dotted
-   trails behind them; --halo (set on the <use> by script.js when the paired
-   trigger circle is hovered) pierces the use/symbol boundary to whiten it */
+   trails behind them; script.js marks the <use> .lit while the paired trigger
+   circle is hovered, and --halo pierces the use/symbol boundary to whiten it */
 .icon-backdrop {
     fill: var(--halo, var(--paper));
     transition: fill 0.2s ease;
+}
+
+.stolen use.lit {
+    --halo: var(--white);
 }
 
 .yellow {
