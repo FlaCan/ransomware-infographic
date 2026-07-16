@@ -13,11 +13,7 @@
     --yellow: #fc0;           /* stolen data/credential icons and trails */
     --blue: #07e;             /* healthy machines, barrier lines and buttons */
     --red: #c00;              /* virus body, encryption locks */
-    /* three near-identical oranges, kept apart for a faithful refactor -
-       candidates to unify in a future visual round */
-    --virus-orange: #f70;
-    --countdown-orange: #f80;
-    --drop-orange: #ff7d00;
+    --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
     --malware-red: #d94040;   /* soft red end of the malware gradient tails */
     --machine-grey: #4c4c58;  /* the people at the machines */
     --encrypted-grey: #b3b3b8;
@@ -149,7 +145,7 @@ section {
 }
 
 .countdown {
-    fill: var(--countdown-orange);
+    fill: var(--orange);
 }
 
 .lancetta {
@@ -187,7 +183,7 @@ section {
 }
 
 .virus-detail {
-    fill: var(--virus-orange);
+    fill: var(--orange);
 }
 
 /* the attacker's laptop - same ink as the page accents */
@@ -276,7 +272,7 @@ section {
    from transparent, the malware tails ease from white into the soft red; the
    eased mixes are fixed, so retinting either ramp is a one-variable change */
 #drop-stops stop {
-    stop-color: var(--drop-orange);
+    stop-color: var(--orange);
 }
 
 #drop-stops stop:first-child {
