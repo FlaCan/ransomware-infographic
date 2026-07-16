@@ -1,22 +1,18 @@
 const select = (el) => document.querySelector(el)
 const selectAll = (el) => document.querySelectorAll(el)
 
+const appShell = select(".app-shell")
+const panelToggle = select("#panel-toggle")
 
-Split({
-    columnGutters: [{
-        track: 1,
-        element: select('.gutter'),
-    }],
-})
-
-function setDragSymbolPosition () {
-    let gradSymbol = select("#drag-symbol")    
-    let dragSymbolPosition = window.innerHeight * 0.5 - 12
-    gradSymbol.style.position = "sticky"
-    gradSymbol.style.top = dragSymbolPosition + "px"
+if (window.matchMedia("(max-width: 1100px)").matches) {
+    appShell.classList.add("panel-collapsed")
+    panelToggle.setAttribute("aria-expanded", "false")
 }
 
-setDragSymbolPosition()
+panelToggle.addEventListener("click", () => {
+    const collapsed = appShell.classList.toggle("panel-collapsed")
+    panelToggle.setAttribute("aria-expanded", String(!collapsed))
+})
 
 /* Initial states ****************************************************************************************/
 
@@ -318,11 +314,8 @@ triggerEls.forEach((trigger) => {
     trigger.addEventListener("click", () => {
         targetEls.forEach((el) => el.classList.remove("highlight"))
         target.classList.add("highlight")
-        let measure = target.getBoundingClientRect().y
-        window.scrollBy({
-            top: measure - window.innerHeight * 0.25,
-            left: 0,
-            behavior: 'smooth'
-          });
+        appShell.classList.remove("panel-collapsed")
+        panelToggle.setAttribute("aria-expanded", "true")
+        target.scrollIntoView({ behavior: "smooth", block: "center" })
       });
 })

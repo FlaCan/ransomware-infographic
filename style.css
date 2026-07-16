@@ -32,6 +32,18 @@
 
 /* Typography */
 
+/* Root font-size scales fluidly with viewport width so the narrative panel's
+   type shrinks in proportion as its 25%-of-viewport column narrows (see
+   --panel-width below) and grows back toward 16px - the size the 60ch/534px
+   prose-cap math below was originally computed against - as the viewport
+   widens. Anchored at the two boundaries of the side-by-side layout: 14px at
+   1100px (the panel-collapse breakpoint) and 16px at 1920px (a representative
+   wide desktop); flat beyond either end. Every heading/paragraph rule below is
+   already em-based, so this is the only place font-size needs to change. */
+html {
+    font-size: clamp(14px, 11.317px + 0.244vw, 16px);
+}
+
 body {
     color: var(--white);
     font-family: "Roboto", sans-serif;
@@ -96,40 +108,103 @@ a {
 }
 
 
-/* Page layout: split columns */
+/* Page layout: fixed-height app shell - the diagram is a permanently centered,
+   full-height panel; the narrative is a fixed-width panel beside it that scrolls
+   independently and can be collapsed. There is no page-level scroll. */
+
+:root {
+    --panel-width: 25%;
+    --panel-transition: 0.3s ease;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
 
 section {
     background-color: var(--bg-dark);
-    display: flex;
-    justify-content: center;
+    height: 100%;
 }
 
-.grid-container {
+.app-shell {
     background-color: var(--paper);
-    display: grid;
-    grid-template-columns: 1fr 12px 1fr;
-}
-
-.gutter {
-    background-color: var(--paper-shade);
-    color: var(--ink);
-    cursor: col-resize;
-}
-
-.gutter:hover {
-    background-color: var(--yellow);
+    display: flex;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
 }
 
 .infographic {
     background-color: var(--paper);
-    position: sticky;
-    top: 0;
-    align-self: start; /*IMPORTANT: to make sticky position work; if not set this div takes the whole parent height therore does not stick */
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.infographic svg {
+    width: 100%;
+    height: 100%;
 }
 
 .content {
     background-color: var(--bg-dark);
+    flex: 0 0 auto;
+    width: var(--panel-width);
+    position: relative;
+    overflow: hidden;
+    transition: width var(--panel-transition);
+}
+
+.app-shell.panel-collapsed .content {
+    width: 0;
+}
+
+.content-scroll {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 10%;
+}
+
+.panel-toggle {
+    position: absolute;
+    top: 50%;
+    left: var(--panel-width);
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--paper-shade);
+    color: var(--ink);
+    cursor: pointer;
+    z-index: 5;
+    transition: left var(--panel-transition);
+}
+
+.panel-toggle:hover {
+    background-color: var(--yellow);
+}
+
+.panel-toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--panel-transition);
+}
+
+.app-shell.panel-collapsed .panel-toggle {
+    left: 16px; /* half the button's own width, so translate(-50%) keeps it fully on-screen at the edge */
+}
+
+.app-shell.panel-collapsed .panel-toggle-icon {
+    transform: rotate(180deg);
 }
 
 .spacer {
@@ -138,21 +213,44 @@ section {
 }
 
 
-/* Responsive: below this width the two panes stack (diagram above the narrative)
-   instead of sitting side by side; grid-template-columns needs !important because
-   Split.js sets pixel track sizes directly on the element's inline style */
-@media (max-width: 800px) {
-    .grid-container {
-        grid-template-columns: 1fr !important;
+/* Below this width, the narrative panel's inner column would be too
+   physically narrow for comfortable prose even at the smallest floor
+   font-size (at 1100px, --panel-width: 25% resolves to ~275px, ~220px of
+   that after the 10% padding - too few characters per line for multi-word
+   paragraphs regardless of how far the type shrinks) - so below this
+   breakpoint the panel switches from a narrow proportional side panel to a
+   full-screen overlay drawer instead, where it can use the full viewport
+   width and a fixed, comfortable font size (see the html rule below). */
+@media (max-width: 1100px) {
+    html {
+        font-size: 16px;
     }
 
-    .gutter {
-        display: none;
+    .content {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        transform: translateX(-100%);
+        transition: transform var(--panel-transition);
+        z-index: 20;
     }
 
-    .infographic {
-        position: static;
-        order: -1;
+    .app-shell:not(.panel-collapsed) .content {
+        transform: translateX(0);
+    }
+
+    .panel-toggle {
+        position: fixed;
+        top: 16px;
+        left: auto;
+        right: 16px;
+        transform: none;
+        z-index: 21;
+    }
+
+    .app-shell.panel-collapsed .panel-toggle {
+        left: 16px;
+        right: auto;
     }
 }
 

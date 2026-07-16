@@ -15,9 +15,11 @@
 
     <section>
         
-        <div class="grid-container">
+        <div class="app-shell">
 
-            <div class="content">
+            <div class="content" id="content-panel">
+
+                <div class="content-scroll">
 
                 <div class="spacer">
                     <h2>Ransomware: attack and defences</h2>
@@ -160,20 +162,19 @@
 
                 <div class="divider"></div>
 
+                </div><!-- .content-scroll -->
+
 
 
 
 
             </div>
 
-            <div class="gutter">
-                <svg id="drag-symbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 12 24">
-                    <g fill="currentColor">
-                        <rect x="3" width="2" height="24"/>
-                        <rect x="7" width="2" height="24"/>
-                    </g>
+            <button id="panel-toggle" class="panel-toggle" type="button" aria-expanded="true" aria-controls="content-panel" aria-label="Collapse narrative panel">
+                <svg class="panel-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            </div>
+            </button>
 
             <div class="infographic">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 2600">
@@ -979,7 +980,6 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
-    <script src="https://unpkg.com/split-grid@1.0.11/dist/split-grid.min.js"></script>
     <script src="script.js"></script>
 
 </body>
