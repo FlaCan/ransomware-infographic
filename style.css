@@ -9,8 +9,7 @@
     --white: #fff;
     --heading-cyan: #0cf;
     --link-cyan: #0df;
-    --gold: #fd0;             /* highlighted heading, gutter hover */
-    --yellow: #fc0;           /* stolen data/credential icons and trails */
+    --yellow: #fc0;           /* stolen data/credential icons and trails, highlighted heading, gutter hover */
     --blue: #07e;             /* healthy machines, barrier lines and buttons */
     --red: #c00;              /* virus body, encryption locks */
     --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
@@ -87,7 +86,7 @@ a {
 
 /* .highlight is set by script.js on the heading whose hotspot was clicked */
 .highlight {
-    color: var(--gold);
+    color: var(--yellow);
 }
 
 .highlight::before {
@@ -116,7 +115,7 @@ section {
 }
 
 .gutter:hover {
-    background-color: var(--gold);
+    background-color: var(--yellow);
 }
 
 .infographic {
