@@ -165,7 +165,7 @@ section {
 
 .lock rect {
     fill:none;
-    stroke: #FF8800;
+    stroke: #c00;
     stroke-width:3;
     stroke-miterlimit:10;
 }
