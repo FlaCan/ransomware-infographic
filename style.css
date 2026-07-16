@@ -7,8 +7,7 @@
     --paper: #e6ebf4;         /* infographic background */
     --paper-shade: #ccd6e7;   /* gutter, muted barrier line */
     --white: #fff;
-    --heading-cyan: #0cf;
-    --link-cyan: #0df;
+    --cyan: #0cf;             /* headings, links */
     --yellow: #fc0;           /* stolen data/credential icons and trails, highlighted heading, gutter hover */
     --blue: #07e;             /* healthy machines, barrier lines and buttons */
     --red: #c00;              /* virus body, malware tails, encryption locks */
@@ -40,7 +39,7 @@ h2, h3, h4, p {
 }
 
 h2, h3, h4 {
-    color: var(--heading-cyan);
+    color: var(--cyan);
     margin-bottom: 1em;
 }
 
@@ -71,7 +70,7 @@ p.subtitle {
 }
 
 a {
-    color: var(--link-cyan);
+    color: var(--cyan);
     text-decoration: none;
 }
 
