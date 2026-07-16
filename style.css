@@ -138,6 +138,25 @@ section {
 }
 
 
+/* Responsive: below this width the two panes stack (diagram above the narrative)
+   instead of sitting side by side; grid-template-columns needs !important because
+   Split.js sets pixel track sizes directly on the element's inline style */
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gutter {
+        display: none;
+    }
+
+    .infographic {
+        position: static;
+        order: -1;
+    }
+}
+
+
 /* SVG artwork */
 
 .barrier-line-muted, .malware, .countdown, .stolen, .lock {
