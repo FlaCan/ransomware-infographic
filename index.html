@@ -47,8 +47,8 @@
 
                 <!--4-->
                 <div class="spacer">
-                    <h4 class="target" data-target="ransomware">Ransomware</h4>
-                    <p>Once executed, the payload gets to work: scanning local and connected drives and encrypting files with strong cryptography, often after quietly exfiltrating a copy of the data first. A ransom note is dropped explaining how to pay - usually in crypto-currency - to receive a decryption key or to stop stolen data being published.</p>
+                    <h4 class="target" data-target="infection">Infection</h4>
+                    <p>The dropper has done its job and the ransomware payload executes on the first machine. It embeds itself so it survives a reboot, contacts the attackers' infrastructure for instructions, and starts scanning for credentials, data, and connected drives. The encryption everyone associates with ransomware comes much later - first, it needs to spread.</p>
                 </div>
 
                 <!--5-->
@@ -251,8 +251,8 @@
                     </g>
                     
 
-                    <!--h4 ransomware-->
-                    <g class="trigger trigger-L1" data-target="ransomware">
+                    <!--h4 infection-->
+                    <g class="trigger trigger-L1" data-target="infection">
                         <circle cx="800" cy="830" r="73"/>
                     </g>
 
