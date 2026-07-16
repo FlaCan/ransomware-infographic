@@ -54,8 +54,13 @@ const animClock = gsap.to(".lancetta", {
 function animBarrier(el) {
     const tl = gsap.timeline()
     .to(`${el} .line-left, ${el} .line-right`, {scaleX: 0}, "<")
-    .to(`${el} .button-left, ${el} .click-left`, {x: -600}, "<")
-    .to(`${el} .button-right, ${el} .click-right`, {x: 600}, "<")
+    /* the click circles sit at cx=800, the closed button's center; each half-pill's own
+       center is 26.5 off (left half spans x750-797, right half x803-850), so the circles
+       travel 26.5 further than the buttons to end up centered on the half they highlight */
+    .to(`${el} .button-left`, {x: -600}, "<")
+    .to(`${el} .click-left`, {x: -626.5}, "<")
+    .to(`${el} .button-right`, {x: 600}, "<")
+    .to(`${el} .click-right`, {x: 626.5}, "<")
     .to(el + " .barrier-line-muted", {autoAlpha: 1}, "<")
     return tl
 }
