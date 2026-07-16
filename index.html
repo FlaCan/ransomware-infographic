@@ -180,6 +180,27 @@
                     
                 <defs>
 
+                    <!-- shared gradient ramps: the per-drop/per-tail gradients keep only
+                         their geometry and inherit these stops via href; the stop colours
+                         themselves come from style.css -->
+                    <linearGradient id="drop-stops">
+                        <stop offset="0"/>
+                        <stop offset="1"/>
+                    </linearGradient>
+
+                    <linearGradient id="tail-stops">
+                        <stop offset="0"/>
+                        <stop offset="0.2484"/>
+                        <stop offset="0.3978"/>
+                        <stop offset="0.521"/>
+                        <stop offset="0.63"/>
+                        <stop offset="0.7296"/>
+                        <stop offset="0.8223"/>
+                        <stop offset="0.9098"/>
+                        <stop offset="0.991"/>
+                        <stop offset="1"/>
+                    </linearGradient>
+
                     <symbol id="data">
                         <circle class="icon-backdrop" cx="39.4" cy="39.4" r="39.4"/>
                         <path class="yellow" d="M36.6,11.4L18.4,29.6v37.8h42v-56H36.6z"/>
@@ -407,25 +428,16 @@
                 <!--drops-->
                 <g id="layer-drops">
                     <g class="drop">
-                        <linearGradient id="fill-drop-1" gradientUnits="userSpaceOnUse" x1="735.0285" y1="526.5248" x2="735.0285" y2="670.5248">
-                            <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
-                            <stop  offset="1" style="stop-color:#FF7D00"/>
-                        </linearGradient>
-                        <path style="fill:url(#fill-drop-1);" d="M769.2,623.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C771,630.5,770.4,626.7,769.2,623.1z M747.2,645.4c0,5.5-4.5,10-10,10s-10-4.5-10-10 v-26.2c0-3.5,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2v23.8h-3.8v-23.8c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v26.2c0,3.4,2.8,6.2,6.2,6.2 s6.2-2.8,6.2-6.2v-31.2c0-5.5-4.5-10-10-10s-10,4.5-10,10v28.8h-3.8v-28.8c0-7.6,6.2-13.8,13.8-13.8s13.8,6.1,13.8,13.8V645.4z"/>
+                        <linearGradient href="#drop-stops" xlink:href="#drop-stops" id="fill-drop-1" gradientUnits="userSpaceOnUse" x1="735.0285" y1="526.5248" x2="735.0285" y2="670.5248"/>
+                        <path fill="url(#fill-drop-1)" d="M769.2,623.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C771,630.5,770.4,626.7,769.2,623.1z M747.2,645.4c0,5.5-4.5,10-10,10s-10-4.5-10-10 v-26.2c0-3.5,2.8-6.2,6.2-6.2s6.2,2.8,6.2,6.2v23.8h-3.8v-23.8c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v26.2c0,3.4,2.8,6.2,6.2,6.2 s6.2-2.8,6.2-6.2v-31.2c0-5.5-4.5-10-10-10s-10,4.5-10,10v28.8h-3.8v-28.8c0-7.6,6.2-13.8,13.8-13.8s13.8,6.1,13.8,13.8V645.4z"/>
                     </g>
                     <g class="drop">
-                        <linearGradient id="fill-drop-3" gradientUnits="userSpaceOnUse" x1="872.0285" y1="528.5248" x2="872.0285" y2="672.5248">
-                            <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
-                            <stop  offset="1" style="stop-color:#FF7D00"/>
-                        </linearGradient>
-                        <path style="fill:url(#fill-drop-3);" d="M906.2,625.1c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3 c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36 C908,632.5,907.4,628.7,906.2,625.1z M867,628.9v-15h2.5h5h2.5v15h10l-15,15l-15-15H867z M894.5,653.9h-5h-40v-5h5h35h5V653.9z"/>
+                        <linearGradient href="#drop-stops" xlink:href="#drop-stops" id="fill-drop-3" gradientUnits="userSpaceOnUse" x1="872.0285" y1="528.5248" x2="872.0285" y2="672.5248"/>
+                        <path fill="url(#fill-drop-3)" d="M906.2,625.1c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3 c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36 C908,632.5,907.4,628.7,906.2,625.1z M867,628.9v-15h2.5h5h2.5v15h10l-15,15l-15-15H867z M894.5,653.9h-5h-40v-5h5h35h5V653.9z"/>
                     </g>
                     <g class="drop">
-                            <linearGradient id="fill-drop-2" gradientUnits="userSpaceOnUse" x1="802.0285" y1="602.5248" x2="802.0285" y2="746.5248">
-                            <stop  offset="0" style="stop-color:#FF7D00; stop-opacity:0"/>
-                            <stop  offset="1" style="stop-color:#FF7D00"/>
-                        </linearGradient>
-                        <path style="fill:url(#fill-drop-2);"  d="M836.2,699.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C838,706.5,837.4,702.7,836.2,699.1z M797.6,727.8c-3.9,3.9-10.2,3.9-14.1,0 s-3.9-10.2,0-14.1l10.6-10.6c3.9-3.9,10.2-3.9,14.1,0c0.6,0.6,1.1,1.3,1.5,2l-3.8,3.8c-0.2-0.8-0.6-1.6-1.3-2.3 c-1.9-1.9-5.1-1.9-7.1,0L787,717.2c-1.9,1.9-1.9,5.1,0,7.1c1.9,1.9,5.1,1.9,7.1,0l2.5-2.5c2,0.8,4.2,1,6.4,0.7L797.6,727.8z M818.8,706.6l-10.6,10.6c-3.9,3.9-10.2,3.9-14.1,0c-0.6-0.6-1.1-1.3-1.5-2l3.8-3.8c0.2,0.8,0.6,1.6,1.3,2.3c1.9,1.9,5.1,1.9,7.1,0 l10.6-10.6c1.9-1.9,1.9-5.1,0-7.1c-1.9-1.9-5.1-1.9-7.1,0l-2.5,2.5c-2-0.8-4.2-1-6.4-0.7l5.3-5.3c3.9-3.9,10.2-3.9,14.1,0 S822.7,702.7,818.8,706.6z"/>
+                            <linearGradient href="#drop-stops" xlink:href="#drop-stops" id="fill-drop-2" gradientUnits="userSpaceOnUse" x1="802.0285" y1="602.5248" x2="802.0285" y2="746.5248"/>
+                        <path fill="url(#fill-drop-2)" d="M836.2,699.1 c-0.1-0.3-30.5-93.3-30.6-93.6c-0.5-1.6-1.8-3-3.5-3s-3,1.3-3.5,3c-0.1,0.3-30.5,93.3-30.6,93.6c-1.2,3.6-1.9,7.4-1.9,11.4 c0,19.9,16.1,36,36,36c19.9,0,36-16.1,36-36C838,706.5,837.4,702.7,836.2,699.1z M797.6,727.8c-3.9,3.9-10.2,3.9-14.1,0 s-3.9-10.2,0-14.1l10.6-10.6c3.9-3.9,10.2-3.9,14.1,0c0.6,0.6,1.1,1.3,1.5,2l-3.8,3.8c-0.2-0.8-0.6-1.6-1.3-2.3 c-1.9-1.9-5.1-1.9-7.1,0L787,717.2c-1.9,1.9-1.9,5.1,0,7.1c1.9,1.9,5.1,1.9,7.1,0l2.5-2.5c2,0.8,4.2,1,6.4,0.7L797.6,727.8z M818.8,706.6l-10.6,10.6c-3.9,3.9-10.2,3.9-14.1,0c-0.6-0.6-1.1-1.3-1.5-2l3.8-3.8c0.2,0.8,0.6,1.6,1.3,2.3c1.9,1.9,5.1,1.9,7.1,0 l10.6-10.6c1.9-1.9,1.9-5.1,0-7.1c-1.9-1.9-5.1-1.9-7.1,0l-2.5,2.5c-2-0.8-4.2-1-6.4-0.7l5.3-5.3c3.9-3.9,10.2-3.9,14.1,0 S822.7,702.7,818.8,706.6z"/>
                     </g>
                 </g>
                 
@@ -782,19 +794,8 @@
                 <g id="layer-malware">
                     <g class="malware malware-L1">
                         <g id="malware-1">
-                            <linearGradient id="tail-1" gradientUnits="userSpaceOnUse" x1="800" y1="890.5135" x2="800" y2="773.6385">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-1);" d="M825.6,854.9 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,860.5,826.5,857.6,825.6,854.9z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-1" gradientUnits="userSpaceOnUse" x1="800" y1="890.5135" x2="800" y2="773.6385"/>
+                            <path fill="url(#tail-1)" d="M825.6,854.9 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,860.5,826.5,857.6,825.6,854.9z"/>
                             <use xlink:href="#virus" x="775" y="840"></use>
                         </g>
             
@@ -802,83 +803,28 @@
 
                     <g class="malware malware-L2">
                         <g id="malware-2">
-                            <linearGradient id="tail-2" gradientUnits="userSpaceOnUse" x1="1592.3638" y1="-273.0219" x2="1705.6549" y2="-314.2565" gradientTransform="matrix(0.1464 -0.9892 -0.9892 -0.1464 93.0778 2750.1321)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-2);" d="M588.4,1171.6 c18.5-26.2,48.1-45.7,80-49.1c17.2-1.8,8.7,1,2.3,5.8c-12.3,9.4-22.9,21.3-29.5,35.5c-3.1,6.8-5.5,13.9-6.8,21.2 c-1.1,13.8-4,25.4-18.9,30.7C588.3,1224,569.9,1192.2,588.4,1171.6z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-2" gradientUnits="userSpaceOnUse" x1="1592.3638" y1="-273.0219" x2="1705.6549" y2="-314.2565" gradientTransform="matrix(0.1464 -0.9892 -0.9892 -0.1464 93.0778 2750.1321)"/>
+                            <path fill="url(#tail-2)" d="M588.4,1171.6 c18.5-26.2,48.1-45.7,80-49.1c17.2-1.8,8.7,1,2.3,5.8c-12.3,9.4-22.9,21.3-29.5,35.5c-3.1,6.8-5.5,13.9-6.8,21.2 c-1.1,13.8-4,25.4-18.9,30.7C588.3,1224,569.9,1192.2,588.4,1171.6z"/>
                             <use xlink:href="#virus" x="581" y="1167" ></use>
                         </g>
                         <g id="malware-3">
-                            <linearGradient id="tail-3" gradientUnits="userSpaceOnUse" x1="1592.3638" y1="-273.0219" x2="1705.6549" y2="-314.2565" gradientTransform="matrix(-0.1464 -0.9892 0.9892 -0.1464 1506.9222 2750.1321)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-3);" d="M1011.6,1171.6 c-18.5-26.2-48.1-45.7-80-49.1c-17.2-1.8-8.7,1-2.3,5.8c12.3,9.4,22.9,21.3,29.5,35.5c3.1,6.8,5.5,13.9,6.8,21.2 c1.1,13.8,4,25.4,18.9,30.7C1011.7,1224,1030.1,1192.2,1011.6,1171.6z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-3" gradientUnits="userSpaceOnUse" x1="1592.3638" y1="-273.0219" x2="1705.6549" y2="-314.2565" gradientTransform="matrix(-0.1464 -0.9892 0.9892 -0.1464 1506.9222 2750.1321)"/>
+                            <path fill="url(#tail-3)" d="M1011.6,1171.6 c-18.5-26.2-48.1-45.7-80-49.1c-17.2-1.8-8.7,1-2.3,5.8c12.3,9.4,22.9,21.3,29.5,35.5c3.1,6.8,5.5,13.9,6.8,21.2 c1.1,13.8,4,25.4,18.9,30.7C1011.7,1224,1030.1,1192.2,1011.6,1171.6z"/>
                             <use xlink:href="#virus" x="968" y="1167" ></use>
                         </g>
                         <g id="malware-4">
-                            <linearGradient id="tail-4" gradientUnits="userSpaceOnUse" x1="800" y1="1300.0302" x2="800" y2="1183.1552">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-4);" d="M825.6,1264.5 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,1270,826.5,1267.1,825.6,1264.5z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-4" gradientUnits="userSpaceOnUse" x1="800" y1="1300.0302" x2="800" y2="1183.1552"/>
+                            <path fill="url(#tail-4)" d="M825.6,1264.5 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,1270,826.5,1267.1,825.6,1264.5z"/>
                             <use xlink:href="#virus" x="775" y="1250" ></use>
                         </g>
                         <g id="malware-5">
-                            <linearGradient id="tail-5" gradientUnits="userSpaceOnUse" x1="1434.0609" y1="-343.6102" x2="1547.3521" y2="-384.8448" gradientTransform="matrix(0.6944 -0.7196 -0.7196 -0.6944 -659.0195 2186.3442)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-5);" d="M602.8,1353.2 c30.3-10.6,65.7-9.2,93.6,6.6c15,8.5,6.5,5.9-1.5,6.1c-15.4,0.5-31,4-44.7,11.7c-6.5,3.7-12.5,8.1-17.9,13.3 c-9,10.6-18.1,18.3-33.2,14C572.2,1395.8,575.8,1359.2,602.8,1353.2z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-5" gradientUnits="userSpaceOnUse" x1="1434.0609" y1="-343.6102" x2="1547.3521" y2="-384.8448" gradientTransform="matrix(0.6944 -0.7196 -0.7196 -0.6944 -659.0195 2186.3442)"/>
+                            <path fill="url(#tail-5)" d="M602.8,1353.2 c30.3-10.6,65.7-9.2,93.6,6.6c15,8.5,6.5,5.9-1.5,6.1c-15.4,0.5-31,4-44.7,11.7c-6.5,3.7-12.5,8.1-17.9,13.3 c-9,10.6-18.1,18.3-33.2,14C572.2,1395.8,575.8,1359.2,602.8,1353.2z"/>
                             <use xlink:href="#virus" x="581" y="1356" ></use>
                         </g>
                         <g id="malware-6">
-                            <linearGradient id="tail-6" gradientUnits="userSpaceOnUse" x1="1434.0609" y1="-343.6102" x2="1547.3521" y2="-384.8448" gradientTransform="matrix(-0.6944 -0.7196 0.7196 -0.6944 2259.0195 2186.3442)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-6);" d="M997.2,1353.2 c-30.3-10.6-65.7-9.2-93.6,6.6c-15,8.5-6.5,5.9,1.5,6.1c15.4,0.5,31,4,44.7,11.7c6.5,3.7,12.5,8.1,17.9,13.3 c9,10.6,18.1,18.3,33.2,14C1027.8,1395.8,1024.2,1359.2,997.2,1353.2z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-6" gradientUnits="userSpaceOnUse" x1="1434.0609" y1="-343.6102" x2="1547.3521" y2="-384.8448" gradientTransform="matrix(-0.6944 -0.7196 0.7196 -0.6944 2259.0195 2186.3442)"/>
+                            <path fill="url(#tail-6)" d="M997.2,1353.2 c-30.3-10.6-65.7-9.2-93.6,6.6c-15,8.5-6.5,5.9,1.5,6.1c15.4,0.5,31,4,44.7,11.7c6.5,3.7,12.5,8.1,17.9,13.3 c9,10.6,18.1,18.3,33.2,14C1027.8,1395.8,1024.2,1359.2,997.2,1353.2z"/>
                             <use xlink:href="#virus" x="968" y="1356" ></use>
                         </g>
 
@@ -888,121 +834,44 @@
                     <g class="malware malware-L3">
 
                         <g id="malware-7">
-                            <linearGradient id="tail-7" gradientUnits="userSpaceOnUse" x1="1549.3492" y1="-713.5541" x2="1662.6404" y2="-754.7887" gradientTransform="matrix(-0.222 -0.9751 0.9751 -0.222 1696.7693 2939.053)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-7);" d="M661.7,1542.9 c-20.5-24.7-51.4-41.9-83.5-42.8c-17.3-0.5-8.6,1.6-1.9,6c13,8.4,24.5,19.5,32.2,33.1c3.6,6.5,6.5,13.4,8.4,20.6 c2.2,13.7,6,25,21.2,29.2C665.8,1595.2,681.7,1562,661.7,1542.9z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-7" gradientUnits="userSpaceOnUse" x1="1549.3492" y1="-713.5541" x2="1662.6404" y2="-754.7887" gradientTransform="matrix(-0.222 -0.9751 0.9751 -0.222 1696.7693 2939.053)"/>
+                            <path fill="url(#tail-7)" d="M661.7,1542.9 c-20.5-24.7-51.4-41.9-83.5-42.8c-17.3-0.5-8.6,1.6-1.9,6c13,8.4,24.5,19.5,32.2,33.1c3.6,6.5,6.5,13.4,8.4,20.6 c2.2,13.7,6,25,21.2,29.2C665.8,1595.2,681.7,1562,661.7,1542.9z"/>
                             <use xlink:href="#virus" x="620" y="1540" ></use>
                         </g>
 
                         <g id="malware-8">
-                            <linearGradient id="tail-8" gradientUnits="userSpaceOnUse" x1="1549.3492" y1="-713.5541" x2="1662.6404" y2="-754.7887" gradientTransform="matrix(0.222 -0.9751 -0.9751 -0.222 -96.7692 2939.053)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-8);" d="M938.3,1542.9 c20.5-24.7,51.4-41.9,83.5-42.8c17.3-0.5,8.6,1.6,1.9,6c-13,8.4-24.5,19.5-32.2,33.1c-3.6,6.5-6.5,13.4-8.4,20.6 c-2.2,13.7-6,25-21.2,29.2C934.2,1595.2,918.3,1562,938.3,1542.9z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-8" gradientUnits="userSpaceOnUse" x1="1549.3492" y1="-713.5541" x2="1662.6404" y2="-754.7887" gradientTransform="matrix(0.222 -0.9751 -0.9751 -0.222 -96.7692 2939.053)"/>
+                            <path fill="url(#tail-8)" d="M938.3,1542.9 c20.5-24.7,51.4-41.9,83.5-42.8c17.3-0.5,8.6,1.6,1.9,6c-13,8.4-24.5,19.5-32.2,33.1c-3.6,6.5-6.5,13.4-8.4,20.6 c-2.2,13.7-6,25-21.2,29.2C934.2,1595.2,918.3,1562,938.3,1542.9z"/>
                             <use xlink:href="#virus" x="930" y="1540" ></use>
                         </g>
                         <g id="malware-9">
-                            <linearGradient id="tail-9" gradientUnits="userSpaceOnUse" x1="800" y1="1719.5468" x2="800" y2="1602.6718">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-9);" d="M825.6,1684 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,1689.5,826.5,1686.7,825.6,1684z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-9" gradientUnits="userSpaceOnUse" x1="800" y1="1719.5468" x2="800" y2="1602.6718"/>
+                            <path fill="url(#tail-9)" d="M825.6,1684 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,1689.5,826.5,1686.7,825.6,1684z"/>
                             <use xlink:href="#virus" x="775" y="1670" ></use>
                         </g>
 
                         <g id="malware-10">
-                            <linearGradient id="tail-10" gradientUnits="userSpaceOnUse" x1="1164.2388" y1="-886.8447" x2="1277.5299" y2="-928.0793" gradientTransform="matrix(0.7706 -0.6373 0.6373 0.7706 110.3023 3136.1028)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-10);" d="M483.5,1695.1 c12.9-29.4,14.2-64.8,0.6-93.9c-7.3-15.6-5.3-7-6.2,1c-1.6,15.3-6.4,30.7-15.1,43.6c-4.2,6.2-9.1,11.9-14.7,16.8 c-11.2,8.1-19.7,16.6-16.5,32.1C438.7,1722.3,475.4,1721.5,483.5,1695.1z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-10" gradientUnits="userSpaceOnUse" x1="1164.2388" y1="-886.8447" x2="1277.5299" y2="-928.0793" gradientTransform="matrix(0.7706 -0.6373 0.6373 0.7706 110.3023 3136.1028)"/>
+                            <path fill="url(#tail-10)" d="M483.5,1695.1 c12.9-29.4,14.2-64.8,0.6-93.9c-7.3-15.6-5.3-7-6.2,1c-1.6,15.3-6.4,30.7-15.1,43.6c-4.2,6.2-9.1,11.9-14.7,16.8 c-11.2,8.1-19.7,16.6-16.5,32.1C438.7,1722.3,475.4,1721.5,483.5,1695.1z"/>
                             <use xlink:href="#virus" x="432" y="1665" ></use>
                             
                         </g>
 
                         <g id="malware-11">
-                            <linearGradient id="tail-11" gradientUnits="userSpaceOnUse" x1="1409.5068" y1="-848.1269" x2="1522.798" y2="-889.3615" gradientTransform="matrix(-0.6944 -0.7196 0.7196 -0.6944 2257.0195 2186.3442)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-11);" d="M649.2,1721.2 c-30.3-10.6-65.7-9.2-93.6,6.6c-15,8.5-6.5,5.9,1.5,6.1c15.4,0.5,31,4,44.7,11.7c6.5,3.7,12.5,8.1,17.9,13.3 c9,10.6,18.1,18.3,33.2,14C679.8,1763.8,676.2,1727.2,649.2,1721.2z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-11" gradientUnits="userSpaceOnUse" x1="1409.5068" y1="-848.1269" x2="1522.798" y2="-889.3615" gradientTransform="matrix(-0.6944 -0.7196 0.7196 -0.6944 2257.0195 2186.3442)"/>
+                            <path fill="url(#tail-11)" d="M649.2,1721.2 c-30.3-10.6-65.7-9.2-93.6,6.6c-15,8.5-6.5,5.9,1.5,6.1c15.4,0.5,31,4,44.7,11.7c6.5,3.7,12.5,8.1,17.9,13.3 c9,10.6,18.1,18.3,33.2,14C679.8,1763.8,676.2,1727.2,649.2,1721.2z"/>
                             <use xlink:href="#virus" x="620" y="1724" ></use>
                         </g>
                         
                         <g id="malware-12">
-                            <linearGradient id="tail-12" gradientUnits="userSpaceOnUse" x1="1409.5068" y1="-848.1269" x2="1522.798" y2="-889.3615" gradientTransform="matrix(0.6944 -0.7196 -0.7196 -0.6944 -657.0195 2186.3442)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-12);" d="M950.8,1721.2 c30.3-10.6,65.7-9.2,93.6,6.6c15,8.5,6.5,5.9-1.5,6.1c-15.4,0.5-31,4-44.7,11.7c-6.5,3.7-12.5,8.1-17.9,13.3 c-9,10.6-18.1,18.3-33.2,14C920.2,1763.8,923.8,1727.2,950.8,1721.2z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-12" gradientUnits="userSpaceOnUse" x1="1409.5068" y1="-848.1269" x2="1522.798" y2="-889.3615" gradientTransform="matrix(0.6944 -0.7196 -0.7196 -0.6944 -657.0195 2186.3442)"/>
+                            <path fill="url(#tail-12)" d="M950.8,1721.2 c30.3-10.6,65.7-9.2,93.6,6.6c15,8.5,6.5,5.9-1.5,6.1c-15.4,0.5-31,4-44.7,11.7c-6.5,3.7-12.5,8.1-17.9,13.3 c-9,10.6-18.1,18.3-33.2,14C920.2,1763.8,923.8,1727.2,950.8,1721.2z"/>
                             <use xlink:href="#virus" x="930" y="1724" ></use>
                         </g>
                 
                         <g id="malware-13">
-                            <linearGradient id="tail-13" gradientUnits="userSpaceOnUse" x1="1164.2388" y1="-886.8447" x2="1277.5299" y2="-928.0793" gradientTransform="matrix(-0.7706 -0.6373 -0.6373 0.7706 1487.2822 3136.1028)">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-13);" d="M1114.1,1695.1 c-12.9-29.4-14.2-64.8-0.6-93.9c7.3-15.6,5.3-7,6.2,1c1.6,15.3,6.4,30.7,15.1,43.6c4.2,6.2,9.1,11.9,14.7,16.8 c11.2,8.1,19.7,16.6,16.5,32.1C1158.9,1722.3,1122.1,1721.5,1114.1,1695.1z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-13" gradientUnits="userSpaceOnUse" x1="1164.2388" y1="-886.8447" x2="1277.5299" y2="-928.0793" gradientTransform="matrix(-0.7706 -0.6373 -0.6373 0.7706 1487.2822 3136.1028)"/>
+                            <path fill="url(#tail-13)" d="M1114.1,1695.1 c-12.9-29.4-14.2-64.8-0.6-93.9c7.3-15.6,5.3-7,6.2,1c1.6,15.3,6.4,30.7,15.1,43.6c4.2,6.2,9.1,11.9,14.7,16.8 c11.2,8.1,19.7,16.6,16.5,32.1C1158.9,1722.3,1122.1,1721.5,1114.1,1695.1z"/>
                             <use xlink:href="#virus" x="1115" y="1665" ></use>
                         </g>
 
@@ -1011,19 +880,8 @@
                     <g class="malware malware-L4">
 
                         <g id="malware-14">
-                            <linearGradient id="tail-14" gradientUnits="userSpaceOnUse" x1="800" y1="2094.0632" x2="800" y2="1977.1884">
-                                <stop  offset="0" style="stop-color:#FFFFFF"/>
-                                <stop  offset="0.2484" style="stop-color:#FEFCFC"/>
-                                <stop  offset="0.3978" style="stop-color:#FDF4F4"/>
-                                <stop  offset="0.521" style="stop-color:#FAE6E6"/>
-                                <stop  offset="0.63" style="stop-color:#F6D1D1"/>
-                                <stop  offset="0.7296" style="stop-color:#F1B7B7"/>
-                                <stop  offset="0.8223" style="stop-color:#EA9797"/>
-                                <stop  offset="0.9098" style="stop-color:#E27070"/>
-                                <stop  offset="0.991" style="stop-color:#DA4545"/>
-                                <stop  offset="1" style="stop-color:#D94040"/>
-                            </linearGradient>
-                            <path style="fill:url(#tail-14);" d="M825.6,2058.5 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,2064.1,826.5,2061.2,825.6,2058.5z"/>
+                            <linearGradient href="#tail-stops" xlink:href="#tail-stops" id="tail-14" gradientUnits="userSpaceOnUse" x1="800" y1="2094.0632" x2="800" y2="1977.1884"/>
+                            <path fill="url(#tail-14)" d="M825.6,2058.5 c-0.1-0.2-25.1-80.6-25.1-80.8c0-0.3-0.2-0.5-0.5-0.5c-0.3,0-0.5,0.2-0.5,0.5c0,0.2-25,80.6-25.1,80.8c-0.9,2.7-1.4,5.6-1.4,8.6 c0,14.9,12.1,27,27,27s27-12.1,27-27C827,2064.1,826.5,2061.2,825.6,2058.5z"/>
                             <use xlink:href="#virus" x="775" y="2045"></use>
                         </g>
                     

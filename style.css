@@ -268,6 +268,28 @@ section {
     fill: var(--yellow);
 }
 
+/* shared gradient ramps (templates in the SVG defs) - the dropper drops fade in
+   from transparent, the malware tails ease from white into the soft red; the
+   eased mixes are fixed, so retinting either ramp is a one-variable change */
+#drop-stops stop {
+    stop-color: var(--drop-orange);
+}
+
+#drop-stops stop:first-child {
+    stop-opacity: 0;
+}
+
+#tail-stops stop:nth-child(1)  { stop-color: var(--white); }
+#tail-stops stop:nth-child(2)  { stop-color: color-mix(in srgb, var(--malware-red) 1.6%, white); }
+#tail-stops stop:nth-child(3)  { stop-color: color-mix(in srgb, var(--malware-red) 5.8%, white); }
+#tail-stops stop:nth-child(4)  { stop-color: color-mix(in srgb, var(--malware-red) 13.1%, white); }
+#tail-stops stop:nth-child(5)  { stop-color: color-mix(in srgb, var(--malware-red) 24.1%, white); }
+#tail-stops stop:nth-child(6)  { stop-color: color-mix(in srgb, var(--malware-red) 37.7%, white); }
+#tail-stops stop:nth-child(7)  { stop-color: color-mix(in srgb, var(--malware-red) 54.5%, white); }
+#tail-stops stop:nth-child(8)  { stop-color: color-mix(in srgb, var(--malware-red) 74.9%, white); }
+#tail-stops stop:nth-child(9)  { stop-color: color-mix(in srgb, var(--malware-red) 97.4%, white); }
+#tail-stops stop:nth-child(10) { stop-color: var(--malware-red); }
+
 
 /* tooltip following the cursor over SVG hotspots */
 
