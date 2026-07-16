@@ -148,8 +148,8 @@
 
                 <!--19-->
                 <div class="spacer">
-                    <h4 class="target" data-target="backup-encryption-attempt">Backup encryption attempt</h4>
-                    <p>Before triggering the final encryption, the ransomware makes a last attempt to reach any backup it can still find - including ones assumed to be safe - to remove the victim's remaining options for recovery. Then the payload fires on every machine it has reached: files are encrypted with strong cryptography, and a ransom note explains how to pay for a decryption key - or to stop the stolen data being published.</p>
+                    <h4 class="target" data-target="final-encryption">Final encryption</h4>
+                    <p>Before triggering the final encryption, the ransomware makes one last sweep for any backup it can still reach - including ones assumed to be safe - removing the victim's remaining options for recovery. Then the payload fires on every machine it has reached: files are encrypted with strong cryptography, and a ransom note explains how to pay for a decryption key - or to stop the stolen data being published.</p>
                 </div>
 
                 <!--20-->
@@ -365,7 +365,7 @@
                     </g>
 
 
-                    <g class="trigger trigger-L4" data-target="backup-encryption-attempt">
+                    <g class="trigger trigger-L4" data-target="final-encryption">
                         <circle cx="800" cy="2046" r="73"/>
                     </g>
 
