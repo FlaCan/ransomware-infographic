@@ -32,6 +32,10 @@ gsap.set(".lancetta", {
     transformOrigin: "3 12"
 })
 
+gsap.set("#layer-users, #layer-devices", {
+    filter: "grayscale(0)" // explicit start value so the finale's filter tween doesn't jump
+})
+
 /* Animations *********************************************************************************************/
 
 const animDrop = gsap.to(".drop", {
@@ -104,7 +108,9 @@ const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults: {dur
    animBarrier1-3 own the individual clocks' autoAlpha; two timelines tweening
    the same property would fight on reversal. The locks have no other owner,
    but must be tweened per element: each .lock carries its own visibility:hidden,
-   which a parent group's autoAlpha cannot override. */
+   which a parent group's autoAlpha cannot override. The gray-out works the same
+   way as the clocks: a filter on the user/device layer groups, because the
+   individual fills are owned by animBarrier1-3. */
 const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
     .add(animBarrier(".barrier-4"))
     .to(".trigger-L4", {visibility: "visible"}, "<")
@@ -112,6 +118,7 @@ const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{dura
     .to(".device-L4", {fill: "#CC0000"}, "<")
     .to("#layer-countdowns", {autoAlpha: 0}, "<")
     .to(".lock", {autoAlpha: 1}, "<")
+    .to("#layer-users, #layer-devices", {filter: "grayscale(1)"}, "<")
     
 
 /* Click Listeners **********************************************************************************************/
