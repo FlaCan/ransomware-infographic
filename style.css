@@ -172,6 +172,18 @@ section {
 
 .device, .workstation{
     fill: #07e;
+    transition: fill 0.2s;
+}
+
+/* machine states, toggled by the barrier timelines in script.js - the tint scale
+   runs from the ink black #001 (70% = the users' #4C4C58, 30% = the encrypted grey).
+   .encrypted is declared after .infected so the finale grey wins while both are set */
+.infected {
+    fill: #c00;
+}
+
+.encrypted {
+    fill: #b3b3b8;
 }
 
 

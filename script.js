@@ -32,10 +32,6 @@ gsap.set(".lancetta", {
     transformOrigin: "3 12"
 })
 
-gsap.set("#layer-users, #layer-devices", {
-    filter: "grayscale(0)" // explicit start value so the finale's filter tween doesn't jump
-})
-
 /* Animations *********************************************************************************************/
 
 const animDrop = gsap.to(".drop", {
@@ -77,7 +73,6 @@ const animBarrier1 = gsap.timeline({paused: true, reversed: true, defaults:{dura
     .to(".malware-L1", {autoAlpha: 1}, "<")
     .to(".stolen-L1", {autoAlpha: 1}, "<")
     .to("#countdown-1", {autoAlpha: 1}, "<")
-    .to(".user-L1 .workstation", {fill: "#CC0000"}, "<")
 
  
 const animBarrier2 = gsap.timeline({paused: true, reversed: true, stagger: 0.1, defaults:{duration:0.2}})
@@ -85,19 +80,16 @@ const animBarrier2 = gsap.timeline({paused: true, reversed: true, stagger: 0.1, 
     .to(".trigger-L2", {visibility: "visible"}, "<")
     .to(".malware-L2", {autoAlpha: 1}, "<")
     .to(".stolen-L2", {autoAlpha: 1}, "<")
-    .to(".device-L2", {fill: "#CC0000"}, "<")
     .to("#countdown-2", {autoAlpha: 1}, "<")
     .to("#countdown-3", {autoAlpha: 1}, "<")
     .to("#countdown-4", {autoAlpha: 1}, "<")
-    .to(".user-L2 .workstation", {fill: "#CC0000"}, "<")
 
     
 const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults: {duration:0.2}})
     .add(animBarrier(".barrier-3"))
     .to(".trigger-L3", {visibility: "visible"}, "<")
     .to(".malware-L3", {autoAlpha: 1}, "<" )
-    .to(".stolen-L3", {autoAlpha: 1}, "<")    
-    .to(".device-L3", {fill: "#CC0000"}, "<")
+    .to(".stolen-L3", {autoAlpha: 1}, "<")
     .to("#countdown-5", {autoAlpha: 1}, "<")
     .to("#countdown-6", {autoAlpha: 1}, "<")
     .to("#countdown-7", {autoAlpha: 1}, "<")
@@ -108,17 +100,38 @@ const animBarrier3 = gsap.timeline({paused: true, reversed: true, defaults: {dur
    animBarrier1-3 own the individual clocks' autoAlpha; two timelines tweening
    the same property would fight on reversal. The locks have no other owner,
    but must be tweened per element: each .lock carries its own visibility:hidden,
-   which a parent group's autoAlpha cannot override. The gray-out works the same
-   way as the clocks: a filter on the user/device layer groups, because the
-   individual fills are owned by animBarrier1-3. */
+   which a parent group's autoAlpha cannot override. */
 const animBarrier4 = gsap.timeline({paused: true, reversed: true, defaults:{duration:0.2}})
     .add(animBarrier(".barrier-4"))
     .to(".trigger-L4", {visibility: "visible"}, "<")
     .to(".malware-L4", {autoAlpha: 1}, "<" )
-    .to(".device-L4", {fill: "#CC0000"}, "<")
     .to("#layer-countdowns", {autoAlpha: 0}, "<")
     .to(".lock", {autoAlpha: 1}, "<")
-    .to("#layer-users, #layer-devices", {filter: "grayscale(1)"}, "<")
+
+
+/* Machine colours ******************************************************************************************
+   Colours are CSS state classes (style.css), not tweens: each barrier toggles .infected
+   on its own level's machines, and the finale toggles .encrypted on all of them. No two
+   timelines ever animate the same fill, so barriers can open and close in any order
+   without fighting over colours; the fade itself is the CSS fill transition. Machines
+   turn red as their barrier opens and heal once it has fully closed. */
+
+function classToggle(selector, className) {
+    const els = selectAll(selector)
+    return (on) => els.forEach((el) => el.classList.toggle(className, on))
+}
+
+const colourToggles = [
+    [animBarrier1, [classToggle(".user-L1 .workstation", "infected")]],
+    [animBarrier2, [classToggle(".device-L2, .user-L2 .workstation", "infected")]],
+    [animBarrier3, [classToggle(".device-L3", "infected")]],
+    [animBarrier4, [classToggle(".device-L4", "infected"), classToggle(".workstation, .device", "encrypted")]],
+]
+
+colourToggles.forEach(([timeline, toggles]) => {
+    timeline.eventCallback("onStart", () => toggles.forEach((toggle) => toggle(true)))
+    timeline.eventCallback("onReverseComplete", () => toggles.forEach((toggle) => toggle(false)))
+})
     
 
 /* Click Listeners **********************************************************************************************/
