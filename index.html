@@ -17,77 +17,73 @@
         
         <div class="app-shell">
 
-            <div class="content" id="content-panel">
+            <div id="intro-content" hidden>
+                <h2>Ransomware: attack and defences</h2>
+                <p>Ransomware is one of the most damaging attacks an organization can face. This interactive infographic follows one step by step - from the first malicious download to the assault on backups - and shows the four barriers of defence that can stop it along the way. Click or tap the diagram to explore each stage - hover first for a quick label - and click each barrier to see what happens when that defence is not in place.</p>
+            </div>
 
-                <div class="content-scroll">
-
-                <div class="spacer">
-                    <h2>Ransomware: attack and defences</h2>
-                    <p class="subtitle">Ransomware is one of the most damaging attacks an organization can face. This interactive infographic follows one step by step - from the first malicious download to the assault on backups - and shows the four barriers of defence that can stop it along the way. Explore each stage by hovering the diagram or the headings below - and click each barrier to see what happens when that defence is not in place.</p>
-                </div>
+            <div id="narrative-source" hidden>
 
                 <!--1-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="attacker">Attacker</h4>
                     <p>The attacker - often part of a larger criminal group - operates remotely. Their goal is to encrypt and steal the data of organizations and individuals. If they succeed, they demand a ransom (usually in crypto-currency):&nbsp;the target pays either to recover their data or to stop it being made public.</p>
                 </div>
 
                 <!--2-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="droppers">Droppers</h4>
                     <p>A kind of Trojan designed to “install” malware on a target system. The malware code can be contained within the dropper (single-stage) to avoid detection by virus scanners, or the dropper may download the malware to the target machine once activated (two-stage). To fool people, the attacker can hide and ship malware droppers in legitimate-like download wrappers, email attachments, links to malicious sites, etc.</p>
                 </div>
 
 
-                <div class="divider"></div>
           
                 <!--3-->
-                <div class="barrier-1 spacer">
+                <div class="barrier">
                     <h3 class="target" data-target="first-protection-barrier">First protection barrier</h3>
-                    <p class="subtitle">At this stage, user education, inbound email inspection, URL filtering, and proper endpoint protection constitute the most effective barrier to an attack. Privileged endpoint management (PEM), built on zero-trust principles, adds a further layer: users run without local admin rights by default, and privilege escalation is granted per task, under policy - so a malicious download that does slip through has far less power to install anything.</p>
+                    <p class="subtitle">At this stage, user education, inbound email inspection, URL filtering, and endpoint protection form the most effective barrier to an attack. Privileged endpoint management (PEM), built on zero-trust principles, adds another layer: users run without local admin rights by default, with privilege escalation granted per task, under policy - so a malicious download that slips through has far less power to install anything.</p>
                 </div>
 
                 <!--4-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="infection">Infection</h4>
                     <p>The dropper has done its job and the ransomware payload executes on the first machine. It embeds itself so it survives a reboot, contacts the attackers' infrastructure for instructions, and starts scanning for credentials, data, and connected drives. The encryption everyone associates with ransomware comes much later - first, it needs to spread.</p>
                 </div>
 
                 <!--5-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="first-user">First user</h4>
                     <p>The most common entry point to an attack is the people in the business. Even with good training, an attack can be sophisticated enough to fool anyone; some do not even need user action. Once the ransomware infects the workstation, it can lie in wait for more valuable content - sometimes for weeks or months - before the encryption begins.</p>
                 </div>
 
                 <!--6-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="credential-and-data-exfiltration">Credential and data exfiltration: user level</h4>
                     <p>Once the workstation is infected, the ransomware quietly harvests the user’s credentials and data. The stolen credentials become gateways for the next stage of the attack, while valuable files - confidential or copyrighted information - are exfiltrated so the attackers can threaten to make them public.</p>
                 </div>
 
-                <div class="divider"></div>
 
                 <!--7-->
-                <div class="barrier-2 spacer">
+                <div class="barrier">
                     <h3 class="target" data-target="second-protection-barrier">Second protection barrier</h3>
-                    <p class="subtitle">Once a workstation is compromised, containing the damage depends on limiting what that foothold can reach. Least privilege, multi-factor authentication, and network segmentation stop one infected machine becoming a gateway to the rest of the business, while privileged access management (PAM) keeps administrative credentials out of reach of anything a stolen user account can touch. Continuous monitoring for unusual credential use and lateral movement is what catches an attacker before they reach anything of real value.</p>
+                    <p class="subtitle">Once a workstation is compromised, containing the damage means limiting what that foothold can reach. Least privilege, MFA, and network segmentation stop one infected machine becoming a gateway to the business, while privileged access management (PAM) keeps admin credentials out of reach of any stolen account. Continuous monitoring for credential misuse and lateral movement catches an attacker before real damage occurs.</p>
                 </div>
                 
 
                 <!--8-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="critical-jump">Critical jump</h4>
                     <p>Armed with stolen credentials, the attacker moves beyond the first infected workstation. This is the critical jump from a single compromised machine to the wider network - probing for weakly protected accounts and systems that grant access to shared resources, servers, and eventually the infrastructure that runs the business.</p>
                 </div>
 
                    <!--10-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="privileged-users">Privileged users</h4>
                     <p>Privileged accounts - IT administrators, service accounts, anyone with elevated rights - are the most valuable credentials on the network. Compromising one gives the attacker the keys to reconfigure systems, disable defences, and reach resources an ordinary user never could.</p>
                 </div>
 
                 <!--9-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="shared-drives">Shared drives</h4>
                     <p>Shared network drives are a high-value target: they concentrate the files many people rely on into one place. Once reached, the attacker can encrypt or exfiltrate entire folders of shared documents in a single move, multiplying the damage far beyond what any one user's files would cause.</p>
                 </div>
@@ -97,87 +93,73 @@
 
                 
                 <!--11-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="more-valuable-data-and-credentials">Credential and data exfiltration: privileged level</h4>
-                    <p>With privileged access secured, the attacker's reach and reward both grow. Sensitive data - financial records, intellectual property, personal information - and higher-level credentials are now in scope, raising the stakes for both the ransom demand and the threat of public exposure.</p>
+                    <p>With privileged access secured, the attacker's reach and reward both grow. Sensitive data - financial records, intellectual property, personal information - and higher-level credentials are now in scope, raising the stakes for the ransom demand and the threat of exposure.</p>
                 </div>
 
-                <div class="divider"></div>
 
                 <!--12-->
-                <div class="barrier-3 spacer">
+                <div class="barrier">
                     <h3 class="target" data-target="third-protection-barrier">Third protection barrier</h3>
-                    <p class="subtitle">By this stage, the attacker holds privileged credentials and is moving through core infrastructure. The priority is limiting the blast radius: tiered administration so domain and server credentials can't be reused on ordinary workstations, endpoint detection and response to spot lateral movement in real time, and privileged access management (PAM) to control who can reach domain controllers, hypervisors, and backup systems. Privileged process automation (PPA) closes the loop: routine admin and backup tasks run as vaulted, automated processes, so privileged credentials never appear on a workstation for malware to harvest.</p>
+                    <p class="subtitle">By this stage, the attacker holds privileged credentials and is moving through core infrastructure. The priority is limiting the blast radius: tiered administration, endpoint detection and response (EDR), and PAM together control who can reach domain controllers, hypervisors, and backups. Privileged process automation (PPA) closes the loop, running admin tasks as vaulted, automated processes so credentials never appear on a workstation for malware to harvest.</p>
                 </div>
 
                 <!--13-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="lateral-movement">Lateral movement</h4>
                     <p>Using the credentials it has already stolen, the ransomware fans out across the network - probing servers, virtualization hosts, and domain infrastructure for the next weak point. Each new system it reaches becomes a further foothold, bringing the attacker closer to the infrastructure that keeps the business running.</p>
                 </div>
 
                 <!--14-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="domain-controller">Domain controller</h4>
                     <p>The domain controller manages identity and access for the entire network. Compromising it hands the attacker the ability to create accounts, reset passwords, and grant themselves access to virtually anything - turning a single breach into control of the whole environment.</p>
                 </div>
 
                 <!--15-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="hypervisor">Hypervisor</h4>
                     <p>Many organizations run their servers as virtual machines on a shared hypervisor. Gaining control of it lets the attacker access, encrypt, or destroy every virtual machine it hosts at once - an efficient way to cause maximum damage from a single compromise.</p>
                 </div>
 
                 <!--16-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="online-backups">Online backups</h4>
                     <p>Backups are the safety net an organization relies on to recover without paying. If those backups are reachable from the network - and many are, for convenience - the attacker will target them directly, deleting or encrypting them to remove the victim's ability to restore data independently.</p>
                 </div>
 
                 <!--17-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="domain-wide-compromise">Credential and data exfiltration: domain level</h4>
-                    <p>With domain-level access, the attacker can now harvest credentials and sensitive files across the whole organization, not just one department. This is the point where the incident stops being a single-workstation problem and becomes a full breach of the organization's identity and data.</p>
+                    <p>With domain-level access, the attacker can now harvest credentials and sensitive files across the whole organization, not just one department. This is where the incident stops being a single-workstation problem and becomes a full breach of the organization's identity and data.</p>
                 </div>
 
-                <div class="divider"></div>
 
                 <!--18-->
-                <div class="barrier-4 spacer">
+                <div class="barrier">
                     <h3 class="target" data-target="fourth-protection-barrier">Fourth protection barrier</h3>
-                    <p class="subtitle">The last line of defence is making sure recovery is still possible even after everything else has failed. That means backups that are immutable or truly air-gapped - following the 3-2-1 principle of multiple copies, on different media, with at least one copy off-network - plus restores that are tested regularly and retention that outlasts an attacker who may have been inside for months. Get all of that right, and there is always a clean copy the attacker can never touch. Get any of it wrong, and the last door is already open.</p>
+                    <p class="subtitle">The last line of defence is making recovery possible even after everything else fails. That means immutable or air-gapped backups - the 3-2-1 principle of multiple copies, on different media, with one copy off-network - plus regularly tested restores and retention that outlasts an attacker who may have lurked for months. Get it right, and there's always a clean copy the attacker can never touch. Get it wrong, and the last door is already open.</p>
                 </div>
 
                 <!--19-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="final-encryption">Final encryption</h4>
                     <p>Before triggering the final encryption, the ransomware makes one last sweep for any backup it can still reach - including ones assumed to be safe - removing the victim's remaining options for recovery. Then the payload fires on every machine it has reached: files are encrypted with strong cryptography, and a ransom note explains how to pay for a decryption key - or to stop the stolen data being published.</p>
                 </div>
 
                 <!--20-->
-                <div class="spacer">
+                <div>
                     <h4 class="target" data-target="offline-backups">Offline backups</h4>
-                    <p>The offline backups are the last resource - the one copy the attacker cannot reach over the network. They don't need to: for weeks, these media have been faithfully archiving data from systems that were already infected. The compromise rode in through the organization's own backup process, and the last clean copy has quietly aged out of rotation. When the final encryption fires, there is nothing safe left to restore. The organization has lost access to its own data, and the only choices left are paying the ransom - with no guarantees - or starting over from nothing.</p>
+                    <p>The offline backups are the last resource - the one copy the attacker cannot reach. They don't need to: for weeks, these media have archived data from systems already infected. The compromise rode in through the backup process itself, and the last clean copy has aged out of rotation. When the final encryption fires, nothing is left to restore - only the choice to pay the ransom, with no guarantees, or start over from nothing.</p>
                 </div>
 
-                <div class="divider"></div>
+            </div><!-- #narrative-source -->
 
-                </div><!-- .content-scroll -->
-
-
-
-
-
-            </div>
-
-            <button id="panel-toggle" class="panel-toggle" type="button" aria-expanded="true" aria-controls="content-panel" aria-label="Collapse narrative panel">
-                <svg class="panel-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <div class="diagram-column">
 
             <div class="infographic">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 2600">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="10 220 1580 2178">
                     
                 <defs>
 
@@ -394,33 +376,33 @@
                 <!--barriers-->
                 <g id="layer-barriers">
                     <g class="barrier-1">
-                        <line class="barrier-line-muted" x1="190" y1="813" x2="1410" y2="813"/>
-                        <line class="barrier-line line-right" x1="810" y1="813" x2="1410" y2="813"/>
-                        <line class="barrier-line line-left" x1="190" y1="813" x2="790" y2="813"/>
+                        <line class="barrier-line-muted" x1="130" y1="813" x2="1470" y2="813"/>
+                        <line class="barrier-line line-right" x1="810" y1="813" x2="1470" y2="813"/>
+                        <line class="barrier-line line-left" x1="130" y1="813" x2="790" y2="813"/>
                         <path class="barrier-button button-right" d="M825,788h-22v50h22c13.8,0,25-11.2,25-25S838.8,788,825,788z"/>
                         <path class="barrier-button button-left" d="M797,788h-22c-13.8,0-25,11.2-25,25s11.2,25,25,25h22V788z"/>
                     </g>
 
                     <g class="barrier-2">
-                        <line class="barrier-line-muted" x1="190" y1="1225" x2="1410" y2="1225"/>
-                        <line class="barrier-line line-right" x1="810" y1="1225" x2="1410" y2="1225"/>
-                        <line class="barrier-line line-left" x1="190" y1="1225" x2="790" y2="1225"/>
+                        <line class="barrier-line-muted" x1="130" y1="1225" x2="1470" y2="1225"/>
+                        <line class="barrier-line line-right" x1="810" y1="1225" x2="1470" y2="1225"/>
+                        <line class="barrier-line line-left" x1="130" y1="1225" x2="790" y2="1225"/>
                         <path class="barrier-button button-right" d="M825,1200h-22v50h22 c13.8,0,25-11.2,25-25S838.8,1200,825,1200z"/>
                         <path class="barrier-button button-left" d="M797,1200h-22c-13.8,0-25,11.2-25,25 s11.2,25,25,25h22V1200z"/>
                     </g>
 
                     <g class="barrier-3">
-                        <line class="barrier-line-muted" x1="190" y1="1637" x2="1410" y2="1637"/>
-                        <line class="barrier-line line-right" x1="810" y1="1637" x2="1410" y2="1637"/>
-                        <line class="barrier-line line-left" x1="190" y1="1637" x2="790" y2="1637"/>
+                        <line class="barrier-line-muted" x1="130" y1="1637" x2="1470" y2="1637"/>
+                        <line class="barrier-line line-right" x1="810" y1="1637" x2="1470" y2="1637"/>
+                        <line class="barrier-line line-left" x1="130" y1="1637" x2="790" y2="1637"/>
                         <path class="barrier-button button-right" d="M825,1612h-22v50h22 c13.8,0,25-11.2,25-25S838.8,1612,825,1612z"/>
                         <path class="barrier-button button-left" d="M797,1612h-22c-13.8,0-25,11.2-25,25 s11.2,25,25,25h22V1612z"/>
                     </g>
 
                     <g class="barrier-4">
-                        <line class="barrier-line-muted" x1="190" y1="2049" x2="1410" y2="2049"/>
-                        <line class="barrier-line line-right" x1="810" y1="2049" x2="1410" y2="2049"/>
-                        <line class="barrier-line line-left" x1="190" y1="2049" x2="790" y2="2049"/>
+                        <line class="barrier-line-muted" x1="130" y1="2049" x2="1470" y2="2049"/>
+                        <line class="barrier-line line-right" x1="810" y1="2049" x2="1470" y2="2049"/>
+                        <line class="barrier-line line-left" x1="130" y1="2049" x2="790" y2="2049"/>
                         <path class="barrier-button button-right" d="M825,2024h-22v50h22 c13.8,0,25-11.2,25-25S838.8,2024,825,2024z"/>
                         <path class="barrier-button button-left" d="M797,2024h-22c-13.8,0-25,11.2-25,25 s11.2,25,25,25h22V2024z"/>
                     </g>
@@ -976,7 +958,21 @@
 
                 </svg>
             </div>
-    
+
+            <div class="card-stack" aria-live="polite">
+                <button id="card-toggle" class="card-toggle" type="button" aria-expanded="true" aria-controls="card-stack" aria-label="Collapse content card">
+                    <svg class="card-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="card" id="card-a"><h2 class="card-heading"></h2><p class="card-body"></p></div>
+                <div class="card" id="card-b"><h2 class="card-heading"></h2><p class="card-body"></p></div>
+            </div>
+
+            </div><!-- .diagram-column -->
+
+        </div>
+
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>

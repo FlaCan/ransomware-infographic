@@ -18,6 +18,11 @@
     --blue: #07e;             /* healthy machines, barrier lines and buttons */
     --red: #c00;              /* virus body, malware tails, encryption locks */
     --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
+
+    /* percent of the app-shell's height the diagram occupies; the card gets
+       the remainder. Drives .diagram-column/.infographic/.card-stack below,
+       and is tweened by script.js (via GSAP) when the card is collapsed. */
+    --diagram-ratio: 75;
 }
 
 
@@ -32,14 +37,12 @@
 
 /* Typography */
 
-/* Root font-size scales fluidly with viewport width so the narrative panel's
-   type shrinks in proportion as its 25%-of-viewport column narrows (see
-   --panel-width below) and grows back toward 16px - the size the 60ch/534px
-   prose-cap math below was originally computed against - as the viewport
-   widens. Anchored at the two boundaries of the side-by-side layout: 14px at
-   1100px (the panel-collapse breakpoint) and 16px at 1920px (a representative
-   wide desktop); flat beyond either end. Every heading/paragraph rule below is
-   already em-based, so this is the only place font-size needs to change. */
+/* Root font-size scales fluidly with viewport width so the card text stays
+   proportionate on narrow/mobile screens instead of overwhelming the fixed
+   25%-height band, and grows back toward 16px on wide desktops. Anchored
+   14px at 1100px, 16px at 1920px; flat beyond either end. Every
+   heading/paragraph rule below is already em-based, so this is the only
+   place font-size needs to change. */
 html {
     font-size: clamp(14px, 11.317px + 0.244vw, 16px);
 }
@@ -50,13 +53,13 @@ body {
 }
 
 h2, h3, h4, p {
-    max-width: 60ch;
     font-weight: 500;
 }
 
 h2, h3, h4 {
-    color: var(--cyan);
-    margin-bottom: 1em;
+    color: var(--white);
+    margin-top: 0.5em;
+    margin-bottom: 0.75em;
 }
 
 h2 {
@@ -90,32 +93,10 @@ a {
     text-decoration: none;
 }
 
-.divider {
-    height: 2px;
-    clear: both;
-    border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
-    border-bottom: 1px solid var(--white);
-    margin: 3em 0;
-}
-
-/* .highlight is set by script.js on the heading whose hotspot was clicked */
-.highlight {
-    color: var(--yellow);
-}
-
-.highlight::before {
-    content: "● ";
-}
-
-
-/* Page layout: fixed-height app shell - the diagram is a permanently centered,
-   full-height panel; the narrative is a fixed-width panel beside it that scrolls
-   independently and can be collapsed. There is no page-level scroll. */
-
-:root {
-    --panel-width: 25%;
-    --panel-transition: 0.3s ease;
-}
+/* Page layout: fixed-height app shell, one fixed ratio at every viewport
+   size - the diagram permanently fills the top 75%, a content card the
+   bottom 25% (see .card-stack below). There is no page-level scroll and no
+   width-driven breakpoint; the same layout runs on desktop and touch. */
 
 html, body {
     height: 100%;
@@ -129,129 +110,124 @@ section {
 
 .app-shell {
     background-color: var(--paper);
-    display: flex;
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
 }
 
+/* one column holding both the diagram and the card, so their left/right
+   edges always line up exactly at any viewport size. Its width is derived
+   from its own full height via aspect-ratio - not from the diagram alone,
+   but from a "virtual" full-height artwork where the real 2178-tall
+   viewBox only occupies the top --diagram-ratio% (217800 / ratio) - so that
+   after the flex split below, .infographic lands at exactly the diagram's
+   own aspect ratio and .card-stack inherits the identical width for free
+   (percentage flex-basis can't be used here: an intrinsic width like
+   fit-content can't resolve against a not-yet-known percentage height). */
+.diagram-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    aspect-ratio: 1580 / calc(217800 / var(--diagram-ratio));
+    margin: 0 auto;
+}
+
 .infographic {
     background-color: var(--paper);
-    flex: 1 1 auto;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 calc(var(--diagram-ratio) * 1%);
     overflow: hidden;
 }
 
 .infographic svg {
     width: 100%;
     height: 100%;
+    display: block;
 }
 
-.content {
-    background-color: var(--bg-dark);
-    flex: 0 0 auto;
-    width: var(--panel-width);
+/* card-stack - a double buffer of two full-size cards; script.js writes new
+   content into whichever card is currently hidden below the band and slides
+   it up over the visible one with GSAP (yPercent + z-index), so the new
+   content visually covers the old rather than replacing it in place. Its
+   width matches exactly where the barrier lines terminate (x=130 to
+   x=1470, a span of 1340 SVG units) rather than the wider, padded viewBox
+   (1580 units) the diagram itself uses - the ratio between the two keeps
+   this exact at any viewport size, with auto margins centering it within
+   the diagram-column. Flush against the viewport's bottom edge, with a
+   small top gap for the rounded corners to read as rounded. */
+.card-stack {
     position: relative;
+    flex: 0 0 calc((100 - var(--diagram-ratio)) * 1%);
+    width: calc(1340 / 1580 * 100%);
     overflow: hidden;
-    transition: width var(--panel-transition);
+    background-color: var(--bg-dark);
+    margin: 1.25rem auto 0;
+    border-radius: 1rem 1rem 0 0;
 }
 
-.app-shell.panel-collapsed .content {
-    width: 0;
-}
-
-.content-scroll {
-    height: 100%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    padding: 10%;
-}
-
-.panel-toggle {
+.card {
     position: absolute;
-    top: 50%;
-    left: var(--panel-width);
-    transform: translate(-50%, -50%);
-    width: 32px;
-    height: 32px;
+    inset: 0;
+    background-color: var(--bg-dark);
+    /* padding-top matches .card-heading's margin-bottom (both rem, see
+       Typography) so the gap above the heading equals the gap below it */
+    padding: 1rem 1.25rem 1.25rem;
+    overflow-y: auto;
+}
+
+.card-heading {
+    font-size: 1.35em;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    font-size: 0.9em;
+    line-height: 1.55;
+}
+
+/* collapsed: the card shrinks to a thin handle strip (see --diagram-ratio
+   above) showing just the current selection's heading + the toggle */
+.app-shell.card-collapsed .card-body {
+    display: none;
+}
+
+.app-shell.card-collapsed .card {
+    /* padding-top: 0.6rem; */
+    padding-bottom: 0.6rem;
+}
+
+.app-shell.card-collapsed .card-heading {
+    margin-bottom: 0;
+}
+
+.card-toggle {
+    position: absolute;
+    top: 1.7rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
     border-radius: 50%;
-    background-color: var(--paper-shade);
-    color: var(--ink);
+    background-color: transparent;
+    color: var(--white);
     cursor: pointer;
-    z-index: 5;
-    transition: left var(--panel-transition);
+    z-index: 3; /* above both .card layers (z-index 1/2) regardless of which is on top */
 }
 
-.panel-toggle:hover {
-    background-color: var(--yellow);
+.card-toggle:hover {
+    background-color: var(--cyan);
 }
 
-.panel-toggle-icon {
-    width: 14px;
-    height: 14px;
-    transition: transform var(--panel-transition);
+.card-toggle-icon {
+    width: calc(0.875rem * 4 / 3);
+    height: calc(0.875rem * 4 / 3);
+    transition: transform 0.3s ease;
 }
 
-.app-shell.panel-collapsed .panel-toggle {
-    left: 16px; /* half the button's own width, so translate(-50%) keeps it fully on-screen at the edge */
-}
-
-.app-shell.panel-collapsed .panel-toggle-icon {
+.app-shell.card-collapsed .card-toggle-icon {
     transform: rotate(180deg);
-}
-
-.spacer {
-    margin-top: 36px;
-    margin-bottom: 36px;
-}
-
-
-/* Below this width, the narrative panel's inner column would be too
-   physically narrow for comfortable prose even at the smallest floor
-   font-size (at 1100px, --panel-width: 25% resolves to ~275px, ~220px of
-   that after the 10% padding - too few characters per line for multi-word
-   paragraphs regardless of how far the type shrinks) - so below this
-   breakpoint the panel switches from a narrow proportional side panel to a
-   full-screen overlay drawer instead, where it can use the full viewport
-   width and a fixed, comfortable font size (see the html rule below). */
-@media (max-width: 1100px) {
-    html {
-        font-size: 16px;
-    }
-
-    .content {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        transform: translateX(-100%);
-        transition: transform var(--panel-transition);
-        z-index: 20;
-    }
-
-    .app-shell:not(.panel-collapsed) .content {
-        transform: translateX(0);
-    }
-
-    .panel-toggle {
-        position: fixed;
-        top: 16px;
-        left: auto;
-        right: 16px;
-        transform: none;
-        z-index: 21;
-    }
-
-    .app-shell.panel-collapsed .panel-toggle {
-        left: 16px;
-        right: auto;
-    }
 }
 
 
@@ -365,6 +341,18 @@ section {
     fill-opacity: 1;
 }
 
+/* no default browser focus rectangle, ever - clicking (not just keyboard
+   focus) leaves the default outline behind unless :focus itself is
+   suppressed, not just :focus-visible. The .lit circle fill (set on
+   selection in script.js) is the only focus/selection affordance. */
+.trigger:focus {
+    outline: none;
+}
+
+.trigger:focus-visible circle {
+    fill-opacity: 1;
+}
+
 /* .lit is set by script.js while the paired heading is hovered */
 .trigger.lit circle {
     fill-opacity: 1;
@@ -429,3 +417,13 @@ section {
 #tooltip.visible {
     opacity: 1;
 }
+
+/* the hover tooltip only makes sense on real hover-capable pointers - on touch
+   it would otherwise get stuck open after a tap */
+@media not (hover: hover) {
+    #tooltip {
+        display: none;
+    }
+}
+
+

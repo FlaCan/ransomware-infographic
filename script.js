@@ -1,19 +1,6 @@
 const select = (el) => document.querySelector(el)
 const selectAll = (el) => document.querySelectorAll(el)
 
-const appShell = select(".app-shell")
-const panelToggle = select("#panel-toggle")
-
-if (window.matchMedia("(max-width: 1100px)").matches) {
-    appShell.classList.add("panel-collapsed")
-    panelToggle.setAttribute("aria-expanded", "false")
-}
-
-panelToggle.addEventListener("click", () => {
-    const collapsed = appShell.classList.toggle("panel-collapsed")
-    panelToggle.setAttribute("aria-expanded", String(!collapsed))
-})
-
 /* Initial states ****************************************************************************************/
 
 gsap.set(".line-left", {
@@ -52,11 +39,13 @@ function animBarrier(el) {
     .to(`${el} .line-left, ${el} .line-right`, {scaleX: 0}, "<")
     /* the click circles sit at cx=800, the closed button's center; each half-pill's own
        center is 26.5 off (left half spans x750-797, right half x803-850), so the circles
-       travel 26.5 further than the buttons to end up centered on the half they highlight */
-    .to(`${el} .button-left`, {x: -600}, "<")
-    .to(`${el} .click-left`, {x: -626.5}, "<")
-    .to(`${el} .button-right`, {x: 600}, "<")
-    .to(`${el} .click-right`, {x: 626.5}, "<")
+       travel 26.5 further than the buttons to end up centered on the half they highlight.
+       Both distances carry the same +60 the barrier lines themselves were extended by
+       (x1/x2 in index.html), so the buttons still land exactly on the longer lines' ends. */
+    .to(`${el} .button-left`, {x: -660}, "<")
+    .to(`${el} .click-left`, {x: -686.5}, "<")
+    .to(`${el} .button-right`, {x: 660}, "<")
+    .to(`${el} .click-right`, {x: 686.5}, "<")
     .to(el + " .barrier-line-muted", {autoAlpha: 1}, "<")
     return tl
 }
@@ -255,28 +244,139 @@ selectAll(".trigger circle").forEach((circle) => {
     circle.addEventListener("mouseleave", () => icon.el.classList.remove("lit"))
 })
 
-const tooltip = document.createElement("div")
-tooltip.id = "tooltip"
-document.body.appendChild(tooltip)
-
+const triggerByKey = new Map()
 triggerEls.forEach((trigger) => {
     const key = trigger.dataset.target
     if (!key) {
         console.warn("Trigger element missing data-target attribute:", trigger)
         return
     }
-    const target = targetByKey.get(key)
-    if (!target) {
+    if (!targetByKey.has(key)) {
         console.warn(`No target found for trigger with data-target="${key}":`, trigger)
         return
     }
+    triggerByKey.set(key, trigger)
+})
+
+/* lights a trigger's own circles plus every icon they refer to - used both
+   for the "currently selected hotspot" state and (below) as a hover affordance */
+function setTriggerActive(trigger, on) {
+    trigger.classList.toggle("lit", on)
+    trigger.setAttribute("aria-pressed", String(on))
+    trigger.querySelectorAll("circle").forEach((circle) => {
+        const icon = iconByCircle.get(circle)
+        if (icon) icon.classList.toggle("lit", on)
+    })
+}
+
+/* short hover-only label - stays a compliant WAI-ARIA tooltip (one phrase,
+   non-interactive) precisely because the full text lives in the card below
+   instead. Real hover devices only, so it can't get stuck open after a tap. */
+
+const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+
+const tooltip = document.createElement("div")
+tooltip.id = "tooltip"
+document.body.appendChild(tooltip)
+
+/* card-stack - a double buffer of two full-size cards in the fixed bottom
+   25% band (see .card-stack in style.css). Selecting a hotspot writes into
+   whichever card is currently hidden below the band and slides it up over
+   the visible one; the two swap roles every time so there's no per-click
+   DOM churn. */
+
+const cardEls = [select("#card-a"), select("#card-b")]
+let topCard = 0
+let activeKey = null
+
+function showCard(heading, body) {
+    const incoming = cardEls[1 - topCard]
+    incoming.querySelector(".card-heading").textContent = heading
+    incoming.querySelector(".card-body").textContent = body
+    gsap.set(incoming, { zIndex: 2, yPercent: 100 })
+    gsap.set(cardEls[topCard], { zIndex: 1 })
+    gsap.to(incoming, { yPercent: 0, duration: 0.45, ease: "power2.out" })
+    topCard = 1 - topCard
+}
+
+const intro = select("#intro-content")
+const introHeading = intro.querySelector("h2").textContent
+const introBody = intro.querySelector("p").textContent
+cardEls[0].querySelector(".card-heading").textContent = introHeading
+cardEls[0].querySelector(".card-body").textContent = introBody
+gsap.set(cardEls[0], { zIndex: 2, yPercent: 0 })
+gsap.set(cardEls[1], { zIndex: 1, yPercent: 100 })
+
+/* collapse toggle - shrinks the card to a thin handle strip and grows the
+   diagram into most of the freed space. Both the diagram's aspect-ratio and
+   the diagram/card flex-basis split are driven off the single --diagram-ratio
+   custom property (style.css), so collapsing only ever needs to change that
+   one number; GSAP tweens it smoothly the same way every other motion in
+   this app is animated, since a plain custom property can't interpolate
+   itself across a class toggle. */
+
+const appShell = select(".app-shell")
+const cardToggle = select("#card-toggle")
+let collapsed = false
+
+function setDiagramRatio(value) {
+    const current = parseFloat(getComputedStyle(appShell).getPropertyValue("--diagram-ratio")) || 75
+    gsap.to({ v: current }, {
+        v: value,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onUpdate: function () { appShell.style.setProperty("--diagram-ratio", this.targets()[0].v) },
+    })
+}
+
+function setCollapsed(on) {
+    collapsed = on
+    appShell.classList.toggle("card-collapsed", on)
+    cardToggle.setAttribute("aria-expanded", String(!on))
+    setDiagramRatio(on ? 92 : 75)
+}
+
+cardToggle.addEventListener("click", () => setCollapsed(!collapsed))
+
+function selectHotspot(trigger) {
+    const key = trigger.dataset.target
+    if (collapsed) setCollapsed(false) // always surface the content being selected
+    if (activeKey === key) return // no-op on repeat click - the barrier's own
+                                   // click listener still toggles its animation
+    const prevTrigger = activeKey && triggerByKey.get(activeKey)
+    if (prevTrigger) setTriggerActive(prevTrigger, false)
+    setTriggerActive(trigger, true)
+    activeKey = key
+    const target = targetByKey.get(key)
+    showCard(target.textContent, target.nextElementSibling?.textContent ?? "")
+}
+
+triggerEls.forEach((trigger) => {
+    const key = trigger.dataset.target
+    const target = targetByKey.get(key)
+    if (!target) return // already warned above
+
+    trigger.setAttribute("tabindex", "0")
+    trigger.setAttribute("role", "button")
+    trigger.setAttribute("aria-label", target.textContent)
+    trigger.setAttribute("aria-pressed", "false")
+
+    trigger.addEventListener("click", () => selectHotspot(trigger))
+    trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            selectHotspot(trigger)
+        }
+    })
 
     trigger.addEventListener("mouseenter", () => {
+        if (!canHover) return
         tooltip.textContent = target.textContent
         tooltip.classList.add("visible")
     })
 
     trigger.addEventListener("mousemove", (e) => {
+        if (!canHover) return
         // flip to the other side of the cursor when the tooltip would leave the viewport
         let x = e.clientX + 16
         let y = e.clientY + 16
@@ -293,29 +393,14 @@ triggerEls.forEach((trigger) => {
     trigger.addEventListener("mouseleave", () => {
         tooltip.classList.remove("visible")
     })
+})
 
-    /* hovering the heading lights every icon it refers to (discs + yellow halos) */
-    target.addEventListener("mouseenter", () => {
-        trigger.classList.add("lit")
-        trigger.querySelectorAll("circle").forEach((circle) => {
-            const icon = iconByCircle.get(circle)
-            if (icon) icon.classList.add("lit")
-        })
-    })
-
-    target.addEventListener("mouseleave", () => {
-        trigger.classList.remove("lit")
-        trigger.querySelectorAll("circle").forEach((circle) => {
-            const icon = iconByCircle.get(circle)
-            if (icon) icon.classList.remove("lit")
-        })
-    })
-
-    trigger.addEventListener("click", () => {
-        targetEls.forEach((el) => el.classList.remove("highlight"))
-        target.classList.add("highlight")
-        appShell.classList.remove("panel-collapsed")
-        panelToggle.setAttribute("aria-expanded", "true")
-        target.scrollIntoView({ behavior: "smooth", block: "center" })
-      });
+/* clicking away from every hotspot clears the current selection - clicks
+   inside the card itself (reading, scrolling) don't count as "away" */
+document.addEventListener("click", (e) => {
+    if (!activeKey) return
+    if (e.target.closest(".trigger") || e.target.closest(".card-stack")) return
+    setTriggerActive(triggerByKey.get(activeKey), false)
+    activeKey = null
+    showCard(introHeading, introBody)
 })
