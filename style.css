@@ -52,11 +52,8 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-h2, h3, h4, p {
-    font-weight: 500;
-}
-
 h2, h3, h4 {
+    font-weight: 500;
     color: var(--white);
     margin-top: 0.5em;
     margin-bottom: 0.75em;
@@ -137,6 +134,11 @@ html, body {
     width: 100%;
     height: 100%;
     display: block;
+
+    /* triggers paint before (under) the artwork, so the hover disc appears
+       behind the icons; pointer events skip the artwork and land on the
+       triggers below */
+    pointer-events: none;
 }
 
 /* card-stack - a double buffer of two full-size cards; script.js writes new
@@ -261,13 +263,6 @@ html, body {
 }
 
 
-/* triggers paint before (under) the artwork, so the hover disc appears behind
-   the icons; pointer events skip the artwork and land on the triggers below */
-
-.infographic svg {
-    pointer-events: none;
-}
-
 .trigger {
     cursor: pointer;
     visibility: hidden;
@@ -285,25 +280,20 @@ html, body {
     visibility: visible;
 }
 
-.trigger circle:hover {
+/* full opacity on hover, keyboard focus, or when script.js marks a trigger
+   .lit (selected, or its paired heading is hovered) */
+.trigger circle:hover,
+.trigger:focus-visible circle,
+.trigger.lit circle {
     fill-opacity: 1;
 }
 
 /* no default browser focus rectangle, ever - clicking (not just keyboard
    focus) leaves the default outline behind unless :focus itself is
-   suppressed, not just :focus-visible. The .lit circle fill (set on
-   selection in script.js) is the only focus/selection affordance. */
+   suppressed, not just :focus-visible. The fill-opacity above is the only
+   focus/selection affordance. */
 .trigger:focus {
     outline: none;
-}
-
-.trigger:focus-visible circle {
-    fill-opacity: 1;
-}
-
-/* .lit is set by script.js while the paired heading is hovered */
-.trigger.lit circle {
-    fill-opacity: 1;
 }
 
 /* the yellow icons carry a built-in backdrop circle that masks the dotted
