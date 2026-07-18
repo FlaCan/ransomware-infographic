@@ -1,0 +1,21 @@
+# Prettier config (local preference, not shared)
+.prettierrc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
