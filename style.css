@@ -47,6 +47,7 @@ html {
 }
 
 body {
+    background-color: var(--bg-dark);
     color: var(--white);
     font-family: "Roboto", sans-serif;
 }
@@ -100,11 +101,6 @@ a {
 html, body {
     height: 100%;
     overflow: hidden;
-}
-
-section {
-    background-color: var(--bg-dark);
-    height: 100%;
 }
 
 .app-shell {
