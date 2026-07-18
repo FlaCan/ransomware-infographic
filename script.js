@@ -25,7 +25,7 @@ const animDrop = gsap.to(".drop", {
     yoyo: true
 })
 
-const animClock = gsap.to(".lancetta", {
+gsap.to(".lancetta", {
     duration: 5, 
     rotate:360, 
     repeat: -1, 
@@ -121,80 +121,25 @@ colourToggles.forEach(([timeline, toggles]) => {
 
 /* Click Listeners **********************************************************************************************/
 
+/* opening barrier N pauses the drop animation and plays barriers 1..N;
+   closing it reverses barriers N..4. Only closing barrier 1 resumes the
+   drop animation, since that's the only click that can fully reset the
+   diagram back to its pristine, all-closed state. */
+const barrierAnims = [animBarrier1, animBarrier2, animBarrier3, animBarrier4]
 
-const clicksL1 = selectAll(".barrier-1 .trigger")
-const clicksL2 = selectAll(".barrier-2 .trigger")
-const clicksL3 = selectAll(".barrier-3 .trigger")
-const clicksL4 = selectAll(".barrier-4 .trigger")
-
-
-clicksL1.forEach(item => {
-
-    item.addEventListener("click", () => {
-        if (animBarrier1.reversed()) {
-            animDrop.pause()
-            animBarrier1.play() 
-        } else {
-            animDrop.play()
-            animBarrier1.reverse() 
-            animBarrier2.reverse() 
-            animBarrier3.reverse() 
-            animBarrier4.reverse() 
-        }
-    }, false)
-    
-});
-
-
-clicksL2.forEach(item => {
-    
-    item.addEventListener("click", () => {
-        if (animBarrier2.reversed()) {
-            animDrop.pause()
-            animBarrier1.play()
-            animBarrier2.play()
-        } else {
-            animBarrier2.reverse()
-            animBarrier3.reverse()
-            animBarrier4.reverse()
-        }
-    }, false)
-
-});
-
-
-clicksL3.forEach(item => {
-
-    item.addEventListener("click", () => {
-        if (animBarrier3.reversed()) {
-            animDrop.pause()
-            animBarrier1.play()
-            animBarrier2.play()
-            animBarrier3.play()
-        } else {
-            animBarrier3.reverse()
-            animBarrier4.reverse()
-        }
-    }, false)
-
-});
-
-
-clicksL4.forEach(item => {
-
-    item.addEventListener("click", () => {
-        if (animBarrier4.reversed()) {
-            animDrop.pause()
-            animBarrier1.play()
-            animBarrier2.play()
-            animBarrier3.play()
-            animBarrier4.play()
-        } else {
-            animBarrier4.reverse()
-        }
-    }, false)
-    
-});
+barrierAnims.forEach((anim, i) => {
+    selectAll(`.barrier-${i + 1} .trigger`).forEach((item) => {
+        item.addEventListener("click", () => {
+            if (anim.reversed()) {
+                animDrop.pause()
+                barrierAnims.slice(0, i + 1).forEach((a) => a.play())
+            } else {
+                if (i === 0) animDrop.play()
+                barrierAnims.slice(i).forEach((a) => a.reverse())
+            }
+        })
+    })
+})
 
 
 /* trigger listeners - trigger and target are paired via data-target key, not DOM order *****************************/
