@@ -20,8 +20,7 @@
     --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
 
     /* percent of the app-shell's height the diagram occupies; the card gets
-       the remainder. Drives .diagram-column/.infographic/.card-stack below,
-       and is tweened by script.js (via GSAP) when the card is collapsed. */
+       the remainder. Drives .diagram-column/.infographic/.card-stack below. */
     --diagram-ratio: 75;
 }
 
@@ -183,53 +182,6 @@ section {
     font-size: 0.9em;
     line-height: 1.55;
 }
-
-/* collapsed: the card shrinks to a thin handle strip (see --diagram-ratio
-   above) showing just the current selection's heading + the toggle */
-.app-shell.card-collapsed .card-body {
-    display: none;
-}
-
-.app-shell.card-collapsed .card {
-    /* padding-top: 0.6rem; */
-    padding-bottom: 0.6rem;
-}
-
-.app-shell.card-collapsed .card-heading {
-    margin-bottom: 0;
-}
-
-.card-toggle {
-    position: absolute;
-    top: 1.7rem;
-    right: 1rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    color: var(--white);
-    cursor: pointer;
-    z-index: 3; /* above both .card layers (z-index 1/2) regardless of which is on top */
-}
-
-.card-toggle:hover {
-    background-color: var(--cyan);
-}
-
-.card-toggle-icon {
-    width: calc(0.875rem * 4 / 3);
-    height: calc(0.875rem * 4 / 3);
-    transition: transform 0.3s ease;
-}
-
-.app-shell.card-collapsed .card-toggle-icon {
-    transform: rotate(180deg);
-}
-
 
 /* SVG artwork */
 

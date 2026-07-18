@@ -307,40 +307,8 @@ cardEls[0].querySelector(".card-body").textContent = introBody
 gsap.set(cardEls[0], { zIndex: 2, yPercent: 0 })
 gsap.set(cardEls[1], { zIndex: 1, yPercent: 100 })
 
-/* collapse toggle - shrinks the card to a thin handle strip and grows the
-   diagram into most of the freed space. Both the diagram's aspect-ratio and
-   the diagram/card flex-basis split are driven off the single --diagram-ratio
-   custom property (style.css), so collapsing only ever needs to change that
-   one number; GSAP tweens it smoothly the same way every other motion in
-   this app is animated, since a plain custom property can't interpolate
-   itself across a class toggle. */
-
-const appShell = select(".app-shell")
-const cardToggle = select("#card-toggle")
-let collapsed = false
-
-function setDiagramRatio(value) {
-    const current = parseFloat(getComputedStyle(appShell).getPropertyValue("--diagram-ratio")) || 75
-    gsap.to({ v: current }, {
-        v: value,
-        duration: 0.4,
-        ease: "power2.inOut",
-        onUpdate: function () { appShell.style.setProperty("--diagram-ratio", this.targets()[0].v) },
-    })
-}
-
-function setCollapsed(on) {
-    collapsed = on
-    appShell.classList.toggle("card-collapsed", on)
-    cardToggle.setAttribute("aria-expanded", String(!on))
-    setDiagramRatio(on ? 92 : 75)
-}
-
-cardToggle.addEventListener("click", () => setCollapsed(!collapsed))
-
 function selectHotspot(trigger) {
     const key = trigger.dataset.target
-    if (collapsed) setCollapsed(false) // always surface the content being selected
     if (activeKey === key) return // no-op on repeat click - the barrier's own
                                    // click listener still toggles its animation
     const prevTrigger = activeKey && triggerByKey.get(activeKey)
