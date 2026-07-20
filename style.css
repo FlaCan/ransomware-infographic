@@ -55,7 +55,6 @@ body {
 h2, h3, h4 {
     font-weight: 500;
     color: var(--white);
-    margin-top: 0.5em;
     margin-bottom: 0.75em;
 }
 
@@ -143,14 +142,12 @@ html, body {
 
 /* width is intentionally unset here - script.js syncs it inline to the
    SVG's rendered width via ResizeObserver, so the card is always exactly
-   as wide as the diagram above it. Flush against the viewport's bottom
-   edge, with a small top gap for the rounded corners to read as rounded. */
+   as wide as the diagram above it. */
 .card-frame {
     position: relative;
     height: 100%;
     overflow: hidden;
-    margin: 1.25rem auto 0;
-    border-radius: 1rem 1rem 0 0;
+    margin: 0 auto;
 }
 
 /* card-frame holds a double buffer of two full-size cards; script.js writes
@@ -161,9 +158,7 @@ html, body {
     position: absolute;
     inset: 0;
     background-color: var(--bg-dark);
-    /* padding-top matches .card-heading's margin-bottom (both rem, see
-       Typography) so the gap above the heading equals the gap below it */
-    padding: 1rem 1.25rem 1.25rem;
+    padding: 2rem;
     overflow-y: auto;
 }
 
