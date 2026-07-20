@@ -318,13 +318,3 @@ triggerEls.forEach((trigger) => {
         tooltip.classList.remove("visible")
     })
 })
-
-/* clicking away from every hotspot clears the current selection - clicks
-   inside the card itself (reading, scrolling) don't count as "away" */
-document.addEventListener("click", (e) => {
-    if (!activeKey) return
-    if (e.target.closest(".trigger") || e.target.closest(".card-stack")) return
-    setTriggerActive(triggerByKey.get(activeKey), false)
-    activeKey = null
-    showCard(introHeading, introBody)
-})
