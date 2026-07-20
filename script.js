@@ -256,7 +256,7 @@ function showCard(heading, body) {
 }
 
 const intro = select("#intro-content")
-const introHeading = intro.querySelector("h2").textContent
+const introHeading = intro.querySelector("h1").textContent
 const introBody = intro.querySelector("p").textContent
 cardEls[0].querySelector(".card-heading").textContent = introHeading
 cardEls[0].querySelector(".card-body").textContent = introBody

@@ -52,25 +52,19 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-h2, h3, h4 {
+h1, h2 {
     font-weight: 500;
     color: var(--white);
     margin-bottom: 0.75em;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 1.75em;
 }
 
 h2 {
-    font-size: 1.75em;
-    line-height: 1.5;
-}
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.5;
-}
-
-h4 {
-    font-size: 1.25em;
-    line-height: 1.5;
+    font-size: 1.35em;
 }
 
 p {
@@ -160,11 +154,6 @@ html, body {
     background-color: var(--bg-dark);
     padding: 2rem;
     overflow-y: auto;
-}
-
-.card-heading {
-    font-size: 1.35em;
-    margin-bottom: 1rem;
 }
 
 .card-body {
