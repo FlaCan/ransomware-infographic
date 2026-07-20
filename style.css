@@ -36,12 +36,11 @@
 
 /* Typography */
 
-/* Root font-size scales fluidly with viewport width so the card text stays
-   proportionate on narrow/mobile screens instead of overwhelming the fixed
-   20%-height band, and grows back toward 16px on wide desktops. Anchored
-   14px at 1100px, 16px at 1920px; flat beyond either end. Every
-   heading/paragraph rule below is already em-based, so this is the only
-   place font-size needs to change. */
+/* Root font-size scales fluidly with viewport width so the rest of the
+   page's em-based sizing stays proportionate on narrow/mobile screens
+   instead of overwhelming the fixed 20%-height band, and grows back
+   toward 16px on wide desktops. Anchored 14px at 1100px, 16px at 1920px;
+   flat beyond either end. */
 html {
     font-size: clamp(14px, 11.317px + 0.244vw, 16px);
 }
@@ -63,8 +62,10 @@ h1 {
     font-size: 1.75em;
 }
 
+/* card heading has its own fluid range (16-18px) rather than the em-based
+   scaling above, using the same 1100px/1920px anchors as the root clamp */
 h2 {
-    font-size: 1.35em;
+    font-size: clamp(16px, 13.317px + 0.244vw, 18px);
 }
 
 p {
@@ -156,8 +157,9 @@ html, body {
     overflow-y: auto;
 }
 
+/* same fluid approach as the card heading above, 12-14px range */
 .card-body {
-    font-size: 0.9em;
+    font-size: clamp(12px, 9.317px + 0.244vw, 14px);
     line-height: 1.55;
 }
 
