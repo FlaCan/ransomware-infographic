@@ -224,8 +224,19 @@ const tooltip = document.createElement("div")
 tooltip.id = "tooltip"
 document.body.appendChild(tooltip)
 
+/* card-frame's width tracks the diagram's actual rendered width (see
+   .card-frame in style.css) so the card stays flush with the diagram's
+   outer edges at any viewport size, without a duplicated CSS formula. */
+
+const svgEl = select(".infographic svg")
+const cardFrame = select(".card-frame")
+
+new ResizeObserver(() => {
+    cardFrame.style.width = `${svgEl.getBoundingClientRect().width}px`
+}).observe(svgEl)
+
 /* card-stack - a double buffer of two full-size cards in the fixed bottom
-   25% band (see .card-stack in style.css). Selecting a hotspot writes into
+   20% band (see .card-stack in style.css). Selecting a hotspot writes into
    whichever card is currently hidden below the band and slides it up over
    the visible one; the two swap roles every time so there's no per-click
    DOM churn. */

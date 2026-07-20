@@ -21,7 +21,7 @@
 
     /* percent of the app-shell's height the diagram occupies; the card gets
        the remainder. Drives .diagram-column/.infographic/.card-stack below. */
-    --diagram-ratio: 75;
+    --diagram-ratio: 80;
 }
 
 
@@ -38,7 +38,7 @@
 
 /* Root font-size scales fluidly with viewport width so the card text stays
    proportionate on narrow/mobile screens instead of overwhelming the fixed
-   25%-height band, and grows back toward 16px on wide desktops. Anchored
+   20%-height band, and grows back toward 16px on wide desktops. Anchored
    14px at 1100px, 16px at 1920px; flat beyond either end. Every
    heading/paragraph rule below is already em-based, so this is the only
    place font-size needs to change. */
@@ -91,8 +91,8 @@ a {
 }
 
 /* Page layout: fixed-height app shell, one fixed ratio at every viewport
-   size - the diagram permanently fills the top 75%, a content card the
-   bottom 25% (see .card-stack below). There is no page-level scroll and no
+   size - the diagram permanently fills the top 80%, a content card the
+   bottom 20% (see .card-stack below). There is no page-level scroll and no
    width-driven breakpoint; the same layout runs on desktop and touch. */
 
 html, body {
@@ -107,21 +107,12 @@ html, body {
     overflow: hidden;
 }
 
-/* one column holding both the diagram and the card, so their left/right
-   edges always line up exactly at any viewport size. Its width is derived
-   from its own full height via aspect-ratio - not from the diagram alone,
-   but from a "virtual" full-height artwork where the real 2178-tall
-   viewBox only occupies the top --diagram-ratio% (217800 / ratio) - so that
-   after the flex split below, .infographic lands at exactly the diagram's
-   own aspect ratio and .card-stack inherits the identical width for free
-   (percentage flex-basis can't be used here: an intrinsic width like
-   fit-content can't resolve against a not-yet-known percentage height). */
+/* one column holding both the diagram and the card, split by height into
+   .infographic (top) and .card-stack (bottom) below. */
 .diagram-column {
     display: flex;
     flex-direction: column;
     height: 100%;
-    aspect-ratio: 1580 / calc(217800 / var(--diagram-ratio));
-    margin: 0 auto;
 }
 
 .infographic {
@@ -131,9 +122,10 @@ html, body {
 }
 
 .infographic svg {
-    width: 100%;
+    width: auto;
     height: 100%;
     display: block;
+    margin: 0 auto;
 
     /* triggers paint before (under) the artwork, so the hover disc appears
        behind the icons; pointer events skip the artwork and land on the
@@ -141,26 +133,29 @@ html, body {
     pointer-events: none;
 }
 
-/* card-stack - a double buffer of two full-size cards; script.js writes new
-   content into whichever card is currently hidden below the band and slides
-   it up over the visible one with GSAP (yPercent + z-index), so the new
-   content visually covers the old rather than replacing it in place. Its
-   width matches exactly where the barrier lines terminate (x=130 to
-   x=1470, a span of 1340 SVG units) rather than the wider, padded viewBox
-   (1580 units) the diagram itself uses - the ratio between the two keeps
-   this exact at any viewport size, with auto margins centering it within
-   the diagram-column. Flush against the viewport's bottom edge, with a
-   small top gap for the rounded corners to read as rounded. */
+/* card-stack - a full-width dark band behind the card (see .card-frame
+   below); its own background is what shows either side of the card. */
 .card-stack {
-    position: relative;
     flex: 0 0 calc((100 - var(--diagram-ratio)) * 1%);
-    width: calc(1340 / 1580 * 100%);
-    overflow: hidden;
     background-color: var(--bg-dark);
+}
+
+/* width is intentionally unset here - script.js syncs it inline to the
+   SVG's rendered width via ResizeObserver, so the card is always exactly
+   as wide as the diagram above it. Flush against the viewport's bottom
+   edge, with a small top gap for the rounded corners to read as rounded. */
+.card-frame {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
     margin: 1.25rem auto 0;
     border-radius: 1rem 1rem 0 0;
 }
 
+/* card-frame holds a double buffer of two full-size cards; script.js writes
+   new content into whichever card is currently hidden below the band and
+   slides it up over the visible one with GSAP (yPercent + z-index), so the
+   new content visually covers the old rather than replacing it in place. */
 .card {
     position: absolute;
     inset: 0;
