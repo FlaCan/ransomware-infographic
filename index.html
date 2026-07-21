@@ -37,7 +37,7 @@
           
                 <!--3-->
                 <div class="barrier">
-                    <h2 class="target" data-target="first-protection-barrier">First protection barrier</h2>
+                    <h2 class="target" data-target="first-barrier">First protection barrier</h2>
                     <p class="subtitle">At this stage, user education, inbound email inspection, URL filtering, and endpoint protection form the most effective barrier to an attack. Privileged endpoint management (PEM), built on zero-trust principles, adds another layer: users run without local admin rights by default, with privilege escalation granted per task, under policy - so a malicious download that slips through has far less power to install anything.</p>
                 </div>
 
@@ -55,14 +55,14 @@
 
                 <!--6-->
                 <div>
-                    <h2 class="target" data-target="credential-and-data-exfiltration">Credential and data exfiltration: user level</h2>
+                    <h2 class="target" data-target="credential-and-data-1">Credential and data exfiltration: user level</h2>
                     <p>Once the workstation is infected, the ransomware quietly harvests the user’s credentials and data. The stolen credentials become gateways for the next stage of the attack, while valuable files - confidential or copyrighted information - are exfiltrated so the attackers can threaten to make them public.</p>
                 </div>
 
 
                 <!--7-->
                 <div class="barrier">
-                    <h2 class="target" data-target="second-protection-barrier">Second protection barrier</h2>
+                    <h2 class="target" data-target="second-barrier">Second protection barrier</h2>
                     <p class="subtitle">Once a workstation is compromised, containing the damage means limiting what that foothold can reach. Least privilege, MFA, and network segmentation stop one infected machine becoming a gateway to the business, while privileged access management (PAM) keeps admin credentials out of reach of any stolen account. Continuous monitoring for credential misuse and lateral movement catches an attacker before real damage occurs.</p>
                 </div>
                 
@@ -73,13 +73,13 @@
                     <p>Armed with stolen credentials, the attacker moves beyond the first infected workstation. This is the critical jump from a single compromised machine to the wider network - probing for weakly protected accounts and systems that grant access to shared resources, servers, and eventually the infrastructure that runs the business.</p>
                 </div>
 
-                   <!--10-->
+                <!--9-->
                 <div>
                     <h2 class="target" data-target="privileged-users">Privileged users</h2>
                     <p>Privileged accounts - IT administrators, service accounts, anyone with elevated rights - are the most valuable credentials on the network. Compromising one gives the attacker the keys to reconfigure systems, disable defences, and reach resources an ordinary user never could.</p>
                 </div>
 
-                <!--9-->
+                <!--10-->
                 <div>
                     <h2 class="target" data-target="shared-drives">Shared drives</h2>
                     <p>Shared network drives are a high-value target: they concentrate the files many people rely on into one place. Once reached, the attacker can encrypt or exfiltrate entire folders of shared documents in a single move, multiplying the damage far beyond what any one user's files would cause.</p>
@@ -91,14 +91,14 @@
                 
                 <!--11-->
                 <div>
-                    <h2 class="target" data-target="more-valuable-data-and-credentials">Credential and data exfiltration: privileged level</h2>
+                    <h2 class="target" data-target="credential-and-data-2">Credential and data exfiltration: privileged level</h2>
                     <p>With privileged access secured, the attacker's reach and reward both grow. Sensitive data - financial records, intellectual property, personal information - and higher-level credentials are now in scope, raising the stakes for the ransom demand and the threat of exposure.</p>
                 </div>
 
 
                 <!--12-->
                 <div class="barrier">
-                    <h2 class="target" data-target="third-protection-barrier">Third protection barrier</h2>
+                    <h2 class="target" data-target="third-barrier">Third protection barrier</h2>
                     <p class="subtitle">By this stage, the attacker holds privileged credentials and is moving through core infrastructure. The priority is limiting the blast radius: tiered administration, endpoint detection and response (EDR), and PAM together control who can reach domain controllers, hypervisors, and backups. Privileged process automation (PPA) closes the loop, running admin tasks as vaulted, automated processes so credentials never appear on a workstation for malware to harvest.</p>
                 </div>
 
@@ -128,14 +128,14 @@
 
                 <!--17-->
                 <div>
-                    <h2 class="target" data-target="domain-wide-compromise">Credential and data exfiltration: domain level</h2>
+                    <h2 class="target" data-target="credential-and-data-3">Credential and data exfiltration: domain level</h2>
                     <p>With domain-level access, the attacker can now harvest credentials and sensitive files across the whole organization, not just one department. This is where the incident stops being a single-workstation problem and becomes a full breach of the organization's identity and data.</p>
                 </div>
 
 
                 <!--18-->
                 <div class="barrier">
-                    <h2 class="target" data-target="fourth-protection-barrier">Fourth protection barrier</h2>
+                    <h2 class="target" data-target="fourth-barrier">Fourth protection barrier</h2>
                     <p class="subtitle">The last line of defence is making recovery possible even after everything else fails. That means immutable or air-gapped backups - the 3-2-1 principle of multiple copies, on different media, with one copy off-network - plus regularly tested restores and retention that outlasts an attacker who may have lurked for months. Get it right, and there's always a clean copy the attacker can never touch. Get it wrong, and the last door is already open.</p>
                 </div>
 
@@ -240,7 +240,7 @@
 
                     <!--h3 first protection barrier-->
                     <g class="barrier-1"> <!-- further group necessary on barrier trigger -->
-                        <g id="trigger-barrier-1" class="trigger on" data-target="first-protection-barrier">
+                        <g id="trigger-barrier-1" class="trigger on" data-target="first-barrier">
                             <circle class="click-right" cx="800" cy="813" r="73"/>
                             <circle class="click-left" cx="800" cy="813" r="73"/>
                         </g>
@@ -260,7 +260,7 @@
                 
 
                     <!--h4 credential and data exfiltration -->
-                    <g class="trigger trigger-L1" data-target="credential-and-data-exfiltration">
+                    <g class="trigger trigger-L1" data-target="credential-and-data-1">
                         <circle cx="604" cy="939" r="42"/>
                         <circle cx="539" cy="814" r="42"/>
                     </g>
@@ -268,7 +268,7 @@
 
                     <!--h3 second protection barrier-->
                     <g class="barrier-2"> <!-- further group necessary on barrier trigger -->
-                        <g id="trigger-barrier-2" class="trigger on" data-target="second-protection-barrier">
+                        <g id="trigger-barrier-2" class="trigger on" data-target="second-barrier">
                             <circle class="click-right" cx="800" cy="1225" r="73"/>
                             <circle class="click-left" cx="800" cy="1225" r="73"/>
                         </g>
@@ -299,7 +299,7 @@
 
 
                     <!-- h4 more valuable data and credentials -->
-                    <g class="trigger trigger-L2" data-target="more-valuable-data-and-credentials">
+                    <g class="trigger trigger-L2" data-target="credential-and-data-2">
                         <circle cx="380" cy="1088" r="42"/>
                         <circle cx="390" cy="1224" r="42"/>
                         <circle cx="1220" cy="1088" r="42"/>
@@ -310,7 +310,7 @@
     
                 
                     <g class="barrier-3"> <!-- further group necessary on barrier trigger -->
-                        <g id="trigger-barrier-3" class="trigger on" data-target="third-protection-barrier">
+                        <g id="trigger-barrier-3" class="trigger on" data-target="third-barrier">
                             <circle class="click-right" cx="800" cy="1637" r="73"/>
                             <circle class="click-left" cx="800" cy="1637" r="73"/>
                         </g>
@@ -345,7 +345,7 @@
                     </g>
 
 
-                    <g class="trigger trigger-L3" data-target="domain-wide-compromise">
+                    <g class="trigger trigger-L3" data-target="credential-and-data-3">
                         <circle cx="262" cy="1491" r="42"/>
                         <circle cx="288" cy="1629" r="42"/>
                         <circle cx="1338" cy="1491" r="42"/>
@@ -354,7 +354,7 @@
 
 
                     <g class="barrier-4"> <!-- further group necessary on barrier trigger -->
-                        <g id="trigger-barrier-4" class="trigger on" data-target="fourth-protection-barrier">
+                        <g id="trigger-barrier-4" class="trigger on" data-target="fourth-barrier">
                             <circle class="click-right" cx="800" cy="2049" r="73"/>
                             <circle class="click-left" cx="800" cy="2049" r="73"/>
                         </g>
@@ -443,19 +443,19 @@
                 
                 <!--devices-->
                 <g id="layer-devices">
-                    <g class="device device-L2" id="shared-folder">
+                    <g class="device device-L2" id="shared-drives">
                         <path d="M807.6,1495H860c8.2,0,15-6.8,15-15v-40c0-8.2-6.7-15-15-15h-50l-25-25h-45c-8.2,0-14.9,6.8-14.9,15 l-0.1,65c0,8.2,6.7,15,15,15h52.5h1.4v12.9c-7.2,2.1-12.9,7.9-15,15.1h-52.3c-0.9,0-1.6,0.7-1.6,1.6v8.7c0,0.9,0.7,1.6,1.6,1.6 h52.3c2.6,9.2,11.1,16,21.1,16c10.1,0,18.5-6.8,21.1-16h52c0.9,0,1.6-0.7,1.6-1.6v-8.7c0-0.9-0.7-1.6-1.6-1.6h-52 c-2.1-7.4-7.9-13.2-15.3-15.2V1495H807.6z M810.1,1527.3c1.1,6.8-4.7,12.7-11.5,11.6c-4.1-0.7-7.5-4-8.2-8.2 c-1.1-6.8,4.7-12.7,11.5-11.6C806,1519.8,809.4,1523.2,810.1,1527.3z"/>
                     </g>
                     <g class="device device-L3" id="domain-controller">
                         <path d="M448,1886.4l19.6-4.9l1.2-2.1c-1.2-3.4-1.9-7-1.9-10.7c0-17.2,14-31.2,31.3-31.2 c16.4,0,29.8,12.6,31.1,28.7l0.6-0.1l7.8-1.9c3.7-0.9,6.3-4.3,6.3-8.1v-37c0-3.8-2.6-7.2-6.3-8.1l-89.6-22.4 c-2.7-0.7-5.4-0.7-8.1,0l-89.6,22.4c-3.7,0.9-6.3,4.3-6.3,8.1v37c0,3.8,2.6,7.2,6.3,8.1l7.8,1.9l81.8,20.5 C442.6,1887.1,445.4,1887.1,448,1886.4z M444,1796l80.2,20.1l-80.2,20.1l-80.2-20.1L444,1796z M364.3,1852 c-4.3,0-7.8-4.7-7.8-10.4c0-5.8,3.5-10.4,7.8-10.4c4.3,0,7.8,4.7,7.8,10.4C372.1,1847.4,368.6,1852,364.3,1852z M529.4,1908.3 c-1.4,0-2.8,0.3-4.1,0.7l-17.1-29.7c2.8-2.7,4.6-6.4,4.6-10.6c0-8.1-6.5-14.6-14.6-14.6c-8.1,0-14.6,6.5-14.6,14.6 c0,4.2,1.8,7.9,4.6,10.6l-17.1,29.7c-1.3-0.4-2.7-0.7-4.1-0.7c-8.1,0-14.6,6.5-14.6,14.6c0,8.1,6.5,14.6,14.6,14.6 c7.3,0,13.4-5.4,14.4-12.5H515c1,7.1,7,12.5,14.4,12.5c8.1,0,14.6-6.5,14.6-14.6C544,1914.8,537.5,1908.3,529.4,1908.3 M498.2,1883.3c0.9,0,1.7-0.1,2.6-0.3l17.6,30.5c-0.8,1-1.5,2-2,3.1H480c-0.5-1.1-1.2-2.2-2-3.1l17.6-30.5 C496.4,1883.2,497.3,1883.3,498.2,1883.3"/> 
                     </g>
-                    <g class="device device-L3" id="backup-online">
+                    <g class="device device-L3" id="online-backups">
                         <path d="M770,1868.6c0,5.2-4.2,9.4-9.4,9.4c-5.2,0-9.4-4.2-9.4-9.4s4.2-9.4,9.4-9.4 C765.8,1859.2,770,1863.5,770,1868.6z M833.8,1848c-8.3,0-15,6.7-15,15s6.7,15,15,15c8.3,0,15-6.7,15-15S842,1848,833.8,1848z M890,1818v90c0,8.3-6.7,15-15,15H725c-8.3,0-15-6.7-15-15v-90c0-8.3,6.7-15,15-15h150C883.3,1803,890,1809.7,890,1818z M863.8,1863c0-16.6-13.4-30-30-30c-16.6,0-30,13.4-30,30c0,5.5,1.6,10.6,4.2,15h-24.8c1.2-2.9,1.9-6,1.9-9.4 c0-13.5-10.9-24.4-24.4-24.4c-13.5,0-24.4,10.9-24.4,24.4c0,13.5,10.9,24.4,24.4,24.4h73.1C850.3,1893,863.8,1879.6,863.8,1863z"/>
                     </g>
                     <g class="device device-L3" id="hypervisor">
                         <path d="M1078.2,1802.7L1078.2,1802.7l80-20l80,20l0,0l-80,20L1078.2,1802.7z M1158.2,1917.7l-80-20v25 l80,20l80-20v-25L1158.2,1917.7z M1158.2,1877.7l-80-20v25l80,20l80-20v-25L1158.2,1877.7z M1158.2,1862.7l80-20v-25l-80,20 l-80-20v25L1158.2,1862.7z"/> 
                     </g>
-                    <g class="device device-L4" id="backup-offline">
+                    <g class="device device-L4" id="offline-backups">
                         <path d="M886,2266.6l-25.9-64.7c-5.5-13.7-18.6-22.6-33.4-22.6h-53.4c-14.8,0-27.9,8.9-33.4,22.6 l-25.9,64.7c-2.6,6.6-4,13.6-4,20.7c0,19.9,16.1,36,36,36h108c19.9,0,36-16.1,36-36C890,2280.1,888.7,2273.2,886,2266.6z M854,2305.3H746c-9.9,0-18-8.1-18-18s8.1-18,18-18h108c9.9,0,18,8.1,18,18S863.9,2305.3,854,2305.3z M863,2287.2 c0,6.2-5,11.2-11.2,11.2s-11.2-5-11.2-11.2s5-11.2,11.2-11.2S863,2281,863,2287.2z M818,2287.3c0,5-4,9-9,9h-58.5c-5,0-9-4-9-9 s4-9,9-9H809C814,2278.3,818,2282.3,818,2287.3z"/> 
                     </g>
                 </g>
@@ -943,11 +943,11 @@
                         <rect x="1069.2" y="1777.2" width="178" height="171"/>
                         <use xlink:href="#lock" x="380" y="826"></use>
                     </g>
-                    <g class="lock" id="lock-backup-online">
+                    <g class="lock" id="lock-online-backups">
                         <use xlink:href="#lock" x="31" y="813"></use>
                         <rect x="703" y="1795.5" width="194" height="135"/>
                     </g>
-                    <g class="lock" id="lock-backup-offline">
+                    <g class="lock" id="lock-offline-backups">
                         <use xlink:href="#lock" x="30" y="1210"></use>
                         <rect x="703" y="2172" width="194" height="160"/>
                     </g>
