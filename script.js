@@ -224,15 +224,19 @@ const tooltip = document.createElement("div")
 tooltip.id = "tooltip"
 document.body.appendChild(tooltip)
 
-/* card-frame's width tracks the diagram's actual rendered width (see
-   .card-frame in style.css) so the card stays flush with the diagram's
-   outer edges at any viewport size, without a duplicated CSS formula. */
+/* card-frame's (and diagram-controls') width tracks the diagram's actual
+   rendered width (see .card-frame and .diagram-controls in style.css) so the
+   card - and the icon toolbar above it - stay flush with the diagram's outer
+   edges at any viewport size, without a duplicated CSS formula. */
 
 const svgEl = select(".infographic svg")
 const cardFrame = select(".card-frame")
+const diagramControls = select(".diagram-controls")
 
 new ResizeObserver(() => {
-    cardFrame.style.width = `${svgEl.getBoundingClientRect().width}px`
+    const width = `${svgEl.getBoundingClientRect().width}px`
+    cardFrame.style.width = width
+    diagramControls.style.width = width
 }).observe(svgEl)
 
 /* card-stack - a double buffer of two full-size cards in the fixed bottom
@@ -317,4 +321,20 @@ triggerEls.forEach((trigger) => {
     trigger.addEventListener("mouseleave", () => {
         tooltip.classList.remove("visible")
     })
+})
+
+/* Home button - resets the diagram to its pristine state: reverses any open
+   barriers (same effect as closing barrier 1), clears the selected hotspot,
+   and slides the intro card back in. */
+const homeButton = select("#home-button")
+homeButton.addEventListener("click", () => {
+    if (!animBarrier1.reversed()) {
+        animDrop.play()
+        barrierAnims.forEach((anim) => anim.reverse())
+    }
+    if (activeKey) {
+        setTriggerActive(triggerByKey.get(activeKey), false)
+        activeKey = null
+    }
+    showCard(introHeading, introBody)
 })

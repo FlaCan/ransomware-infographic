@@ -113,6 +113,66 @@ html, body {
     background-color: var(--paper);
     flex: 0 0 calc(var(--diagram-ratio) * 1%);
     overflow: hidden;
+    position: relative;
+}
+
+/* toolbar for icon controls (home button today, a light/dark toggle later) -
+   width is synced to the card-frame's own width by script.js (see the
+   ResizeObserver in script.js), and left/right:0 + margin:auto centers that
+   width the same way .card-frame centers itself in .card-stack below, so the
+   two containers always land on the same horizontal box. The left padding is
+   .card's own 2rem padding minus half the .icon-button/icon-glyph size gap
+   (10/3rem button - 2rem glyph = 2/3rem inset each side), so the glyph
+   itself - not the button's larger circular hit area - lines up with the
+   card's heading/body text. */
+.diagram-controls {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-left: calc(4rem / 3);
+    z-index: 5;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* sized in rem (not px) so it stays fluid with the root clamp like the rest
+   of the page's type scale; base 2.5rem/1.5rem glyph scaled up one third
+   per the user's request */
+.icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(2.5rem * 4 / 3);
+    height: calc(2.5rem * 4 / 3);
+    border: none;
+    border-radius: 50%;
+    background: none;
+    color: var(--machine-grey);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* no default browser focus rectangle, ever - same convention as .trigger:focus;
+   the background highlight below is the only focus/hover affordance - the
+   icon itself stays --machine-grey in every state */
+.icon-button:focus {
+    outline: none;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+    background-color: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.material-symbols-rounded {
+    font-size: calc(1.5rem * 4 / 3);
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
 }
 
 .infographic svg {
