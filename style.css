@@ -317,9 +317,10 @@ html, body {
     fill: var(--machine-grey);
 }
 
-/* white details drawn on top of the yellow data/credential icons */
+/* cutout details drawn on top of the yellow data/credential icons - match
+   the page background so they read as negative space, not a fixed colour */
 .icon-detail {
-    fill: var(--white);
+    fill: var(--canvas);
 }
 
 .virus-body {
@@ -417,24 +418,14 @@ html, body {
     outline: none;
 }
 
-/* the yellow icons carry a built-in backdrop circle that masks the dotted
-   trails behind them; script.js marks the <use> .lit while the paired trigger
-   circle is hovered, and --halo pierces the use/symbol boundary to whiten it */
-.icon-backdrop {
-    fill: var(--halo, var(--paper));
-    transition: fill 0.2s ease;
-}
-
-.stolen use.lit {
-    --halo: var(--white);
-}
-
 .yellow {
     fill: var(--yellow);
 }
 
 /* shared gradient ramps (templates in the SVG defs) - the dropper drops fade in
-   from transparent, the malware tails ease from white into the red; the
+   from transparent, the malware tails ease from the FAB's resting --panel
+   tone into the red (so the tail's leading edge stays visibly distinct from
+   whichever canvas tone is active, rather than dissolving into it); the
    eased mixes are fixed, so retinting either ramp is a one-variable change */
 #drop-stops stop {
     stop-color: var(--orange);
