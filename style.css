@@ -1,27 +1,81 @@
 /* Palette - every colour on the page is named here; the rest of the file
-   (and the SVG artwork in index.html) only ever refers to these names */
+   (and the SVG artwork in index.html) only ever refers to these names.
+
+   Role tokens (--canvas, --panel, --panel-hover, --text, --machine-ink,
+   --machine-grey, --encrypted-grey, --blue, --red, --cyan, --yellow,
+   --orange) are redefined per theme below. Every role-token value is
+   written as an explicit color-mix() against --ink or --white, even where
+   the mix is a no-op (0% or 100%) - the point is a single scannable,
+   directly-tweakable percentage per token rather than a mix of bare var()
+   passthroughs and color-mix() calls. Light and dark are NOT a strict
+   mirror of each other; --panel/--panel-hover/--text/--canvas are each
+   picked deliberately per theme (see the theme blocks below) rather than
+   derived from a shared formula. --panel/--panel-hover are shared by every
+   interactive surface on the page (FAB icon-buttons and SVG hotspot
+   triggers alike) so hover/focus reads the same everywhere. */
 
 :root {
-    /* the two bases: every neutral below is a tint of the ink,
-       percentages eyeballed to match the previous literal values */
-    --ink: #001;              /* gutter glyph, tooltip, attacker laptop */
+    /* the two bases: every neutral below is a tint of one or the other */
+    --ink: #001;
     --white: #fff;
 
-    --bg-dark: color-mix(in srgb, var(--ink) 85%, var(--white));         /* text column background */
-    --machine-grey: color-mix(in srgb, var(--ink) 70%, var(--white));    /* the people at the machines */
-    --encrypted-grey: color-mix(in srgb, var(--ink) 30%, var(--white));
-    --paper-shade: color-mix(in srgb, var(--ink) 15%, var(--white));     /* gutter, muted barrier line */
-    --paper: color-mix(in srgb, var(--ink) 10%, var(--white));            /* infographic background */
-
-    --cyan: #0cf;             /* headings, links */
-    --yellow: #fc0;           /* stolen data/credential icons and trails, highlighted heading, gutter hover */
-    --blue: #07e;             /* healthy machines, barrier lines and buttons */
-    --red: #c00;              /* virus body, malware tails, encryption locks */
-    --orange: #f80;           /* dropper drops, virus detail, countdown clocks */
+    /* brand hues, theme-independent - the theme blocks below mix these
+       toward --white or --ink for the role tokens (--blue, --red, --cyan,
+       --yellow, --orange) */
+    --brand-blue: #07e;      /* healthy machines, barrier lines and buttons */
+    --brand-red: #c00;       /* virus body, malware tails, encryption locks */
+    --brand-cyan: #0cf;      /* links */
+    --brand-yellow: #fc0;    /* stolen data/credential icons and trails, highlighted heading, gutter hover */
+    --brand-orange: #f80;    /* dropper drops, virus detail, countdown clocks */
 
     /* percent of the app-shell's height the diagram occupies; the card gets
        the remainder. Drives .diagram-column/.infographic/.card-stack below. */
     --diagram-ratio: 80;
+}
+
+/* Light theme (default) - --canvas/--panel/--text/--panel-hover are chosen
+   to match the FAB button's own states (see .icon-button below): --panel
+   is the resting background for every interactive surface (FABs and SVG
+   hotspot triggers alike), --panel-hover their shared hover/focus
+   background, --text the FAB icon colour. --encrypted-grey sits at a fixed
+   50% ink in both themes (its own mirror) rather than following any
+   per-theme choice - the finale state isn't meant to lean light or dark,
+   just uniformly dead. */
+:root {
+    --canvas: color-mix(in srgb, var(--ink) 10%, var(--white));         /* infographic background */
+    --panel: color-mix(in srgb, var(--ink) 5%, var(--white));           /* card + FAB resting background */
+    --panel-hover: color-mix(in srgb, var(--ink) 0%, var(--white));     /* FAB/trigger hover+focus background - lighter than resting */
+    --text: color-mix(in srgb, var(--ink) 95%, var(--white));           /* text, headings, and FAB icon colour */
+
+    --machine-ink: color-mix(in srgb, var(--ink) 100%, var(--white));   /* attacker laptop, drawn on the canvas */
+    --machine-grey: color-mix(in srgb, var(--ink) 70%, var(--white));   /* the people at the machines */
+    --encrypted-grey: color-mix(in srgb, var(--ink) 50%, var(--white));
+
+    --blue: color-mix(in srgb, var(--brand-blue) 100%, var(--white));
+    --red: color-mix(in srgb, var(--brand-red) 100%, var(--white));
+    --cyan: color-mix(in srgb, var(--brand-cyan) 55%, var(--ink));      /* darkened for contrast on the light panel */
+    --yellow: color-mix(in srgb, var(--brand-yellow) 100%, var(--white));
+    --orange: color-mix(in srgb, var(--brand-orange) 100%, var(--white));
+}
+
+/* Dark theme - like the light block above, --panel/--panel-hover/--text are
+   chosen to match the FAB button's own states rather than following a
+   mirror formula from the light theme. */
+:root[data-theme="dark"] {
+    --canvas: color-mix(in srgb, var(--ink) 95%, var(--white));
+    --panel: color-mix(in srgb, var(--ink) 85%, var(--white));           /* FAB resting background */
+    --panel-hover: color-mix(in srgb, var(--ink) 70%, var(--white));     /* FAB hover/focus background - lighter than resting */
+    --text: color-mix(in srgb, var(--ink) 5%, var(--white));             /* text, headings, and FAB icon colour */
+
+    --machine-ink: color-mix(in srgb, var(--ink) 0%, var(--white));
+    --machine-grey: color-mix(in srgb, var(--ink) 30%, var(--white));
+    --encrypted-grey: color-mix(in srgb, var(--ink) 50%, var(--white));
+
+    --blue: color-mix(in srgb, var(--brand-blue) 75%, var(--white));    /* lightened for contrast on the dark canvas */
+    --red: color-mix(in srgb, var(--brand-red) 75%, var(--white));
+    --cyan: color-mix(in srgb, var(--brand-cyan) 100%, var(--white));   /* already bright enough on the dark panel */
+    --yellow: color-mix(in srgb, var(--brand-yellow) 100%, var(--white));
+    --orange: color-mix(in srgb, var(--brand-orange) 100%, var(--white));
 }
 
 
@@ -46,14 +100,14 @@ html {
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--white);
+    background-color: var(--panel);
+    color: var(--text);
     font-family: "Roboto", sans-serif;
 }
 
 h1, h2 {
     font-weight: 500;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 0.75em;
     line-height: 1.25;
 }
@@ -95,7 +149,7 @@ html, body {
 }
 
 .app-shell {
-    background-color: var(--paper);
+    background-color: var(--canvas);
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
@@ -110,36 +164,37 @@ html, body {
 }
 
 .infographic {
-    background-color: var(--paper);
+    background-color: var(--canvas);
     flex: 0 0 calc(var(--diagram-ratio) * 1%);
     overflow: hidden;
     position: relative;
 }
 
-/* toolbar for icon controls (home button today, a light/dark toggle later) -
-   width is synced to the card-frame's own width by script.js (see the
-   ResizeObserver in script.js), and left/right:0 + margin:auto centers that
-   width the same way .card-frame centers itself in .card-stack below, so the
-   two containers always land on the same horizontal box. The left padding is
-   .card's own 2rem padding minus half the .icon-button/icon-glyph size gap
-   (10/3rem button - 2rem glyph = 2/3rem inset each side), so the glyph
-   itself - not the button's larger circular hit area - lines up with the
-   card's heading/body text. */
+/* toolbar for icon controls (Home, theme toggle) - width is synced to the
+   card-frame's own width by script.js (see the ResizeObserver in script.js),
+   and left/right:0 + margin:auto centers that width the same way .card-frame
+   centers itself in .card-stack below, so the toolbar and the card always
+   land on the same horizontal box. space-between pins Home to the left edge
+   and the theme toggle to the right, mirroring the card's own symmetry. */
 .diagram-controls {
     position: absolute;
     top: 1rem;
     left: 0;
     right: 0;
     margin: 0 auto;
-    padding-left: calc(4rem / 3);
+    padding: 0 1rem;
     z-index: 5;
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
 }
 
-/* sized in rem (not px) so it stays fluid with the root clamp like the rest
-   of the page's type scale; base 2.5rem/1.5rem glyph scaled up one third
-   per the user's request */
+/* FABs (floating action buttons) - a rounded-rect surface matching the
+   card's own background, raised off the canvas with elevation. Sized in
+   rem (not px) so it stays fluid with the root clamp like the rest of the
+   page's type scale; base 2.5rem/1.5rem glyph scaled up one third per the
+   user's request. Contrast against the canvas comes purely from --panel
+   being a deliberately different step than --canvas - no shadow or border
+   crutch needed. */
 .icon-button {
     display: flex;
     align-items: center;
@@ -147,23 +202,24 @@ html, body {
     width: calc(2.5rem * 4 / 3);
     height: calc(2.5rem * 4 / 3);
     border: none;
-    border-radius: 50%;
-    background: none;
-    color: var(--machine-grey);
+    border-radius: 0.75rem;
+    background-color: var(--panel);
+    color: var(--text);
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 /* no default browser focus rectangle, ever - same convention as .trigger:focus;
-   the background highlight below is the only focus/hover affordance - the
-   icon itself stays --machine-grey in every state */
+   the state layer below is the only focus/hover affordance */
 .icon-button:focus {
     outline: none;
 }
 
+/* hover and focus share one state: the FAB background steps to
+   --panel-hover, always lighter than the resting --panel */
 .icon-button:hover,
 .icon-button:focus-visible {
-    background-color: color-mix(in srgb, var(--ink) 8%, transparent);
+    background-color: var(--panel-hover);
 }
 
 .material-symbols-rounded {
@@ -188,11 +244,13 @@ html, body {
     pointer-events: none;
 }
 
-/* card-stack - a full-width dark band behind the card (see .card-frame
-   below); its own background is what shows either side of the card. */
+/* card-stack - a full-width band behind the card (see .card-frame below);
+   its own background is what shows either side of the card. Sits a shade
+   apart from the canvas above it, with a hairline seam marking the join. */
 .card-stack {
     flex: 0 0 calc((100 - var(--diagram-ratio)) * 1%);
-    background-color: var(--bg-dark);
+    background-color: var(--panel);
+    border-top: 1px solid var(--canvas);
 }
 
 /* width is intentionally unset here - script.js syncs it inline to the
@@ -212,7 +270,7 @@ html, body {
 .card {
     position: absolute;
     inset: 0;
-    background-color: var(--bg-dark);
+    background-color: var(--panel);
     padding: 2rem;
     overflow-y: auto;
 }
@@ -248,7 +306,7 @@ html, body {
 }
 
 .barrier-line-muted {
-    stroke: var(--paper-shade);
+    stroke: var(--panel);
 }
 
 .barrier-button {
@@ -272,9 +330,9 @@ html, body {
     fill: var(--orange);
 }
 
-/* the attacker's laptop - same ink as the page accents */
+/* the attacker's laptop, drawn on the canvas */
 .machine-ink {
-    fill: var(--ink);
+    fill: var(--machine-ink);
 }
 
 .lock-body {
@@ -311,9 +369,12 @@ html, body {
     pointer-events: auto;
 }
 
-/* hover on the shape, not the group, so only the icon under the cursor gets the disc */
+/* hover on the shape, not the group, so only the icon under the cursor gets the disc.
+   Same treatment as the FAB icon-buttons: invisible at rest, full opacity
+   on hover/focus. Hover uses --panel-hover (the FAB's hover colour);
+   focus/selection uses --panel (the FAB's resting colour) - see below. */
 .trigger circle {
-    fill: var(--white);
+    fill: var(--panel);
     fill-opacity: 0; /* invisible but still hit-testable: fill must stay a paint, not 'none' */
     transition: fill-opacity 0.2s ease;
 }
@@ -322,12 +383,30 @@ html, body {
     visibility: visible;
 }
 
-/* full opacity on hover, keyboard focus, or when script.js marks a trigger
-   .lit (selected, or its paired heading is hovered) */
-.trigger circle:hover,
+.trigger circle:hover {
+    fill: var(--panel-hover);
+    fill-opacity: 1;
+}
+
+/* keyboard focus and persisted selection (script.js marks a trigger .lit
+   when selected, or its paired heading is hovered) read as the FAB's
+   normal (not hover) state - a persisted marker should look like a
+   resting surface, not a momentary hover. Declared after :hover so it
+   wins when a selected hotspot is also under the pointer. Full opacity on
+   focus specifically because this is the only focus affordance: the
+   default browser outline is suppressed below. */
 .trigger:focus-visible circle,
 .trigger.lit circle {
+    fill: var(--panel);
     fill-opacity: 1;
+}
+
+/* ...but a focused/lit circle still lightens further when also hovered -
+   the hover affordance never goes dead just because the hotspot is
+   already selected. Higher specificity than both rules above. */
+.trigger:focus-visible circle:hover,
+.trigger.lit circle:hover {
+    fill: var(--panel-hover);
 }
 
 /* no default browser focus rectangle, ever - clicking (not just keyboard
@@ -365,15 +444,15 @@ html, body {
     stop-opacity: 0;
 }
 
-#tail-stops stop:nth-child(1)  { stop-color: var(--white); }
-#tail-stops stop:nth-child(2)  { stop-color: color-mix(in srgb, var(--red) 1.6%, white); }
-#tail-stops stop:nth-child(3)  { stop-color: color-mix(in srgb, var(--red) 5.8%, white); }
-#tail-stops stop:nth-child(4)  { stop-color: color-mix(in srgb, var(--red) 13.1%, white); }
-#tail-stops stop:nth-child(5)  { stop-color: color-mix(in srgb, var(--red) 24.1%, white); }
-#tail-stops stop:nth-child(6)  { stop-color: color-mix(in srgb, var(--red) 37.7%, white); }
-#tail-stops stop:nth-child(7)  { stop-color: color-mix(in srgb, var(--red) 54.5%, white); }
-#tail-stops stop:nth-child(8)  { stop-color: color-mix(in srgb, var(--red) 74.9%, white); }
-#tail-stops stop:nth-child(9)  { stop-color: color-mix(in srgb, var(--red) 97.4%, white); }
+#tail-stops stop:nth-child(1)  { stop-color: var(--panel); }
+#tail-stops stop:nth-child(2)  { stop-color: color-mix(in srgb, var(--red) 1.6%, var(--panel)); }
+#tail-stops stop:nth-child(3)  { stop-color: color-mix(in srgb, var(--red) 5.8%, var(--panel)); }
+#tail-stops stop:nth-child(4)  { stop-color: color-mix(in srgb, var(--red) 13.1%, var(--panel)); }
+#tail-stops stop:nth-child(5)  { stop-color: color-mix(in srgb, var(--red) 24.1%, var(--panel)); }
+#tail-stops stop:nth-child(6)  { stop-color: color-mix(in srgb, var(--red) 37.7%, var(--panel)); }
+#tail-stops stop:nth-child(7)  { stop-color: color-mix(in srgb, var(--red) 54.5%, var(--panel)); }
+#tail-stops stop:nth-child(8)  { stop-color: color-mix(in srgb, var(--red) 74.9%, var(--panel)); }
+#tail-stops stop:nth-child(9)  { stop-color: color-mix(in srgb, var(--red) 97.4%, var(--panel)); }
 #tail-stops stop:nth-child(10) { stop-color: var(--red); }
 
 
