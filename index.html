@@ -60,15 +60,43 @@
 
         <!--2-->
         <div>
-          <h2 class="target" data-target="droppers">Droppers</h2>
+          <h2 class="target" data-target="email-attachment">
+            Email attachment
+          </h2>
           <p>
-            A kind of Trojan designed to “install” malware on a target system.
-            The malware code can be contained within the dropper (single-stage)
-            to avoid detection by virus scanners, or the dropper may download
-            the malware to the target machine once activated (two-stage). To
-            fool people, the attacker can hide and ship malware droppers in
-            legitimate-like download wrappers, email attachments, links to
-            malicious sites, etc.
+            A dropper is a small program built to install the ransomware
+            payload once it reaches a target machine. Here, it arrives
+            disguised as a legitimate attachment - an invoice, a résumé, a
+            shipping notice - relying on the recipient to open it themselves,
+            before installing the payload directly (single-stage) or fetching
+            it from the attacker's infrastructure (two-stage).
+          </p>
+        </div>
+
+        <!--2b-->
+        <div>
+          <h2 class="target" data-target="malicious-link">Malicious link</h2>
+          <p>
+            A dropper is a small program built to install the ransomware
+            payload once it reaches a target machine. Here, it's delivered
+            via a link to a compromised or look-alike site rather than an
+            attachment: visiting it silently pulls down the dropper, which
+            then installs the payload directly or fetches it in a second
+            stage.
+          </p>
+        </div>
+
+        <!--2c-->
+        <div>
+          <h2 class="target" data-target="download-wrapper">
+            Download wrapper
+          </h2>
+          <p>
+            A dropper is a small program built to install the ransomware
+            payload once it reaches a target machine. Here, it hides inside a
+            legitimate-looking download - a cracked application, a fake
+            software update - so the malware installs alongside whatever the
+            target thought they were getting.
           </p>
         </div>
 
@@ -440,9 +468,13 @@
                 </g>
 
                 <!--h4 droppers-->
-                <g class="trigger on" data-target="droppers">
+                <g class="trigger on" data-target="email-attachment">
                   <circle cx="731" cy="600" r="73" />
+                </g>
+                <g class="trigger on" data-target="download-wrapper">
                   <circle cx="869" cy="600" r="73" />
+                </g>
+                <g class="trigger on" data-target="malicious-link">
                   <circle cx="800" cy="675" r="73" />
                 </g>
 
