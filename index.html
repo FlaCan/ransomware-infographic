@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Runs before first paint so the page never flashes the wrong theme:
+      // an explicit choice in localStorage wins, otherwise follow the OS.
+      (function () {
+        const stored = localStorage.getItem("theme")
+        const theme =
+          stored || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -15,7 +25,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,home,light_mode"
     />
     <link rel="stylesheet" href="style.css" />
     <title>Ransomware: attack and defences</title>
@@ -327,6 +337,16 @@
             >
               <span class="material-symbols-rounded" aria-hidden="true"
                 >home</span
+              >
+            </button>
+            <button
+              id="theme-toggle"
+              class="icon-button"
+              type="button"
+              aria-label="Switch to dark theme"
+            >
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >dark_mode</span
               >
             </button>
           </div>

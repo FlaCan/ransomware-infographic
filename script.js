@@ -338,3 +338,38 @@ homeButton.addEventListener("click", () => {
     }
     showCard(introHeading, introBody)
 })
+
+/* Theme toggle - the initial theme is already set on <html data-theme> by
+   the inline script in index.html's <head> (before first paint); this just
+   handles switching it and keeping the button's icon/label in sync. A
+   manual choice is remembered in localStorage and from then on overrides
+   the OS preference; until a choice is made, the theme keeps following the
+   OS preference live. */
+const themeToggle = select("#theme-toggle")
+const themeToggleIcon = themeToggle.querySelector(".material-symbols-rounded")
+
+function syncThemeToggle(theme) {
+    themeToggleIcon.textContent = theme === "dark" ? "light_mode" : "dark_mode"
+    themeToggle.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    )
+}
+
+function setTheme(theme) {
+    document.documentElement.dataset.theme = theme
+    syncThemeToggle(theme)
+}
+
+syncThemeToggle(document.documentElement.dataset.theme)
+
+themeToggle.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"
+    localStorage.setItem("theme", next)
+    setTheme(next)
+})
+
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (localStorage.getItem("theme")) return // an explicit choice overrides the OS from now on
+    setTheme(e.matches ? "dark" : "light")
+})
